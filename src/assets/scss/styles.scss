@@ -1,0 +1,242 @@
+// adobe project
+@import url('https://use.typekit.net/fro7qfy.css');
+
+$POOPINS_FONT: poppins, sans-serif;;
+$RUBIK_FONT: rubik, sans-serif;
+
+
+$PRE_Crohn_Blue:#117BA3;
+$PRE_Crohn_Red:#E76A47;
+$PRE_Crohn_Black:#303135;
+$PRE_Crohn_Blue_light:#E5F8FF;
+$PRE_Crohn_Green:#80AD03;
+$PRE_Crohn_White:#FFFFFF;
+$PRE_Crohn_Body_Background:#f2f3f5;
+
+html {
+  background: #E4E4E4;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    //background-color:$PRE_Crohn_Body_Background;
+    display: flex;
+    justify-content: center;
+    background-color: transparent !important;
+  }
+  /* Sidebar styles */
+.sidebar {
+  width: 240px;
+  position: fixed;
+  top: 64px; /* Adjust according to your AppBar height */
+  left: 0;
+  height: calc(100% - 64px); /* Adjust according to your AppBar height */
+  z-index: 1; /* Lower than AppBar */
+}
+
+  #root{
+    width: 100%;
+    height: 100%;
+    //max-width: 1440px;
+
+    main.questionnaire{
+      background:#E5F8FF ;
+    }
+    background-color:$PRE_Crohn_White ;
+    .login{
+      width: 100%;
+      height: 100vh;
+    }
+    
+    .sidebar {
+      background-color: #f8f9fa; /* Light background color */
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    }
+
+    .home{
+      padding: 0 !important;
+      margin: 0 !important;
+      max-width: 100% !important; 
+      
+      .down{
+        display: flex;
+        margin-top: 60px;
+        gap: 80px;
+        justify-content: center;
+        max-width: 100% !important; 
+        .col-md-auto{
+          padding: 0px !important;
+        }
+
+      }
+
+    }
+   
+      .title-content{
+        background-image: url("/header-background.svg");
+        background-size: cover;
+        background-position: top;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 209px;
+        position: relative;
+        top: -13px;
+        padding-top: 13px;
+        padding-left: 163px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 45px ;
+
+        h1{
+          color: $PRE_Crohn_White;
+          font-family: $POOPINS_FONT;
+          font-weight: 700;
+          font-size: 44px;
+        }
+      }
+
+    .content-container{
+      padding: 0px !important;
+      margin-left: 260px  !important;
+      margin-right: 300px !important;
+      max-width: 880px !important;
+      .container{
+        padding: 0px !important;
+      }
+     
+       section{
+        margin-top: 0px !important;
+        margin-bottom: 20px !important;
+        
+       }
+          
+            h2{
+              color: $PRE_Crohn_Blue;
+              font-family: $POOPINS_FONT;
+              font-weight: 700;
+              font-size: 36px;
+              margin-bottom: 20px;
+            }
+            h3{
+              color: $PRE_Crohn_Black;
+              font-family: $POOPINS_FONT;
+              font-weight: 600;
+              font-size: 21px;
+              margin-bottom: 20px;
+            }
+            ul{
+              padding-left: 25px;
+            }
+            p,li{
+              color: $PRE_Crohn_Black;
+              font-family: $POOPINS_FONT;
+              font-weight: 400;
+              font-size: 19px;
+              margin-bottom: 16px;
+            }
+
+
+            .container-card{
+              gap: 68px ;
+              margin-top: 40px !important;
+              margin-bottom: 50px !important;
+              .card{
+                  padding: 21px !important;
+                  max-width: 400px !important;
+                  border : 2px solid $PRE_Crohn_Blue !important;
+                  background-color: transparent;
+                  border-radius: 12px !important;
+                  padding-bottom: 30px !important;
+                  .card-body{
+                    gap:0px;
+                  
+                    .card-title{
+                      color:#597D0B;
+                      font-size: 22px;
+                      font-weight: 700;
+                      font-family: $POOPINS_FONT ;
+                    }
+                    .card-subtitle{
+                      color:$PRE_Crohn_Black;
+                      font-size: 15px;
+                      font-weight: 600;
+                      font-family: $POOPINS_FONT ;
+                    }
+                    .card-text{
+                      color:$PRE_Crohn_Black;
+                      font-size: 18px;
+                      font-weight: 400;
+                      font-family: $POOPINS_FONT ;
+                      margin-top: 21px ;
+                    }
+                  }
+                    .card-text{
+                      font-size: 18px;
+                    }
+              } 
+            }
+    
+        
+      
+
+    }
+   
+    
+  .card{
+    background-color: $PRE_Crohn_Green;
+    border: none !important;
+    max-width: 600px;
+    width: 600px;
+    padding-left: 37px;
+    padding-bottom: 52px;
+    padding-top: 52px;
+    padding-right: 17px;
+    border-radius: 24px;
+    .card-body{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 43px;
+      padding: 0px;
+    }
+    .card-text{
+      color: white;
+      font-family: poppins, sans-serif;
+      font-size: 30px;
+      font-weight: 500;
+      margin-bottom: 0px;
+    }
+    a{
+      background-color: white;
+      padding: 19px;
+      border-radius: 15px;
+      color: black;
+      text-decoration: none;
+      font-weight: 700;
+      font-family: $RUBIK_FONT;
+      text-transform: uppercase;
+      
+    }
+    a::after {
+      content: "";
+      display: inline-block;
+      margin-left: 8px;
+      width: 17px;
+      height: 17px;
+      background-image: url(/arrow-right.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: relative;
+      top: 3px;
+      left: 3px;
+    }
+  }
+  .login-container{
+
+    height: 100vh !important;
+    main.login{
+      margin-bottom: 21%;
+    }
+  }
+  }
+  

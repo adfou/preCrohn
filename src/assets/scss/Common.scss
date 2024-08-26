@@ -1,0 +1,144 @@
+// Header.scss
+// adobe project
+@import url('https://use.typekit.net/fro7qfy.css');
+$POOPINS_FONT: poppins, sans-serif;;
+
+
+$PRE_Crohn_Blue:#117BA3;
+$PRE_Crohn_Red:#E76A47;
+$PRE_Crohn_Black:#303135;
+$PRE_Crohn_Blue_light:#E5F8FF;
+$PRE_Crohn_Green:#597D0B;
+$PRE_Crohn_White:#FFFFFF;
+$PRE_Crohn_Body_Background:#f2f3f5;
+$PRE_Crohn_Bue_Font:#00588F;
+$PRE_Crohn_Blue_Border: #3090B6;
+
+
+
+.header {
+    color: wrhite;
+    padding-top: 31.9px !important;
+    padding-left: 80px !important;
+    padding-bottom: 17px !important;
+    padding-right: 87px !important;
+    background-color: #ffffff;
+    border-bottom: 3px solid #117BA3;
+    box-shadow:none !important;
+
+    .header button.navbar-toggler {
+      display: none !important;
+  }
+    .navbar-collapse{
+        justify-content: flex-end;
+        
+    }
+    .logo {
+    height: 70px;
+    width: 447px !important;
+    
+    }
+
+    .navbar-nav {
+        a {
+          color: $PRE_Crohn_Black !important;
+          font-family: $POOPINS_FONT;
+          font-size: 18px;
+          font-weight:600;
+          margin-left: 1rem;
+          text-decoration-color: $PRE_Crohn_Green !important;
+          &:hover {
+            text-decoration: underline;
+            color: $PRE_Crohn_Blue !important;
+            text-underline-offset: 5px;
+            text-decoration-thickness: 2px   ;
+            
+  
+          }
+        }
+      }
+
+    .search-container {
+        display: flex;
+        align-items: center;
+        margin-top: -3px;
+        .search-input-container {
+            width: 0;
+            overflow: hidden;
+            transition: width 0.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            margin-left: 30px;
+            
+
+            &.active {
+                width: 200px;
+            }
+
+            .search-input {
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 5px 10px;
+                width: 100%;
+            }
+        }
+
+        .search-button {
+            margin-left: 10px;
+            padding: 0;
+            border: none;
+            background: transparent;
+           
+
+            .search-icon {
+                width: 40px;
+                height: 39px;
+                
+            }
+        }
+    }
+}
+
+.footer{
+    padding-top: 60px;
+    padding-bottom: 60px;
+    font-family: $POOPINS_FONT !important;
+    border-top: 14px solid $PRE_Crohn_Blue_Border;
+    
+    .row {
+        &:nth-child(2) {
+          // Styles for the first row
+          div {
+            font-size: 16px;
+            font-weight: 400;
+            color: $PRE_Crohn_Bue_Font !important; 
+            margin-bottom: 26px;
+            a {
+              color:  $PRE_Crohn_Bue_Font !important; // Replace with your desired link color
+             
+            }
+          }
+        }
+    
+        &:nth-child(3) {
+          // Styles for the second row
+          div {
+            font-size: 13px;
+            color: $PRE_Crohn_Bue_Font !important; // Replace with your desired color
+            p{
+                margin-bottom: 10px;
+            }
+            a {
+              color: $PRE_Crohn_Bue_Font !important; // Replace with your desired link color
+            }
+          }
+        }}
+   
+    
+    img{
+        height: 59px;
+        width: 245px;
+        margin-bottom: 57px;
+    }
+
+}
