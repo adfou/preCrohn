@@ -71,9 +71,9 @@ const MainRoutes = {
     {
       path: '/dashboard',
       element: (
-        <PrivateRoute>
+       
           <AuthLayout />
-        </PrivateRoute>
+        
       ),
       children: [
         {
