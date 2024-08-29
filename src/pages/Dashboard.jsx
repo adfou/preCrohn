@@ -2,7 +2,7 @@
 import React from 'react';
 import { Container, Grid, Box } from '@mui/material';
 import Sidebar from '../Components/Common/Sidebar'; // Adjust the path as needed
-import { Registration } from './Registration';
+import { Registration } from '../Components/Common/Admin/Registration';
 import TotalIncomeCard from "../ui-component/cards/Skeleton/TotalIncomeCard"
 import TotalGrowthBarChart from "../ui-component/cards/Skeleton/TotalGrowthBarChart"
 

@@ -1,17 +1,30 @@
-import { lazy } from 'react';
 import { MainLayout } from '../Components/Layout/MainLayout';
 import { AuthLayout } from '../Components/Layout/index.mjs';
-import Loadable from 'ui-component/Loadable';
 import PrivateRoute from './PrivateRoute'; // Import your PrivateRoute component
+import Loader from '../ui-component/Loader';
+import loadable from '@loadable/component';
 // DATA
 import { GeneralInformationData, YourmedicalhistoryData, FamilyHistoryData } from "../Data";
 
-// Page imports
-const DashboardAdmin = Loadable(lazy(() => import('../pages/Dashboard')));
-const Home = Loadable(lazy(() => import('../pages/Home')));
-const Login = Loadable(lazy(() => import('../pages/Login')));
-const About = Loadable(lazy(() => import('../pages/About')));
-const Questionnaire = Loadable(lazy(() => import('../pages/Questionnaire')));
+// Page imports using @loadable/component with a fallback loader
+const DashboardAdmin = loadable(() => import('../pages/Dashboard'), {
+  fallback: <Loader />,
+});
+const Home = loadable(() => import('../pages/Home'), {
+  fallback: <Loader />,
+});
+const Login = loadable(() => import('../pages/Login'), {
+  fallback: <Loader />,
+});
+const About = loadable(() => import('../pages/About'), {
+  fallback: <Loader />,
+});
+const Questionnaire = loadable(() => import('../pages/Questionnaire'), {
+  fallback: <Loader />,
+});
+const PatientDashboard = loadable(() => import('../pages/Patient'), {
+  fallback: <Loader />,
+});
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -71,14 +84,28 @@ const MainRoutes = {
     {
       path: '/dashboard',
       element: (
-       
+        <PrivateRoute>
           <AuthLayout />
-        
+        </PrivateRoute>
       ),
       children: [
         {
           path: '',
           element: <DashboardAdmin />,
+        },
+      ],
+    },
+    {
+      path: '/Patient',
+      element: (
+        <PrivateRoute>
+          <AuthLayout />
+        </PrivateRoute>
+      ),
+      children: [
+        {
+          path: '',
+          element: <PatientDashboard />,
         },
       ],
     },

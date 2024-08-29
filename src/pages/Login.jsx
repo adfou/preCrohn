@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import {
   Container,
   TextField,
@@ -14,7 +14,8 @@ import {
 } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { useAuth } from '../Hooks/index.mjs';
+import { useAuth } from '../Hooks/index.mjs'; // Import the custom useAuth hook
+import { useVerifyToken } from '../Hooks/useVerifyToken'; // Import the useVerifyToken hook
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -22,10 +23,13 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [validationError, setValidationError] = useState('');
   const { login, loading, error, data } = useAuth();
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
+
+  // Use the custom useVerifyToken hook to verify token on component mount
+  const { loading: verifyingToken, error: verifyError,success:verifySucces } = useVerifyToken();
 
   const handleSubmit = () => {
-    setValidationError(''); // Clear previous validation errors
+    setValidationError('');
 
     if (!email || !password) {
       setValidationError('Please fill in all required fields.');
@@ -41,17 +45,26 @@ const Login = () => {
     login(email, password);
   };
 
+  // Handle successful login by redirecting to the dashboard
   useEffect(() => {
-    if (data) {
-      console.log('Login successful:', data);
-
-      if (data.status === 200) { // Check for successful login
-        navigate('/dashboard'); // Redirect to /dashboard
-      } else {
-        setValidationError('Login failed. Please check your credentials.');
-      }
+    if (data && data.status === 200) {
+      navigate('/dashboard'); // Redirect to /dashboard on successful login
+    } else if (data) {
+      setValidationError('Login failed. Please check your credentials.');
     }
   }, [data, navigate]);
+
+  useEffect(() => {
+   console.log("verifySucces",verifySucces)
+   if(verifySucces){
+    navigate('/dashboard'); 
+   }
+  }, [verifySucces]);
+  
+  // Show a loading spinner while verifying the token
+  if (verifyingToken) {
+    return <CircularProgress sx={{ mt: 8 }} />;
+  }
 
   return (
     <Container
@@ -63,7 +76,6 @@ const Login = () => {
         Sign in
       </Typography>
 
-      {/* Display validation or API errors */}
       {validationError && (
         <Alert severity="error" sx={{ width: '100%', mb: 2 }}>
           {validationError}
@@ -72,6 +84,11 @@ const Login = () => {
       {error && (
         <Alert severity="error" sx={{ width: '100%', mb: 2 }}>
           {error.message || 'An error occurred during login. Please try again.'}
+        </Alert>
+      )}
+      {verifyError && (
+        <Alert severity="error" sx={{ width: '100%', mb: 2 }}>
+          {verifyError.message || 'An error occurred while verifying your session. Please log in again.'}
         </Alert>
       )}
 
@@ -88,6 +105,7 @@ const Login = () => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
+
       <TextField
         variant="outlined"
         margin="normal"
@@ -113,10 +131,12 @@ const Login = () => {
           ),
         }}
       />
+
       <FormControlLabel
         control={<Checkbox value="remember" color="primary" />}
         label="Remember me"
       />
+
       <Button
         type="button"
         fullWidth
@@ -135,6 +155,7 @@ const Login = () => {
           'Sign in'
         )}
       </Button>
+
       <Button
         fullWidth
         variant="text"

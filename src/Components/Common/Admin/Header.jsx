@@ -10,6 +10,7 @@ const Header = ({ onMenuClick }) => {
           component="img"
           src="/logo.svg"  // Replace with your logo path
           alt="Logo"
+          href="/"
           sx={{ width: 240, height: 40, mr: 2 }}
         />
        

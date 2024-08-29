@@ -1,77 +1,33 @@
-/*import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import {Home,About,Admin,Dashboard} from './pages/index.mjs';
-import { Toaster } from 'react-hot-toast';
-
-
-import {MainLayout,AuthLayout} from './Components/Layout/index.mjs';
-//import AuthLayout from './Components/Layout/AuthLayout.jsx';
-
-function App() {
-    return (
-        <Router>
-            <Toaster />
-            <Routes>
-                <Route element={<MainLayout />}>
-                    <Route path="/" element={<Home />} />
-                </Route>
-
-
-                {<Route element={<MainLayout />}>
-                    <Route path="/about" element={<About title={"About the study"} />} />
-                </Route>}
-
-
-                {<Route element={<AuthLayout />}>
-                    <Route path="/login" element={<Admin />} />
-                </Route>}
-
-                {<Route >
-                    <Route path="/dashboard" element={<Dashboard />} />
-                </Route>}
-            </Routes>
-           
-        </Router>
-    );
-}
-
-export default App;
-*/
-
-
 import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
 import { RouterProvider } from 'react-router-dom';
 
 import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, StyledEngineProvider } from '@mui/material';
-//import store from './store/store';
-// routing
 import './assets/scss/styles.scss';
 import router from 'routes';
 import { Toaster } from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
+import { rehydrate } from './store/slice/authSlice'
 
-// defaultTheme
-//import themes from 'themes';
-
-// project imports
-//import NavigationScroll from 'layout/NavigationScroll';
-
-// ==============================|| APP ||============================== //
+// Import your custom theme
+import theme from './lib/theme'; // Adjust the path according to your file structure
 
 const App = () => {
-  const customization = useSelector((state) => state.customization);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(rehydrate()); // Rehydrate the auth state on app load
+  }, [dispatch]);
   return (
     <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
         <CssBaseline />
         <Toaster />
-          <RouterProvider router={router} />
-        
-      
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </StyledEngineProvider>
   );
 };
 
 export default App;
-
-

@@ -1,27 +1,23 @@
 import React, { useState } from 'react';
-import { Drawer, List, ListItem, ListItemText, ListItemIcon, IconButton, Collapse, Toolbar, Divider } from '@mui/material';
+import { Drawer, List, ListItem, ListItemText, ListItemIcon, IconButton, Divider, Toolbar } from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { dashboard, subscriber, logout } from './Admin/menuItemn/dashboard';
 import LogoutModal from '../Modal/LogOutModal'; // Import the modal
+import { logout as logoutAction } from '../../store/slice/authSlice'; // Import the logout action
 
 const drawerWidth = 240;
 
 const Sidebar = ({ open, onClose }) => {
   const navigate = useNavigate();
-  const [openItem, setOpenItem] = useState({});
+  const location = useLocation(); // Get the current path
+  const dispatch = useDispatch();
   const [logoutModalOpen, setLogoutModalOpen] = useState(false);
 
   const handleNavigate = (path) => {
     navigate(path);
-  };
-
-  const handleToggle = (id) => {
-    setOpenItem((prevOpenItem) => ({
-      ...prevOpenItem,
-      [id]: !prevOpenItem[id],
-    }));
   };
 
   const handleLogoutClick = () => {
@@ -29,14 +25,16 @@ const Sidebar = ({ open, onClose }) => {
   };
 
   const handleLogoutConfirm = () => {
+    dispatch(logoutAction()); // Dispatch the logout action
     setLogoutModalOpen(false);
-    // Add your logout logic here, e.g., clearing tokens, etc.
-    navigate('/login');
+    navigate('/login'); // Navigate to the login page
   };
 
   const handleLogoutCancel = () => {
     setLogoutModalOpen(false);
   };
+
+  const isActive = (path) => location.pathname === path;
 
   return (
     <>
@@ -63,7 +61,24 @@ const Sidebar = ({ open, onClose }) => {
         <List>
           {/* Dashboard */}
           {dashboard.children.map((item) => (
-            <ListItem button key={item.id} onClick={() => handleNavigate(item.url)}>
+            <ListItem
+              button
+              key={item.id}
+              onClick={() => handleNavigate(item.url)}
+              selected={isActive(item.url)} // Apply the selected style if the route is active
+              sx={{
+                '&.Mui-selected': {
+                  backgroundColor: '#1976d3',
+                  color: 'white',
+                  '&:hover': {
+                    backgroundColor: '#1565c0', // Lighter blue on hover
+                  },
+                  '& .MuiListItemIcon-root': {
+                    color: 'white',
+                  },
+                },
+              }}
+            >
               <ListItemIcon>
                 <item.icon />
               </ListItemIcon>
@@ -73,7 +88,24 @@ const Sidebar = ({ open, onClose }) => {
 
           {/* Subscriber */}
           {subscriber.children.map((item) => (
-            <ListItem button key={item.id} onClick={() => handleNavigate(item.url)}>
+            <ListItem
+              button
+              key={item.id}
+              onClick={() => handleNavigate(item.url)}
+              selected={isActive(item.url)} // Apply the selected style if the route is active
+              sx={{
+                '&.Mui-selected': {
+                  backgroundColor: '#1976d3',
+                  color: 'white',
+                  '&:hover': {
+                    backgroundColor: '#1565c0', // Lighter blue on hover
+                  },
+                  '& .MuiListItemIcon-root': {
+                    color: 'white',
+                  },
+                },
+              }}
+            >
               <ListItemIcon>
                 <item.icon />
               </ListItemIcon>

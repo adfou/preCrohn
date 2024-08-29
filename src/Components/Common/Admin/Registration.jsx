@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, TextField, Button, CircularProgress, FormControl, FormControlLabel, RadioGroup, Radio, Typography, Alert, Box } from '@mui/material';
-import { useRegister } from '../Hooks/useRegister'; // Adjust the path as needed
+import { useRegister } from '../../../Hooks/useRegister'; // Adjust the path as needed
 import { toast } from 'react-hot-toast';
 
 export const Registration = () => {

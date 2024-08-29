@@ -12,7 +12,7 @@ export const AuthLayout = () => {
 
   const handleDrawerOpen = () => setOpen(true);
   const handleDrawerClose = () => setOpen(false);
-
+  
   return (
     <Box sx={{ display: 'flex' }}>
          <main className='login'>
