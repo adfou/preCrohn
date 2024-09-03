@@ -6,7 +6,7 @@ import {CardBehavior,CardHumain,ColorRiskCard,CardBehaviorCheck} from "../Compon
 import {InfoModal} from "../Components/Modal/InfoModal"
 
  const CrohnRisk = ({title}) => {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
     const firtSetnance = "Based on the answers you provided to the questionnaires, your blood tests, and your stool tests,"
     const Diagnostics="you have a high risk for Crohn’s disease"
     const lastDiagnostics = "when compared to other people who have a family member with Crohn’s disease."

@@ -193,6 +193,7 @@ export const QestionnairBodyLayout = ({ data, log }) => {
 
     const handleFinish = () => {
         dispatch(saveFormData({ currentSectionIndex, data: formData }));
+        navigate(`/crohn-risk`);
         
     };
 

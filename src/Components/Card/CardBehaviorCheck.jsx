@@ -7,10 +7,10 @@ export const CardBehaviorCheck = ({ title, subtitle, behaviors,openMpdal }) => {
   // State to manage which behaviors are checked
   const [CurrentPosition,setCurrentPosition] = useState ("50%")
   const [checkedBehaviors, setCheckedBehaviors] = useState({});
-
-  const emptyHumans = 10;
-  const greenHumain = 40;
-  const filledHumans = 50;
+  const [emptyHumans, setemptyHumans] = useState(42);
+  const [filledHumans, setfilledHumans] = useState(58);
+  const [greenHumain, setgreenHumain] = useState(0);
+  
   const currentRiskPosition = Math.floor(emptyHumans / 10) * 29;
   const riskLevel = "SIMILAR";
   const riskIndex = riskLevels.indexOf(riskLevel);
@@ -37,9 +37,15 @@ export const CardBehaviorCheck = ({ title, subtitle, behaviors,openMpdal }) => {
         console.log(checkedBehaviors)
         console.log("lenght")
         setCurrentPosition("150px")
+        setfilledHumans(28)
+        
+        setgreenHumain(30)
     }
     else{
         setCurrentPosition("50%")
+        setfilledHumans(58)
+        
+        setgreenHumain(0)
     }
   }, [checkedBehaviors]);
   return (
