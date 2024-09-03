@@ -1,4 +1,3 @@
-import { dark } from '@mui/material/styles/createPalette';
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -7,37 +6,60 @@ const initialState = {
     sectionTags: ["general-information", "medical-history", "family-history"]
 };
 
+const saveToLocalStorage = (state) => {
+    try {
+        const serializedState = JSON.stringify(state);
+        localStorage.setItem('questionnaire', serializedState);
+    } catch (e) {
+        console.error('Could not save state', e);
+    }
+};
+
 const questionnaireSlice = createSlice({
     name: 'questionnaire',
     initialState,
     reducers: {
         setGeneralInformation: (state, action) => {
             state.generalInformation = action.payload;
+            saveToLocalStorage(state); // Save the state to local storage
         },
         setMedicalHistory: (state, action) => {
             state.medicalHistory = action.payload;
+            saveToLocalStorage(state); // Save the state to local storage
         },
         setFamilyHistory: (state, action) => {
             state.familyHistory = action.payload;
+            saveToLocalStorage(state); // Save the state to local storage
         },
         setCurrentSectionIndex: (state, action) => {
             state.currentSectionIndex = action.payload;
+            saveToLocalStorage(state); // Save the state to local storage
         },
         saveFormData: (state, action) => {
-       
-
             const { currentSectionIndex, data } = action.payload;
             const sectionTag = state.sectionTags[currentSectionIndex];
-           
-            
-            // Merge the new data with existing data for the section
             state.data[sectionTag] = {
-                ...(state.data[sectionTag] || {}),  // Ensure existing data is preserved
-                ...data  // Add new data
+                ...(state.data[sectionTag] || {}),
+                ...data,
             };
+            saveToLocalStorage(state); // Save the state to local storage
+        },
+        rehydrate: (state) => {
+            const savedData = JSON.parse(localStorage.getItem('questionnaire'));
+            if (savedData) {
+                return { ...state, ...savedData }; // Merge saved state with initial state
+            }
         },
     },
 });
 
-export const { setGeneralInformation, setMedicalHistory, setFamilyHistory, setCurrentSectionIndex, saveFormData } = questionnaireSlice.actions;
+export const {
+    setGeneralInformation,
+    setMedicalHistory,
+    setFamilyHistory,
+    setCurrentSectionIndex,
+    saveFormData,
+    rehydrate,
+} = questionnaireSlice.actions;
+
 export default questionnaireSlice.reducer;

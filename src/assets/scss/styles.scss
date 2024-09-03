@@ -260,5 +260,84 @@ main.questionnaire{
     }
     
   }
+
+  .risk-card-container{
+    .risk-card-grid {
+      gap: 180px;
+      
+        .risk-card-description{
+          margin-top: 80px;
+          .risk-card-title{
+            font-size: 24px;
+            font-weight: 700;
+          }
+          .risk-card-text{
+            font-size: 19px;
+          }
+        }
+        .pointer-container{
+              
+          padding-top: 10px;
+          padding-bottom: 10px;
+          padding-right: 14px;
+          padding-left: 25px;
+          min-width: 128px;
+          margin-left: 20px;
+          p{
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 0px;
+            
+          }
+        }
+        .pointer-container.humain{
+          padding-right: 17px;
+          padding-left: 27px;
+        }
+        .risk-card-levels{
+          display: flex;
+          flex-direction: column-reverse;
+          justify-content: flex-end;
+          margin-top: 34px;
+          margin-left: 48px;
+          padding: 0px;
+            
+           
+        }
+    }
+
+  }
+  .behavor-card{
+    p{
+      font-size: 19px;
+      font-weight: 500;
+    }
+    .behavor{
+    p{
+      font-weight: 600;
+      font-size: 18px;
+    }}
+    .mixed-component-container{
+      .title-container{
+        border-bottom: 1px solid #117BA3;
+      }
+      h6{
+        font-size: 21px;
+        font-weight: 700;
+        
+      }
+      .risk-card-levels.mixed{
+        display: flex;
+        flex-direction: column-reverse;
+        .pointer-container{
+          p{
+            
+          font-size: 14px;
+          font-weight: 700;
+        margin: 0px;}
+        }
+      }
+    }
+  }
   }
   

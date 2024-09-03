@@ -1,24 +1,26 @@
-import { useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
-
 import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, StyledEngineProvider } from '@mui/material';
+import { Toaster } from 'react-hot-toast';
+
 import './assets/scss/styles.scss';
 import router from 'routes';
-import { Toaster } from 'react-hot-toast';
-import { useDispatch } from 'react-redux';
-import { rehydrate } from './store/slice/authSlice'
-
-// Import your custom theme
 import theme from './lib/theme'; // Adjust the path according to your file structure
+
+import { rehydrate as rehydrateAuth } from './store/slice/authSlice';
+import { rehydrate as rehydrateQuestionnaire } from './store/slice/questionnaireSlice'; // Import rehydrate action from questionnaireSlice
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(rehydrate()); // Rehydrate the auth state on app load
+    console.log("/// rehydrate")
+    dispatch(rehydrateAuth()); // Rehydrate the auth state on app load
+    dispatch(rehydrateQuestionnaire()); // Rehydrate the questionnaire state on app load
   }, [dispatch]);
+
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>

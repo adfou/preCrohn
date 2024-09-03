@@ -9,9 +9,7 @@ const initialState = {
 };
 
 const questionnaireReducer = (state = initialState, action) => {
-    console.log("-------------------")
-    console.log(action)
-    console.log("-------------------")
+
     switch (action.type) {
         case 'UPDATE_RADIO':
             return {

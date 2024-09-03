@@ -152,23 +152,22 @@ const Section = ({ section, log, handleChange, formData }) => {
         </Box>
     );
 };
+
 export const QestionnairBodyLayout = ({ data, log }) => {
     const [formData, setFormData] = useState({});
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const currentSectionIndex = useSelector((state) => state.questionnaire.currentSectionIndex);
     const sectionTags = useSelector((state) => state.questionnaire.sectionTags);
-    const savedData = useSelector((state) => state.questionnaire[sectionTags[currentSectionIndex]]);
-    const fullFormData = useSelector((state) => state.questionnaire);
+    const savedData = useSelector((state) => state.questionnaire.data[sectionTags[currentSectionIndex]] || {});
 
     useEffect(() => {
-        if (savedData) {
-            setFormData(savedData);
+        if (Object.keys(savedData).length > 0) {
+            setFormData(savedData); // Populate the form with saved data if it exists
         }
     }, [currentSectionIndex, savedData]);
 
     const handleChange = (event) => {
-
         const { name, value, type, checked } = event.target;
         setFormData(prevData => {
             if (type === 'checkbox') {
@@ -185,9 +184,7 @@ export const QestionnairBodyLayout = ({ data, log }) => {
     };
 
     const handleNext = () => {
-        
         dispatch(saveFormData({ currentSectionIndex, data: formData }));
-    
         if (currentSectionIndex < sectionTags.length - 1) {
             dispatch(setCurrentSectionIndex(currentSectionIndex + 1));
             navigate(`/${sectionTags[currentSectionIndex + 1]}`);
@@ -195,10 +192,8 @@ export const QestionnairBodyLayout = ({ data, log }) => {
     };
 
     const handleFinish = () => {
-        // Print full form data from Redux
         dispatch(saveFormData({ currentSectionIndex, data: formData }));
-        console.log(formData)
-      
+        
     };
 
     const handleBack = () => {

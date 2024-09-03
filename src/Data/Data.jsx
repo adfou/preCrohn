@@ -58,6 +58,15 @@ const AboutTheStudy = [
 
 ];
 
+const CrohnRiskData = [
+    {
+        H2: "Biomarker results",
+        H3: "Your blood test showed that you do have a specific biomarker for Crohn’s disease.",
+        Text: "A biomarker is an indicator in the blood or other tissue that’s present in people who have a certain disease or people who are at risk for a certain disease. The biomarker that you were tested for is an antibody, or a protein in the blood, that appears in people with Crohn’s disease, or people who have family members with Crohn’s disease, and who are at risk for getting the disease themselves."
+    },
+    {
+        H2:"Your risk levels"
+    }]
 
 const GeneralInformationData = [
     {   Text: "The following questionnaire asks for some general information related to you and your health, as well as about certain behaviors like your diet and exercise.",
@@ -264,4 +273,34 @@ const FamilyHistoryData = [
 ];
 
 
-export {cardHomeDataLeft,cardHomeDataRight,AboutTheStudy,GeneralInformationData,YourmedicalhistoryData,FamilyHistoryData} ;
+//------------------------------Design----------------------------------------
+
+const riskLevels = ["VERY LOW", "LOW", "SIMILAR", "HIGH", "VERY HIGH"];
+const riskColors = {
+  "VERY LOW": "#FCE7A0",
+  "LOW": "#FFD990",
+  "SIMILAR": "#FFC077",
+  "HIGH": "#FA9B5F",
+  "VERY HIGH": "#ED7837",
+};
+const InfoModalData={
+    title:"Lower your sucrose (sugar) intake",
+    content:`
+    <p>
+    Several studies have suggested an association between sucrose, or table sugar, and an increased risk of Crohn’s disease2,12. Too much sugar also increases your risk of obesity, diabetes, heart disease, and more13. In a typical American diet, sugar primarily comes from sugar-containing beverages (like Coca-Cola, Pepsi, Mountain Dew, Dr. Pepper, punch, and sugar-sweetened iced tea) and desserts and pastries (like cakes, cookies, pies, donuts, muffins, and ice cream). Most guidelines recommend limiting your sugar intake to less than 10% of your total calories—that’s about 45 grams per day of sugar for women and 55 grams per day of sugar for men4. However, some guidelines, like the American Heart Association, recommend even less—no more than 25 grams per day for women and no more than 36 grams per day for men14.
+    </p>
+  
+    <p>
+    Try cutting down on your sugar intake. Here are some tips:
+    </p>
+    <ul>
+        <li>Pay attention to nutrition labels and ingredients. Choose foods that have the lowest amount of “added sugars” or foods that have no added sugars.</li>
+        <li>Many beverages are loaded with added sugars. Use these recipes to replace sugary drinks with fruit-infused water  for a boost of flavor, or try seltzer or sparkling water instead.</li>
+        <li>For dessert, choose fruit salad instead of sugary desserts.</li>
+        
+        <li>When baking cookies or cakes, try cutting the sugar in half—you often won’t notice the difference.</li>
+    </ul>
+  `
+}
+
+export {cardHomeDataLeft,cardHomeDataRight,AboutTheStudy,GeneralInformationData,YourmedicalhistoryData,FamilyHistoryData,CrohnRiskData,riskLevels,riskColors,InfoModalData} ;

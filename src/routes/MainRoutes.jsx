@@ -26,6 +26,10 @@ const PatientDashboard = loadable(() => import('../pages/Patient'), {
   fallback: <Loader />,
 });
 
+const CrohnRisk = loadable(() => import('../pages/CrohnRisk'), {
+  fallback: <Loader />,
+});
+
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
@@ -81,44 +85,7 @@ const MainRoutes = {
         },
       ],
     },
-    {
-      path: '/dashboard',
-      element: (
-        <PrivateRoute>
-          <AuthLayout />
-        </PrivateRoute>
-      ),
-      children: [
-        {
-          path: '',
-          element: <DashboardAdmin />,
-        },
-      ],
-    },
-    {
-      path: '/Patient',
-      element: (
-        <PrivateRoute>
-          <AuthLayout />
-        </PrivateRoute>
-      ),
-      children: [
-        {
-          path: '',
-          element: <PatientDashboard />,
-        },
-      ],
-    },
-    {
-      path: '/login',
-      element: <MainLayout />,
-      children: [
-        {
-          path: '',
-          element: <Login />,
-        },
-      ],
-    },
+
   ],
 };
 
