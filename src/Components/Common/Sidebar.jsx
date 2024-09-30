@@ -52,12 +52,16 @@ const Sidebar = ({ open, onClose }) => {
         anchor="left"
         open={open}
       >
+        
         <Toolbar>
+          <Divider />
           <IconButton onClick={onClose}>
             {open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
+          
         </Toolbar>
         <Divider />
+        
         <List>
           {/* Dashboard */}
           {dashboard.children.map((item) => (

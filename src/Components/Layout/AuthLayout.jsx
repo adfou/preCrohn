@@ -16,6 +16,7 @@ export const AuthLayout = () => {
   return (
     <Box sx={{ display: 'flex' }}>
          <main className='login'>
+         
       <Header onMenuClick={handleDrawerOpen} />
       <Sidebar open={open} onClose={handleDrawerClose} />
       <Box

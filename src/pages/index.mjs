@@ -1,4 +1,4 @@
-export {About} from "./About";
+export {About} from "./Page";
 export {Home} from "./Home.jsx";
 export {Admin} from './Login.jsx';
 export {Dashboard} from "./Dashboard";

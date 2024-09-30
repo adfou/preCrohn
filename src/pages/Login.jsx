@@ -26,7 +26,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   // Use the custom useVerifyToken hook to verify token on component mount
-  const { loading: verifyingToken, error: verifyError,success:verifySucces } = useVerifyToken();
+  const { loading: verifyingToken, error: verifyError,success:verifySucces ,userRole} = useVerifyToken();
 
   const handleSubmit = () => {
     setValidationError('');
@@ -48,7 +48,8 @@ const Login = () => {
   // Handle successful login by redirecting to the dashboard
   useEffect(() => {
     if (data && data.status === 200) {
-      navigate('/dashboard'); // Redirect to /dashboard on successful login
+      console.log("user role:",userRole)
+      //navigate('/dashboard'); // Redirect to /dashboard on successful login
     } else if (data) {
       setValidationError('Login failed. Please check your credentials.');
     }
@@ -56,8 +57,12 @@ const Login = () => {
 
   useEffect(() => {
    console.log("verifySucces",verifySucces)
-   if(verifySucces){
+   console.log("user role:",userRole)
+   if(verifySucces && userRole.role === "1" ){
     navigate('/dashboard'); 
+   }
+   else{
+    setValidationError('You do not have permission.');
    }
   }, [verifySucces]);
   

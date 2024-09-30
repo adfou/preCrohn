@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Navbar, Nav, Button, FormControl } from 'react-bootstrap';
-//import '../../assets/scss/Common.scss'; 
-//import '../../assets/scss/styles.scss'; 
+import { Navbar, Nav, Button, FormControl, Dropdown } from 'react-bootstrap';
+import { IconChevronDown } from '@tabler/icons-react'; // Import the arrow down icon from tabler-icons-react
 
 const Header = () => {
     const [searchOpen, setSearchOpen] = useState(false);
@@ -22,10 +21,36 @@ const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
-                    <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="/about">About</Nav.Link>
-                    <Nav.Link href="/contact">Contact</Nav.Link>
+                    <Nav.Link href="/">HOME</Nav.Link>
+                    <Nav.Link href="/about">ABOUT</Nav.Link>
+
+                    {/* GET STARTED Dropdown */}
+                    <Dropdown as={Nav.Item}>
+                        <Dropdown.Toggle 
+                            as={Nav.Link} 
+                            id="get-started-dropdown"
+                            className="d-flex align-items-center"
+                            // Prevents the default link behavior, so the dropdown works
+                        >
+                            GET STARTED
+                            <IconChevronDown 
+                                style={{ 
+                                    marginLeft: '9px', 
+                                    fontSize: '20px', // Increased size for better visibility
+                                    color: '#80AD03' // Custom color
+                                }} 
+                            />
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="/#">Knowledge & attitudes survey</Dropdown.Item>
+                            <Dropdown.Item href="/#">Crohn’s disease information</Dropdown.Item>
+                            <Dropdown.Item href="/#">Your personalized Crohn’s risk</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
+                    <Nav.Link href="/contact">CONTACT</Nav.Link>
                 </Nav>
+
                 {/* Search Button and Input */}
                 <div className="search-container ml-auto">
                     <div className={`search-input-container ${searchOpen ? 'active' : ''}`}>

@@ -40,6 +40,14 @@ $PRE_Crohn_Blue_Border: #3090B6;
     }
 
     .navbar-nav {
+      a.dropdown-item {
+        text-decoration-color: white !important;
+        text-decoration: none !important;
+        margin-left: 0px !important;
+    }
+      .dropdown-toggle::after {
+    display: none !important; /* Remove the default dropdown arrow */
+}
         a {
           color: $PRE_Crohn_Black !important;
           font-family: $POOPINS_FONT;

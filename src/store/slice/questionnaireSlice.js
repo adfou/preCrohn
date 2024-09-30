@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     data: {},
     currentSectionIndex: 0,
-    sectionTags: ["general-information", "medical-history", "family-history"]
+    sectionTags: ["general-information", "medical-history", "family-history","your-diet","your-diet-2","your-diet-3","your-diet-4","your-diet-5","your-diet-6","your-diet-7","your-physical-activity","your-smoking-history"]
 };
 
 const saveToLocalStorage = (state) => {
