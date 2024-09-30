@@ -377,7 +377,7 @@ const renderContent = (key, value, handleChange, formData) => {
                     variant="contained"
                     href={buttonLink} // Use href to navigate to the specified link
                     sx={{ my: 2, width: 'fit-content', padding: '8px 16px' }}
-                    
+                    target="_blank"
                   >
                     {buttonText}
                   </Button>
