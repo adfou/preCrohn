@@ -370,7 +370,7 @@ const renderContent = (key, value, handleChange, formData) => {
                 );
               }
 
-        case 'button': {
+    case 'button': {
                 const [buttonText, buttonLink] = value;
                 return (
                   <Button
@@ -383,6 +383,34 @@ const renderContent = (key, value, handleChange, formData) => {
                   </Button>
                 );
               }
+    case 'radioFemale':
+        const userSexAtBirth = useSelector((state) => state.questionnaire?.data?.["general-information"]?.["What is your sex assigned at birth?"]) || "";
+        console.log("==========userSexAtBirth==========")
+        console.log(userSexAtBirth)
+        console.log("=============================")
+    // Check if userSexAtBirth is "Female", only then render the birth control pill question
+    if (userSexAtBirth === '1') {
+        const [radioFemaleQuestion, ...radioFemaleOptions] = value;
+        return (
+            <FormControl component="fieldset">
+                <FormLabel component="legend">{radioFemaleQuestion}</FormLabel>
+                <RadioGroup name={radioFemaleQuestion} onChange={handleChange} value={formData[radioFemaleQuestion] || ''}>
+                    {radioFemaleOptions.map((option, index) => (
+                        <FormControlLabel
+                            key={index}
+                            value={index.toString()} // Use index as the value
+                            control={<Radio sx={customRadioStyles} />}
+                            label={option}
+                        />
+                    ))}
+                </RadioGroup>
+            </FormControl>
+        );
+    } else {
+        // If not female, don't render anything or render a placeholder
+        return null;
+    }
+    //
     default:
         return <Typography variant="body1">{value}</Typography>;
     }
@@ -492,7 +520,6 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
     };
     
     
-
     const handleNext = () => {
       
         if (!validateForm()) {
@@ -547,7 +574,7 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
             <ToastContainer />
             <form id="form">
                 {data.map((section, index) => (
-                    <Section key={index} section={section} log={log} handleChange={handleChange} formData={formData} />
+                    <Section key={index} section={section} log={log} handleChange={handleChange} formData={formData}  />
                 ))}
 
                 {type === "fixe" ? (

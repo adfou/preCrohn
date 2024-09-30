@@ -226,24 +226,33 @@ const YourmedicalhistoryData = [
         ]
     },
     {
-        radio: [
-            "Have you ever taken antibiotics? (Antibiotics are medicines used to treat infections like urinary tract infections, pneumonia, diverticulitis, strep throat, ear or sinus infection, and some sexually transmitted infections. They include medicines like amoxicillin, Augmentin, azithromycin or 'Z-pack,' nitrofurantoin or Macrobid, or ciprofloxacin.)",
+        "radioButtonWithData": [
+          "Have you ever taken antibiotics? (Antibiotics are medicines used to treat infections like urinary tract infections, pneumonia, diverticulitis, strep throat, ear or sinus infection, and some sexually transmitted infections. They include medicines like amoxicillin, Augmentin, azithromycin or 'Z-pack,' nitrofurantoin or Macrobid, or ciprofloxacin.)",
+            
+          [
             "Yes",
-            "No"
+            {
+                checkbox: [
+                    "What age(s) did you take antibiotics? (Select all that apply.)",
+                    "0–10 years old",
+                    "11–18 years old",
+                    "18–40 years old",
+                    "40–60 years old",
+                    "> 60 years old"
+                ]
+            },
+              
+              
+          ],
+         
+          [
+            "NO",
+           
+          ]
         ]
-    },
-    {
-        checkbox: [
-            "What age(s) did you take antibiotics? (Select all that apply.)",
-            "0–10 years old",
-            "11–18 years old",
-            "18–40 years old",
-            "40–60 years old",
-            "> 60 years old"
-        ]
-    },
-    {
-        radio: [
+      },
+      {   
+        radioFemale: [ 
             "Have you ever taken birth control pills?",
             "I've never taken birth control pills.",
             "I took birth control pills in the past but not currently.",
@@ -340,6 +349,7 @@ const FamilyHistoryData = [
     
 ];
 const Yourdiet = [
+    {H2:"FOODS"},
     {
         
         dairyFoodsTable: {
@@ -417,7 +427,7 @@ const Yourdiet = [
 ];
 
 const Yourdietcheese=[
- 
+    {H2:"FRUIT"},
     {
         dairyFoodsTable: {
             foods: [
@@ -458,7 +468,7 @@ const Yourdietcheese=[
 ]
 
 const YourdietVEGETABLES=[
-  
+    {H2:"VEGETABLES"},
      {
          dairyFoodsTable: {
              foods: [
@@ -510,7 +520,7 @@ const YourdietVEGETABLES=[
  
 
  const YourdietMEAT=[
-
+    {H2:'MEAT',},
      {
          dairyFoodsTable: {
              foods: [
@@ -554,7 +564,7 @@ const YourdietVEGETABLES=[
 
 
 const YoutdietBREADS=[
-    
+    {H2:'BREADS',},
         {
             dairyFoodsTable: {
                 foods: [
@@ -595,6 +605,7 @@ const YoutdietBREADS=[
 ]
 
 const YoutdietBEVERAGES = [
+    {H2: 'CARBONATED ',},
     {
         FoodsTableTwo: {
             foodsTwo: [
@@ -633,7 +644,7 @@ const YoutdietBEVERAGES = [
 ];
 
 const YourdietSWEETS=[
-
+  {H2:'SWEETS'},
     {
         dairyFoodsTable: {
             foods: [
