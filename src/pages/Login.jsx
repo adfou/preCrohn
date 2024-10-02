@@ -16,6 +16,8 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useAuth } from '../Hooks/index.mjs'; // Import the custom useAuth hook
 import { useVerifyToken } from '../Hooks/useVerifyToken'; // Import the useVerifyToken hook
+import { useDispatch } from 'react-redux';
+import {SetFormDataLogin} from "../store/slice/questionnaireSlice"
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -24,7 +26,7 @@ const Login = () => {
   const [validationError, setValidationError] = useState('');
   const { login, loading, error, data } = useAuth();
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   // Use the custom useVerifyToken hook to verify token on component mount
   const { loading: verifyingToken, error: verifyError,success:verifySucces ,userRole} = useVerifyToken();
 
@@ -47,8 +49,11 @@ const Login = () => {
 
   // Handle successful login by redirecting to the dashboard
   useEffect(() => {
+    console.log("data:",data?.data?.form.data)
     if (data && data.status === 200) {
-      console.log("user role:",userRole)
+      console.log("============set data=========")
+      //console.log("data: ",data?.data?.form)
+      dispatch(SetFormDataLogin({ data: data?.data?.form }));
       //navigate('/dashboard'); // Redirect to /dashboard on successful login
     } else if (data) {
       setValidationError('Login failed. Please check your credentials.');
@@ -56,10 +61,15 @@ const Login = () => {
   }, [data, navigate]);
 
   useEffect(() => {
-   console.log("verifySucces",verifySucces)
-   console.log("user role:",userRole)
-   if(verifySucces && userRole.role === "1" ){
-    navigate('/dashboard'); 
+   if(verifySucces  ){
+
+    if(userRole.role === "1" ){
+      navigate('/dashboard'); 
+     }
+     else{
+      navigate('/general-information'); 
+     }
+    //
    }
    else{
     setValidationError('You do not have permission.');

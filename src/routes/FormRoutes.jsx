@@ -31,7 +31,11 @@ const FormRoutes = {
       children: [
         {
           path: '',
-          element: <Questionnaire title={"PRE-Crohn’s study Questionnaire"} Data={GeneralInformationData} />,
+          element: 
+          <PrivateRoute>
+          <Questionnaire title={"PRE-Crohn’s study Questionnaire"} Data={GeneralInformationData} />
+        </PrivateRoute>
+        ,
         },
       ],
     },

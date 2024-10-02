@@ -44,6 +44,26 @@ const questionnaireSlice = createSlice({
             };
             saveToLocalStorage(state); // Save the state to local storage
         },
+        SetFormDataLogin: (state, action) => {
+            console.log("===========SetFormData============");
+            let { data } = action.payload;
+            console.log("action data", data);
+        
+            // Check if data is a string, and if so, parse it
+            if (typeof data === 'string') {
+                try {
+                    data = JSON.parse(data); // Parse stringified JSON
+                } catch (error) {
+                    console.error('Failed to parse data. Data is not valid JSON:', error);
+                }
+            }
+        
+            // Completely replace the current state data with the new data
+            state.data = data;
+        
+            // Save the updated state to local storage
+            saveToLocalStorage(state);
+        },
         rehydrate: (state) => {
             const savedData = JSON.parse(localStorage.getItem('questionnaire'));
             if (savedData) {
@@ -59,6 +79,7 @@ export const {
     setFamilyHistory,
     setCurrentSectionIndex,
     saveFormData,
+    SetFormDataLogin,
     rehydrate,
 } = questionnaireSlice.actions;
 

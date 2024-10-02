@@ -1,54 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Box, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, Checkbox, TextField, Button } from '@mui/material';
+import { Container, Box, Button, CircularProgress } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentSectionIndex, saveFormData } from '../../store/slice/questionnaireSlice'; 
-import parse from 'html-react-parser';
-import { useCreateForm } from '../../Hooks/index.mjs';
-import {
-
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    Paper,
-  } from '@mui/material';
-
-
+import SaveIcon from '@mui/icons-material/Save';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import renderContent from "../../Data/renderContent"
-// Custom styles for the Radio and Checkbox components
-const customRadioStyles = {
-    '& .MuiRadio-root': {
-        color: 'white',
-    },
-    '& .MuiRadio-root.Mui-checked': {
-        color: 'white',
-    },
-    '& .MuiRadio-root .MuiSvgIcon-root': {
-        backgroundColor: 'white',
-        borderRadius: '50%',
-    },
-};
-
-const customCheckboxStyles = {
-    '& .MuiCheckbox-root': {
-        color: 'white',
-    },
-    '& .MuiCheckbox-root.Mui-checked': {
-        color: 'white',
-    },
-    '& .MuiCheckbox-root .MuiSvgIcon-root': {
-        backgroundColor: 'white',
-    },
-};
-
-
-  
-
+import renderContent from "../../Data/renderContent";
+import {useCreateForm} from "../../Hooks/index.mjs"
 const Section = ({ section, log, handleChange, formData }) => {
     return (
         <Box component="section" sx={{ my: 4, display: 'flex', flexDirection: 'column' }}>
@@ -68,8 +27,11 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
     const currentSectionIndex = useSelector((state) => state.questionnaire.currentSectionIndex);
     const sectionTags = useSelector((state) => state.questionnaire.sectionTags);
     const savedData = useSelector((state) => state.questionnaire.data[sectionTags[currentSectionIndex]] || {});
-    const { createForm, form, loading, error } = useCreateForm();
-
+    const allFormData = useSelector((state) => state.questionnaire.data);
+    
+    const [isSaving, setIsSaving] = useState(false);
+    const { createForm :CreateFormQuery, loading, error } =  useCreateForm();
+    
     useEffect(() => {
         if (Object.keys(savedData).length > 0) {
             setFormData(savedData); // Populate the form with saved data if it exists
@@ -94,29 +56,23 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
 
     const validateForm = () => {
         const formElement = document.getElementById('form');
-    
-        // Select all input, select, and textarea elements inside the form
         const formFields = formElement.querySelectorAll('input, select, textarea');
-    
-        const checkedRadioGroups = new Set(); // To track radio groups that have at least one checked button
-        const checkedCheckboxGroups = new Set(); // To track checkbox groups that have at least one checked box
-    
+        const checkedRadioGroups = new Set(); 
+        const checkedCheckboxGroups = new Set();
+
         for (const element of formFields) {
-            const fieldName = element.name || element.id || 'Unnamed Field'; // Get field name or fallback to id or 'Unnamed Field'
+            const fieldName = element.name || element.id || 'Unnamed Field';
             let fieldValue;
-    
+
             if (element.type === 'checkbox') {
-                // For checkboxes, check if at least one checkbox in the group is checked
                 if (element.checked) {
-                    checkedCheckboxGroups.add(element.name); // Mark the checkbox group as valid if one is checked
+                    checkedCheckboxGroups.add(element.name);
                 }
             } else if (element.type === 'radio') {
-                // For radio buttons, check if at least one in the group is checked
                 if (element.checked) {
-                    checkedRadioGroups.add(element.name); // Mark the radio group as valid if one is checked
+                    checkedRadioGroups.add(element.name);
                 }
             } else {
-                // For other input types, check if the value is empty
                 fieldValue = element.value.trim();
                 if (!fieldValue) {
                     console.log(`Field "${fieldName}" is empty!`);
@@ -124,38 +80,81 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                 }
             }
         }
-    
-        // Check if all required radio groups have at least one selected option
+
         const radioGroups = formElement.querySelectorAll('input[type="radio"]');
         const uniqueRadioGroups = new Set(Array.from(radioGroups).map(r => r.name));
-    
+
         for (const groupName of uniqueRadioGroups) {
             if (!checkedRadioGroups.has(groupName)) {
                 console.log(`Radio group "${groupName}" has no selected option!`);
                 return false;
             }
         }
-    
-        // Check if all required checkbox groups have at least one checked option
+
         const checkboxGroups = formElement.querySelectorAll('input[type="checkbox"]');
         const uniqueCheckboxGroups = new Set(Array.from(checkboxGroups).map(c => c.name));
-    
+
         for (const groupName of uniqueCheckboxGroups) {
             if (!checkedCheckboxGroups.has(groupName)) {
                 console.log(`Checkbox group "${groupName}" has no checked option!`);
                 return false;
             }
         }
-    
+
         console.log("All fields are valid.");
         return true;
     };
+
+    const handleSave = async () => {
+      setIsSaving(true);  // Set loader to true
+      try {
+        // Call the API to save form data and await the response
+        console.log("allFormData.data",allFormData)
+        const response = await CreateFormQuery(allFormData.data); // No need to wrap in {}
     
+        console.log("response?", response); // Now this should give you the correct response
     
-    const handleNext = () => {
+        // Check if there's an error in the response
+        if (response?.success) {
+          // Dispatch to save the form data in Redux
+          dispatch(saveFormData({ currentSectionIndex, data: formData }));
+    
+          // Display success message
+          toast.success('Form has been saved Questionnaire!', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } else {
+          // If the response indicates failure, handle it
+          throw new Error('Failed to save form data');
+        }
+      } catch (error) {
+        // Log the error and show error toast
       
+    
+        toast.error('Error saving the Questionnaire. Please try again!', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      } finally {
+        // Turn off the loader once the process is done
+        setIsSaving(false);
+      }
+    };
+      
+    const handleNext = () => {
         if (!validateForm()) {
-            toast.error('Please fill out all fields .', {
+            toast.error('Please fill out all fields.', {
                 position: 'top-right',
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -166,10 +165,14 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
             });
             return;
         }
-       
         dispatch(saveFormData({ currentSectionIndex, data: formData }));
+      
+        console.log("=======================")
+        console.log("currentSectionIndex:",currentSectionIndex)
+        
+        console.log("allFormData:",allFormData)
+        
         if (currentSectionIndex < sectionTags.length - 1) {
-            createForm(formData, currentSectionIndex);
             dispatch(setCurrentSectionIndex(currentSectionIndex + 1));
             setFormData({});
             navigate(`/${sectionTags[currentSectionIndex + 1]}`);
@@ -178,7 +181,7 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
 
     const handleFinish = () => {
         if (!validateForm()) {
-            toast.error('Please fill out all fields .', {
+            toast.error('Please fill out all fields.', {
                 position: 'top-right',
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -206,7 +209,7 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
             <ToastContainer />
             <form id="form">
                 {data.map((section, index) => (
-                    <Section key={index} section={section} log={log} handleChange={handleChange} formData={formData}  />
+                    <Section key={index} section={section} log={log} handleChange={handleChange} formData={formData} />
                 ))}
 
                 {type === "fixe" ? (
@@ -221,6 +224,18 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                         <Button variant="contained" onClick={handleBack} disabled={currentSectionIndex === 0}>
                             Back
                         </Button>
+
+                        {/* Save button next to Back */}
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={handleSave}
+                            startIcon={isSaving ? <CircularProgress size={20} /> : <SaveIcon />}
+                            disabled={isSaving}
+                        >
+                            {isSaving ? 'Saving...' : 'Save'}
+                        </Button>
+
                         {currentSectionIndex < sectionTags.length - 1 ? (
                             <Button variant="contained" onClick={handleNext}>
                                 Next
