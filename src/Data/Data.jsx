@@ -155,7 +155,7 @@ const GeneralInformationData = [
             "Not Hispanic or Latino"
             ],
         checkbox:[
-            'What is your race',
+            'What is your race (Select all that apply.)',
             'American Indian or Alaska Native',
             'Asian',
             'Black or African American',
@@ -182,18 +182,17 @@ const GeneralInformationData = [
 ];
 
 const YourmedicalhistoryData = [
-
-    {
-        Text: "Please use your height reported on a valid I.D., such as a driver’s license.",
-        input: 'What is your height?'
+   
+    {H2: "Your medical history",
+    
+        input: 'What is your height? (Please use your height reported on a valid I.D., such as a driver’s license.) '
     },
     {
-        Text: "Please use the same scale to measure your weight throughout this study. The weight you list here should be measured within the last week.",
-        input: 'What is your weight (in pounds)?'
+        input: 'What is your weight (in pounds)? Please use the same scale to measure your weight throughout this study. The weight you list here should be measured within the last week.)'
     },
     {
         radio: [
-            "Have you ever been diagnosed with Crohn’s disease, ulcerative colitis, or inflammatory bowel disease (IBD)-unclassified?",
+            "Have you ever been diagnosed with Crohn’s disease, ulcerative colitis, or inflammatory bowel disease (IBD)-unclassified? ",
             "Yes",
             "No"
         ]
@@ -269,89 +268,118 @@ const YourmedicalhistoryData = [
     },
     {
         radio: [
-            "When you were a child or young adult, did you have pets in your home?",
+            "When you were a child or young adult, did you have pets in your home? ",
             "Yes",
             "No",
-            "I don’t know"
+           
         ]
     }
 ]
 
+
 const FamilyHistoryData = [
-    {
-        // Number of relatives diagnosed with the conditions
-        inputKey: [
-            { label: 'Number of Parents diagnosed:', key: 'parents' },
-            { label: 'Number of Siblings diagnosed:', key: 'siblings' },
-            { label: 'Number of Children diagnosed:', key: 'children' }
-        ]
-    },
-    {
-        // Family members' specific conditions and age at diagnosis
-        checkboxKey: [
-            'Which family members have been diagnosed with Crohn’s disease, ulcerative colitis, or IBD-unclassified?',
+
+    {H2:"Your family history ",
+        p:"How many of your first-degree relatives (parents, siblings, or children) have ever been diagnosed with Crohn’s disease, ulcerative colitis, or IBD-unclassified?"}
+    ,{
+        "RecuresiveQuestion": {
+          "inpute": {
+            "label": "Parents diagnosed:",
+            "key": "parents",
+            "max": 10
+          },
+          "title": "",
+          "recursiveContent": [
             {
-                label: 'Parent',
-                options: [
-                    'Crohn’s disease',
-                    'Ulcerative colitis',
-                    'IBD-unclassified'
-                ]
-               
+              "label": "Parent",
+              "options": [
+                "Crohn’s disease",
+                "Ulcerative colitis",
+                "IBD-unclassified"
+              ]
             },
             {
-                label: 'Parent Age at diagnosis',
-                options: [
-                    'Age 0-17 years',
-                    'Age 18-59 years',
-                    'Age 60 or'
-                ]
-               
-            },
+              "label": "Parent Age at diagnosis",
+              "options": [
+                "Age 0-17 years",
+                "Age 18-59 years",
+                "Age 60 or above"
+              ]
+            }
+          ]
+        }
+      }
+            ,      
             {
-                label: 'Sibling',
-                options: [
-                    'Crohn’s disease',
-                    'Ulcerative colitis',
-                    'IBD-unclassified'
+                "RecuresiveQuestion": {
+                "inpute": {
+                    "label": "Sibling diagnosed:",
+                    "key": "sibling",
+                    "max": 20
+                },
+                "title": "",
+                "recursiveContent": [
+                    {
+                    "label": "Sibling",
+                    "options": [
+                        "Crohn’s disease",
+                        "Ulcerative colitis",
+                        "IBD-unclassified"
+                    ]
+                    },
+                    {
+                    "label": "Sibling Age at diagnosis",
+                    "options": [
+                        "Age 0-17 years",
+                        "Age 18-59 years",
+                        "Age 60 or above"
+                    ]
+                    },
+                    
                 ]
+                }
             },
+              
             {
-                label: 'Sibling Age at diagnosis',
-                options: [
-                    'Age 0-17 years',
-                    'Age 18-59 years',
-                    'Age 60 or'
+                "RecuresiveQuestion": {
+                "inpute": {
+                    "label": "Child diagnosed:",
+                    "key": "Child",
+                    "max": 20
+                },
+                "title": "",
+                "recursiveContent": [
+                    {
+                    "label": "Child",
+                    "options": [
+                        "Crohn’s disease",
+                        "Ulcerative colitis",
+                        "IBD-unclassified"
+                    ]
+                    },
+                    {
+                    "label": "Child Age at diagnosis",
+                    "options": [
+                        "Age 0-17 years",
+                        "Age 18-59 years",
+                        "Age 60 or above"
+                    ]
+                    },
+                    
                 ]
-               
+                }
             },
-            {
-                label: 'Child',
-                options: [
-                    'Crohn’s disease',
-                    'Ulcerative colitis',
-                    'IBD-unclassified'
-                ]
-            },
-            {
-                label: 'Child Age at diagnosis',
-                options: [
-                    'Age 0-17 years',
-                    'Age 18-59 years',
-                    'Age 60 or'
-                ]
-               
-            },
-            
-        ],
-        
-    }
     
 ];
 const Yourdiet = [
-    {H2:"FOODS"},
+    {H2:"Your diet  - Foods"},
     {
-        
+        HTMLTEXT: `
+            <p style={margin-button:'15px'}>
+                For each food listed, fill in the circle indicating how often on average you have used the amount specified during the past month.
+            </p>
+          
+        `,
         dairyFoodsTable: {
             foods: [
                 'Milk (8 oz. glass) Skim milk',
@@ -395,39 +423,16 @@ const Yourdiet = [
             'Fat-free',
             'None',
         ],
-        HTMLTEXT: `
-            <strong style={margin-button:'25px'}>
-                For each food listed, fill in the circle indicating how often on average you have used the amount specified during the past month.
-            </strong>
-            <br/><br/>
-            <strong>How motivated are you to follow a healthy diet?</strong> 
-            (Use the ladder below to indicate your motivation to follow a healthier diet, with 0 being “I have not considered changing my diet” and 10 being “I am taking action to follow a healthy diet.” You can choose any value from 0 to 10.)
-            <br/><br/>
-        `,
+       
 
-        ladderRadio: [
-            'How would you rate your health on the following scale?',
-            [
-                '0 - I am taking action to follow a healthy diet.',
-                '1',
-                '2 - I am starting to think about how I can change to a healthier diet.',
-                '3',
-                '4',
-                '5 - I think I should change to a healthier diet, but I am not quite ready.',
-                '6',
-                '7',
-                '8 - I think I need to consider changing to a healthier diet someday.',
-                '9',
-                '10 - I have not considered changing my diet.'
-            ]
-        ],
+       
 
     
 },
 ];
 
 const Yourdietcheese=[
-    {H2:"FRUIT"},
+    {H2:"Your diet  - Fruit"},
     {
         dairyFoodsTable: {
             foods: [
@@ -468,7 +473,7 @@ const Yourdietcheese=[
 ]
 
 const YourdietVEGETABLES=[
-    {H2:"VEGETABLES"},
+    {H2:"Your diet  - Vegetables"},
      {
          dairyFoodsTable: {
              foods: [
@@ -520,7 +525,7 @@ const YourdietVEGETABLES=[
  
 
  const YourdietMEAT=[
-    {H2:'MEAT',},
+    {H2:"Your diet  - Eggs, Meat ..."},
      {
          dairyFoodsTable: {
              foods: [
@@ -564,7 +569,7 @@ const YourdietVEGETABLES=[
 
 
 const YoutdietBREADS=[
-    {H2:'BREADS',},
+    {H2:"Your diet  - Breads, Cereals, Starches"},
         {
             dairyFoodsTable: {
                 foods: [
@@ -605,7 +610,7 @@ const YoutdietBREADS=[
 ]
 
 const YoutdietBEVERAGES = [
-    {H2: 'CARBONATED ',},
+    {H2: 'Your diet  - Carbonated ',},
     {
         FoodsTableTwo: {
             foodsTwo: [
@@ -644,7 +649,7 @@ const YoutdietBEVERAGES = [
 ];
 
 const YourdietSWEETS=[
-  {H2:'SWEETS'},
+  {H2: 'Your diet  - Sweets ',},
     {
         dairyFoodsTable: {
             foods: [
@@ -724,36 +729,41 @@ const YourdietSWEETS=[
             'NutraSweet',
             'Sweet’N Low',
             'Saccharin'
-        ]}
+        ]},
+    {
+        HTMLTEXT: `
+           
+      
+        <strong>How motivated are you to follow a healthy diet?</strong> 
+        (Use the ladder below to indicate your motivation to follow a healthier diet, with 0 being “I have not considered changing my diet” and 10 being “I am taking action to follow a healthy diet.” You can choose any value from 0 to 10.)
+        <br/><br/>
+    `,
+        ladderRadio: [
+            '',
+            [
+                ' - I am taking action to follow a healthy diet.',
+                '',
+                ' - I am starting to think about how I can change to a healthier diet.',
+                '',
+                '',
+                ' - I think I should change to a healthier diet, but I am not quite ready.',
+                '',
+                '',
+                ' - I think I need to consider changing to a healthier diet someday.',
+                '',
+                ' - I have not considered changing my diet.'
+            ]
+        ],
+    }
 ]
 
 const Yourphysicalactivity = [
-    {   
+    {   H2:"Your physical activity ",
         HTMLTEXT: `
             <strong>During the past month, what was your average time per week spent in each of the following recreational activities?</strong>
             <br/><br/>
-            <strong>How motivated are you to exercise regularly?</strong> 
-            (Use the ladder below to indicate your motivation to exercise regularly, with 0 being “I have not considered exercising regularly” and 10 being “I am taking action to exercise regularly.” You can choose any value from 0 to 10.)
-            <br/><br/>
-        `,
-
-
-        ladderRadio: [
-            'How motivated are you to exercise regularly?',
-            [
-                '0 - I have not considered exercising regularly.',
-                '1',
-                '2',
-                '3',
-                '4',
-                '5 - I think I should exercise regularly, but I am not quite ready.',
-                '6',
-                '7',
-                '8',
-                '9',
-                '10 - I am taking action to exercise regularly.'
-            ]
-        ]
+       
+        `
         ,
         recreationalActivityTable: {
             activities: [
@@ -806,41 +816,49 @@ const Yourphysicalactivity = [
             '15 or more flights'
         ]
     
+},
+
+{
+    HTMLTEXT: `
+          
+    <strong>How motivated are you to exercise regularly?</strong> 
+    (Use the ladder below to indicate your motivation to exercise regularly, with 0 being “I have not considered exercising regularly” and 10 being “I am taking action to exercise regularly.” You can choose any value from 0 to 10.)
+    <br/><br/>
+`,
+
+
+
+        ladderRadio: [
+            '',
+            [
+                '- I am taking action to exercise regularly.',
+                '',
+                '',
+                '',
+                '',
+                '- I think I should exercise regularly, but I am not quite ready.',
+                '',
+                '',
+                '',
+                '',
+                '- I have not considered exercising regularly.'
+            ]
+        ]
 }
 ];
 
 
 const Yoursmokinghistory= [
-    {          
-
-        HTMLTEXT:"<strong style={margin-button:'25px'}>How motivated are you to quit smoking?</strong> (Use the ladder below to indicate your motivation to quit smoking, with 0 being “I have not considered quitting” and 10 being “I am taking action to quit [ex: cutting down, enrolling in a program].” You can choose any value from 0 to 10.)  </br></br>",
     
-        ladderRadio: [
-            'How would you rate your health on the following scale?',
-            [
-                '0 - I am taking action to quit (ex: cutting down, enrolling in a program). ',
-                '1',
-                '2 - I am starting to think about how to change my smoking patterns.',
-                '3',
-                '4',
-                '5 - I think I should quit, but I am not quite ready',
-                '6',
-                '7',
-                '8 - I think I need to consider quitting someday.',
-                '9',
-                '10 - I have not considered quitting.',
-            ]
-        ],
-        
-       
-    },
     {
+        H2:"Your smoking history ", 
+
         "radioButtonWithData": [
           "Do you smoke cigarettes?",
           [
             "Yes",
             {
-                "input" :'How old are you?'
+                "input" :'How old were you when you started smoking? '
               },
               {
                   "input" :'Since starting smoking, how many cigarettes have you smoked per day, on average? '
@@ -848,11 +866,28 @@ const Yoursmokinghistory= [
               {
                   "input" :"In the last month only, how many cigarettes have you smoked per day, on average? "
               },
+            {
+              ladderRadio: [
+                  'How motivated are you to quit smoking? (Use the ladder below to indicate your motivation to quit smoking, with 0 being “I have not considered quitting” and 10 being “I am taking action to quit [ex: cutting down, enrolling in a program].” You can choose any value from 0 to 10.)',
+                  [
+                      '- I am taking action to quit (ex: cutting down, enrolling in a program). ',
+                      '',
+                      '- I am starting to think about how to change my smoking patterns.',
+                      '',
+                      '',
+                      '- I think I should quit, but I am not quite ready',
+                      '',
+                      '',
+                      '- I think I need to consider quitting someday.',
+                      '',
+                      '- I have not considered quitting.',
+                  ]
+              ],}
           ],
           [
             "No–Quit",
             {
-              "input" :'How old are you?'
+              "input" :'How old were you when you started smoking? '
             },
             {
                 "input" :'How old were you when you quit smoking'
@@ -867,6 +902,12 @@ const Yoursmokinghistory= [
           ]
         ]
       },
+      {         
+
+       
+        
+       
+    },
       {Text:"We have an optional short (7 questions) multiple-choice survey that will help further our research. We greatly appreciate you taking the survey, if you can."}
       ,{
         button:["Optional Crohn’s survey","/knowledge-and-attitudes-survey"]
@@ -894,6 +935,7 @@ const KnowledgEandAttitudes = [
            "decreased",
            "similar"
         ],
+        p:"… risk of Crohn’s disease compared to those who do not.  "
     }
     ,
     {
@@ -917,6 +959,7 @@ const KnowledgEandAttitudes = [
         radio: [
             "How do you compare your risk of Crohn’s disease to someone who does NOT have a family member with Crohn’s disease?  ",
             "Much lower",
+            "Somewhat lower",
             "Same",
            "Somewhat higher",
            "Much higher"

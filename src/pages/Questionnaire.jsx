@@ -15,10 +15,7 @@ const Questionnaire = ({ title, Data,type }) => {
   
     useEffect(() => {
       const expectedSectionTag = sectionTags[currentSectionIndex]; // Get the expected sectionTag based on the currentSectionIndex
-        console.log("===========================")
-        console.log("sectionTag:",sectionTag)
-        console.log("===========================")
-        console.log("expectedSectionTag:",expectedSectionTag)
+       
         
       // Check if the current sectionTag in the URL matches the expected sectionTag
       if (sectionTag !== expectedSectionTag) {

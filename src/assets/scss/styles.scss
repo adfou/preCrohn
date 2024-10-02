@@ -38,7 +38,8 @@ main.questionnaire{
   background:#E5F8FF ;
 }
 .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
-  height: 0px !important;
+  height: 7px !important;
+  font-size: 16px;
 }
   #root{
     width: 100%;
@@ -342,5 +343,30 @@ main.questionnaire{
       }
     }
   }
+
+
+
+  .questionnaire{
+    h2{
+      font-size: 36px;
+      font-family: $POOPINS_FONT;
+      font-weight: 700;
+      color:#117BA3;
+      margin-top: 60px;
+      margin-bottom: 40px;
+    }
+    p ,legend,div,label{
+      font-size: 19px;
+    }
+    legend,label{
+      margin-bottom: 0px;
+      margin-top: 0px;
+      font-size: 16px;
+    }
+    section> fieldset{
+      margin-bottom: 15px;
+    }
+   
+  } 
   }
   

@@ -66,37 +66,7 @@ const MainRoutes = {
         },
       ],
     },
-    {
-      path: '/general-Information',
-      element: <MainLayout type={"questionnaire"} />,
-      children: [
-        {
-          path: '',
-          element: <Questionnaire title={"PRE-Crohn’s study GeneralInformation"} Data={GeneralInformationData} />,
-        },
-      ],
-    },
-    {
-      path: '/medical-history',
-      element: <MainLayout type={"questionnaire"} />,
-      children: [
-        {
-          path: '',
-          element: <Questionnaire title={"PRE-Crohn’s study GeneralInformation"} Data={YourmedicalhistoryData} />,
-        },
-      ],
-    },
-    {
-      path: '/family-history',
-      element: <MainLayout type={"questionnaire"} />,
-      children: [
-        {
-          path: '',
-          element: <Questionnaire title={"PRE-Crohn’s study GeneralInformation"} Data={FamilyHistoryData} />,
-        },
-      ],
-    },
-
+    
   ],
 };
 
