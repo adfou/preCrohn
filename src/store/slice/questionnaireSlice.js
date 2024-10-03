@@ -48,7 +48,7 @@ const questionnaireSlice = createSlice({
         SetFormDataLogin: (state, action) => {
             const { data } = action.payload;
            
-        
+            console.log("*********1*******")
             // Check if data is a string, and if so, parse it
             if (typeof data === 'string') {
                 try {
@@ -57,6 +57,7 @@ const questionnaireSlice = createSlice({
                     console.error('Failed to parse data. Data is not valid JSON:', error);
                 }
             }
+            console.log("*********2*******")
         
             // Completely replace the current state data with the new data
             state.data = data;

@@ -199,7 +199,7 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
             });
             return;
         }
-        const allFormData = useSelector((state) => state.questionnaire.data);
+       
         dispatch(saveFormData({ currentSectionIndex, data: formData }));
         navigate(`/crohn-risk`);
     };
