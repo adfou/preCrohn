@@ -109,16 +109,18 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
       setIsSaving(true);  // Set loader to true
       try {
         // Call the API to save form data and await the response
-        console.log("allFormData.data",allFormData)
-        const response = await CreateFormQuery(allFormData.data); // No need to wrap in {}
-    
-        console.log("response?", response); // Now this should give you the correct response
+        
+        const updatedFormData = {
+            ...allFormData,                          // Keep all previous sections' data
+            [sectionTags[currentSectionIndex]]: formData // Update the current section's data
+        };
+        const response = await CreateFormQuery(updatedFormData); // No need to wrap in {}
     
         // Check if there's an error in the response
         if (response?.success) {
           // Dispatch to save the form data in Redux
           dispatch(saveFormData({ currentSectionIndex, data: formData }));
-    
+          
           // Display success message
           toast.success('Form has been saved Questionnaire!', {
             position: 'top-right',
@@ -152,7 +154,9 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
       }
     };
       
-    const handleNext = () => {
+    const handleNext =  () => {
+     
+          
         if (!validateForm()) {
             toast.error('Please fill out all fields.', {
                 position: 'top-right',
@@ -166,11 +170,14 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
             return;
         }
         dispatch(saveFormData({ currentSectionIndex, data: formData }));
-      
-        console.log("=======================")
-        console.log("currentSectionIndex:",currentSectionIndex)
+        const updatedFormData = {
+            ...allFormData,                          // Keep all previous sections' data
+            [sectionTags[currentSectionIndex]]: formData // Update the current section's data
+        };
         
-        console.log("allFormData:",allFormData)
+        CreateFormQuery(updatedFormData);
+   
+    
         
         if (currentSectionIndex < sectionTags.length - 1) {
             dispatch(setCurrentSectionIndex(currentSectionIndex + 1));
@@ -192,7 +199,7 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
             });
             return;
         }
-
+        const allFormData = useSelector((state) => state.questionnaire.data);
         dispatch(saveFormData({ currentSectionIndex, data: formData }));
         navigate(`/crohn-risk`);
     };

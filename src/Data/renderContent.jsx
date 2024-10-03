@@ -476,17 +476,14 @@ const renderContent = (key, value, handleChange, formData) => {
           {/* Dynamically render the recursive questions based on the input number */}
           {Array.from({ length: numberOfParents }).map((_, index) => (
             <Box key={index} sx={{ mt: 4, p: 2, border: '1px solid #ccc', borderRadius: '8px' }}>
-              {/* Display the family member title */}
-              <Typography variant="P">
-                {`${index + 1}${title} `} {/* Dynamic title for each family member */}
-              </Typography>
+       
     
               {/* Render each section inside the recursiveContent array */}
               {recursiveContent.map((section, sectionIndex) => (
                 <Box key={sectionIndex} sx={{ mt: 2 }}>
                   <FormControl component="fieldset">
                     <FormLabel component="legend">
-                      {section.label.replace('index', `${index + 1}`)}
+                      {section.label.replace('index', `${index + 1}`)} {index + 1}
                     </FormLabel>
                     <RadioGroup
                       name={`${inpute.key}_${index}_${section.label}`} // Unique name using the index

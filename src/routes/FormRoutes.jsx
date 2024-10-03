@@ -33,7 +33,7 @@ const FormRoutes = {
           path: '',
           element: 
           <PrivateRoute>
-          <Questionnaire title={"PRE-Crohn’s study Questionnaire"} Data={GeneralInformationData} />
+          <Questionnaire title={"PRE-Crohn’s study questionnaire"} Data={GeneralInformationData} />
         </PrivateRoute>
         ,
         },
@@ -45,7 +45,7 @@ const FormRoutes = {
       children: [
         {
           path: '',
-          element: <Questionnaire title={"PRE-Crohn’s study Questionnaire"} Data={YourmedicalhistoryData} />,
+          element: <Questionnaire title={"PRE-Crohn’s study questionnaire"} Data={YourmedicalhistoryData} />,
         },
       ],
     },
@@ -55,7 +55,7 @@ const FormRoutes = {
       children: [
         {
           path: '',
-          element: <Questionnaire title={"PRE-Crohn’s study Questionnaire"} Data={FamilyHistoryData} />,
+          element: <Questionnaire title={"PRE-Crohn’s study questionnaire"} Data={FamilyHistoryData} />,
         },
       ],
     },
@@ -76,7 +76,7 @@ const FormRoutes = {
       children: [
         {
           path: '',
-          element: <Questionnaire title={"PRE-Crohn’s study Questionnaire"} Data={Yourdiet} />,
+          element: <Questionnaire title={"PRE-Crohn’s study questionnaire"} Data={Yourdiet} />,
         },
       ],
     },
@@ -87,7 +87,7 @@ const FormRoutes = {
       children: [
         {
           path: '',
-          element: <Questionnaire title={"PRE-Crohn’s study Questionnaire"} Data={Yourdietcheese} />,
+          element: <Questionnaire title={"PRE-Crohn’s study questionnaire"} Data={Yourdietcheese} />,
         },
       ],
     },
@@ -98,7 +98,7 @@ const FormRoutes = {
       children: [
         {
           path: '',
-          element: <Questionnaire title={"PRE-Crohn’s study Questionnaire"} Data={YourdietVEGETABLES} />,
+          element: <Questionnaire title={"PRE-Crohn’s study questionnaire"} Data={YourdietVEGETABLES} />,
         },
       ],
     },
@@ -109,7 +109,7 @@ const FormRoutes = {
       children: [
         {
           path: '',
-          element: <Questionnaire title={"PRE-Crohn’s study Questionnaire"} Data={YourdietMEAT} />,
+          element: <Questionnaire title={"PRE-Crohn’s study questionnaire"} Data={YourdietMEAT} />,
         },
       ],
     },
@@ -120,7 +120,7 @@ const FormRoutes = {
       children: [
         {
           path: '',
-          element: <Questionnaire title={"PRE-Crohn’s study Questionnaire"} Data={YoutdietBREADS} />,
+          element: <Questionnaire title={"PRE-Crohn’s study questionnaire"} Data={YoutdietBREADS} />,
         },
       ],
     },
@@ -131,7 +131,7 @@ const FormRoutes = {
       children: [
         {
           path: '',
-          element: <Questionnaire title={"PRE-Crohn’s study Questionnaire"} Data={YoutdietBEVERAGES} />,
+          element: <Questionnaire title={"PRE-Crohn’s study questionnaire"} Data={YoutdietBEVERAGES} />,
         },
       ],
     },
@@ -142,7 +142,7 @@ const FormRoutes = {
       children: [
         {
           path: '',
-          element: <Questionnaire title={"PRE-Crohn’s study Questionnaire"} Data={YourdietSWEETS} />,
+          element: <Questionnaire title={"PRE-Crohn’s study questionnaire"} Data={YourdietSWEETS} />,
         },
       ],
     },
@@ -154,7 +154,7 @@ const FormRoutes = {
       children: [
         {
           path: '',
-          element: <Questionnaire title={"PRE-Crohn’s study Questionnaire"} Data={Yourphysicalactivity} />,
+          element: <Questionnaire title={"PRE-Crohn’s study questionnaire"} Data={Yourphysicalactivity} />,
         },
       ],
     },
@@ -164,7 +164,7 @@ const FormRoutes = {
       children: [
         {
           path: '',
-          element: <Questionnaire title={"PRE-Crohn’s study Questionnaire"} Data={Yoursmokinghistory} />,
+          element: <Questionnaire title={"PRE-Crohn’s study questionnaire"} Data={Yoursmokinghistory} />,
         },
       ],
     },

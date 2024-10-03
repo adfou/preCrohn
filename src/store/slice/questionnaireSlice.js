@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import {useCreateForm} from "../../Hooks/useCreateForm";
 const initialState = {
     data: {},
     currentSectionIndex: 0,
@@ -42,11 +42,11 @@ const questionnaireSlice = createSlice({
                 ...(state.data[sectionTag] || {}),
                 ...data,
             };
+          
             saveToLocalStorage(state); // Save the state to local storage
         },
         SetFormDataLogin: (state, action) => {
-            console.log("===========SetFormData============");
-            let { data } = action.payload;
+           
             console.log("action data", data);
         
             // Check if data is a string, and if so, parse it
