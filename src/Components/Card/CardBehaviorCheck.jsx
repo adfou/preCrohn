@@ -11,7 +11,6 @@ export const CardBehaviorCheck = ({ title, subtitle, behaviors,openMpdal,RiskLev
   const [filledHumans, setfilledHumans] = useState(FilledHumans);
   const [greenHumain, setgreenHumain] = useState(0);
   const emeptyTimeless = 100-riskPercentage
-  console.log("emeptyTimeless:",emeptyTimeless)
   const currentRiskPosition = Math.floor(emeptyTimeless / 10) * 29;
   const riskLevel = RiskLevel;
   const riskIndex = riskLevels.indexOf(riskLevel);

@@ -9,7 +9,6 @@ export const useRiskCalculation = () => {
   const RiskCalculation = async (formData) => {
     setLoading(true);
     setError(null);
-    console.log(localStorage.getItem('token'))
     try {
       const response = await axios.get(import.meta.env.VITE_APP_BASE_API + 'risk', {
         headers: {
