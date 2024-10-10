@@ -49,13 +49,14 @@ const Login = () => {
 
   // Handle successful login by redirecting to the dashboard
   useEffect(() => {
-    console.log("data:",data?.data?.form.data)
+    console.log("data without:",data?.data?.form)
     if (data && data.status === 200) {
       console.log(data)
       try{
       const dataObj = JSON.parse(data?.data?.form);
-      dispatch(SetFormDataLogin({ data: dataObj }));
-      
+      //dispatch(SetFormDataLogin({ data: dataObj }));
+      //production
+      dispatch(SetFormDataLogin({ data: data?.data?.form }));
     }
     catch(err){
       console.error("there is non data",err);
