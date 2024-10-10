@@ -49,14 +49,29 @@ const Login = () => {
 
   // Handle successful login by redirecting to the dashboard
   useEffect(() => {
-    console.log("data without:",data?.data?.form)
+    console.log("data without:",data)
+    
     if (data && data.status === 200) {
-      console.log(data)
+     
+      let dataObj={};
       try{
-      const dataObj = JSON.parse(data?.data?.form);
+       
+        if (typeof data?.data?.form === 'string') {
+          console.log("string")
+          dataObj = JSON.parse(data?.data?.form);
+      } else if (typeof data?.data?.form === 'object') {
+          console.log("object")
+          dataObj = data?.data?.form; // If it's already an object, use it directly
+      } else {
+          console.error("Invalid form_data:", data?.data?.form);
+          //return; // Exit if form_data is neither a string nor an object
+      }
+
+
+      
       //dispatch(SetFormDataLogin({ data: dataObj }));
       //production
-      dispatch(SetFormDataLogin({ data: data?.data?.form }));
+      dispatch(SetFormDataLogin({ dataObj}));
     }
     catch(err){
       console.error("there is non data",err);
@@ -73,10 +88,10 @@ const Login = () => {
    if(verifySucces  ){
 
     if(userRole.role === "1" ){
-      navigate('/dashboard'); 
+      //navigate('/dashboard'); 
      }
      else{
-      navigate('/general-information'); 
+      //navigate('/general-information'); 
      }
     //
    }

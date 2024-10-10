@@ -199,9 +199,16 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
             });
             return;
         }
-       
+        const updatedFormData = {
+            ...allFormData,                          // Keep all previous sections' data
+            [sectionTags[currentSectionIndex]]: formData // Update the current section's data
+        };
+        console.log(updatedFormData)
+        
+        
+        CreateFormQuery(updatedFormData);
         dispatch(saveFormData({ currentSectionIndex, data: formData }));
-        navigate(`/crohn-risk`);
+        //navigate(`/crohn-risk`);
     };
 
     const handleBack = () => {
