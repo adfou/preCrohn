@@ -6,10 +6,10 @@ export const useRegister = () => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
 
-  const register = async (firstName, secondName, username, email, password, role) => {
+  const register = async (firstName, secondName, username, email, password, role,biomarkers) => {
     setLoading(true);
     setError(null);
-    console.log(firstName, secondName, username, email, password, role)
+   
    
     try {
       const response = await axios.post(import.meta.env.VITE_API_URL_REGISTER, {
@@ -19,6 +19,8 @@ export const useRegister = () => {
         email,
         password,
         role,
+        biomarkers
+
       }, {
         headers: {
           'Content-Type': 'application/json',

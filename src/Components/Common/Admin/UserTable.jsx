@@ -37,7 +37,7 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser }) => {
               <TableCell sx={{ color: 'white', backgroundColor: '#1976d3' }}>First Name</TableCell>
               <TableCell sx={{ color: 'white', backgroundColor: '#1976d3' }}>Second Name</TableCell>
               <TableCell sx={{ color: 'white', backgroundColor: '#1976d3' }}>Email</TableCell>
-              <TableCell sx={{ color: 'white', backgroundColor: '#1976d3' }} align="center">Progression</TableCell>
+              <TableCell sx={{ color: 'white', backgroundColor: '#1976d3' }} align="center">Progress</TableCell>
               <TableCell sx={{ color: 'white', backgroundColor: '#1976d3' }} align="center">Actions</TableCell>
             </TableRow>
           </TableHead>

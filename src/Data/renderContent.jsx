@@ -323,6 +323,7 @@ const renderContent = (key, value, handleChange, formData) => {
                         <TableHead>
                             <TableRow>
                                 <TableCell>{titleTwo}</TableCell>
+                                <TableCell></TableCell>
                                 {TwotimeRangesFood.map((range, index) => (
                                     <TableCell key={index}>{range}</TableCell>
                                 ))}

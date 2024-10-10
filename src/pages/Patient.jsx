@@ -3,8 +3,7 @@ import { Container, Grid, Box, Typography } from '@mui/material';
 import UserTable from '../Components/Common/Admin/UserTable'; // Create this component to display users
 import EmailModal from '../Components/Modal/EmailModal'; // Create this component for the email modal
 // import ResetPasswordModal from '../Components/ResetPasswordModal'; // Create this component for the password reset modal
-import TotalIncomeCard from "../ui-component/cards/Skeleton/TotalIncomeCard";
-import TotalGrowthBarChart from "../ui-component/cards/Skeleton/TotalGrowthBarChart";
+
 import DeleteUserModal from '../Components/Modal/DeleteUserModal'
 
 const PatientDashboard = () => {
@@ -44,12 +43,7 @@ const PatientDashboard = () => {
           </Box>
         </Grid>
 
-        {/* Bottom side with Statistics */}
-        <Grid item xs={12}>
-              <TotalIncomeCard />
-         
-        </Grid>
-        
+      
         
       </Grid>
 

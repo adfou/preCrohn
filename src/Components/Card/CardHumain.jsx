@@ -73,7 +73,7 @@ export const CardHumain = ({ HumainSentnace, firstSentence, diagnostics, lastDia
               Lifetime risk of Crohn’s disease
             </Typography>
             <Typography className="risk-card-title" variant="p" sx={{ color: 'black', marginBottom: 1,fontWeight:"700",fontSize:"19px !important" }}>
-            {HumainSentnace}
+            {HumainSentnace} {riskPercentage}%.
             </Typography>
            
             <Typography className="risk-card-text" variant="body1" sx={{ color: '#333' }}>

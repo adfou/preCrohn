@@ -16,6 +16,18 @@ $PRE_Crohn_Body_Background:#f2f3f5;
 html {
   background: #E4E4E4;
 }
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  z-index: 9999; /* Ensure it appears on top */
+}
 
 body {
     font-family: $POOPINS_FONT ;

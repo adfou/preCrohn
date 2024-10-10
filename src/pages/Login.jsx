@@ -51,9 +51,15 @@ const Login = () => {
   useEffect(() => {
     console.log("data:",data?.data?.form.data)
     if (data && data.status === 200) {
-      console.log("============set data=========")
-      //console.log("data: ",data?.data?.form)
-      dispatch(SetFormDataLogin({ data: data?.data?.form }));
+      try{
+      const dataObj = JSON.parse(data?.data?.form);
+      dispatch(SetFormDataLogin({ data: dataObj }));
+      
+    }
+    catch{
+      console.error("there is non data");
+      
+    }
       //navigate('/dashboard'); // Redirect to /dashboard on successful login
     } else if (data) {
       setValidationError('Login failed. Please check your credentials.');
@@ -72,7 +78,7 @@ const Login = () => {
     //
    }
    else{
-    setValidationError('You do not have permission.');
+    //setValidationError('You do not have permission.');
    }
   }, [verifySucces]);
   

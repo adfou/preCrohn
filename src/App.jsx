@@ -16,7 +16,6 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("/// rehydrate")
     dispatch(rehydrateAuth()); // Rehydrate the auth state on app load
     dispatch(rehydrateQuestionnaire()); // Rehydrate the questionnaire state on app load
   }, [dispatch]);

@@ -3,16 +3,17 @@ import { Box, Typography, Grid, Paper, Checkbox, IconButton } from '@mui/materia
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { riskLevels, riskColors } from "../../Data/Data";
 import {InfoModal} from "../Modal/InfoModal"
-export const CardBehaviorCheck = ({ title, subtitle, behaviors,openMpdal }) => {
+export const CardBehaviorCheck = ({ title, subtitle, behaviors,openMpdal,RiskLevel ,EmptyHumain ,riskPercentage,FilledHumans }) => {
   // State to manage which behaviors are checked
   const [CurrentPosition,setCurrentPosition] = useState ("50%")
   const [checkedBehaviors, setCheckedBehaviors] = useState({});
-  const [emptyHumans, setemptyHumans] = useState(42);
-  const [filledHumans, setfilledHumans] = useState(58);
+  const [emptyHumans, setemptyHumans] = useState(EmptyHumain);
+  const [filledHumans, setfilledHumans] = useState(FilledHumans);
   const [greenHumain, setgreenHumain] = useState(0);
-  
-  const currentRiskPosition = Math.floor(emptyHumans / 10) * 29;
-  const riskLevel = "SIMILAR";
+  const emeptyTimeless = 100-riskPercentage
+  console.log("emeptyTimeless:",emeptyTimeless)
+  const currentRiskPosition = Math.floor(emeptyTimeless / 10) * 29;
+  const riskLevel = RiskLevel;
   const riskIndex = riskLevels.indexOf(riskLevel);
   const riskBoxTopPosition = riskIndex * 55;
   const position = {
@@ -31,23 +32,27 @@ export const CardBehaviorCheck = ({ title, subtitle, behaviors,openMpdal }) => {
     }));
     
   };
-  useEffect(() => {
+  /*useEffect(() => {
     // Rehydrate the questionnaire state on app load
     if(checkedBehaviors["Quit smoking"] ===true ){
         console.log(checkedBehaviors)
         console.log("lenght")
-        setCurrentPosition("150px")
-        setfilledHumans(28)
+        //setCurrentPosition("150px")
+        //setfilledHumans(28)
         
-        setgreenHumain(30)
-    }
-    else{
+        //setgreenHumain(30)
         setCurrentPosition("50%")
-        setfilledHumans(58)
+        setfilledHumans(FilledHumans)
         
         setgreenHumain(0)
     }
-  }, [checkedBehaviors]);
+    else{
+        setCurrentPosition("50%")
+        setfilledHumans(FilledHumans)
+        
+        setgreenHumain(0)
+    }
+  }, [checkedBehaviors]);*/
   return (
     <Paper className="behavor-card" elevation={3} sx={{ paddingTop: "26px", paddingLeft: "33px", paddingRight: "53px", paddingBottom: "43px", borderRadius: 2, backgroundColor: 'white', marginTop: '20px' }}>
       <Typography className="risk-card-title" variant="h6" sx={{ color: '#006494', marginBottom: 1, fontWeight: "700" }}>
@@ -171,7 +176,7 @@ export const CardBehaviorCheck = ({ title, subtitle, behaviors,openMpdal }) => {
 
             <Grid item xs={7} sx={{ position: 'relative', display: 'flex', flexWrap: 'wrap', marginTop: "40px",rowGap:"4px" }} className='humain-container'>
               {/* Render empty humans */}
-              {Array.from({ length: emptyHumans }).map((_, index) => (
+              {Array.from({ length:emeptyTimeless/*emptyHumans*/ }).map((_, index) => (
                 <Box
                   key={`empty-${index}`}
                   component="img"
@@ -190,7 +195,7 @@ export const CardBehaviorCheck = ({ title, subtitle, behaviors,openMpdal }) => {
                   sx={{ width: 15, height: 25, margin: '2px' }}
                 />
               ))}
-              {Array.from({ length: filledHumans }).map((_, index) => (
+              {Array.from({ length: riskPercentage /*filledHumans*/ }).map((_, index) => (
                 <Box
                   key={`filled-${index}`}
                   component="img"
@@ -219,7 +224,7 @@ export const CardBehaviorCheck = ({ title, subtitle, behaviors,openMpdal }) => {
                 className="pointer-container humain"
               >
                 <Typography sx={{ fontWeight: 'bold', color: "#117BA3 !important", fontSize: "22px", border: "2px solid", marginLeft: "9.5px" }}>
-                  58%
+                  {riskPercentage}%
                 </Typography>
                 <Box
                   sx={{

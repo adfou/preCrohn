@@ -42,7 +42,7 @@ const AuthRoutes = {
       ],
     },
     {
-      path: '/Patient',
+      path: '/Participants',
       element: (
         <PrivateRoute>
           <AuthLayout />

@@ -11,16 +11,16 @@ export const Registration = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [role, setRole] = useState('3'); // Default role
+  const [biomarkers, setBiomarkers] = useState('no'); // New state for biomarkers
   const { register, loading, error, data } = useRegister();
 
   const handleSubmit = (e) => {
-    
     e.preventDefault();
     if (password !== confirmPassword) {
       toast.error('Passwords do not match');
       return;
     }
-    register(firstName, secondName, username, email, password, role);
+    register(firstName, secondName, username, email, password, role,biomarkers);
   };
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export const Registration = () => {
   }, [data]);
 
   return (
-    <Container component="main" maxWidth="xs" sx={{ p: 3, my: 5, background: "white", borderRadius: "24px", padding: "34px",marginTop:"0px" }}>
+    <Container component="main" maxWidth="xs" sx={{ p: 3, my: 5, background: "white", borderRadius: "24px", padding: "34px", marginTop: "0px" }}>
       <Typography variant="h5" align="center" gutterBottom>
         Add New User
       </Typography>
@@ -104,17 +104,40 @@ export const Registration = () => {
             <FormControlLabel
               value="1"
               control={<Radio />}
-              label="Role One"
+              label="Admin"
             />
             <FormControlLabel
               value="2"
               control={<Radio />}
-              label="Role Two"
+              label="Intervention"
             />
             <FormControlLabel
               value="3"
               control={<Radio />}
-              label="Role Three"
+              label="Control"
+            />
+          </RadioGroup>
+        </FormControl>
+
+        {/* New Biomarkers Field */}
+        <FormControl component="fieldset" sx={{ mt: 2 }}>
+          <Typography variant="subtitle1" gutterBottom>
+            ≥ 2+ biomarkers?
+          </Typography>
+          <RadioGroup
+            value={biomarkers}
+            onChange={(e) => setBiomarkers(e.target.value)}
+            row
+          >
+            <FormControlLabel
+              value="yes"
+              control={<Radio />}
+              label="Yes"
+            />
+            <FormControlLabel
+              value="no"
+              control={<Radio />}
+              label="No"
             />
           </RadioGroup>
         </FormControl>

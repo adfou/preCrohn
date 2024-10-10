@@ -27,15 +27,15 @@ const dashboard = {
 // ==============================|| SUBSCRIBER MENU ITEMS ||============================== //
 
 const subscriber = {
-    id: 'Patient',
-    title: 'Patient ',
+    id: 'Participants',
+    title: 'Participants ',
     type: 'group',
     children: [
         {
             id: 'subscriberList',
-            title: 'Patient',
+            title: 'Participants',
             type: 'item',
-            url: '/Patient',
+            url: '/Participants',
             icon: icons.IconUsers,
             breadcrumbs: false
         }

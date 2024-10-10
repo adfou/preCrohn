@@ -1,19 +1,17 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-export const useCreateForm = () => {
+export const useRiskCalculation = () => {
   const [response, setresponse] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const createForm = async (formData) => {
+  const RiskCalculation = async (formData) => {
     setLoading(true);
     setError(null);
     console.log(localStorage.getItem('token'))
     try {
-      const response = await axios.post(import.meta.env.VITE_APP_BASE_API + 'form', {
-        form_data: formData, // Sending formData as form_data
-      }, {
+      const response = await axios.get(import.meta.env.VITE_APP_BASE_API + 'risk', {
         headers: {
           'Authorization': `${localStorage.getItem('token')}`, 
           'Content-Type': 'application/json',
@@ -30,5 +28,5 @@ export const useCreateForm = () => {
     }
   };
 
-  return { createForm, response, loading, error };
+  return { RiskCalculation, response, loading, error };
 };
