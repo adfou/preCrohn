@@ -208,7 +208,7 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
         
         CreateFormQuery(updatedFormData);
         dispatch(saveFormData({ currentSectionIndex, data: formData }));
-        //navigate(`/crohn-risk`);
+        navigate(`/crohn-risk`);
     };
 
     const handleBack = () => {
