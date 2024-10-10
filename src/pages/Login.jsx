@@ -88,10 +88,10 @@ const Login = () => {
    if(verifySucces  ){
 
     if(userRole.role === "1" ){
-      //navigate('/dashboard'); 
+      navigate('/dashboard'); 
      }
      else{
-      //navigate('/general-information'); 
+      navigate('/general-information'); 
      }
     //
    }
