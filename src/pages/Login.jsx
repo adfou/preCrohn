@@ -51,13 +51,15 @@ const Login = () => {
   useEffect(() => {
     console.log("data:",data?.data?.form.data)
     if (data && data.status === 200) {
+      console.log(data)
       try{
       const dataObj = JSON.parse(data?.data?.form);
       dispatch(SetFormDataLogin({ data: dataObj }));
       
     }
-    catch{
-      console.error("there is non data");
+    catch(err){
+      console.error("there is non data",err);
+      
       
     }
       //navigate('/dashboard'); // Redirect to /dashboard on successful login
