@@ -82,7 +82,7 @@ const CrohnRisk = ({ title }) => {
                             behaviors={Goodbehaviors}
                             openMpdal={() => { setOpen(true); }}
                             riskPercentage={RiskData?.FinalRsultRound}
-                            RiskLevel={parseInt(RiskData?.CategorizeRisk)} 
+                            RiskLevel={RiskData?.CategorizeRisk} 
                             EmptyHumain={100-RiskData?.FinalRsultRound}
                             FilledHumans={RiskData?.FinalRsultRound}
                             

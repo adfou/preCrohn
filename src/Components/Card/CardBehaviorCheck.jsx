@@ -88,6 +88,7 @@ export const CardBehaviorCheck = ({ title, subtitle, behaviors,openMpdal,RiskLev
               current risk
               </Typography>
             </Grid>
+           
             <Grid className="risk-card-levels mixed " item xs={10} sx={{ position: 'relative' ,marginTop:"40px",paddingLeft:"23.5px"}}>
               {riskLevels.map((level, index) => (
                 <Box
