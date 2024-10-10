@@ -69,9 +69,9 @@ const Login = () => {
 
 
       
-      //dispatch(SetFormDataLogin({ data: dataObj }));
+      dispatch(SetFormDataLogin({ data: dataObj }));
       //production
-      dispatch(SetFormDataLogin({ dataObj}));
+      //dispatch(SetFormDataLogin({ dataObj}));
     }
     catch(err){
       console.error("there is non data",err);
