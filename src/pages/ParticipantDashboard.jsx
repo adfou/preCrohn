@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Container, Typography, Box, Card, CardContent, Button } from '@mui/material';
 import { QuestionnaireStatusCard, ThreeCardsSection, NextStepsCard } from '../Components/Card/index';
-import { useParticipantProfile, useNextStep } from '../Hooks/index.mjs';
+import { useParticipantProfile, useNextStep,useRestart } from '../Hooks/index.mjs';
 import {SetFormDataLogin,setCurrentSectionIndex} from "../store/slice/questionnaireSlice"
 import { useDispatch } from 'react-redux';
 import loadable from '@loadable/component';
@@ -18,6 +18,7 @@ const ParticipantDashboard = () => {
   const [phase, setPhase] = useState("BASELINE");
   const [role, setRole] = useState();
   const { triggerNextStep, nextStepData,nextStepLoading, nextStepError } = useNextStep();
+  const { triggerRestart } = useRestart();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -94,10 +95,21 @@ const ParticipantDashboard = () => {
   const handleNextPhaseClick = async () => {
     try {
       await triggerNextStep();
-      alert('Next step triggered successfully!');
+      window.location.reload();
+      console.log('Next step triggered successfully!');
     } catch (e) {
       console.error('Error executing next step:', e);
       alert('Failed to trigger next step.');
+    }
+  };
+
+  const handleRestartClick = async () => {
+    try {
+      await triggerRestart();
+      console.log('Restart triggered successfully!');
+      window.location.reload();
+    } catch (e) {
+      console.error('Error executing restart:', e);
     }
   };
 
@@ -281,10 +293,25 @@ const ParticipantDashboard = () => {
               fontSize: '18px',
               padding: '10px 20px',
               borderRadius: '8px',
+              marginRight:"15px"
             }}
           >
             Next Phase
           </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            /*disabled={formDisabled}*/
+            onClick={handleRestartClick}
+            sx={{
+              fontSize: '18px',
+              padding: '10px 20px',
+              borderRadius: '8px',
+            }}
+          >
+            Restart
+          </Button>
+          
         </Box>
       </Container>
     </>

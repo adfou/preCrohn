@@ -1,0 +1,31 @@
+import { useState } from 'react';
+import axios from 'axios';
+
+export const useRestart = () => {
+  const [restartData, setRestartData] = useState(null);
+  const [loading, setLoading] = useState(false); // Initially not loading
+  const [error, setError] = useState(null);
+
+  const triggerRestart = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_APP_BASE_API}restart`,
+        {
+          headers: {
+            'Authorization': `${localStorage.getItem('token')}`,
+          },
+        }
+      );
+      console.log(response.data);
+      setRestartData(response.data);
+    } catch (err) {
+      setError(err.response ? err.response.data : err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { triggerRestart, restartData, loading, error };
+};
