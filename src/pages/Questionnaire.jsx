@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Container } from '@mui/material';
 import { QestionnairBodyLayout } from "../Components/Layout/index.mjs";
 import { setCurrentSectionIndex, saveFormData } from '../store/slice/questionnaireSlice';
+import { useVerifyToken } from '../Hooks/useVerifyToken'; 
 import { useNavigate, useParams } from 'react-router-dom';
 const Questionnaire = ({ title, Data,type }) => {
     const navigate = useNavigate();
@@ -10,8 +11,17 @@ const Questionnaire = ({ title, Data,type }) => {
     const currentSectionIndex = useSelector((state) => state.questionnaire.currentSectionIndex);
     const sectionTags = useSelector((state) => state.questionnaire.sectionTags);
     const { sectionTag } = useParams();
+    const { loading: verifyingToken, error: verifyError,success:verifySucces ,userRole} = useVerifyToken();
 
-   
+    useEffect(() => {
+        console.log("state:",userRole.state)
+        if(userRole.state==="1"){
+            if(userRole.role !=="1"){
+                navigate('/profile?role='+userRole.role); 
+            }   
+        }
+        
+      }, [verifySucces]);
   
     useEffect(() => {
       const expectedSectionTag = sectionTags[currentSectionIndex]; // Get the expected sectionTag based on the currentSectionIndex
@@ -28,7 +38,7 @@ const Questionnaire = ({ title, Data,type }) => {
     return (
         <>
             {title ? <div className='title-content'><h1>{title}</h1></div> : ""}
-            <Container className="my-4">
+            <Container className="my-4 qstn-body">
                 <div className="">
                     <QestionnairBodyLayout 
                         data={Data} 

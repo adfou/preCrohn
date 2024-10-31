@@ -49,18 +49,18 @@ const Login = () => {
 
   // Handle successful login by redirecting to the dashboard
   useEffect(() => {
-    console.log("data without:",data)
     
     if (data && data.status === 200) {
+     
      
       let dataObj={};
       try{
        
         if (typeof data?.data?.form === 'string') {
-          console.log("string")
+
           dataObj = JSON.parse(data?.data?.form);
       } else if (typeof data?.data?.form === 'object') {
-          console.log("object")
+      
           dataObj = data?.data?.form; // If it's already an object, use it directly
       } else {
           console.error("Invalid form_data:", data?.data?.form);
@@ -70,8 +70,6 @@ const Login = () => {
 
       
       dispatch(SetFormDataLogin({ data: dataObj }));
-      //production
-      //dispatch(SetFormDataLogin({ dataObj}));
     }
     catch(err){
       console.error("there is non data",err);
@@ -85,19 +83,28 @@ const Login = () => {
   }, [data, navigate]);
 
   useEffect(() => {
-   if(verifySucces  ){
+    console.log("state:",userRole.state)
+    if(verifySucces  ){
+    
+      if(userRole.role === "1" ){
+        navigate('/dashboard'); 
+      }
+      else{
+        if(userRole.state ==="0"){
+            navigate('/profile'); 
+        }
+        else{
+          //go to page tell u have to wait
+          navigate('/profile'); 
+        }
 
-    if(userRole.role === "1" ){
-      navigate('/dashboard'); 
-     }
-     else{
-      navigate('/general-information'); 
-     }
-    //
-   }
-   else{
-    //setValidationError('You do not have permission.');
-   }
+        
+      }
+      //
+    }
+    else{
+      //setValidationError('You do not have permission.');
+    }
   }, [verifySucces]);
   
   // Show a loading spinner while verifying the token

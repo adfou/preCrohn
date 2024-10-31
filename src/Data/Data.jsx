@@ -3,7 +3,7 @@ const cardHomeDataLeft =
     {
         text: "Participanst: Take yout PRE-Crohn's study questionnaire",
         buttonText: "GET STARTED",
-        buttonLink: "/General-Information"
+        buttonLink: "/profile"
     }
    
 const cardHomeDataRight = 

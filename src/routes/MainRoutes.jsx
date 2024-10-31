@@ -7,28 +7,21 @@ import loadable from '@loadable/component';
 import { GeneralInformationData, YourmedicalhistoryData, FamilyHistoryData ,AboutTheStudy,DiseaseInformation} from "../Data";
 
 // Page imports using @loadable/component with a fallback loader
-const DashboardAdmin = loadable(() => import('../pages/Dashboard'), {
-  fallback: <Loader />,
-});
+
 const Home = loadable(() => import('../pages/Home'), {
   fallback: <Loader />,
 });
-const Login = loadable(() => import('../pages/Login'), {
-  fallback: <Loader />,
-});
+
 const Page = loadable(() => import('../pages/Page'), {
   fallback: <Loader />,
 });
-const Questionnaire = loadable(() => import('../pages/Questionnaire'), {
-  fallback: <Loader />,
-});
-const PatientDashboard = loadable(() => import('../pages/Patient'), {
+const ParticipantDashboard = loadable(() => import('../pages/ParticipantDashboard'), {
   fallback: <Loader />,
 });
 
-const CrohnRisk = loadable(() => import('../pages/CrohnRisk'), {
-  fallback: <Loader />,
-});
+
+
+
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -66,6 +59,17 @@ const MainRoutes = {
         },
       ],
     },
+    {
+      path: '/profile',
+      element: <MainLayout />,
+      children: [
+        {
+          path: '',
+          element: <ParticipantDashboard />,
+        },
+      ],
+    },
+    
     
   ],
 };

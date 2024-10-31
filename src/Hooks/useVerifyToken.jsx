@@ -14,13 +14,11 @@ export const useVerifyToken = () => {
   useEffect(() => {
     const verifyToken = async () => {
       if (!token) {
-        console.log("No token found, not verifying.");
         setLoading(false); // No token, we can stop loading
         return;
       }
 
       try {
-        console.log("Verifying token...");
         const response = await axios.get(import.meta.env.VITE_APP_BASE_API + "auth/token", {
           headers: {
             'Authorization': `${token}`, // Pass token in headers with Bearer
@@ -28,14 +26,12 @@ export const useVerifyToken = () => {
         });
 
         if (response.status === 200) {
-          console.log("log in success");
-          console.log(response.data.user)
+          console.log("response.data.user:",response.data.user)
           setuserRole(response.data.user)
           const { user } = response.data.user; // Assuming the API response contains user info
           dispatch(loginSuccess({ token, user })); // Save user info including roles in Redux
           setSuccess(true); // Set success flag if token is valid
         } else {
-          console.log("Token is invalid, logging out.");
           dispatch(logout()); // Log out if the token is invalid
         }
       } catch (err) {

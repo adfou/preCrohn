@@ -30,13 +30,24 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
     const allFormData = useSelector((state) => state.questionnaire.data);
     
     const [isSaving, setIsSaving] = useState(false);
-    const { createForm :CreateFormQuery, loading, error } =  useCreateForm();
+    const { createForm :CreateFormQuery, response,loading, error } =  useCreateForm();
     
     useEffect(() => {
         if (Object.keys(savedData).length > 0) {
             setFormData(savedData); // Populate the form with saved data if it exists
         }
     }, [currentSectionIndex, savedData]);
+
+    useEffect(() => {
+        console.log("error:",error)
+        if (error && (error === 500 || error === 403 )) {
+            console.log("===========================");
+            console.log("Error occurred:", error);
+            navigate("/login");
+            console.log("===========================");
+        }
+    }, [error]);
+    
 
     const handleChange = (event) => {
         const { name, value, type, checked } = event.target;
@@ -203,12 +214,12 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
             ...allFormData,                          // Keep all previous sections' data
             [sectionTags[currentSectionIndex]]: formData // Update the current section's data
         };
-        console.log(updatedFormData)
+       
         
         
         CreateFormQuery(updatedFormData);
         dispatch(saveFormData({ currentSectionIndex, data: formData }));
-        navigate(`/crohn-risk`);
+        navigate(`/profile`);
     };
 
     const handleBack = () => {
