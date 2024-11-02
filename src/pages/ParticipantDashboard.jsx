@@ -263,7 +263,7 @@ const ParticipantDashboard = () => {
           <NextStepsCard date={submitDate} phase={phase} role={role} />
         </Box>
 
-        <ThreeCardsSection />
+        <ThreeCardsSection progression={progression}/>
 
         {/* Thanks Section */}
         <Box sx={{ padding: '0px 255px 0px 300px', textAlign: 'left', maxWidth: '1435px' }}>

@@ -2,7 +2,8 @@ import React from 'react';
 import { Box } from '@mui/material';
 import {CardParticipants} from './CardParticipants';
 
-export const ThreeCardsSection = () => {
+export const ThreeCardsSection = (progression) => {
+  console.log("progression:",progression.progression)
   return (
     <Box
       sx={{
@@ -15,7 +16,7 @@ export const ThreeCardsSection = () => {
       
       <CardParticipants title="Access information" type="Learn more" />
       <CardParticipants title="Questions?" type="Contact us" />
-      <CardParticipants title="Your personalized risk" type="Return to" variant='white'/>
+      <CardParticipants title="Your personalized risk" type="Return to" variant={progression.progression===100?'nprmal':'white'}/>
     </Box>
   );
 };

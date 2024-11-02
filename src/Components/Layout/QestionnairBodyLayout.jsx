@@ -68,54 +68,159 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
     const validateForm = () => {
         const formElement = document.getElementById('form');
         const formFields = formElement.querySelectorAll('input, select, textarea');
-        const checkedRadioGroups = new Set(); 
+        console.log("formElement:", formElement);
+        const checkedRadioGroups = new Set();
         const checkedCheckboxGroups = new Set();
-
+        let isValid = true; // Assume the form is valid initially
+    
+        // Reset all fields to remove error indication
+        formFields.forEach((field) => {
+            field.classList.remove('error-field');
+            const parentFieldset = field.closest('fieldset');
+            const legend = parentFieldset?.querySelector('legend');
+            if (legend) {
+                legend.classList.remove('error-field'); // Remove error indication from legend
+            }
+        });
+    
+        // Validate each form field
         for (const element of formFields) {
             const fieldName = element.name || element.id || 'Unnamed Field';
-            let fieldValue;
-
+            console.log("element.type:", element.type);
+    
             if (element.type === 'checkbox') {
                 if (element.checked) {
                     checkedCheckboxGroups.add(element.name);
+                } else {
+                    const parentFieldset = element.closest('fieldset');
+                    const legend = parentFieldset?.querySelector('legend');
+                    if (legend) {
+                        legend.classList.add('error-field'); // Add error style to legend
+                    }
                 }
             } else if (element.type === 'radio') {
                 if (element.checked) {
                     checkedRadioGroups.add(element.name);
                 }
+            } else if (element.type === 'text') {
+                const fieldValue = element.value.trim();
+                if (!fieldValue) {
+                    console.log(`Text field "${fieldName}" is empty!`);
+                    element.classList.add('error-field'); // Mark the empty field in red
+    
+                    // Find the closest div with 'MuiFormControl-root' class
+                    const parentDiv = element.closest('.MuiFormControl-root');
+                    console.log("parentDiv:", parentDiv);
+    
+                    // Access the specific legend inside this div
+                    const legend = parentDiv?.querySelector('legend');
+                    if (legend && legend.textContent.includes("How old are you?")) {
+                        legend.classList.add('error-field'); // Add error style to "How old are you?" legend
+                    }
+                    isValid = false;
+                }
             } else {
-                fieldValue = element.value.trim();
+                // Additional handling for other input types (e.g., textarea, select)
+                const fieldValue = element.value.trim();
                 if (!fieldValue) {
                     console.log(`Field "${fieldName}" is empty!`);
-                    return false;
+                    element.classList.add('error-field'); // Mark the empty field in red
+                    const parentFieldset = element.closest('fieldset');
+                    const legend = parentFieldset?.querySelector('legend');
+                    if (legend) {
+                        legend.classList.add('error-field'); // Add error style to legend
+                    }
+                    isValid = false;
                 }
             }
         }
-
+    
+        // Check if table with 'radio-table' class exists and add error to the first cell if necessary
+        const radioTable = document.querySelector('.radio-table');
+        if (radioTable) {
+            const rows = radioTable.querySelectorAll('tr');
+            rows.forEach((row) => {
+                const firstCell = row.querySelector('td');
+                if (firstCell) {
+                    firstCell.classList.remove('error-field'); // Reset error style at the beginning of each check
+                }
+    
+                const radioButtons = row.querySelectorAll('input[type="radio"]');
+                const isSelected = Array.from(radioButtons).some((radio) => radio.checked);
+    
+                if (!isSelected && firstCell) {
+                    console.log("Row in 'radio-table' has no radio button selected.");
+                    firstCell.classList.add('error-field'); // Add error style to the first cell if no selection
+                    //isValid = false;
+                }
+            });
+        }
+    
+        // Check if table with 'radio-table-two' class exists and add error to the second cell if necessary
+        const radioTableTwo = document.querySelector('.radio-table-two');
+        if (radioTableTwo) {
+            const rows = radioTableTwo.querySelectorAll('tr');
+            rows.forEach((row) => {
+                const secondCell = row.querySelectorAll('td')[1]; // Select the second cell
+                if (secondCell) {
+                    secondCell.classList.remove('error-field'); // Reset error style at the beginning of each check
+                }
+    
+                const radioButtons = row.querySelectorAll('input[type="radio"]');
+                const isSelected = Array.from(radioButtons).some((radio) => radio.checked);
+    
+                if (!isSelected && secondCell) {
+                    console.log("Row in 'radio-table-two' has no radio button selected.");
+                    secondCell.classList.add('error-field'); // Add error style to the second cell if no selection
+                    isValid = false;
+                }
+            });
+        }
+    
+        // Handle radio group validation
         const radioGroups = formElement.querySelectorAll('input[type="radio"]');
         const uniqueRadioGroups = new Set(Array.from(radioGroups).map(r => r.name));
-
+    
         for (const groupName of uniqueRadioGroups) {
             if (!checkedRadioGroups.has(groupName)) {
-                console.log(`Radio group "${groupName}" has no selected option!`);
-                return false;
+                const groupElements = formElement.querySelectorAll(`input[name="${groupName}"]`);
+                const parentFieldset = groupElements[0]?.closest('fieldset');
+                const legend = parentFieldset?.querySelector('legend');
+                if (legend) {
+                    legend.classList.add('error-field'); // Add error style to legend
+                }
+                isValid = false;
             }
         }
-
+    
+        // Handle checkbox group validation
         const checkboxGroups = formElement.querySelectorAll('input[type="checkbox"]');
         const uniqueCheckboxGroups = new Set(Array.from(checkboxGroups).map(c => c.name));
-
+    
         for (const groupName of uniqueCheckboxGroups) {
             if (!checkedCheckboxGroups.has(groupName)) {
-                console.log(`Checkbox group "${groupName}" has no checked option!`);
-                return false;
+                const groupElements = formElement.querySelectorAll(`input[name="${groupName}"]`);
+                const parentFieldset = groupElements[0]?.closest('fieldset');
+                const legend = parentFieldset?.querySelector('legend');
+                if (legend) {
+                    legend.classList.add('error-field'); // Add error style to legend
+                }
+                isValid = false;
             }
         }
-
-        console.log("All fields are valid.");
-        return true;
+    
+        console.log(isValid ? "All fields are valid." : "Some fields are invalid.");
+        return isValid;
     };
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
     const handleSave = async () => {
       setIsSaving(true);  // Set loader to true
       try {

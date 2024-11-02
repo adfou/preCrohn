@@ -38,6 +38,7 @@ const customCheckboxStyles = {
 };
 
 const renderContent = (key, value, handleChange, formData) => {
+  const isInvalid = (name) => !formData[name] && formData.hasOwnProperty(name); // Check if the field is invalid
     switch (key) {
       case 'H2':
         return <Typography variant="h2">{value}</Typography>;
@@ -48,46 +49,51 @@ const renderContent = (key, value, handleChange, formData) => {
           : <Typography variant="body1">{parse(value)}</Typography>;
   
       case 'radio':
-        const [radioQuestion, ...radioOptions] = value;
-        return (
-          <FormControl component="fieldset">
-            <FormLabel component="legend">{radioQuestion}</FormLabel>
-            <RadioGroup name={radioQuestion} onChange={handleChange} value={formData[radioQuestion] || ''}>
-              {radioOptions.map((option, index) => (
-                <FormControlLabel
-                  key={index}
-                  value={index.toString()} // Use index as the value
-                  control={<Radio sx={customRadioStyles} />}
-                  label={option}
-                />
-              ))}
-            </RadioGroup>
-          </FormControl>
-        );
-  
+            const [radioQuestion, ...radioOptions] = value;
+            return (
+              <FormControl component="fieldset">
+                <FormLabel component="legend">{radioQuestion}</FormLabel>
+                <RadioGroup
+                  name={radioQuestion}
+                  onChange={handleChange}
+                  value={formData[radioQuestion] || ''}
+                >
+                  {radioOptions.map((option, index) => (
+                    <FormControlLabel
+                      key={index}
+                      value={index.toString()} // Use index as the value
+                      control={<Radio sx={{ ...customRadioStyles, ...(isInvalid(radioQuestion) ? { border: '2px solid red' } : {}) }} />}
+                      label={option}
+                    />
+                  ))}
+                </RadioGroup>
+              </FormControl>
+            );
+      
+      
       case 'checkbox':
-        const [checkboxQuestion, ...checkboxOptions] = value;
-        return (
-          <FormControl component="fieldset">
-            <FormLabel component="legend">{checkboxQuestion}</FormLabel>
-            {checkboxOptions.map((option, index) => (
-              <FormControlLabel
-                key={index}
-                control={
-                  <Checkbox
-                    sx={customCheckboxStyles}
-                    name={checkboxQuestion}
-                    value={option}
-                    checked={(formData[checkboxQuestion] || []).includes(option)}
-                    onChange={handleChange}
-                  />
-                }
-                label={option}
-              />
-            ))}
-          </FormControl>
-        );
-  
+      const [checkboxQuestion, ...checkboxOptions] = value;
+      return (
+        <FormControl component="fieldset">
+          <FormLabel component="legend">{checkboxQuestion}</FormLabel>
+          {checkboxOptions.map((option, index) => (
+            <FormControlLabel
+              key={index}
+              control={
+                <Checkbox
+                  sx={{ ...customCheckboxStyles, ...(isInvalid(checkboxQuestion) ? { border: '2px solid red' } : {}) }}
+                  name={checkboxQuestion}
+                  value={option}
+                  checked={(formData[checkboxQuestion] || []).includes(option)}
+                  onChange={handleChange}
+                />
+              }
+              label={option}
+            />
+          ))}
+        </FormControl>
+      );
+
       case 'checkboxKey':
         const [checkboxKeyQuestion, ...checkboxKeyOptions] = value;
         return (
@@ -116,155 +122,198 @@ const renderContent = (key, value, handleChange, formData) => {
         );
   
       case 'input':
-        return (
-          <FormControl >
-            <FormLabel>{value}</FormLabel>
-            <TextField 
-              variant="outlined" 
-              sx={{ bgcolor: 'white' }} 
-              name={value}
-              value={formData[value] || ''}
-              onChange={handleChange} 
-            />
-          </FormControl>
-        );
-  
+      return (
+        <FormControl>
+          <FormLabel component="legend">{value}</FormLabel>
+          <input
+            variant="outlined"
+            sx={{ bgcolor: 'white', ...(isInvalid(value) ? { border: '2px solid red' } : {}) }}
+            name={value}
+            value={formData[value] || ''}
+            onChange={handleChange}
+            label={value}
+          />
+        </FormControl>
+      );
       case 'inputKey':
-        return (
-          <FormControl>
-            {value.map((item, index) => (
-              <Box key={index} sx={{ mb: 2 ,height:"44px"}}>
-                <FormLabel>{item.label}</FormLabel>
-                <TextField 
-                  variant="outlined" 
-                  sx={{ bgcolor: 'white',height:"41px" }} 
-                  name={item.label}
-                  value={formData[item.label] || ''}
-                  onChange={handleChange} 
+      return (
+        <FormControl>
+          {value.map((item, index) => (
+            <Box key={index} sx={{ mb: 2, height: "44px" }}>
+              <FormLabel>{item.label}</FormLabel>
+              <TextField
+                variant="outlined"
+                sx={{ bgcolor: 'white', height: "41px", ...(isInvalid(item.label) ? { border: '2px solid red' } : {}) }}
+                name={item.label}
+                value={formData[item.label] || ''}
+                onChange={handleChange}
+              />
+            </Box>
+          ))}
+        </FormControl>
+      );
+
+      case 'ladderRadio': {
+      const [ladderQuestion, ladderOptions] = value;
+
+      return (
+        <FormControl component="fieldset" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+          <FormLabel component="legend" sx={{ mb: 2, textAlign: 'left' }}>{ladderQuestion}</FormLabel>
+          <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', mr: 2 }}>
+              {ladderOptions.map((_, index) => (
+                <Typography key={index} sx={{ height: '40px', display: 'flex', alignItems: 'center' }}>
+                  {ladderOptions.length - 1 - index}
+                </Typography>
+              ))}
+            </Box>
+
+            <RadioGroup
+              name={ladderQuestion}
+              onChange={handleChange}
+              value={formData[ladderQuestion] || ''}
+              sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '435px' }}
+            >
+              {ladderOptions.map((_, index) => (
+                <FormControlLabel
+                  key={index}
+                  value={(ladderOptions.length - 1 - index).toString()}
+                  control={<Radio sx={{ ...customRadioStyles, ...(isInvalid(ladderQuestion) ? { border: '2px solid red' } : {}) }} />}
+                  label=""
+                  sx={{ display: 'flex', justifyContent: 'center', height: '38px' }}
                 />
-              </Box>
-            ))}
-          </FormControl>
-        );
+              ))}
+            </RadioGroup>
+
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', ml: 2, height: '435px', justifyContent: "space-between" }}>
+              {ladderOptions.map((option, index) => (
+                <Typography key={index} sx={{ height: '36px', display: 'flex', alignItems: 'center' }}>
+                  {option}
+                </Typography>
+              ))}
+            </Box>
+          </Box>
+        </FormControl>
+      );
+    }
+        
+        
+        
+        
+    case 'recreationalActivityTable': {
+      const { activities, weightTrainingActivities, timeRanges } = value;
   
-        case 'ladderRadio': {
-          const [ladderQuestion, ladderOptions] = value;
-        
-          return (
-            <FormControl component="fieldset" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-              <FormLabel component="legend" sx={{ mb: 2, textAlign: 'left' }}>{ladderQuestion}</FormLabel>
-              <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
-                {/* Left-side Labels */}
-                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', mr: 2 }}>
-                  {/* Reverse the ladder options */}
-                  {ladderOptions.map((option, index) => (
-                    <Typography key={index} sx={{ height: '40px', display: 'flex', alignItems: 'center' }}>
-                      {ladderOptions.length - 1 - index} {/* Display the numbers from 10 to 0 */}
-                    </Typography>
-                  ))}
-                </Box>
-        
-                {/* Radio Buttons */}
-                <RadioGroup
-                  name={ladderQuestion}
-                  onChange={handleChange}
-                  value={formData[ladderQuestion] || ''}
-                  sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '435px' }}  // Adjust the height to match your layout
-                >
-                  {/* Reverse the ladder options */}
-                  {ladderOptions.map((option, index) => (
-                    <FormControlLabel
-                      key={index}
-                      value={(ladderOptions.length - 1 - index).toString()}  // Reverse the value for the radio button
-                      control={<Radio sx={customRadioStyles} />}
-                      label=""
-                      sx={{ display: 'flex', justifyContent: 'center', height: '38px', }}  // Set the height to align with the text
-                    />
-                  ))}
-                </RadioGroup>
-        
-                {/* Right-side Text */}
-                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', ml: 2, height: '435px',justifyContent:"space-between"  }}>
-                  {/* Reverse the ladder options */}
-                  {ladderOptions.map((option, index) => (
-                    <Typography key={index} sx={{ height: '36px', display: 'flex', alignItems: 'center' }}>
-                      {option}  {/* Display the text options in reversed order */}
-                    </Typography>
-                  ))}
-                </Box>
-              </Box>
-            </FormControl>
-          );
-        }
-        
-        
-        
-        
-      case 'recreationalActivityTable':
-        const { activities, weightTrainingActivities, timeRanges } = value;
-        
-        return (
-          <TableContainer component={Paper}>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Activity</TableCell>
-                  {timeRanges.map((range, index) => (
-                    <TableCell key={index}>{range}</TableCell>
-                  ))}
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {activities.map((activity, rowIndex) => (
-                  <TableRow key={rowIndex}>
-                    <TableCell>{activity}</TableCell>
-                    {timeRanges.map((range, colIndex) => (
-                      <TableCell key={colIndex}>
-                        <FormControlLabel
-                          control={
-                            <Radio
-                              name={activity}
-                              value={colIndex.toString()}  // Use index (0-9) as the value
-                              checked={formData[activity] === colIndex.toString()}
-                              onChange={handleChange}
-                            />
-                          }
-                        />
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                ))}
+      // Function to handle "Check All" button click
+      const handleCheckAll = () => {
+          // Check the third option (index 2) for each activity
+          activities.forEach((activity) => {
+              handleChange({
+                  target: {
+                      name: activity,
+                      value: '2', // Set to the third option (index 2) for each activity
+                  },
+              });
+          });
   
-                {/* Weight Training Activities */}
-                <TableRow>
-                  <TableCell colSpan={11}>
-                    <Typography variant="h6">Weight training or resistance exercises (e.g., free weights or machines)</Typography>
-                  </TableCell>
-                </TableRow>
+          // Check the third option (index 2) for each weight training activity
+          weightTrainingActivities.forEach((weightActivity) => {
+              handleChange({
+                  target: {
+                      name: weightActivity,
+                      value: '2', // Set to the third option (index 2) for each weight training activity
+                  },
+              });
+          });
+      };
   
-                {weightTrainingActivities.map((weightActivity, rowIndex) => (
-                  <TableRow key={rowIndex}>
-                    <TableCell>{weightActivity}</TableCell>
-                    {timeRanges.map((range, colIndex) => (
-                      <TableCell key={colIndex}>
-                        <FormControlLabel
-                          control={
-                            <Radio
-                              name={weightActivity}
-                              value={colIndex.toString()}  // Use index (0-9) as the value
-                              checked={formData[weightActivity] === colIndex.toString()}
-                              onChange={handleChange}
-                            />
-                          }
-                        />
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        );
+      return (
+          <Box>
+              <Button
+                  variant="contained"
+                  onClick={handleCheckAll}
+                  sx={{ mb: 2 }}
+              >
+                  Check All (1 per week)
+              </Button>
+              <TableContainer component={Paper}>
+                  <Table>
+                      <TableHead>
+                          <TableRow>
+                              <TableCell>Activity</TableCell>
+                              {timeRanges.map((range, index) => (
+                                  <TableCell key={index}>{range}</TableCell>
+                              ))}
+                          </TableRow>
+                      </TableHead>
+                      <TableBody className="radio-table">
+                          {activities.map((activity, rowIndex) => (
+                              <TableRow key={rowIndex}>
+                                  <TableCell>{activity}</TableCell>
+                                  {timeRanges.map((range, colIndex) => (
+                                      <TableCell key={colIndex}>
+                                          <FormControlLabel
+                                              control={
+                                                  <Radio
+                                                      name={activity}
+                                                      value={colIndex.toString()}
+                                                      checked={formData[activity] === colIndex.toString()}
+                                                      onChange={(e) =>
+                                                          handleChange({
+                                                              target: {
+                                                                  name: activity,
+                                                                  value: e.target.value,
+                                                              },
+                                                          })
+                                                      }
+                                                  />
+                                              }
+                                          />
+                                      </TableCell>
+                                  ))}
+                              </TableRow>
+                          ))}
+  
+                          {/* Weight Training Activities */}
+                          <TableRow>
+                              <TableCell colSpan={11}>
+                                  <Typography variant="h6">
+                                      Weight training or resistance exercises (e.g., free weights or machines)
+                                  </Typography>
+                              </TableCell>
+                          </TableRow>
+  
+                          {weightTrainingActivities.map((weightActivity, rowIndex) => (
+                              <TableRow key={rowIndex}>
+                                  <TableCell>{weightActivity}</TableCell>
+                                  {timeRanges.map((range, colIndex) => (
+                                      <TableCell key={colIndex}>
+                                          <FormControlLabel
+                                              control={
+                                                  <Radio
+                                                      name={weightActivity}
+                                                      value={colIndex.toString()}
+                                                      checked={formData[weightActivity] === colIndex.toString()}
+                                                      onChange={(e) =>
+                                                          handleChange({
+                                                              target: {
+                                                                  name: weightActivity,
+                                                                  value: e.target.value,
+                                                              },
+                                                          })
+                                                      }
+                                                  />
+                                              }
+                                          />
+                                      </TableCell>
+                                  ))}
+                              </TableRow>
+                          ))}
+                      </TableBody>
+                  </Table>
+              </TableContainer>
+          </Box>
+      );
+  }
   
       case 'HTMLTEXT':
         return (
@@ -273,51 +322,102 @@ const renderContent = (key, value, handleChange, formData) => {
           </Box>
         );
      
-    case 'dairyFoodsTable':
-            const { foods, timeRangesFood,title } = value;
-
-            return (
-                <TableContainer component={Paper}>
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>{title}</TableCell>
-                                {timeRangesFood.map((range, index) => (
-                                    <TableCell key={index}>{range}</TableCell>
-                                ))}
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {foods.map((food, rowIndex) => (
-                                <TableRow key={rowIndex}>
-                                    <TableCell>{food}</TableCell>
-                                    {timeRangesFood.map((range, colIndex) => (
-                                        <TableCell key={colIndex}>
-                                            <FormControlLabel
-                                                control={
-                                                    <Radio
-                                                        name={food}
-                                                        value={colIndex.toString()}  // Use index (0-9) as the value
-                                                        checked={formData[food] === colIndex.toString()}
-                                                        onChange={handleChange}
-                                                    />
-                                                }
-                                            />
-                                        </TableCell>
-                                    ))}
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-            );
-       
+        case 'dairyFoodsTable': {
+          const { foods, timeRangesFood, title } = value;
+      
+          // Function to handle "Check All" button click
+          const handleCheckAll = () => {
+              foods.forEach((food) => {
+                  // Trigger a change event to check the third radio button (index 2) for each food item
+                  handleChange({
+                      target: {
+                          name: food,
+                          value: '2', // Set to the third option (index 2) for each food
+                      },
+                  });
+              });
+          };
+      
+          return (
+              <Box>
+                  <Button
+                      variant="contained"
+                      onClick={handleCheckAll}
+                      sx={{ mb: 2 }}
+                  >
+                      Check All (1 per week)
+                  </Button>
+                  <TableContainer component={Paper}>
+                      <Table>
+                          <TableHead>
+                              <TableRow>
+                                  <TableCell>{title}</TableCell>
+                                  {timeRangesFood.map((range, index) => (
+                                      <TableCell key={index}>{range}</TableCell>
+                                  ))}
+                              </TableRow>
+                          </TableHead>
+                          <TableBody className="radio-table">
+                              {foods.map((food, rowIndex) => (
+                                  <TableRow key={rowIndex}>
+                                      <TableCell>{food}</TableCell>
+                                      {timeRangesFood.map((range, colIndex) => (
+                                          <TableCell key={colIndex}>
+                                              <FormControlLabel
+                                                  control={
+                                                      <Radio
+                                                          name={food}
+                                                          value={colIndex.toString()}
+                                                          checked={formData[food] === colIndex.toString()}
+                                                          onChange={(e) =>
+                                                              handleChange({
+                                                                  target: {
+                                                                      name: food,
+                                                                      value: e.target.value,
+                                                                  },
+                                                              })
+                                                          }
+                                                      />
+                                                  }
+                                              />
+                                          </TableCell>
+                                      ))}
+                                  </TableRow>
+                              ))}
+                          </TableBody>
+                      </Table>
+                  </TableContainer>
+              </Box>
+          );
+      }
+      
+      
     
-    case 'FoodsTableTwo':
-
-            const { foodsTwo = [], TwotimeRangesFood = [], titleTwo = '' } = value || {};  // Use default values to avoid undefined errors
-
-            return (
+      case 'FoodsTableTwo': {
+        const { foodsTwo = [], TwotimeRangesFood = [], titleTwo = '' } = value || {};
+    
+        // Function to handle "Check All" button click
+        const handleCheckAll = () => {
+            // Set the third option (index 2) for each food pair
+            foodsTwo.forEach((foodPair) => {
+                handleChange({
+                    target: {
+                        name: `${foodPair[0]}_${foodPair[1]}`,
+                        value: '2', // Set to the third option (index 2) for each food pair
+                    },
+                });
+            });
+        };
+    
+        return (
+            <Box>
+                <Button
+                    variant="contained"
+                    onClick={handleCheckAll}
+                    sx={{ mb: 2 }}
+                >
+                    Check All (1 per week)
+                </Button>
                 <TableContainer component={Paper}>
                     <Table>
                         <TableHead>
@@ -329,7 +429,7 @@ const renderContent = (key, value, handleChange, formData) => {
                                 ))}
                             </TableRow>
                         </TableHead>
-                        <TableBody>
+                        <TableBody className="radio-table-two">
                             {foodsTwo.map((foodPair, rowIndex) => (
                                 <TableRow key={rowIndex}>
                                     {/* Each row has two TableCells for the two foods */}
@@ -341,9 +441,16 @@ const renderContent = (key, value, handleChange, formData) => {
                                                 control={
                                                     <Radio
                                                         name={`${foodPair[0]}_${foodPair[1]}`}
-                                                        value={colIndex.toString()}  // Use index (0-9) as the value
+                                                        value={colIndex.toString()}
                                                         checked={formData[`${foodPair[0]}_${foodPair[1]}`] === colIndex.toString()}
-                                                        onChange={handleChange}
+                                                        onChange={(e) =>
+                                                            handleChange({
+                                                                target: {
+                                                                    name: `${foodPair[0]}_${foodPair[1]}`,
+                                                                    value: e.target.value,
+                                                                },
+                                                            })
+                                                        }
                                                     />
                                                 }
                                             />
@@ -354,7 +461,9 @@ const renderContent = (key, value, handleChange, formData) => {
                         </TableBody>
                     </Table>
                 </TableContainer>
-            );
+            </Box>
+        );
+    }
     
 
     

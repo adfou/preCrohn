@@ -36,7 +36,7 @@ export const CardParticipants = ({ title, type, variant = 'default' }) => {
       description = variant === 'white' 
         ? "After your 6-month visit & questionnaire are completed, you will have access to personalized risk information."
         : 'your personalized risk page';
-      linkUrl = '/personalized-risk';
+      linkUrl = '/crohn-risk';
       linkImg = variant === 'white' ? '/personalized-white.png' : '/personalized.png';
       break;
     default:

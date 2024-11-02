@@ -28,7 +28,13 @@ html {
   background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
   z-index: 9999; /* Ensure it appears on top */
 }
-
+.error-field {
+  color: red;
+}
+input.error-field {
+  border: 2px solid red;
+  color: black;
+}
 body {
     font-family: $POOPINS_FONT ;
     //background-color:$PRE_Crohn_Body_Background;
