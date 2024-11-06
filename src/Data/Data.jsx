@@ -268,7 +268,7 @@ const YourmedicalhistoryData = [
           ],
          
           [
-            "NO",
+            "No",
            
           ]
         ]
