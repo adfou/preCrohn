@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardContent, Typography, Box } from '@mui/material';
 
 export const CardParticipants = ({ title, type, variant = 'default' }) => {
+  console.log("variant :",variant)
   // Determine link and link text based on type
   let linkText = '';
   let linkUrl = '';
@@ -32,6 +33,7 @@ export const CardParticipants = ({ title, type, variant = 'default' }) => {
       imgHeight = '80px';
       break;
     case 'Return to':
+      console.log("return to:",variant)
       linkText = 'Return to ';
       description = variant === 'white' 
         ? "After your 6-month visit & questionnaire are completed, you will have access to personalized risk information."
@@ -44,7 +46,7 @@ export const CardParticipants = ({ title, type, variant = 'default' }) => {
       linkUrl = '#';
       linkImg = '';
   }
-
+  console.log("variant 2  :",variant)
   return (
     <Card
       sx={{

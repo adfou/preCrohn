@@ -3,7 +3,9 @@ import { Box } from '@mui/material';
 import {CardParticipants} from './CardParticipants';
 
 export const ThreeCardsSection = (progression) => {
-  console.log("progression:",progression.progression)
+
+  console.log("progression:",progression.progression  )
+  console.log("type:",typeof progression.progression)
   return (
     <Box
       sx={{
@@ -16,7 +18,7 @@ export const ThreeCardsSection = (progression) => {
       
       <CardParticipants title="Access information" type="Learn more" />
       <CardParticipants title="Questions?" type="Contact us" />
-      <CardParticipants title="Your personalized risk" type="Return to" variant={progression.progression===100?'nprmal':'white'}/>
+      <CardParticipants title="Your personalized risk" type="Return to" variant={progression.progression===100?'default':'white'} />
     </Box>
   );
 };

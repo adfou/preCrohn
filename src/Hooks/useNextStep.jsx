@@ -6,21 +6,20 @@ export const useNextStep = () => {
   const [loading, setLoading] = useState(false); // Initially not loading
   const [error, setError] = useState(null);
 
-  const triggerNextStep = async () => {
+  const triggerNextStep = async (id) => {  // Accepts id as a parameter
     setLoading(true);
     setError(null);
-    //console.log("localStorage.getItem('token')",localStorage.getItem('token'))
+    console.log("next id",id)
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_APP_BASE_API}next-step`,
-        
+        `${import.meta.env.VITE_APP_BASE_API}next-step?id=${id}`,  // Include id in the URL
         {
           headers: {
             'Authorization': `${localStorage.getItem('token')}`,
           },
         }
       );
-      console.log(response.data);
+      console.log("response",response.data);
       setNextStepData(response.data);
     } catch (err) {
       setError(err.response ? err.response.data : err.message);

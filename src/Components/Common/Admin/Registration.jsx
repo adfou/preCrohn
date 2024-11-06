@@ -45,7 +45,7 @@ export const Registration = () => {
           required
         />
         <TextField
-          label="Second Name"
+          label="Last Name"
           variant="outlined"
           fullWidth
           margin="normal"

@@ -68,7 +68,6 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
     const validateForm = () => {
         const formElement = document.getElementById('form');
         const formFields = formElement.querySelectorAll('input, select, textarea');
-        console.log("formElement:", formElement);
         const checkedRadioGroups = new Set();
         const checkedCheckboxGroups = new Set();
         let isValid = true; // Assume the form is valid initially
@@ -85,14 +84,18 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
     
         // Validate each form field
         for (const element of formFields) {
+            const parentFieldset = element.closest('fieldset');
+            
+           
+            
+            
+    
             const fieldName = element.name || element.id || 'Unnamed Field';
-            console.log("element.type:", element.type);
     
             if (element.type === 'checkbox') {
                 if (element.checked) {
                     checkedCheckboxGroups.add(element.name);
                 } else {
-                    const parentFieldset = element.closest('fieldset');
                     const legend = parentFieldset?.querySelector('legend');
                     if (legend) {
                         legend.classList.add('error-field'); // Add error style to legend
@@ -108,15 +111,12 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                     console.log(`Text field "${fieldName}" is empty!`);
                     element.classList.add('error-field'); // Mark the empty field in red
     
-                    // Find the closest div with 'MuiFormControl-root' class
                     const parentDiv = element.closest('.MuiFormControl-root');
-                    console.log("parentDiv:", parentDiv);
-    
-                    // Access the specific legend inside this div
                     const legend = parentDiv?.querySelector('legend');
                     if (legend && legend.textContent.includes("How old are you?")) {
                         legend.classList.add('error-field'); // Add error style to "How old are you?" legend
                     }
+                    console.log("false 1 ")
                     isValid = false;
                 }
             } else {
@@ -125,56 +125,15 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                 if (!fieldValue) {
                     console.log(`Field "${fieldName}" is empty!`);
                     element.classList.add('error-field'); // Mark the empty field in red
-                    const parentFieldset = element.closest('fieldset');
                     const legend = parentFieldset?.querySelector('legend');
                     if (legend) {
                         legend.classList.add('error-field'); // Add error style to legend
                     }
+                    console.log("false 2 ")
+                    
                     isValid = false;
                 }
             }
-        }
-    
-        // Check if table with 'radio-table' class exists and add error to the first cell if necessary
-        const radioTable = document.querySelector('.radio-table');
-        if (radioTable) {
-            const rows = radioTable.querySelectorAll('tr');
-            rows.forEach((row) => {
-                const firstCell = row.querySelector('td');
-                if (firstCell) {
-                    firstCell.classList.remove('error-field'); // Reset error style at the beginning of each check
-                }
-    
-                const radioButtons = row.querySelectorAll('input[type="radio"]');
-                const isSelected = Array.from(radioButtons).some((radio) => radio.checked);
-    
-                if (!isSelected && firstCell) {
-                    console.log("Row in 'radio-table' has no radio button selected.");
-                    firstCell.classList.add('error-field'); // Add error style to the first cell if no selection
-                    //isValid = false;
-                }
-            });
-        }
-    
-        // Check if table with 'radio-table-two' class exists and add error to the second cell if necessary
-        const radioTableTwo = document.querySelector('.radio-table-two');
-        if (radioTableTwo) {
-            const rows = radioTableTwo.querySelectorAll('tr');
-            rows.forEach((row) => {
-                const secondCell = row.querySelectorAll('td')[1]; // Select the second cell
-                if (secondCell) {
-                    secondCell.classList.remove('error-field'); // Reset error style at the beginning of each check
-                }
-    
-                const radioButtons = row.querySelectorAll('input[type="radio"]');
-                const isSelected = Array.from(radioButtons).some((radio) => radio.checked);
-    
-                if (!isSelected && secondCell) {
-                    console.log("Row in 'radio-table-two' has no radio button selected.");
-                    secondCell.classList.add('error-field'); // Add error style to the second cell if no selection
-                    isValid = false;
-                }
-            });
         }
     
         // Handle radio group validation
@@ -189,6 +148,14 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                 if (legend) {
                     legend.classList.add('error-field'); // Add error style to legend
                 }
+                console.log("groupElements:",parentFieldset)
+                console.log("false 3 ")
+                const isFieldsetNotRequired = parentFieldset?.classList.contains('not-required');
+                console.log("isFieldsetNotRequired",isFieldsetNotRequired)
+                    // Skip validation if the fieldset has the "not-required" class
+                    if (isFieldsetNotRequired) {
+                        continue;
+                    }
                 isValid = false;
             }
         }
@@ -205,13 +172,55 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                 if (legend) {
                     legend.classList.add('error-field'); // Add error style to legend
                 }
+                
+                console.log("false 4 ")
                 isValid = false;
             }
         }
     
-        console.log(isValid ? "All fields are valid." : "Some fields are invalid.");
+        // Additional validation for specific tables
+        const radioTable = document.querySelector('.radio-table');
+        if (radioTable) {
+            const rows = radioTable.querySelectorAll('tr');
+            rows.forEach((row) => {
+                const firstCell = row.querySelector('td');
+                if (firstCell) {
+                    firstCell.classList.remove('error-field'); // Reset error style
+                }
+    
+                const radioButtons = row.querySelectorAll('input[type="radio"]');
+                const isSelected = Array.from(radioButtons).some((radio) => radio.checked);
+    
+                if (!isSelected && firstCell) {
+                    firstCell.classList.add('error-field'); // Add error style if no selection
+                }
+            });
+        }
+    
+        const radioTableTwo = document.querySelector('.radio-table-two');
+        if (radioTableTwo) {
+            const rows = radioTableTwo.querySelectorAll('tr');
+            rows.forEach((row) => {
+                const secondCell = row.querySelectorAll('td')[1];
+                if (secondCell) {
+                    secondCell.classList.remove('error-field'); // Reset error style
+                }
+    
+                const radioButtons = row.querySelectorAll('input[type="radio"]');
+                const isSelected = Array.from(radioButtons).some((radio) => radio.checked);
+    
+                if (!isSelected && secondCell) {
+                    secondCell.classList.add('error-field'); // Add error style if no selection
+                    console.log("false 5 ")
+                    isValid = false;
+                }
+            });
+        }
+    
         return isValid;
     };
+    
+    
     
     
     

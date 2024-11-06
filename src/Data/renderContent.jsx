@@ -157,7 +157,7 @@ const renderContent = (key, value, handleChange, formData) => {
       const [ladderQuestion, ladderOptions] = value;
 
       return (
-        <FormControl component="fieldset" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+        <FormControl className="not-required" component="fieldset" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
           <FormLabel component="legend" sx={{ mb: 2, textAlign: 'left' }}>{ladderQuestion}</FormLabel>
           <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', mr: 2 }}>
@@ -233,7 +233,7 @@ const renderContent = (key, value, handleChange, formData) => {
                   onClick={handleCheckAll}
                   sx={{ mb: 2 }}
               >
-                  Check All (1 per week)
+                  Check All 
               </Button>
               <TableContainer component={Paper}>
                   <Table>
@@ -345,7 +345,7 @@ const renderContent = (key, value, handleChange, formData) => {
                       onClick={handleCheckAll}
                       sx={{ mb: 2 }}
                   >
-                      Check All (1 per week)
+                      Check All 
                   </Button>
                   <TableContainer component={Paper}>
                       <Table>
@@ -416,7 +416,7 @@ const renderContent = (key, value, handleChange, formData) => {
                     onClick={handleCheckAll}
                     sx={{ mb: 2 }}
                 >
-                    Check All (1 per week)
+                    Check All 
                 </Button>
                 <TableContainer component={Paper}>
                     <Table>

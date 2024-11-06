@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 
 export const useGetAllUsers = () => {
@@ -6,25 +6,27 @@ export const useGetAllUsers = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await axios.get(import.meta.env.VITE_APP_BASE_API + "users", {
-          headers: {
-            'Authorization': `${localStorage.getItem('token')}`, // Assuming the token is stored in localStorage
-          },
-        });
-        console.log(response.data)
-        setUsers(response.data);
-      } catch (err) {
-        setError(err.response ? err.response.data : err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchUsers();
+  const fetchUsers = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await axios.get(import.meta.env.VITE_APP_BASE_API + "users", {
+        headers: {
+          'Authorization': `${localStorage.getItem('token')}`, // Assuming the token is stored in localStorage
+        },
+      });
+      console.log("Fetched all users:", response.data);
+      setUsers(response.data);
+    } catch (err) {
+      setError(err.response ? err.response.data : err.message);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
-  return { users, loading, error };
+  useEffect(() => {
+    fetchUsers();
+  }, [fetchUsers]);
+
+  return { users, loading, error, refetch: fetchUsers };
 };

@@ -42,9 +42,9 @@ const Header = () => {
                             />
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                            <Dropdown.Item href="/#">Knowledge & attitudes survey</Dropdown.Item>
-                            <Dropdown.Item href="/#">Crohn’s disease information</Dropdown.Item>
-                            <Dropdown.Item href="/#">Your personalized Crohn’s risk</Dropdown.Item>
+                            <Dropdown.Item href="/knowledge-and-attitudes-survey">Knowledge & attitudes survey</Dropdown.Item>
+                            <Dropdown.Item href="/disease-information">Crohn’s disease information</Dropdown.Item>
+                            <Dropdown.Item href="/crohn-risk">Your personalized Crohn’s risk</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
 

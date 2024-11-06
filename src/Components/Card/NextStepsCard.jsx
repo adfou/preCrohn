@@ -91,10 +91,11 @@ export const NextStepsCard = ({ date, phase, role }) => {
               fontWeight: 600,
               fontSize: '18px',
               minWidth: '271px', // Set min width for date
-              minHeight:'27px'
+              minHeight:'27px',
+              textAlign:"center"
             }}
           >
-            {formattedDate}
+            {formattedDate==="Invalid Date"?"_":formattedDate}
           </Typography>
         </Box>
       </CardContent>

@@ -3,7 +3,7 @@ import { Container, Grid, Box, Typography } from '@mui/material';
 import UserTable from '../Components/Common/Admin/UserTable'; // Create this component to display users
 import EmailModal from '../Components/Modal/EmailModal'; // Create this component for the email modal
 // import ResetPasswordModal from '../Components/ResetPasswordModal'; // Create this component for the password reset modal
-
+import { useNextStep,useRestart } from '../Hooks/index.mjs';
 import DeleteUserModal from '../Components/Modal/DeleteUserModal'
 
 const PatientDashboard = () => {
@@ -28,7 +28,7 @@ const PatientDashboard = () => {
   };
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="90%">
       <Grid container spacing={2} direction="column">
         
         {/* Top side with User Table */}

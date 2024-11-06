@@ -17,8 +17,8 @@ const ParticipantDashboard = () => {
   const [submitDate, setSubmitDate] = useState();
   const [phase, setPhase] = useState("BASELINE");
   const [role, setRole] = useState();
-  const { triggerNextStep, nextStepData,nextStepLoading, nextStepError } = useNextStep();
-  const { triggerRestart } = useRestart();
+  //const { triggerNextStep, nextStepData,nextStepLoading, nextStepError } = useNextStep();
+  //const { triggerRestart } = useRestart();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -59,59 +59,7 @@ const ParticipantDashboard = () => {
     }
   }, [error, profileData, navigate]);
 
-  useEffect(() => {
-    if(nextStepData && nextStepData?.Result?.form?.form_data){
-      
-      let dataObj={};
-      let dataNext =nextStepData?.Result?.form?.form_data
-      try{
-       
-        if (dataNext=== 'string') {
-
-          dataObj = JSON.parse(dataNext);
-      } else if (typeof dataNext === 'object') {
-      
-          dataObj = dataNext; // If it's already an object, use it directly
-      } else {
-          console.error("Invalid form_data:", dataNext);
-          //return; // Exit if form_data is neither a string nor an object
-      }
-
-
-      
-      dispatch(SetFormDataLogin({ data: dataObj }));
-      dispatch(setCurrentSectionIndex(0));
-    }
-    catch(err){
-      console.error("there is non data",err);
-      
-      
-    }
-
-
-    }
-  }, [nextStepData]);
-//nextStepData
-  const handleNextPhaseClick = async () => {
-    try {
-      await triggerNextStep();
-      window.location.reload();
-      console.log('Next step triggered successfully!');
-    } catch (e) {
-      console.error('Error executing next step:', e);
-      alert('Failed to trigger next step.');
-    }
-  };
-
-  const handleRestartClick = async () => {
-    try {
-      await triggerRestart();
-      console.log('Restart triggered successfully!');
-      window.location.reload();
-    } catch (e) {
-      console.error('Error executing restart:', e);
-    }
-  };
+ 
 
   if (loading) {
     return <Loader />;
@@ -263,7 +211,7 @@ const ParticipantDashboard = () => {
           <NextStepsCard date={submitDate} phase={phase} role={role} />
         </Box>
 
-        <ThreeCardsSection progression={progression}/>
+        <ThreeCardsSection progression={progression} />
 
         {/* Thanks Section */}
         <Box sx={{ padding: '0px 255px 0px 300px', textAlign: 'left', maxWidth: '1435px' }}>
@@ -279,7 +227,7 @@ const ParticipantDashboard = () => {
           </Typography>
         </Box>
 
-        {/* Next Phase Button */}
+        {/* Next Phase Button 
         <Box sx={{ textAlign: 'center', mt: 5 }}>
           <Typography fontSize={15} sx={{ mb: 2 }}>
             This button is for test purposes.
@@ -287,7 +235,6 @@ const ParticipantDashboard = () => {
           <Button
             variant="contained"
             color="primary"
-            /*disabled={formDisabled}*/
             onClick={handleNextPhaseClick}
             sx={{
               fontSize: '18px',
@@ -301,7 +248,6 @@ const ParticipantDashboard = () => {
           <Button
             variant="contained"
             color="primary"
-            /*disabled={formDisabled}*/
             onClick={handleRestartClick}
             sx={{
               fontSize: '18px',
@@ -312,7 +258,7 @@ const ParticipantDashboard = () => {
             Restart
           </Button>
           
-        </Box>
+        </Box>*/}
       </Container>
     </>
   );

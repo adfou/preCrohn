@@ -57,6 +57,29 @@ const AboutTheStudy = [
     },
 
 ];
+const ContactPageContent = [
+    {
+        H2: "Contact Information",
+        Text: "If you would like to learn more about the study, email us at mghprecrohns@mgb.org or call us at 617-643-5280."
+    },
+    {
+        H2: "PRE-Crohn’s Study Sites",
+        H3: "This study is being conducted at the Massachusetts General Hospital (MGH) in the Division of Gastroenterology. The two main study sites are:",
+        CARD: [
+            {
+                Title: "MGH Main Campus",
+                underTitle: "55 Fruit Street, Boston, MA, 02114",
+                text: "This location is approximately a 4-minute walk from the Charles/MGH Station on the Red line."
+            },
+            {
+                Title: "MGH Crohn’s and Colitis Center",
+                underTitle: "165 Cambridge Street, 9th Floor, Boston, MA, 02114",
+                text: "This location is approximately a 7-minute walk from the Charles/MGH Station on the Red line and approximately a 6-minute walk from the main MGH campus."
+            }
+        ]
+    }
+];
+
 const DiseaseInformation = [
     {
         H2: "What is Crohn’s disease?  ",
@@ -1026,4 +1049,4 @@ const InfoModalData={
 
 export {cardHomeDataLeft,cardHomeDataRight,AboutTheStudy,GeneralInformationData,YourmedicalhistoryData,
     FamilyHistoryData,CrohnRiskData,riskLevels,riskColors,InfoModalData,Yourdiet,Yourphysicalactivity,
-    Yoursmokinghistory,Yourdietcheese,YourdietVEGETABLES,YourdietMEAT,YoutdietBREADS,YoutdietBEVERAGES,YourdietSWEETS,KnowledgEandAttitudes,DiseaseInformation} ;
+    Yoursmokinghistory,Yourdietcheese,YourdietVEGETABLES,YourdietMEAT,YoutdietBREADS,YoutdietBEVERAGES,YourdietSWEETS,KnowledgEandAttitudes,DiseaseInformation,ContactPageContent} ;

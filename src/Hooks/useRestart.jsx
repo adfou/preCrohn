@@ -6,12 +6,12 @@ export const useRestart = () => {
   const [loading, setLoading] = useState(false); // Initially not loading
   const [error, setError] = useState(null);
 
-  const triggerRestart = async () => {
+  const triggerRestart = async (id) => {  // Accepts id as a parameter
     setLoading(true);
     setError(null);
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_APP_BASE_API}restart`,
+        `${import.meta.env.VITE_APP_BASE_API}restart?id=${id}`,  // Include id as query parameter
         {
           headers: {
             'Authorization': `${localStorage.getItem('token')}`,
