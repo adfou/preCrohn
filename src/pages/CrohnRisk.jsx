@@ -6,10 +6,12 @@ import { CrohnRiskData, InfoModalData } from "../Data";
 import { CardBehavior, CardHumain, ColorRiskCard, CardBehaviorCheck } from "../Components/Card/index";
 import { InfoModal } from "../Components/Modal/InfoModal";
 
-import { useRiskCalculation } from "../Hooks/index.mjs";
-
+import { useRiskCalculation ,useParticipantProfile} from "../Hooks/index.mjs";
+import { useNavigate } from 'react-router-dom';
 const CrohnRisk = ({ title }) => {
+    const navigate = useNavigate();
     const { RiskCalculation, response, loading, error } = useRiskCalculation(); // Use loading state
+    const {profileData, loading:loadingProfileData, error:errorProfileData } = useParticipantProfile();
     const [open, setOpen] = useState(false);
     const [RiskData, setRiskData] = useState(false);
     const firtSetnance = "Based on the answers you provided to the questionnaires, your blood tests, and your stool tests,"
@@ -34,7 +36,22 @@ const CrohnRisk = ({ title }) => {
             console.log("There is an error in calculation:", err);
         }
     }, []);
-
+    useEffect(() => {
+       if(profileData){
+       const state = profileData.state
+       const role =profileData?.role
+       const phase = profileData?.phase
+       if(phase === 0 && state === 0){
+        navigate("/login");
+       }
+       console.log("phase",phase)
+       console.log("state",state)
+       if(role === "3" &&phase !== 1 && state !== 0){
+        navigate("/login");
+        }
+       }
+    }, [profileData]);
+//profileData
     useEffect(() => {
         console.log(response); // Log the response when it updates
         setRiskData(response)

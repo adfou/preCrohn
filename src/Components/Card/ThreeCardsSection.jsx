@@ -3,12 +3,13 @@ import { Box } from '@mui/material';
 import {CardParticipants} from './CardParticipants';
 
 export const ThreeCardsSection = ({progression,phase,role}) => {
-  console.log("==========================")
-  console.log(progression)
-  console.log(phase)
-  console.log(role)
-  console.log("==========================")
 
+  console.log("==========================")
+  console.log("progression",progression)
+  console.log('phase',phase)
+  console.log("role",role)
+  console.log("condition,:",progression ===100 && phase === 1 )
+  console.log("==========================")
 
   return (
     <Box
@@ -22,10 +23,10 @@ export const ThreeCardsSection = ({progression,phase,role}) => {
       
       <CardParticipants title="Access information" type="Learn more" />
       <CardParticipants title="Questions?" type="Contact us" />
-      {role==="3"?
-
+      {role==="2"?
+    
       <CardParticipants title="Your personalized risk" type="Return to" variant={ phase !== 0 ?'default':'white'} />:
-      <CardParticipants title="Your personalized risk" type="Return to" variant={progression.progression ===100 && phase === 2 ?'default':'white'} />
+      <CardParticipants title="Your personalized risk" type="Return to" variant={progression ===100 && phase === 1 ?'default':'white'} />
       }
       
     </Box>

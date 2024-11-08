@@ -11,6 +11,7 @@ const Loader = loadable(() => import('../ui-component/Loader'));
 
 const ParticipantDashboard = () => {
   const navigate = useNavigate();
+  
   const {profileData, loading, error } = useParticipantProfile();
   const [formDisabled, setFormDisabled] = useState(true);
   const [progression, setProgression] = useState(0);
@@ -34,17 +35,24 @@ const ParticipantDashboard = () => {
       setRole(profileData?.role);
       setProgression(profileData?.completionPercentage);
       setPhase(profileData?.phase);
+      
       switch (profileData?.phase) {
         case 0:
+          if(profileData.state === "0"){
+            console.log("zabi one")
+
+            break;
+          }else{
+            setSubmitDate(profileData?.forms[0]?.submit_date);
+          }
           
-          break;
         
         default:
-          setSubmitDate(profileData?.forms[1]?.submit_date);
+          setSubmitDate(profileData?.forms[0]?.submit_date);
           break;
       }
     }
-  }, [error, profileData, navigate]);
+  }, [error, profileData]);
 
  
 

@@ -25,6 +25,7 @@ export const NextStepsCard = ({ date, phase, role }) => {
 
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       const formatted = parsedDate.toLocaleDateString('en-US', options);
+      console.log("formatted:",formatted)
       console.log("formatted,",formatted)
       setFormattedDate(formatted);
     }
@@ -37,7 +38,7 @@ export const NextStepsCard = ({ date, phase, role }) => {
       console.log("formatted,",formatted)
       setFormattedDate(formatted);
     }
-  }, [date, phase, role]);
+  }, [date]);
 
   return (
     <Card
