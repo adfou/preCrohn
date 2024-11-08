@@ -32,28 +32,15 @@ const ParticipantDashboard = () => {
       console.log("profileData:",profileData)
       setFormDisabled(profileData?.state === "0" ? false : true);
       setRole(profileData?.role);
-      switch (profileData?.forms.length) {
+      setProgression(profileData?.completionPercentage);
+      setPhase(profileData?.phase);
+      switch (profileData?.phase) {
         case 0:
-          setProgression(0);
-          setPhase(0);
+          
           break;
-        case 1:
-          setProgression(profileData?.forms[0].completionPercentage);
-          setSubmitDate(profileData?.forms[0]?.submit_date);
-          setPhase(1);
-          break;
-        case 2:
-          console.log("2!")
-          setProgression(profileData?.forms[1].completionPercentage);
-          setSubmitDate(profileData?.forms[1]?.submit_date);
-          setPhase(2);
-          break;
-        case 3:
-          setProgression(profileData?.forms[2].completionPercentage);
-          setSubmitDate(profileData?.forms[2]?.submit_date);
-          setPhase(3);
-          break;
+        
         default:
+          setSubmitDate(profileData?.forms[1]?.submit_date);
           break;
       }
     }
@@ -210,8 +197,8 @@ const ParticipantDashboard = () => {
           </Typography>
           <NextStepsCard date={submitDate} phase={phase} role={role} />
         </Box>
-
-        <ThreeCardsSection progression={progression} />
+        
+        <ThreeCardsSection progression={progression} phase={phase} role={role} />
 
         {/* Thanks Section */}
         <Box sx={{ padding: '0px 255px 0px 300px', textAlign: 'left', maxWidth: '1435px' }}>

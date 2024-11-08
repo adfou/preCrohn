@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Navbar, Nav, Button, FormControl, Dropdown } from 'react-bootstrap';
 import { IconChevronDown } from '@tabler/icons-react'; // Import the arrow down icon from tabler-icons-react
+import UserAvatar from './UserAvatar';
 
 const Header = () => {
     const [searchOpen, setSearchOpen] = useState(false);
@@ -42,13 +43,14 @@ const Header = () => {
                             />
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                            <Dropdown.Item href="/knowledge-and-attitudes-survey">Knowledge & attitudes survey</Dropdown.Item>
+                            {/*<Dropdown.Item href="/knowledge-and-attitudes-survey">Knowledge & attitudes survey</Dropdown.Item>*/}
                             <Dropdown.Item href="/disease-information">Crohn’s disease information</Dropdown.Item>
-                            <Dropdown.Item href="/crohn-risk">Your personalized Crohn’s risk</Dropdown.Item>
+                            {/*<Dropdown.Item href="/crohn-risk">Your personalized Crohn’s risk</Dropdown.Item>*/}
                         </Dropdown.Menu>
                     </Dropdown>
 
                     <Nav.Link href="/contact">CONTACT</Nav.Link>
+                    
                 </Nav>
 
                 {/* Search Button and Input */}
@@ -72,6 +74,7 @@ const Header = () => {
                             className="search-icon"
                         />
                     </Button>
+                    <UserAvatar userName={"userName"} onLogout={{}} />
                 </div>
             </Navbar.Collapse>
         </Navbar>

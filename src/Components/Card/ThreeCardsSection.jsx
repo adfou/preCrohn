@@ -2,10 +2,14 @@ import React from 'react';
 import { Box } from '@mui/material';
 import {CardParticipants} from './CardParticipants';
 
-export const ThreeCardsSection = (progression) => {
+export const ThreeCardsSection = ({progression,phase,role}) => {
+  console.log("==========================")
+  console.log(progression)
+  console.log(phase)
+  console.log(role)
+  console.log("==========================")
 
-  console.log("progression:",progression.progression  )
-  console.log("type:",typeof progression.progression)
+
   return (
     <Box
       sx={{
@@ -14,11 +18,16 @@ export const ThreeCardsSection = (progression) => {
         justifyContent: 'center',
         gap: '72.5px',
       }}
-    >
+    > 
       
       <CardParticipants title="Access information" type="Learn more" />
       <CardParticipants title="Questions?" type="Contact us" />
-      <CardParticipants title="Your personalized risk" type="Return to" variant={progression.progression===100?'default':'white'} />
+      {role==="3"?
+
+      <CardParticipants title="Your personalized risk" type="Return to" variant={ phase !== 0 ?'default':'white'} />:
+      <CardParticipants title="Your personalized risk" type="Return to" variant={progression.progression ===100 && phase === 2 ?'default':'white'} />
+      }
+      
     </Box>
   );
 };

@@ -85,10 +85,10 @@ export const CardBehaviorCheck = ({ title, subtitle, behaviors,openMpdal,RiskLev
           <Grid item container alignItems="center" xs={5} justifyContent="left">
             <Grid item container alignItems="center" xs={10} justifyContent="left" className='title-container'>
               <Typography variant="h6" sx={{ color: '#117BA3', marginBottom: 0 }}>
-              current risk
+              Your current risk
               </Typography>
             </Grid>
-            {RiskLevel}
+            
             <Grid className="risk-card-levels mixed " item xs={10} sx={{ position: 'relative' ,marginTop:"40px",paddingLeft:"23.5px"}}>
               {riskLevels.map((level, index) => (
                 <Box
@@ -133,6 +133,7 @@ export const CardBehaviorCheck = ({ title, subtitle, behaviors,openMpdal,RiskLev
                       <Typography variant="body2" sx={{ fontWeight: 'bold', color:"#80BBD1 !important", fontSize: "14px",marginBottom:"0px" }}>
                         CURRENT RISK
                       </Typography>
+                      
                     </Box>
 
                     <Box

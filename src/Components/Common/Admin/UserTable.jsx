@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton,
-  CircularProgress, Box, Typography, Menu, MenuItem, Checkbox, ListItemText, TextField, InputAdornment
+  CircularProgress, Box, Typography, Menu, MenuItem, Checkbox, ListItemText, TextField, InputAdornment,Chip 
 } from '@mui/material';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import SearchIcon from '@mui/icons-material/Search';
@@ -9,8 +9,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import LockResetIcon from '@mui/icons-material/LockReset';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useGetAllUsers, useRestart, useNextStep } from '../../../Hooks/index.mjs';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-hot-toast'; // Updated to use react-hot-toast
 
 // Icons for actions
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -24,7 +23,7 @@ const rolesOptions = [
   { value: "3", label: "Control" }
 ];
 
-const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser }) => {
+const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser,RefreshTable }) => {
   const { users: Allusers, loading, error, refetch: refetchUsers } = useGetAllUsers();
   const [UserTable, setUserTable] = useState([]);
   const [selectedRoles, setSelectedRoles] = useState([]);
@@ -36,6 +35,7 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser }) => {
   const { triggerRestart, restartData, loading: restartLoading, error: restartError } = useRestart();
 
   useEffect(() => {
+    console.log("Allusers:",Allusers)
     if (Allusers) {
       setUserTable(Allusers);
     }
@@ -43,12 +43,12 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser }) => {
 
   // Refresh users after next phase or restart action completes
   useEffect(() => {
-    if (nextStepData) {
+    if (nextStepData && nextStepData.Result !== null) {
       toast.success(nextStepData.Result?.message || "Next phase completed successfully!");
       refetchUsers(); // Refresh the users list
     }
     if (nextStepError) {
-      toast.error(`Error in next phase: ${nextStepError.message || nextStepError}`);
+      toast.error(`Error ${nextStepError.message || nextStepError}`);
     }
   }, [nextStepData, nextStepError, refetchUsers]);
 
@@ -61,6 +61,11 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser }) => {
       toast.error(`Error restarting user: ${restartError.message || restartError}`);
     }
   }, [restartData, restartError, refetchUsers]);
+
+  useEffect(() => {
+      refetchUsers(); // Refresh the users list
+   
+  }, [RefreshTable]);
 
   const handleDateSort = () => {
     setIsDateAsc(!isDateAsc);
@@ -108,21 +113,13 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser }) => {
     triggerRestart(userId);
   };
 
-  const getPhaseLabel = (phase) => {
-    if (phase < 1) return "Baseline";
-    if (phase === 1) return "Phase One";
-    if (phase === 2) return "Phase Two";
-    if (phase === 3) return "Phase Three";
-    return "Unknown Phase";
-  };
+
 
   if (loading) return <CircularProgress />;
   if (error) return <div>Error: {error.message || 'An error occurred'}</div>;
 
   return (
     <>
-      <ToastContainer position="top-right" autoClose={3000} />
-      
       <Box mb={2}>
         <TextField
           variant="outlined"
@@ -202,9 +199,17 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser }) => {
                   </Box>
                 </TableCell>
                 <TableCell>{user.role === "1" ? "Admin" : user.role === "2" ? "Intervention" : user.role === "3" ? "Control" : "Unknown"}</TableCell>
-                <TableCell align="center">{getPhaseLabel(user.phase)}</TableCell>
+                <TableCell align="center">{user.phase === 0 ? "BASELINE" : user.phase === 1 ? "PHASE ONE" : user.phase === 2 ? "PHASE TWO" : user.phase === 3 ? "PHASE THREE" : ""}</TableCell>
                 <TableCell>{user?.date}</TableCell>
-                <TableCell>{user?.state}</TableCell>
+                <TableCell>
+                <Chip
+                label={user?.stateStr}    // Text displayed inside the badge
+                color={user?.stateStr==="Closed"?"error" :"success"} 
+
+                variant="outlined"    // Sets the color to red (you can also use 'success', 'primary', etc.)
+                sx={{ fontWeight: 700,minWidth:"70px",minHeight:"20px",display:"flex",fontSize:"14px" }}  // Custom font weight to match Mantine's `fw={500}`
+              />  
+                </TableCell>
                 <TableCell align="center">
                   <IconButton color="primary" onClick={() => onSendEmail(user)} title="Send Email">
                     <EmailIcon />
@@ -218,7 +223,7 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser }) => {
                   <IconButton color="info" onClick={() => handleNextPhaseClick(user.id)} title="Next Phase">
                     <ArrowForwardIcon />
                   </IconButton>
-                  <IconButton color="warning" onClick={() => handleRestartClick(user.id)} title="Restart State">
+                  <IconButton color="warning" onClick={() => handleRestartClick(user.id)} title="Reset Progress">
                     <RefreshIcon />
                   </IconButton>
                 </TableCell>

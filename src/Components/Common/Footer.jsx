@@ -19,7 +19,7 @@ const Footer = () => {
                       
                                     <a href="/sitemap" className="footer-link">Sitemap</a> | &nbsp;
                                     <a href="/contact" className="footer-link">Contact</a> | &nbsp;
-                                    <a href="/login" className="footer-link">Log in</a>
+                                    <a href="/login" className="footer-link">Admin</a>
                            
                     </Col>
                     </Row>

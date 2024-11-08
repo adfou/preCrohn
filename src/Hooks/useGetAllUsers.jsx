@@ -15,7 +15,7 @@ export const useGetAllUsers = () => {
           'Authorization': `${localStorage.getItem('token')}`, // Assuming the token is stored in localStorage
         },
       });
-      console.log("Fetched all users:", response.data);
+      
       setUsers(response.data);
     } catch (err) {
       setError(err.response ? err.response.data : err.message);

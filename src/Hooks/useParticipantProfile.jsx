@@ -17,7 +17,7 @@ export const useParticipantProfile = () => {
             },
           }
         );
-        console.log(response.data);
+        console.log("response zabi:",response.data);
         setProfileData(response.data);
       } catch (err) {
         setError(err.response ? err.response.data : err.message);

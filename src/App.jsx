@@ -24,7 +24,7 @@ const App = () => {
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Toaster />
+        <Toaster position="bottom-right" />
         <RouterProvider router={router} />
       </ThemeProvider>
     </StyledEngineProvider>

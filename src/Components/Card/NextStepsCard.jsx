@@ -3,9 +3,14 @@ import { Card, CardContent, Typography, Box } from '@mui/material';
 
 export const NextStepsCard = ({ date, phase, role }) => {
   const [formattedDate, setFormattedDate] = useState("");
-
+  
   useEffect(() => {
-    if (date) {
+    console.log("date start",date)
+    if(date === null){
+      setFormattedDate("Invalid Date")
+      return
+    }
+    if (date && date !== null) {
       let parsedDate = new Date(date);
       console.log("role",role)
       console.log("phase",phase)
@@ -20,14 +25,16 @@ export const NextStepsCard = ({ date, phase, role }) => {
 
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       const formatted = parsedDate.toLocaleDateString('en-US', options);
+      console.log("formatted,",formatted)
       setFormattedDate(formatted);
     }
     if (role === "3") {
-      
+      console.log("date",date)
       let parsedDate = new Date(date);
       parsedDate.setMonth(parsedDate.getMonth() + 6); // Add 6 months
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       const formatted = parsedDate.toLocaleDateString('en-US', options);
+      console.log("formatted,",formatted)
       setFormattedDate(formatted);
     }
   }, [date, phase, role]);
@@ -95,7 +102,7 @@ export const NextStepsCard = ({ date, phase, role }) => {
               textAlign:"center"
             }}
           >
-            {formattedDate==="Invalid Date"?"_":formattedDate}
+            {formattedDate==="Invalid Date" || formattedDate===""?"_":formattedDate}
           </Typography>
         </Box>
       </CardContent>
