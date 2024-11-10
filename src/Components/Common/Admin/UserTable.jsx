@@ -217,7 +217,7 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser,RefreshTable }) 
                   </Box>
                 </TableCell>
                 <TableCell>{user.role === "1" ? "Admin" : user.role === "2" ? "Intervention" : user.role === "3" ? "Control" : "Unknown"}</TableCell>
-                <TableCell align="center">{user.phase === 0 ? "Baseline" : user.phase === 1 ? "Phase ne" : user.phase === 2 ? "Phase two" : user.phase === 3 ? "Phase three" : ""}</TableCell>
+                <TableCell align="center">{user.phase === 0 ? "Baseline" : user.phase === 1 ? "Phase one" : user.phase === 2 ? "Phase two" : user.phase === 3 ? "Phase three" : ""}</TableCell>
                 <TableCell>{user?.date}</TableCell>
                 <TableCell>{user?.due_date}</TableCell>
                 <TableCell>
