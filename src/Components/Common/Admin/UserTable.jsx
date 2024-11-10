@@ -129,7 +129,7 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser,RefreshTable }) 
 
 
   if (loading) return <CircularProgress />;
-  if (error) return <div>Error: {error.message || 'An error occurred'}</div>;
+  if (error) return <div>Error: Network error occurred</div>;
 
   return (
     <>

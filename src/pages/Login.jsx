@@ -128,15 +128,16 @@ const Login = () => {
         </Alert>
       )}
       {error && (
-        <Alert severity="error" sx={{ width: '100%', mb: 2 }}>
-          {error.message || 'An error occurred during login. Please try again.'}
-        </Alert>
-      )}
-      {verifyError && (
-        <Alert severity="error" sx={{ width: '100%', mb: 2 }}>
-          {verifyError.message || 'An error occurred while verifying your session. Please log in again.'}
-        </Alert>
-      )}
+  <Alert severity="error" sx={{ width: '100%', mb: 2 }}>
+    {typeof error.message === 'string' ? error.message : 'An error occurred during login. Please try again.'}
+  </Alert>
+)}
+{verifyError && (
+  <Alert severity="error" sx={{ width: '100%', mb: 2 }}>
+    {typeof verifyError.message === 'string' ? verifyError.message : 'An error occurred while verifying your session. Please log in again.'}
+  </Alert>
+)}
+
 
       <TextField
         variant="outlined"
