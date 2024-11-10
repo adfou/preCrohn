@@ -7,7 +7,9 @@ export const MainLayout = () => {
     return (
         <>
             <Header />
+            
             <main>
+           
                 <Outlet /> {/* Render the matched route's component */}
             </main>
             <Footer />

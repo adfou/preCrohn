@@ -6,10 +6,14 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {BodyPage} from "../Components/Layout/index.mjs"
-
- const Page = ({title,data}) => {
+import { Helmet } from 'react-helmet';
+import { useVerifyToken } from '../Hooks/index.mjs';
+ const Page = ({title,data,type}) => {
     return (
         <>
+        <Helmet>
+        <title>{title?title:"Pre-crohn's"}</title>
+      </Helmet>
            {title? <div className='title-content'><h1> {title}</h1> </div> :""}
 
             
@@ -18,7 +22,8 @@ import {BodyPage} from "../Components/Layout/index.mjs"
             }
             
             </Container>
-
+          {type==="final"?
+          "ss":""}
 
            
         </>

@@ -42,6 +42,8 @@ const Sidebar = ({ open, onClose }) => {
         sx={{
           width: drawerWidth,
           flexShrink: 0,
+         
+
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
@@ -51,18 +53,12 @@ const Sidebar = ({ open, onClose }) => {
         variant="persistent"
         anchor="left"
         open={open}
+        
       >
         
-        <Toolbar>
-          <Divider />
-          <IconButton onClick={onClose}>
-            {open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-          
-        </Toolbar>
-        <Divider />
+
         
-        <List>
+        <List sx={{ marginTop: "80px"}}>
           {/* Dashboard */}
           {dashboard.children.map((item) => (
             <ListItem

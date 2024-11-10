@@ -65,7 +65,10 @@ const FormRoutes = {
       children: [
         {
           path: '',
-          element: <CrohnRisk title={"Your personalized Crohn’s risk"} Data={CrohnRiskData} />,
+          
+          element: <PrivateRoute>
+            <CrohnRisk title={"Your personalized Crohn’s risk"} Data={CrohnRiskData} />
+          </PrivateRoute>,
         },
       ],
     },

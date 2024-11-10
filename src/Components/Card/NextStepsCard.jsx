@@ -5,7 +5,6 @@ export const NextStepsCard = ({ date, phase, role }) => {
   const [formattedDate, setFormattedDate] = useState("");
   
   useEffect(() => {
-    console.log("date start",date)
     if(date === null){
       setFormattedDate("Invalid Date")
       return

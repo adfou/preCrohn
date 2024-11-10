@@ -47,20 +47,33 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser,RefreshTable }) 
       toast.success(nextStepData.Result?.message || "Next phase completed successfully!");
       refetchUsers(); // Refresh the users list
     }
+  }, [nextStepData, refetchUsers]);
+
+
+  useEffect(() => {
+    
     if (nextStepError) {
       toast.error(`Error ${nextStepError.message || nextStepError}`);
     }
-  }, [nextStepData, nextStepError, refetchUsers]);
+  }, [nextStepError, ]);
+
+
 
   useEffect(() => {
     if (restartData) {
+      
       toast.success(restartData.message || "User state restarted successfully!");
       refetchUsers(); // Refresh the users list
     }
+  }, [restartData, restartError, refetchUsers]);
+
+  useEffect(() => {
+    
     if (restartError) {
+      console.log("restartData",restartData)
       toast.error(`Error restarting user: ${restartError.message || restartError}`);
     }
-  }, [restartData, restartError, refetchUsers]);
+  }, [restartError ]);
 
   useEffect(() => {
       refetchUsers(); // Refresh the users list
@@ -178,6 +191,11 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser,RefreshTable }) 
                   {isDateAsc ? <KeyboardArrowDownIcon fontSize="small" /> : <KeyboardArrowUpIcon fontSize="small" />}
                 </Box>
               </TableCell>
+              <TableCell sx={{ color: 'white', backgroundColor: '#1976d3' }} align="center">
+                <Box display="flex" alignItems="center" onClick={handleDateSort} style={{ cursor: 'pointer', display: "flex", justifyContent: "space-between" }}>
+                Due date
+                </Box>
+              </TableCell>
               <TableCell sx={{ color: 'white', backgroundColor: '#1976d3' }} align="center">State</TableCell>
               <TableCell sx={{ color: 'white', backgroundColor: '#1976d3' }} align="center">Actions</TableCell>
             </TableRow>
@@ -201,6 +219,7 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser,RefreshTable }) 
                 <TableCell>{user.role === "1" ? "Admin" : user.role === "2" ? "Intervention" : user.role === "3" ? "Control" : "Unknown"}</TableCell>
                 <TableCell align="center">{user.phase === 0 ? "BASELINE" : user.phase === 1 ? "PHASE ONE" : user.phase === 2 ? "PHASE TWO" : user.phase === 3 ? "PHASE THREE" : ""}</TableCell>
                 <TableCell>{user?.date}</TableCell>
+                <TableCell>{user?.due_date}</TableCell>
                 <TableCell>
                 <Chip
                 label={user?.stateStr}    // Text displayed inside the badge

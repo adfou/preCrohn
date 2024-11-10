@@ -16,6 +16,8 @@ export const Registration = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    
     if (password !== confirmPassword) {
       toast.error('Passwords do not match');
       return;

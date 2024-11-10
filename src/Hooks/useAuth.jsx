@@ -14,8 +14,9 @@ export const useAuth = () => {
     setError(null);
 
     try {
+      const emailTrim = email.toLowerCase().trim();
       const response = await axios.post(import.meta.env.VITE_API_URL_AUTH, {
-        email,
+        email:emailTrim,
         password,
       }, {
         headers: {

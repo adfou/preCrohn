@@ -63,17 +63,7 @@ const Header = () => {
                             className="search-input"
                         />
                     </div>
-                    <Button
-                        variant="outline-success"
-                        className="search-button"
-                        onClick={toggleSearch}
-                    >
-                        <img
-                            src={searchOpen ? "/search.svg" : "/search.svg"}
-                            alt={searchOpen ? "Close" : "Search"}
-                            className="search-icon"
-                        />
-                    </Button>
+                
                     <UserAvatar userName={"userName"} onLogout={{}} />
                 </div>
             </Navbar.Collapse>

@@ -4,7 +4,7 @@ import PrivateRoute from './PrivateRoute'; // Import your PrivateRoute component
 import Loader from '../ui-component/Loader';
 import loadable from '@loadable/component';
 // DATA
-import { GeneralInformationData, YourmedicalhistoryData, FamilyHistoryData ,AboutTheStudy,DiseaseInformation,ContactPageContent} from "../Data";
+import {AboutTheStudy,DiseaseInformation,ContactPageContent} from "../Data";
 
 // Page imports using @loadable/component with a fallback loader
 
@@ -18,6 +18,10 @@ const Page = loadable(() => import('../pages/Page'), {
 const ParticipantDashboard = loadable(() => import('../pages/ParticipantDashboard'), {
   fallback: <Loader />,
 });
+const DiseaseInformationPage = loadable(() => import('../pages/Crohninformation'), {
+  fallback: <Loader />,
+});
+
 
 
 
@@ -67,10 +71,21 @@ const MainRoutes = {
       children: [
         {
           path: '',
-          element: <Page title={"CROHN’S DISEASE INFORMATION"} data={DiseaseInformation} />,
+          element: <Page title={"Crohn’s disease information"} data={DiseaseInformation} />,
         },
       ],
     },
+    {
+      path: '/crohns-disease-information',
+      element: <MainLayout />,
+      children: [
+        {
+          path: '',
+          element: <DiseaseInformationPage />,
+        },
+      ],
+    },
+    //
     {
       path: '/profile',
       element: <MainLayout />,

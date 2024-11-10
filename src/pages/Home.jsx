@@ -5,11 +5,15 @@ import {cardHomeDataLeft,cardHomeDataRight} from "../Data/Data"
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Helmet } from 'react-helmet';
  const Home = () => {
+    
     return (
         <>
             
-            
+            <Helmet>
+                <title>Home</title>
+            </Helmet>
             <Container className='home' >
             <Row style={{margin:"0px"}}>
                 <Col style={{padding:"0px"}}><Carousel/></Col>

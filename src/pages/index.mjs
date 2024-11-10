@@ -5,3 +5,4 @@ export {Dashboard} from "./Dashboard";
 export {Dashboard} from "./Dashboard";
 export {Questionnaire} from "./Questionnaire"
 export {CrohnRisk} from "./CrohnRisk"
+export {DiseaseInformationPage} from "./Crohninformation"

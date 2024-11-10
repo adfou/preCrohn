@@ -7,7 +7,9 @@ import SaveIcon from '@mui/icons-material/Save';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import renderContent from "../../Data/renderContent";
-import {useCreateForm} from "../../Hooks/index.mjs"
+import {useFinishForm,useCreateForm} from "../../Hooks/index.mjs"
+import {Prefill} from "../../Data/index"
+import {SetFormDataLogin} from "../../store/slice/questionnaireSlice" 
 const Section = ({ section, log, handleChange, formData }) => {
     return (
         <Box component="section" sx={{ my: 4, display: 'flex', flexDirection: 'column' }}>
@@ -31,6 +33,8 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
     
     const [isSaving, setIsSaving] = useState(false);
     const { createForm :CreateFormQuery, response,loading, error } =  useCreateForm();
+    const { FinishForm :FinishFormQuery, response:responseFinish,loading:loadingFinish, error:errorFinish } =  useFinishForm();
+    
     
     useEffect(() => {
         if (Object.keys(savedData).length > 0) {
@@ -41,10 +45,8 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
     useEffect(() => {
         console.log("error:",error)
         if (error && (error === 500 || error === 403 )) {
-            console.log("===========================");
-            console.log("Error occurred:", error);
             navigate("/login");
-            console.log("===========================");
+           
         }
     }, [error]);
     
@@ -224,7 +226,11 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
     
     
     
-    
+    const handelFill = async () => {
+        //Prefill
+        dispatch(SetFormDataLogin({ data: Prefill }));
+        location.reload();
+    }
     
     
     
@@ -278,7 +284,7 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
         setIsSaving(false);
       }
     };
-      
+    
     const handleNext =  () => {
      
           
@@ -331,14 +337,21 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
        
         
         
-        CreateFormQuery(updatedFormData);
+        FinishFormQuery(updatedFormData);
         dispatch(saveFormData({ currentSectionIndex, data: formData }));
-        navigate(`/crohn-risk`);
+        navigate(`/knowledge-and-attitudes-survey`);
     };
 
     const handleBack = () => {
         if (currentSectionIndex > 0) {
+            dispatch(saveFormData({ currentSectionIndex, data: formData }));
             dispatch(setCurrentSectionIndex(currentSectionIndex - 1));
+            const updatedFormData = {
+                ...allFormData,                          // Keep all previous sections' data
+                [sectionTags[currentSectionIndex]]: formData // Update the current section's data
+            };
+            
+            CreateFormQuery(updatedFormData);
             navigate(`/${sectionTags[currentSectionIndex - 1]}`);
         }
     };
@@ -354,7 +367,7 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                 {type === "fixe" ? (
                     <Button
                         variant="contained"
-                        onClick={() => navigate("/disease-information")}
+                        onClick={() => navigate("/crohns-disease-information")}
                     >
                         Continue to Crohn’s disease information
                     </Button>
@@ -376,17 +389,28 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                         </Button>
 
                         {currentSectionIndex < sectionTags.length - 1 ? (
+                            <>
                             <Button variant="contained" onClick={handleNext}>
                                 Next
                             </Button>
+                            
+                        </>
                         ) : (
                             <Button variant="contained" onClick={handleFinish}>
                                 Finish
                             </Button>
                         )}
                     </Box>
+                    
                 )}
+                {type === "fixe"? "": 
+                <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+                <Button variant="contained" onClick={handelFill}>
+                            Fill
+                            </Button>
+                            </Box>}
             </form>
+            
         </Container>
     );
 };

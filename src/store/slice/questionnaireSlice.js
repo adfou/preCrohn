@@ -46,7 +46,7 @@ const questionnaireSlice = createSlice({
             saveToLocalStorage(state); // Save the state to local storage
         },
         SetFormDataLogin: (state, action) => {
-            const { data } = action.payload;
+            let { data } = action.payload;
            
           
             // Check if data is a string, and if so, parse it

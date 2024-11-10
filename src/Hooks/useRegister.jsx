@@ -10,13 +10,13 @@ export const useRegister = () => {
     setLoading(true);
     setError(null);
    
-   
+    let emailTrim = email.toLowerCase().trim();
     try {
       const response = await axios.post(import.meta.env.VITE_API_URL_REGISTER, {
         firstName,
         secondName,
         username,
-        email,
+        email:emailTrim,
         password,
         role,
         biomarkers

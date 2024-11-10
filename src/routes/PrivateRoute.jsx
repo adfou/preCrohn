@@ -6,12 +6,12 @@ import Loader from "../ui-component/Loader"; // Assuming Loader is the spinner c
 const PrivateRoute = ({ children }) => {
     const { isAuthenticated, loading  } = useSelector((state) => state.auth);
     const [simulatedLoading, setSimulatedLoading] = useState(true);
-
+    
     
 
     useEffect(() => {
         // If loading is finished and the state has changed, ensure simulated loading stops
-       
+
         if (!loading) {
             setSimulatedLoading(false);
         }

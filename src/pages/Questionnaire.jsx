@@ -5,6 +5,7 @@ import { QestionnairBodyLayout } from "../Components/Layout/index.mjs";
 import { setCurrentSectionIndex, saveFormData } from '../store/slice/questionnaireSlice';
 import { useVerifyToken } from '../Hooks/useVerifyToken'; 
 import { useNavigate, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 const Questionnaire = ({ title, Data,type }) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -37,6 +38,9 @@ const Questionnaire = ({ title, Data,type }) => {
     }, [sectionTag, currentSectionIndex, sectionTags, navigate]);
     return (
         <>
+        <Helmet>
+                <title>My PRE-Crohn’s Survey</title>
+      </Helmet>
             {title ? <div className='title-content'><h1>{title}</h1></div> : ""}
             <Container className="my-4 qstn-body">
                 <div className="">

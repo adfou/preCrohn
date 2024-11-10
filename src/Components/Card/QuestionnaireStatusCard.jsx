@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { Card, CardContent, Typography, Button, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { setCurrentSectionIndex } from '../../store/slice/questionnaireSlice'; 
+import { useDispatch } from 'react-redux';
+
 export const QuestionnaireStatusCard = ({ Percentage,FromDisabled }) => {
-  // State to control whether the button is enabled or disabled
-  //
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   // Handle button click
   const handleButtonClick = () => {
     console.log('onclick on button take qstnr');
-    
+    dispatch(setCurrentSectionIndex(0));
    
     navigate("/general-information");
     ///general-information

@@ -6,7 +6,7 @@ import { useParticipantProfile, useNextStep,useRestart } from '../Hooks/index.mj
 import {SetFormDataLogin,setCurrentSectionIndex} from "../store/slice/questionnaireSlice"
 import { useDispatch } from 'react-redux';
 import loadable from '@loadable/component';
-
+import { Helmet } from 'react-helmet';
 const Loader = loadable(() => import('../ui-component/Loader'));
 
 const ParticipantDashboard = () => {
@@ -63,6 +63,9 @@ const ParticipantDashboard = () => {
   return (
     <>
       <div className='title-content'>
+      <Helmet>
+                <title>My PRE-Crohn’s study</title>
+      </Helmet>
         <h1>My PRE-Crohn’s study</h1>
       </div>
       <Container

@@ -46,8 +46,9 @@ const CrohnRisk = ({ title }) => {
        }
        console.log("phase",phase)
        console.log("state",state)
-       if(role === "3" &&phase !== 1 && state !== 0){
-        navigate("/login");
+       if(role === "3" &&phase !== 2 && state !== 0){
+        console.log("login")
+        //navigate("/login");
         }
        }
     }, [profileData]);
