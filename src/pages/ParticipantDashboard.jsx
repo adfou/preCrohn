@@ -179,7 +179,7 @@ const ParticipantDashboard = () => {
                 </Typography>
                 <ul style={{ marginTop: '10px', paddingLeft: '20px', color: '#085C7C', textAlign: 'left' }}>
                   <li>Baseline/When you join</li>
-                  {role !== "3" && <li>8-week visit</li>}
+                  <li>8-week visit</li>
                   <li>6-month visit</li>
                 </ul>
                 <Typography mt={2} fontWeight={'bold'} fontSize={19} sx={{ marginTop: '32px' }}>

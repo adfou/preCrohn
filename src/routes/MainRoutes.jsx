@@ -63,7 +63,17 @@ const MainRoutes = {
       ],
     }
     ,//
-    
+    {
+      path: '/meet-the-team',
+      element: <MainLayout />,
+      children: [
+        {
+          path: '',
+          element: <Page title={"Meet the team"} data={[]}/>,
+        },
+      ],
+    }
+    ,
     {
       path: '/contact',
       element: <MainLayout />,
