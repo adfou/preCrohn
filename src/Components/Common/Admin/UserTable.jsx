@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton,
-  CircularProgress, Box, Typography, Menu, MenuItem, Checkbox, ListItemText, TextField, InputAdornment,Chip 
+  CircularProgress, Box, Typography, Menu, MenuItem, Checkbox, ListItemText, TextField, InputAdornment, Chip
 } from '@mui/material';
-import FilterListIcon from '@mui/icons-material/FilterList';
-import SearchIcon from '@mui/icons-material/Search';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import EmailIcon from '@mui/icons-material/Email';
 import LockResetIcon from '@mui/icons-material/LockReset';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useGetAllUsers, useRestart, useNextStep } from '../../../Hooks/index.mjs';
-import { toast } from 'react-hot-toast'; // Updated to use react-hot-toast
-
-// Icons for actions
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import RefreshIcon from '@mui/icons-material/Refresh';
+import FilterListIcon from '@mui/icons-material/FilterList';
+import SearchIcon from '@mui/icons-material/Search';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { useGetAllUsers, useRestart, useNextStep } from '../../../Hooks/index.mjs';
+import { toast } from 'react-hot-toast';
 
 const rolesOptions = [
   { value: "1", label: "Admin" },
@@ -23,11 +22,13 @@ const rolesOptions = [
   { value: "3", label: "Control" }
 ];
 
-const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser,RefreshTable }) => {
+const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser, RefreshTable }) => {
   const { users: Allusers, loading, error, refetch: refetchUsers } = useGetAllUsers();
   const [UserTable, setUserTable] = useState([]);
   const [selectedRoles, setSelectedRoles] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [menuAnchorEl, setMenuAnchorEl] = useState(null);
+  const [selectedUser, setSelectedUser] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [isDateAsc, setIsDateAsc] = useState(true);
 
@@ -35,49 +36,39 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser,RefreshTable }) 
   const { triggerRestart, restartData, loading: restartLoading, error: restartError } = useRestart();
 
   useEffect(() => {
-    console.log("Allusers:",Allusers)
     if (Allusers) {
       setUserTable(Allusers);
     }
   }, [Allusers]);
 
-  // Refresh users after next phase or restart action completes
   useEffect(() => {
     if (nextStepData && nextStepData.Result !== null) {
       toast.success(nextStepData.Result?.message || "Next phase completed successfully!");
-      refetchUsers(); // Refresh the users list
+      refetchUsers();
     }
   }, [nextStepData, refetchUsers]);
 
-
   useEffect(() => {
-    
     if (nextStepError) {
       toast.error(`Error ${nextStepError.message || nextStepError}`);
     }
-  }, [nextStepError, ]);
-
-
+  }, [nextStepError]);
 
   useEffect(() => {
     if (restartData) {
-      
       toast.success(restartData.message || "User state restarted successfully!");
-      refetchUsers(); // Refresh the users list
+      refetchUsers();
     }
   }, [restartData, restartError, refetchUsers]);
 
   useEffect(() => {
-    
     if (restartError) {
-      console.log("restartData",restartData)
       toast.error(`Error restarting user: ${restartError.message || restartError}`);
     }
-  }, [restartError ]);
+  }, [restartError]);
 
   useEffect(() => {
-      refetchUsers(); // Refresh the users list
-   
+    refetchUsers();
   }, [RefreshTable]);
 
   const handleDateSort = () => {
@@ -111,11 +102,11 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser,RefreshTable }) 
   };
 
   const handleRoleFilterClick = (event) => {
-    setAnchorEl(event.currentTarget); // Open the filter dropdown
+    setAnchorEl(event.currentTarget);
   };
 
   const handleFilterClose = () => {
-    setAnchorEl(null); // Close the filter dropdown
+    setAnchorEl(null);
   };
 
   const handleNextPhaseClick = (userId) => {
@@ -126,7 +117,17 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser,RefreshTable }) 
     triggerRestart(userId);
   };
 
+  const handleMenuClick = (event, user) => {
+    setSelectedUser(user);
+    setMenuAnchorEl(event.currentTarget);
+  };
 
+  const handleMenuClose = () => {
+    setSelectedUser(null);
+    setMenuAnchorEl(null);
+  };
+
+  const iconColor = "primary"; // Set desired color here (e.g., "primary", "secondary", etc.)
 
   if (loading) return <CircularProgress />;
   if (error) return <div>Error: Network error occurred</div>;
@@ -191,11 +192,8 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser,RefreshTable }) 
                   {isDateAsc ? <KeyboardArrowDownIcon fontSize="small" /> : <KeyboardArrowUpIcon fontSize="small" />}
                 </Box>
               </TableCell>
-              <TableCell sx={{ color: 'white', backgroundColor: '#1976d3' }} align="center">
-                <Box display="flex" alignItems="center" onClick={handleDateSort} style={{ cursor: 'pointer', display: "flex", justifyContent: "space-between" }}>
-                Due date
-                </Box>
-              </TableCell>
+              <TableCell sx={{ color: 'white', backgroundColor: '#1976d3' }} align="center">Due Date</TableCell>
+              <TableCell sx={{ color: 'white', backgroundColor: '#1976d3' }} align="center">Biomarkers</TableCell>
               <TableCell sx={{ color: 'white', backgroundColor: '#1976d3' }} align="center">State</TableCell>
               <TableCell sx={{ color: 'white', backgroundColor: '#1976d3' }} align="center">Actions</TableCell>
             </TableRow>
@@ -220,31 +218,42 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser,RefreshTable }) 
                 <TableCell align="center">{user.phase === 0 ? "Baseline" : user.phase === 1 ? "Phase One" : user.phase === 2 ? "Phase Two" : user.phase === 3 ? "Phase Three" : ""}</TableCell>
                 <TableCell>{user?.date}</TableCell>
                 <TableCell>{user?.due_date}</TableCell>
+                <TableCell>{user?.userObject?.biomarkers === "yes" ? "Yes" : "No"}</TableCell>
                 <TableCell>
-                <Chip
-                label={user?.stateStr}    // Text displayed inside the badge
-                color={user?.stateStr==="Closed"?"error" :"success"} 
-
-                variant="outlined"    // Sets the color to red (you can also use 'success', 'primary', etc.)
-                sx={{ fontWeight: 700,minWidth:"70px",minHeight:"20px",display:"flex",fontSize:"14px" }}  // Custom font weight to match Mantine's `fw={500}`
-              />  
+                  <Chip
+                    label={user?.stateStr}
+                    color={user?.stateStr === "Closed" ? "error" : "success"}
+                    variant="outlined"
+                    sx={{ fontWeight: 700, minWidth: "70px", minHeight: "20px", display: "flex", fontSize: "14px" }}
+                  />
                 </TableCell>
                 <TableCell align="center">
-                  <IconButton color="primary" onClick={() => onSendEmail(user)} title="Send Email">
-                    <EmailIcon />
+                  <IconButton onClick={(e) => handleMenuClick(e, user)} title="More Actions">
+                    <MoreVertIcon />
                   </IconButton>
-                  <IconButton color="secondary" onClick={() => onResetPassword(user)} title="Reset Password">
-                    <LockResetIcon />
-                  </IconButton>
-                  <IconButton color="error" onClick={() => onDeleteUser(user)} title="Delete User">
-                    <DeleteIcon />
-                  </IconButton>
-                  <IconButton color="info" onClick={() => handleNextPhaseClick(user.id)} title="Next Phase">
-                    <ArrowForwardIcon />
-                  </IconButton>
-                  <IconButton color="warning" onClick={() => handleRestartClick(user.id)} title="Reset Progress">
-                    <RefreshIcon />
-                  </IconButton>
+                  <Menu
+                    anchorEl={menuAnchorEl}
+                    open={Boolean(menuAnchorEl && selectedUser?.id === user.id)}
+                    onClose={handleMenuClose}
+                  >
+                    <MenuItem onClick={() => { onSendEmail(user); handleMenuClose(); }}>
+                      <EmailIcon sx={{ mr: 1, color: iconColor }} color="primary" /> Send Email
+                    </MenuItem>
+                    <MenuItem onClick={() => { onResetPassword(user); handleMenuClose(); }}>
+                      <LockResetIcon sx={{ mr: 1, color: iconColor }} color="secondary"  /> Reset Password
+                    </MenuItem>
+                    
+                    <MenuItem onClick={() => { handleNextPhaseClick(user.id); handleMenuClose(); }}>
+                      <ArrowForwardIcon sx={{ mr: 1, color: iconColor }} color="warning"/> Next Phase
+                    </MenuItem>
+                   
+                    <MenuItem onClick={() => { handleRestartClick(user.id); handleMenuClose(); }}>
+                      <RefreshIcon sx={{ mr: 1, color: iconColor }}  color="error" /> Reset Progress
+                    </MenuItem>
+                    <MenuItem onClick={() => { onDeleteUser(user); handleMenuClose(); }}>
+                      <DeleteIcon sx={{ mr: 1, color: iconColor }} color="error" /> Delete User
+                    </MenuItem>
+                  </Menu>
                 </TableCell>
               </TableRow>
             ))}

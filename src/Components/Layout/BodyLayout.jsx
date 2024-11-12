@@ -23,6 +23,24 @@ const renderContent = (key, value) => {
                     ))}
                 </ul>
             );
+        case 'LISTNumber':
+            return (
+                <ol  class ="number-list">
+                    {value.map((item, index) => (
+                        <li key={index}>{parse(item)}</li>
+                    ))}
+                </ol >
+            );
+            
+        case 'LISTBold':
+            return (
+                <ul>
+                    {value.map((item, index) => (
+                        <li style={{fontWeight:"600"}} key={index}>{item}</li>
+                    ))}
+                </ul>
+            );
+            
         case 'CARD':
             return (
                 <Container>

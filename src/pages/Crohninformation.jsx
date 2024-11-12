@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import { BodyPage } from "../Components/Layout/index.mjs";
+import { Box } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import { DiseaseInformation } from '../Data/Data';
 import { useVerifyToken } from '../Hooks/index.mjs';
@@ -37,7 +38,7 @@ const DiseaseInformationPage = () => {
 
             <Container className='content-container'>
                 <BodyPage data={DiseaseInformation} />
-
+                <Box sx={{display:"flex",justifyContent:"space-between"}}>
                 {userRole && userRole.role === "2" && ((userRole.phase > 0) || (userRole.phase === 0 && userRole.state === "1")) && (
                     <Button 
                         onClick={handleButtonClick} 
@@ -48,7 +49,7 @@ const DiseaseInformationPage = () => {
                         See the results
                     </Button>
                 )}
-
+                
                 {userRole && userRole.role === "3" &&  (userRole.phase === 2 && userRole.state === "1") && (
                     <Button 
                         onClick={handleButtonClick} 
@@ -59,6 +60,16 @@ const DiseaseInformationPage = () => {
                         See the results
                     </Button>
                 )}
+
+                    <Button 
+                        href='/thank-you'
+                        variant="contained" 
+                        color="primary" 
+                        className="see-results-button"
+                    >
+                        Thank you 
+                    </Button>
+                    </Box>
             </Container>
         </>
     );

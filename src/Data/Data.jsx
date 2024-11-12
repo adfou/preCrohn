@@ -190,6 +190,55 @@ const DiseaseInformation = [
        },
 ];
 
+const ThankYouData = [
+    {
+        Text:"Thank you for your participation and for what you are making possible: Helping us learn how to prevent Crohn’s disease in people, like you, who are at risk for it. We couldn’t do it without you! ",
+        
+    },
+    {
+        H3: "A few final thoughts…",
+        Text:"In addition to the Crohn’s disease risk factors already discussed, there are many other factors associated with Crohn’s that you might not be able to change, such as your family’s medical history, your living environment, and factors that you may have been exposed to growing up. For example, having a pet as a child and being breast-fed as an infant have been shown to protect against the development of Crohn’s disease.   "
+    },
+    {
+        Text:"Researchers, such as those of us conducting this study, are actively working to determine if changing a person’s risk factors can prevent Crohn’s disease. While we do not yet know how to prevent Crohn’s disease, we do know that the diet and lifestyle recommendations discussed in this study will contribute to a healthy life.  "
+
+    },
+    
+    {Text:"We appreciate your participation in this important study to help us find out how we can prevent Crohn’s disease. "
+
+    },
+    {
+        H3: "Next steps",
+        Text:"As a reminder, as part of your PRE-C study participation, you will be completing our questionnaire three times: ",
+        LISTBold: [
+            "When you join",
+            "8 weeks later",
+            "6 months after joining"]
+    },
+    {
+        Text:"In between questionnaires, feel free to return as often as you’d like to review information about Crohn’s disease. "
+    },
+    {
+        H2:"References",
+        LISTNumber: [
+            "Lopes EW, Lochhead P, Burke KE, et al. Risk factors for incident inflammatory bowel disease according to disease phenotype. Clinical Gastroenterology and Hepatology. 2022;20(10):2347-2357.e14. doi:10.1016/j.cgh.2022.01.003",
+            "Piovani D, Danese S, Peyrin-Biroulet L, Nikolopoulos GK, Lytras T, Bonovas S. Environmental risk factors for inflammatory bowel diseases: an umbrella review of meta-analyses. Gastroenterology. 2019;157(3):647-659.e4. doi:10.1053/j.gastro.2019.04.016",
+            "Ananthakrishnan AN, Khalili H, Konijeti GG, et al. A prospective study of long-term intake of dietary fiber and risk of Crohn’s disease and ulcerative colitis. Gastroenterology. 2013;145(5):970-977. doi:10.1053/j.gastro.2013.07.050",
+            "U.S. Department of Agriculture, US Department of Health and Human Services. 2020-2025 Dietary guidelines for Americans. Accessed August 6, 2023. <a href='https://www.dietaryguidelines.gov/resources/2020-2025-dietary-guidelines-online-materials'>https://www.dietaryguidelines.gov/resources/2020-2025-dietary-guidelines-online-materials<a/>",
+            "Khalili H, Ananthakrishnan AN, Konijeti GG, et al. Physical activity and risk of inflammatory bowel disease: Prospective study from the Nurses’ Health Study cohorts. BMJ (Online). 2013;347. doi:10.1136/bmj.f6633",
+            "Lloyd-Jones DM, Hong Y, Labarthe D, et al. Defining and setting national goals for cardiovascular health promotion and disease reduction: the American Heart Association’s strategic impact goal through 2020 and beyond. Circulation. 2010;121(4):586-613. doi:10.1161/CIRCULATIONAHA.109.192703",
+            "Piercy KL, Troiano RP, Ballard RM, et al. The physical activity guidelines for Americans. JAMA - Journal of the American Medical Association. 2018;320(19):2020-2028. doi:10.1001/jama.2018.14854",
+            "American Heart Association. Recommendations for physical activity in adults and kids. Published 2023. Accessed August 13, 2023. <a href='https://www.heart.org/en/healthy-living/fitness/fitness-basics/aha-recs-for-physical-activity-in-adults'>https://www.heart.org/en/healthy-living/fitness/fitness-basics/aha-recs-for-physical-activity-in-adults<a/>",
+            "CDC. Smoking and Cancer | Overviews of Diseases/Conditions | Tips From Former Smokers. Accessed August 13, 2023. <a href='https://www.cdc.gov/tobacco/campaign/tips/diseases/cancer.html'>https://www.cdc.gov/tobacco/campaign/tips/diseases/cancer.html<a/>",
+            "Mahid SS, Minor KS, Soto RE, Hornung CA, Galandiuk S. Smoking and inflammatory bowel disease: a meta-analysis. Mayo Clin Proc. 2006;81(11):1462-1471. www.mayoclinicproceedings.com1462",
+            "Nirmala Prasadi VP, Joye IJ. Dietary fibre from whole grains and their benefits on metabolic health. Nutrients. 2020;12(10):1-20. doi:10.3390/nu12103045",
+            "Fu T, Chen H, Chen X, et al. Sugar-sweetened beverages, artificially sweetened beverages and natural juices and risk of inflammatory bowel disease: a cohort study of 121,490 participants. Aliment Pharmacol Ther. 2022;56(6):1018-1029. doi:10.1111/apt.17149",
+            "American Heart Association. How too much added sugar affects your health (infographic). Accessed August 13, 2023. <a href='https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/how-too-much-added-sugar-affects-your-health-infographic'>https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/how-too-much-added-sugar-affects-your-health-infographic<a/>",
+            "American Heart Association. Added sugars. Accessed August 13, 2023. <a href='https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/added-sugars'>https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/added-sugars<a/>"
+        ]
+    }
+    
+]
 
 const CrohnRiskData = [
     {
@@ -1091,4 +1140,4 @@ const Prefill = {"general-information":{"What is your sex assigned at birth?":"0
 export {cardHomeDataLeft,cardHomeDataRight,AboutTheStudy,GeneralInformationData,YourmedicalhistoryData,
     FamilyHistoryData,CrohnRiskData,riskLevels,riskColors,InfoModalData,Yourdiet,Yourphysicalactivity,
     Yoursmokinghistory,Yourdietcheese,YourdietVEGETABLES,YourdietMEAT,YoutdietBREADS,YoutdietBEVERAGES,
-    YourdietSWEETS,KnowledgEandAttitudes,DiseaseInformation,ContactPageContent,Prefill} ;
+    YourdietSWEETS,KnowledgEandAttitudes,DiseaseInformation,ContactPageContent,Prefill,ThankYouData} ;

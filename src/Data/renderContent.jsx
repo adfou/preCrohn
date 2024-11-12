@@ -204,37 +204,11 @@ const renderContent = (key, value, handleChange, formData) => {
       const { activities, weightTrainingActivities, timeRanges } = value;
   
       // Function to handle "Check All" button click
-      const handleCheckAll = () => {
-          // Check the third option (index 2) for each activity
-          activities.forEach((activity) => {
-              handleChange({
-                  target: {
-                      name: activity,
-                      value: '2', // Set to the third option (index 2) for each activity
-                  },
-              });
-          });
-  
-          // Check the third option (index 2) for each weight training activity
-          weightTrainingActivities.forEach((weightActivity) => {
-              handleChange({
-                  target: {
-                      name: weightActivity,
-                      value: '2', // Set to the third option (index 2) for each weight training activity
-                  },
-              });
-          });
-      };
+      
   
       return (
           <Box>
-              <Button
-                  variant="contained"
-                  onClick={handleCheckAll}
-                  sx={{ mb: 2 }}
-              >
-                  Check All 
-              </Button>
+              
               <TableContainer component={Paper}>
                   <Table>
                       <TableHead>
@@ -340,13 +314,7 @@ const renderContent = (key, value, handleChange, formData) => {
       
           return (
               <Box>
-                  <Button
-                      variant="contained"
-                      onClick={handleCheckAll}
-                      sx={{ mb: 2 }}
-                  >
-                      Check All 
-                  </Button>
+                  
                   <TableContainer component={Paper}>
                       <Table>
                           <TableHead>
@@ -411,13 +379,7 @@ const renderContent = (key, value, handleChange, formData) => {
     
         return (
             <Box>
-                <Button
-                    variant="contained"
-                    onClick={handleCheckAll}
-                    sx={{ mb: 2 }}
-                >
-                    Check All 
-                </Button>
+               
                 <TableContainer component={Paper}>
                     <Table>
                         <TableHead>

@@ -16,18 +16,27 @@ export const Registration = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    
+
     if (password !== confirmPassword) {
       toast.error('Passwords do not match');
       return;
     }
-    register(firstName, secondName, username, email, password, role,biomarkers);
+    register(firstName, secondName, username, email, password, role, biomarkers);
   };
 
   useEffect(() => {
     if (data) {
       toast.success('Registration successful');
+      
+      // Reset all fields after successful registration
+      setFirstName('');
+      setSecondName('');
+      setUsername('');
+      setEmail('');
+      setPassword('');
+      setConfirmPassword('');
+      setRole('3');
+      setBiomarkers('no');
     }
   }, [data]);
 
