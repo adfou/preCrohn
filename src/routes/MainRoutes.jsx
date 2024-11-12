@@ -48,7 +48,7 @@ const MainRoutes = {
       children: [
         {
           path: '',
-          element: <Page title={"About"} data={AboutTheStudy}/>,
+          element: <Page title={"About the study"} data={AboutTheStudy}/>,
         },
       ],
     }
@@ -60,7 +60,7 @@ const MainRoutes = {
       children: [
         {
           path: '',
-          element: <Page title={"Contact us"} data={ContactPageContent}/>,
+          element: <Page title={"Contact"} data={ContactPageContent}/>,
         },
       ],
     }

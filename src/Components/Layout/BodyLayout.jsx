@@ -29,7 +29,7 @@ const renderContent = (key, value) => {
                     <Row className="container-card">
                         {value.map((card, index) => (
                             <Card key={index} className="sx light-card">
-                                <Card.Body>
+                                <Card.Body> 
                                     <Card.Title>{card.Title}</Card.Title>
                                     <Card.Subtitle className="mb-2 text-muted">{card.underTitlte}</Card.Subtitle>
                                     <Card.Text>{card.text}</Card.Text>
@@ -39,6 +39,23 @@ const renderContent = (key, value) => {
                     </Row>
                 </Container>
             );
+        case 'CARDGREEN':
+                return (
+                    <Container>
+                        <Row className="container-card">
+                            {value.map((card, index) => (
+                                <Card key={index} className="sx background-card">
+                                    <Card.Body>
+                                        <Card.Title>{card.Title}</Card.Title>
+                                        <a href={card.link} className="card-button">
+                                            {card.button}
+                                        </a>
+                                    </Card.Body>
+                                </Card>
+                            ))}
+                        </Row>
+                    </Container>
+                );
         default:
             return <p>{value}</p>;
     }

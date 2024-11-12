@@ -23,7 +23,28 @@ const Header = () => {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
                     <Nav.Link href="/">HOME</Nav.Link>
-                    <Nav.Link href="/about">ABOUT</Nav.Link>
+
+                    {/* ABOUT Dropdown */}
+                    <Dropdown as={Nav.Item}>
+                        <Dropdown.Toggle 
+                            as={Nav.Link} 
+                            id="about-dropdown"
+                            className="d-flex align-items-center"
+                        >
+                            ABOUT
+                            <IconChevronDown 
+                                style={{ 
+                                    marginLeft: '9px', 
+                                    fontSize: '20px', 
+                                    color: '#80AD03' 
+                                }} 
+                            />
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="/about">About the study</Dropdown.Item>
+                            <Dropdown.Item href="/meet-the-team">Meet the Team</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
 
                     {/* GET STARTED Dropdown */}
                     <Dropdown as={Nav.Item}>
@@ -31,26 +52,22 @@ const Header = () => {
                             as={Nav.Link} 
                             id="get-started-dropdown"
                             className="d-flex align-items-center"
-                            // Prevents the default link behavior, so the dropdown works
                         >
                             GET STARTED
                             <IconChevronDown 
                                 style={{ 
                                     marginLeft: '9px', 
-                                    fontSize: '20px', // Increased size for better visibility
-                                    color: '#80AD03' // Custom color
+                                    fontSize: '20px', 
+                                    color: '#80AD03' 
                                 }} 
                             />
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                            {/*<Dropdown.Item href="/knowledge-and-attitudes-survey">Knowledge & attitudes survey</Dropdown.Item>*/}
                             <Dropdown.Item href="/disease-information">Crohn’s disease information</Dropdown.Item>
-                            {/*<Dropdown.Item href="/crohn-risk">Your personalized Crohn’s risk</Dropdown.Item>*/}
                         </Dropdown.Menu>
                     </Dropdown>
 
                     <Nav.Link href="/contact">CONTACT</Nav.Link>
-                    
                 </Nav>
 
                 {/* Search Button and Input */}

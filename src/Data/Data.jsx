@@ -1,20 +1,24 @@
 // Home
 const cardHomeDataLeft = 
     {
-        text: "Participanst: Take yout PRE-Crohn's study questionnaire",
+        text: "Participants: Take your PRE-Crohn's study questionnaire",
         buttonText: "GET STARTED",
         buttonLink: "/profile"
     }
    
 const cardHomeDataRight = 
     {
-        text: "Not yet a participant? Have Crohn's disease in your family",
+        text: "Not yet a participant? Have Crohn's disease in your family?",
         buttonText: "learn more about the study",
-        buttonLink: "/1"
+        buttonLink: "/about"
     }
    
 
 const AboutTheStudy = [
+    {
+        Text:"The Personal Risk Estimation for Crohn’s Disease (PRE-Crohn’s) study looks at how education about a person’s Crohn's risk impacts their diet, behaviors, and biomarkers (a marker in the blood or other tissue that can be found in people who have or are at risk for a certain disease) for this disease. Participants will complete questionnaires about their diet and lifestyle, and have blood and stool samples collected. The study focuses on unaffected first-degree relatives (parents, siblings, children) of people with inflammatory bowel disease, such as Crohn’s disease, ulcerative colitis, or indeterminate colitis (IBD-unclassified)."
+    },
+
     {
         H2: "Study structure",
         H3: "Participants will be randomly assigned to one of two groups: an intervention group and a control group.",
@@ -53,27 +57,43 @@ const AboutTheStudy = [
                     text:"This location is approximately a 7-minute walk from the Charles/MGH Station on the Red line and approximately a 6-minute walk from the main MGH campus. "
                 }
             ],
-        HTMLTEXT:"Most of the study questionnaires can be completed from home on a smartphone, tablet, or computer. However, participants will also need to attend three in-person visits at one of the MGH study sites above over the course of the study. Participants will receive passes to cover the cost of parking for these in-person visits. Participants will be compensated for each visit completed. Questions? <a href='/contact'>Contact us</a> for more details."
+        HTMLTEXT:"Most of the study questionnaires can be completed from home on a smartphone, tablet, or computer. However, participants will also need to attend three in-person visits at one of the MGH study sites above over the course of the study. Participants will receive passes to cover the cost of parking for these in-person visits. Participants will be compensated for each visit completed. <a href='/contact'>Contact us</a> for more details."
     },
+    {
+        
+        CARDGREEN:[
+                    {
+                    Title:"Participants: Take your PRE-Crohn’s study questionnaire.",
+                    link:"/profile",
+                    button:"Get started"
+                },
+                {
+                    Title:"Not yet a participant? Have Crohn’s disease in your family?",
+                    link:"/about",
+                    button:"Learn more"
+                },
+              
+            ],
+         },
 
 ];
 const ContactPageContent = [
-    {
-        H2: "Contact Information",
+    {HTMLTEXT:'<p> If you would like to learn more about the study, email us at <a href="mailto:mghprecrohns@mgb.org?subject=Inquiry%20About%20the%20Study">mghprecrohns@mgb.org</a>  or call us at 617-643-5280. </p>',
+        
         Text: "If you would like to learn more about the study, email us at mghprecrohns@mgb.org or call us at 617-643-5280."
     },
     {
-        H2: "PRE-Crohn’s Study Sites",
+        H2: "PRE-Crohn’s study sites",
         H3: "This study is being conducted at the Massachusetts General Hospital (MGH) in the Division of Gastroenterology. The two main study sites are:",
         CARD: [
             {
                 Title: "MGH Main Campus",
-                underTitle: "55 Fruit Street, Boston, MA, 02114",
+                underTitlte: "55 Fruit Street, Boston, MA, 02114",
                 text: "This location is approximately a 4-minute walk from the Charles/MGH Station on the Red line."
             },
             {
                 Title: "MGH Crohn’s and Colitis Center",
-                underTitle: "165 Cambridge Street, 9th Floor, Boston, MA, 02114",
+                underTitlte: "165 Cambridge Street, 9th Floor, Boston, MA, 02114",
                 text: "This location is approximately a 7-minute walk from the Charles/MGH Station on the Red line and approximately a 6-minute walk from the main MGH campus."
             }
         ]
@@ -144,8 +164,30 @@ const DiseaseInformation = [
                     ]
     },
     {
-        HTMLTEXT:"For a complete list of approved medications for Crohn’s, visit the Crohn’s and Colitis Foundation’s IBD Medication guide.  "
-    }
+        HTMLTEXT:"For a complete list of approved medications for Crohn’s, visit the <a href='https://www.crohnscolitisfoundation.org/patientsandcaregivers/ibd-medication-guide'>Crohn’s and Colitis Foundation’s IBD Medication guide</a>.  "
+    },
+    {H3:'Diet and nutrition',
+        LIST: [
+            "Therapy with special liquid diets called “enteral nutrition” can help treat Crohn’s disease, especially in children.",
+            "Many solid-food diets have been studied for Crohn’s disease. While no single solid-food diet or eating plan will work for everyone with Crohn’s disease, special diets may work for some people based on their individual needs and symptoms.",
+                    ]
+    },
+    {   
+        H3:'Surgery',
+        LIST: [
+            " In some cases, surgery may be needed to remove damaged parts of the intestine.",
+                    ],
+        HTMLTEXT:"The above information is provided by the Crohn’s and Colitis Foundation (CCF). For more information on Crohn’s disease, visit the CCF webpage. [LINK TO <a href='https://www.crohnscolitisfoundation.org/what-is-crohns-disease'>https://www.crohnscolitisfoundation.org/what-is-crohns-disease]</a>",
+            
+    },
+    {
+        H2:"References",
+        HTMLTEXT:'What Is Crohn’s Disease? Crohn’s & Colitis Foundation. Accessed March 12, 2023. <a href="https://www.crohnscolitisfoundation.org/patientsandcaregivers/what-is-crohns-disease">https://www.crohnscolitisfoun…at-is-crohns-disease</a>.',
+        Text:'Dahlhamer JM, Zammitti EP, Ward BW, Wheaton AG, Croft JB. Prevalence of Inflammatory Bowel Disease Among Adults Aged ≥18 Years — United States, 2015. Vol 65. Centers for Disease Control MMWR Office; 2016. doi:10.15585/mmwr.mm6542a3'
+    },
+    {
+        HTMLTEXT:'Crohn’s Disease. American College of Gastroenterology. Accessed March 12, 2023.<a href="https://gi.org/topics/crohns-disease/">https://gi.org/topics/crohns-disease/</a>.',
+       },
 ];
 
 

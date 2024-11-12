@@ -219,8 +219,28 @@ main.questionnaire{
                       font-size: 18px;
                     }
               } 
+              .background-card {
+                
+                  background: #80AD03;
+                  border: 0px solid #597D0B !important;
+                  border-radius: 24px !important;
+                  padding: 28px 53px 39px 55px !important;
+
+                  .card-body{
+                    gap:30px;
+
+                    .card-title{
+                      color:white;
+                      font-weight: 600;
+                      line-height: 1.35em;
+
+                    }
+                  }
+              }
+              
             }
     
+            
         
       
 
