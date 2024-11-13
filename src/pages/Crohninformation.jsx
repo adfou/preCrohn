@@ -38,13 +38,14 @@ const DiseaseInformationPage = () => {
 
             <Container className='content-container'>
                 <BodyPage data={DiseaseInformation} />
-                <Box sx={{display:"flex",justifyContent:"space-between"}}>
+                <div className='bigger-container-option'>
+                    
                 {userRole && userRole.role === "2" && ((userRole.phase > 0) || (userRole.phase === 0 && userRole.state === "1")) && (
                     <Button 
                         onClick={handleButtonClick} 
                         variant="contained" 
                         color="primary" 
-                        className="see-results-button"
+                        className="button-survey bigger"
                     >
                         See the results
                     </Button>
@@ -65,11 +66,12 @@ const DiseaseInformationPage = () => {
                         href='/thank-you'
                         variant="contained" 
                         color="primary" 
-                        className="see-results-button"
+                        className="button-survey bigger"  
                     >
                         Thank you 
                     </Button>
-                    </Box>
+                    
+                    </div>
             </Container>
         </>
     );

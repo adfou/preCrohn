@@ -51,6 +51,7 @@ const Questionnaire = ({ title, Data,type }) => {
                      
                     />
                 </div>
+                
             </Container>
         </>
     );

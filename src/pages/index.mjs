@@ -6,3 +6,4 @@ export {Dashboard} from "./Dashboard";
 export {Questionnaire} from "./Questionnaire"
 export {CrohnRisk} from "./CrohnRisk"
 export {DiseaseInformationPage} from "./Crohninformation"
+export {OptionalSurveyIntermidiare} from "./OptionalSurveyIntermidiare"

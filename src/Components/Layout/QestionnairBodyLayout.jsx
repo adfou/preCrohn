@@ -339,7 +339,7 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
         
         FinishFormQuery(updatedFormData);
         dispatch(saveFormData({ currentSectionIndex, data: formData }));
-        navigate(`/knowledge-and-attitudes-survey`);
+        navigate(`/optional-survey`);
     };
 
     const handleBack = () => {
@@ -365,24 +365,28 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                 ))}
 
                 {type === "fixe" ? (
+                    <div className='bigger-container'>
                     <Button
                         variant="contained"
                         onClick={() => navigate("/crohns-disease-information")}
+                        className="button-survey bigger"   
+                        
                     >
                         Continue to Crohn’s disease information
                     </Button>
+                    </div>
                 ) : (
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 4 }}>
-                        <Button variant="contained" onClick={handleBack} disabled={currentSectionIndex === 0}>
+                        <Button className="button-survey" variant="contained" onClick={handleBack} disabled={currentSectionIndex === 0}>
                             Back
                         </Button>
 
                         {/* Save button next to Back */}
                         <Button
                             variant="contained"
+                            className="button-survey"
                             color="primary"
                             onClick={handleSave}
-                            startIcon={isSaving ? <CircularProgress size={20} /> : <SaveIcon />}
                             disabled={isSaving}
                         >
                             {isSaving ? 'Saving...' : 'Save'}
@@ -390,13 +394,13 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
 
                         {currentSectionIndex < sectionTags.length - 1 ? (
                             <>
-                            <Button variant="contained" onClick={handleNext}>
+                            <Button className="button-survey" variant="contained" onClick={handleNext}>
                                 Next
                             </Button>
                             
                         </>
                         ) : (
-                            <Button variant="contained" onClick={handleFinish}>
+                            <Button className="button-survey" variant="contained" onClick={handleFinish}>
                                 Finish
                             </Button>
                         )}
@@ -405,7 +409,7 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                 )}
                 {type === "fixe"? "": 
                 <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
-                <Button variant="contained" onClick={handelFill}>
+                <Button className="button-survey" variant="contained" onClick={handelFill}>
                             Fill
                             </Button>
                             </Box>}

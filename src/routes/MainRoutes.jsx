@@ -4,7 +4,7 @@ import PrivateRoute from './PrivateRoute'; // Import your PrivateRoute component
 import Loader from '../ui-component/Loader';
 import loadable from '@loadable/component';
 // DATA
-import {AboutTheStudy,DiseaseInformation,ContactPageContent,ThankYouData} from "../Data";
+import {AboutTheStudy,DiseaseInformation,ContactPageContent,ThankYouData,OptionalSurveyIntermidiareData} from "../Data";
 
 // Page imports using @loadable/component with a fallback loader
 
@@ -13,6 +13,9 @@ const Home = loadable(() => import('../pages/Home'), {
 });
 
 const Page = loadable(() => import('../pages/Page'), {
+  fallback: <Loader />,
+});
+const OptionalSurveyIntermidiare = loadable(() => import('../pages/OptionalSurveyIntermidiare'), {
   fallback: <Loader />,
 });
 const ParticipantDashboard = loadable(() => import('../pages/ParticipantDashboard'), {
@@ -62,7 +65,18 @@ const MainRoutes = {
         },
       ],
     }
-    ,//
+    ,
+    {
+      path: '/optional-survey',
+      element: <MainLayout />,
+      children: [
+        {
+          path: '',
+          element: <OptionalSurveyIntermidiare title={"Optional Survey"} data={ OptionalSurveyIntermidiareData}/>,
+        },
+      ],
+    }
+    ,
     {
       path: '/meet-the-team',
       element: <MainLayout />,

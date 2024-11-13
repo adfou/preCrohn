@@ -66,6 +66,30 @@ main.questionnaire{
     //max-width: 1440px;
 
     background-color:$PRE_Crohn_White ;
+
+    
+    .bigger-container-option{
+      display: flex;
+    justify-content: space-around;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    
+    .button-survey{
+      background: #80AD03;
+      font-size: 20px;
+      font-weight: 600;
+      min-width: 160px;
+      border-radius: 12px;
+    }
+    .button-survey.bigger{
+      padding: 12px 60px 14px 60px;
+    max-width: 340px;
+    line-height: 24px;
+    font-size: 20px;
+    text-transform: none;
+    }
+    }
+   
     .login{
       width: 100%;
       height: 100vh;
@@ -390,6 +414,26 @@ main.questionnaire{
 
 
   .questionnaire{
+    .button-survey{
+      background: #80AD03;
+      font-size: 20px;
+      font-weight: 600;
+      min-width: 160px;
+      border-radius: 12px;
+    }
+    .bigger-container{
+      display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    }
+    .button-survey.bigger{
+      padding: 12px 60px 14px 60px;
+    max-width: 340px;
+    line-height: 24px;
+    font-size: 20px;
+    text-transform: none;
+    }
     h2{
       font-size: 36px;
       font-family: $POOPINS_FONT;
