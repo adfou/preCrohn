@@ -9,7 +9,7 @@ import { Helmet } from 'react-helmet';
  const Home = () => {
     
     return (
-        <>
+        <div style={{paddingBottom:"100px"}}>
             
             <Helmet>
                 <title>Home</title>
@@ -26,7 +26,7 @@ import { Helmet } from 'react-helmet';
 
 
            
-        </>
+        </div>
     );
 };
 

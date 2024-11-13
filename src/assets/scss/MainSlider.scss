@@ -6,7 +6,7 @@
   width: 99.3%;
     display: flex !important;
     flex-direction: row-reverse !important;
-
+    gap: 50px;
   
     img {
         width: 65%;
@@ -30,7 +30,7 @@
                 max-width: 430px !important;
                 font-size: 45px !important;
                 font-weight: 600 !important;
-                line-height: 1.25em;
+                line-height: 1.09em;
             }
     }
     
@@ -71,6 +71,7 @@
     .slide {
       // Adjust styles for smaller screens if needed
       font-size: 20px;
+      gap: 0px;
     }
   }
   

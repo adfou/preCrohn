@@ -182,7 +182,7 @@ const ParticipantDashboard = () => {
                   <li>8-week visit</li>
                   <li>6-month visit</li>
                 </ul>
-                <Typography mt={2} fontWeight={'bold'} fontSize={19} sx={{ marginTop: '32px' }}>
+                <Typography mt={2} fontWeight={'bold'} fontSize={19} sx={{ marginTop: '32px',display:"flex",flexDirection:"row",alignItems:"center" }}>
                   Your status:
                   <Typography
                     component="span"
@@ -194,6 +194,8 @@ const ParticipantDashboard = () => {
                       fontWeight: 600,
                       marginLeft: '9px',
                       fontSize: '18px',
+                      display:"flex",
+                      height:"40px"
                     }}
                   >
                     

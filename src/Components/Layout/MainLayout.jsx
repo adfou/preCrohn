@@ -6,7 +6,6 @@ import Header from '../Common/Header';
 import Footer from '../Common/Footer';
 
 export const MainLayout = ({ type }) => {
-    console.log("type of ", type);
     return (
         <>
             <Header />

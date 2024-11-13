@@ -215,7 +215,7 @@ const renderContent = (key, value, handleChange, formData) => {
                           <TableRow>
                               <TableCell>Activity</TableCell>
                               {timeRanges.map((range, index) => (
-                                  <TableCell key={index}>{range}</TableCell>
+                                  <TableCell sx={{lineHeight:"19px"}} key={index}>{range}</TableCell>
                               ))}
                           </TableRow>
                       </TableHead>
@@ -321,7 +321,7 @@ const renderContent = (key, value, handleChange, formData) => {
                               <TableRow>
                                   <TableCell>{title}</TableCell>
                                   {timeRangesFood.map((range, index) => (
-                                      <TableCell key={index}>{range}</TableCell>
+                                      <TableCell key={index} sx={{lineHeight:"19px"}}>{range}</TableCell>
                                   ))}
                               </TableRow>
                           </TableHead>
@@ -387,7 +387,7 @@ const renderContent = (key, value, handleChange, formData) => {
                                 <TableCell>{titleTwo}</TableCell>
                                 <TableCell></TableCell>
                                 {TwotimeRangesFood.map((range, index) => (
-                                    <TableCell key={index}>{range}</TableCell>
+                                    <TableCell sx={{lineHeight:"19px"}} key={index}>{range}</TableCell>
                                 ))}
                             </TableRow>
                         </TableHead>

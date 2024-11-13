@@ -99,7 +99,8 @@ export const NextStepsCard = ({ date, phase, role }) => {
               fontSize: '18px',
               minWidth: '271px', // Set min width for date
               minHeight:'27px',
-              textAlign:"center"
+              textAlign:"center",
+              height:"40px"
             }}
           >
             {formattedDate==="Invalid Date" || formattedDate===""?"_":formattedDate}

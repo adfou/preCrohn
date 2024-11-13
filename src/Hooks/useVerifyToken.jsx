@@ -26,7 +26,6 @@ export const useVerifyToken = () => {
         });
 
         if (response.status === 200) {
-          console.log("response.data.user:",response.data.user)
           setuserRole(response.data.user)
           const { user } = response.data.user; // Assuming the API response contains user info
           dispatch(loginSuccess({ token, user })); // Save user info including roles in Redux

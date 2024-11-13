@@ -23,6 +23,15 @@ const renderContent = (key, value) => {
                     ))}
                 </ul>
             );
+
+        case 'LISTHtml':
+            return (
+                <ul>
+                    {value.map((item, index) => (
+                        <li key={index}>{parse(item)}</li>
+                    ))}
+                </ul>
+            );
         case 'LISTNumber':
             return (
                 <ol  class ="number-list">
@@ -48,8 +57,8 @@ const renderContent = (key, value) => {
                         {value.map((card, index) => (
                             <Card key={index} className="sx light-card">
                                 <Card.Body> 
-                                    <Card.Title>{card.Title}</Card.Title>
-                                    <Card.Subtitle className="mb-2 text-muted">{card.underTitlte}</Card.Subtitle>
+                                    <Card.Title >{card.Title}</Card.Title>
+                                    <Card.Subtitle style={{textTransform:"uppercase",lineHeight:"19px"}}className="mb-2 text-muted">{card.underTitlte}</Card.Subtitle>
                                     <Card.Text>{card.text}</Card.Text>
                                 </Card.Body>
                             </Card>

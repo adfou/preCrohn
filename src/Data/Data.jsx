@@ -155,12 +155,12 @@ const DiseaseInformation = [
     },
     {H3:'Medications ',
         HTMLTEXT:"Most of the medications used to treat Crohn’s disease act on the immune system, which is responsible for the inflammation of this disease. ",
-        LIST: [
-            "Steroids: These can be given as pills or intravenously (through the vein). Steroids suppress the entire immune system.",
-            "Immunomodulator: These are non-steroid medications, given as pills or injections, that suppress the immune system. Immunomodulators can be combined with biologic therapies (see below) to help control inflammation.",
-            "Biologic therapies: These are non-steroid, intravenous or injectable medications. These medications are antibodies, which are proteins, that block one specific part of the immune system. These can be used alone or in combination with an immunomodulator (see above).",
-            "Antibiotics: These may be needed if infections, like abscesses, are present.",
-            "Future therapies: There are many therapies currently under investigation."
+        LISTHtml: [
+            "<span style='font-weight:600;'>Steroids:</span> These can be given as pills or intravenously (through the vein). Steroids suppress the entire immune system.",
+            "<span style='font-weight:600;'>Immunomodulator:</span> These are non-steroid medications, given as pills or injections, that suppress the immune system. Immunomodulators can be combined with biologic therapies (see below) to help control inflammation.",
+            "<span style='font-weight:600;'>Biologic therapies:</span> These are non-steroid, intravenous or injectable medications. These medications are antibodies, which are proteins, that block one specific part of the immune system. These can be used alone or in combination with an immunomodulator (see above).",
+            "<span style='font-weight:600;'>Antibiotics:</span> These may be needed if infections, like abscesses, are present.",
+            "<span style='font-weight:600;'>Future therapies:</span> There are many therapies currently under investigation."
                     ]
     },
     {

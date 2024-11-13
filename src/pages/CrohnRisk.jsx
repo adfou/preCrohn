@@ -44,8 +44,6 @@ const CrohnRisk = ({ title }) => {
        if(phase === 0 && state === 0){
         navigate("/login");
        }
-       console.log("phase",phase)
-       console.log("state",state)
        if(role === "3" &&phase !== 2 && state !== 0){
         console.log("login")
         //navigate("/login");

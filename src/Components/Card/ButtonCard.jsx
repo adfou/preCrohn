@@ -8,7 +8,7 @@ const Card = ({ cardData }) => {
     return (
         <div className="card">
             <div className="card-body">
-                <p className="card-text">{text}</p>
+                <p className="card-text" style={{lineHeight:"40px"}}>{text}</p>
                 <a href={buttonLink} className="card-button">
                     {buttonText}
                 </a>

@@ -136,6 +136,7 @@ main.questionnaire{
           font-family: $POOPINS_FONT;
           font-weight: 700;
           font-size: 44px;
+          line-height: 32px;
         }
       }
 
@@ -165,7 +166,7 @@ main.questionnaire{
               color: $PRE_Crohn_Black;
               font-family: $POOPINS_FONT;
               font-weight: 600;
-              font-size: 21px;
+              font-size: 20px;
               margin-bottom: 20px;
               line-height: 1.3em;
             }
@@ -213,6 +214,7 @@ main.questionnaire{
                       font-weight: 400;
                       font-family: $POOPINS_FONT ;
                       margin-top: 21px ;
+                      
                     }
                   }
                     .card-text{
@@ -280,6 +282,7 @@ main.questionnaire{
       font-weight: 700;
       font-family: $RUBIK_FONT;
       text-transform: uppercase;
+      font-size: 20px;
       
     }
     a::after {
