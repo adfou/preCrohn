@@ -14,13 +14,17 @@ export const ThreeCardsSection = ({progression,phase,role}) => {
         gap: '72.5px',
       }}
     > 
-      
+      {role==="2"?
+  
+  <CardParticipants title="Your personalized risk" type="Return to" variant={ phase !== 0 ||(phase === 0 && progression ===100 ) ?'default':'white'} />:
+  "" 
+  }
       <CardParticipants title="Access information" type="Learn more" />
       <CardParticipants title="Questions?" type="Contact us" />
       {role==="2"?
   
-      <CardParticipants title="Your personalized risk" type="Return to" variant={ phase !== 0 ||(phase === 0 && progression ===100 ) ?'default':'white'} />:
-      <CardParticipants title="Your personalized risk" type="Return to" variant={progression ===100 && phase === 2 ?'default':'white'} />
+      "":
+      <CardParticipants title="Your personalized risk" type="Return to"  role={role} variant={progression ===100 && phase === 2 ?'default':'white'}/>
       }
       
     </Box>

@@ -175,7 +175,7 @@ const ParticipantDashboard = () => {
                 }}
               >
                 <Typography fontSize={19} sx={{paddingRight: '45px'}}>
-                  Payments will be sent after each visit (after sample collection & questionnaire completion).
+                Questionnaires + blood and stool samples are done 3 times, at:
                 </Typography>
                 <ul style={{ marginTop: '10px', paddingLeft: '20px', color: '#085C7C', textAlign: 'left' }}>
                   <li>Baseline/When you join</li>

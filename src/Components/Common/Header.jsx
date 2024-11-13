@@ -23,7 +23,8 @@ const Header = () => {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
                     <Nav.Link href="/">HOME</Nav.Link>
-
+                    <Nav.Link href="/profile">GET STARTED</Nav.Link>
+                   
                     {/* ABOUT Dropdown */}
                     <Dropdown as={Nav.Item}>
                         <Dropdown.Toggle 
@@ -47,26 +48,7 @@ const Header = () => {
                     </Dropdown>
 
                     {/* GET STARTED Dropdown */}
-                    <Dropdown as={Nav.Item}>
-                        <Dropdown.Toggle 
-                            as={Nav.Link} 
-                            id="get-started-dropdown"
-                            className="d-flex align-items-center"
-                        >
-                            GET STARTED
-                            <IconChevronDown 
-                                style={{ 
-                                    marginLeft: '9px', 
-                                    fontSize: '20px', 
-                                    color: '#80AD03' 
-                                }} 
-                            />
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                            <Dropdown.Item href="/disease-information">Crohn’s disease information</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
-
+                    <Nav.Link href="/crohns-disease-information">CROHN'S INFO</Nav.Link>
                     <Nav.Link href="/contact">CONTACT</Nav.Link>
                 </Nav>
 
