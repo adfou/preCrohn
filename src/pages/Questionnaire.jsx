@@ -17,7 +17,7 @@ const Questionnaire = ({ title, Data,type }) => {
     useEffect(() => {
         console.log("state:",userRole.state)
         if(userRole.state==="1"){
-            if(userRole.role !=="1"){
+            if(userRole.role !=="1" && type !=="fixe"){
                 navigate('/profile?role='+userRole.role); 
             }   
         }
