@@ -192,21 +192,12 @@ const DiseaseInformation = [
 
 const ThankYouData = [
     {
-        Text:"Thank you for your participation and for what you are making possible: Helping us learn how to prevent Crohn’s disease in people, like you, who are at risk for it. We couldn’t do it without you! ",
-        
-    },
-    {
-        H3: "A few final thoughts…",
-        Text:"In addition to the Crohn’s disease risk factors already discussed, there are many other factors associated with Crohn’s that you might not be able to change, such as your family’s medical history, your living environment, and factors that you may have been exposed to growing up. For example, having a pet as a child and being breast-fed as an infant have been shown to protect against the development of Crohn’s disease.   "
-    },
-    {
-        Text:"Researchers, such as those of us conducting this study, are actively working to determine if changing a person’s risk factors can prevent Crohn’s disease. While we do not yet know how to prevent Crohn’s disease, we do know that the diet and lifestyle recommendations discussed in this study will contribute to a healthy life.  "
+        Text:"hank you for your participation and for what you are making possible: Helping us find out if Crohn’s is a preventable disease in people, like you, who are at risk for it. We couldn’t do it without you!"
 
     },
-    
-    {Text:"We appreciate your participation in this important study to help us find out how we can prevent Crohn’s disease. "
+     {Text:"We appreciate your participation in our study."
 
-    },
+     },
     {
         H3: "Next steps",
         Text:"As a reminder, as part of your PRE-C study participation, you will be completing our questionnaire three times: ",
@@ -303,7 +294,7 @@ const YourmedicalhistoryData = [
         input: 'What is your height? (Please use your height reported on a valid I.D., such as a driver’s license.) '
     },
     {
-        input: 'What is your weight (in pounds)? Please use the same scale to measure your weight throughout this study. The weight you list here should be measured within the last week.)'
+        input: 'What is your weight (in pounds)? (Please use the same scale to measure your weight throughout this study. The weight you list here should be measured within the last week.)'
     },
     {
         radio: [
@@ -401,12 +392,12 @@ const FamilyHistoryData = [
           "inpute": {
             "label": "Parents diagnosed:",
             "key": "parents",
-            "max": 10
+            "max": 2
           },
           "title": "",
           "recursiveContent": [
             {
-              "label": "Parent",
+              "label": "Parent index",
               "options": [
                 "Crohn’s disease",
                 "Ulcerative colitis",
@@ -414,7 +405,7 @@ const FamilyHistoryData = [
               ]
             },
             {
-              "label": "Parent Age at diagnosis",
+              "label": "Parent index: Age at diagnosis",
               "options": [
                 "Age 0-17 years",
                 "Age 18-59 years",
@@ -435,7 +426,7 @@ const FamilyHistoryData = [
                 "title": "",
                 "recursiveContent": [
                     {
-                    "label": "Sibling",
+                    "label": "Sibling index",
                     "options": [
                         "Crohn’s disease",
                         "Ulcerative colitis",
@@ -443,7 +434,7 @@ const FamilyHistoryData = [
                     ]
                     },
                     {
-                    "label": "Sibling Age at diagnosis",
+                    "label": "Sibling index: Age at diagnosis",
                     "options": [
                         "Age 0-17 years",
                         "Age 18-59 years",
@@ -465,7 +456,7 @@ const FamilyHistoryData = [
                 "title": "",
                 "recursiveContent": [
                     {
-                    "label": "Child",
+                    "label": "Child index",
                     "options": [
                         "Crohn’s disease",
                         "Ulcerative colitis",
@@ -473,7 +464,7 @@ const FamilyHistoryData = [
                     ]
                     },
                     {
-                    "label": "Child Age at diagnosis",
+                    "label": "Child index: Age at diagnosis",
                     "options": [
                         "Age 0-17 years",
                         "Age 18-59 years",
@@ -487,7 +478,7 @@ const FamilyHistoryData = [
     
 ];
 const Yourdiet = [
-    {H2:"Your diet  - Foods"},
+    {H2:"Your diet"},
     {
         HTMLTEXT: `
             <p style={margin-button:'15px'}>
@@ -547,8 +538,14 @@ const Yourdiet = [
 ];
 
 const Yourdietcheese=[
-    {H2:"Your diet  - Fruit"},
+    {H2:"Your diet"},
     {
+        HTMLTEXT: `
+            <p style={margin-button:'15px'}>
+                For each food listed, fill in the circle indicating how often on average you have used the amount specified during the past month.
+            </p>
+          
+        `,
         dairyFoodsTable: {
             foods: [
                 'Raisins (1 oz. or small pack) or grapes (1/2 cup)',
@@ -588,8 +585,14 @@ const Yourdietcheese=[
 ]
 
 const YourdietVEGETABLES=[
-    {H2:"Your diet  - Vegetables"},
+    {H2:"Your diet "},
      {
+        HTMLTEXT: `
+            <p style={margin-button:'15px'}>
+                For each food listed, fill in the circle indicating how often on average you have used the amount specified during the past month.
+            </p>
+          
+        `,
          dairyFoodsTable: {
              foods: [
                 'Tomatoes (2 slices)',
@@ -640,8 +643,14 @@ const YourdietVEGETABLES=[
  
 
  const YourdietMEAT=[
-    {H2:"Your diet  - Eggs, Meat ..."},
+    {H2:"Your diet"},
      {
+        HTMLTEXT: `
+            <p style={margin-button:'15px'}>
+                For each food listed, fill in the circle indicating how often on average you have used the amount specified during the past month.
+            </p>
+          
+        `,
          dairyFoodsTable: {
              foods: [
                 'Eggs (1) - Omega-3 fortified, including yolk',
@@ -684,8 +693,14 @@ const YourdietVEGETABLES=[
 
 
 const YoutdietBREADS=[
-    {H2:"Your diet  - Breads, Cereals, Starches"},
+    {H2:"Your diet "},
         {
+            HTMLTEXT: `
+            <p style={margin-button:'15px'}>
+                For each food listed, fill in the circle indicating how often on average you have used the amount specified during the past month.
+            </p>
+          
+        `,
             dairyFoodsTable: {
                 foods: [
                     'Cold breakfast cereal (1 serving)',
@@ -725,8 +740,13 @@ const YoutdietBREADS=[
 ]
 
 const YoutdietBEVERAGES = [
-    {H2: 'Your diet  - Carbonated ',},
-    {
+    {H2: 'Your diet',},
+    {   HTMLTEXT: `
+        <p style={margin-button:'15px'}>
+            For each food listed, fill in the circle indicating how often on average you have used the amount specified during the past month.
+        </p>
+      
+    `,
         FoodsTableTwo: {
             foodsTwo: [
                 ['CARBONATED BEVERAGES Consider the serving size as 1 glass, bottle, or can for these carbonated beverages. Low-calorie (sugar-free) types', 'Low-calorie beverage with caffeine (e.g., Diet Coke)'],
@@ -764,8 +784,14 @@ const YoutdietBEVERAGES = [
 ];
 
 const YourdietSWEETS=[
-  {H2: 'Your diet  - Sweets ',},
+  {H2: 'Your diet  ',},
     {
+        HTMLTEXT: `
+            <p style={margin-button:'15px'}>
+                For each food listed, fill in the circle indicating how often on average you have used the amount specified during the past month.
+            </p>
+          
+        `,
         dairyFoodsTable: {
             foods: [
                 'Milk chocolate (e.g., Hershey’s, M&M’s); (1 bar or package)',
@@ -825,7 +851,7 @@ const YourdietSWEETS=[
     {
         
         radio:[
-            'Type of salad dressing :',
+            'Type of salad dressing:',
             'Fat-free',
             'Low-fat ',
             'Olive-oil',
@@ -836,7 +862,7 @@ const YourdietSWEETS=[
     {
         
         radio:[
-            'Type of artificial sweetener :',
+            'Type of artificial sweetener:',
             'Splenda',
             'Equal ',
             'NutraSweet',
@@ -933,8 +959,8 @@ const Yourphysicalactivity = [
 
 {
     HTMLTEXT: `
-          
-    <strong>How motivated are you to exercise regularly?</strong> 
+            
+    <strong '>How motivated are you to exercise regularly?</strong> 
     (Use the ladder below to indicate your motivation to exercise regularly, with 0 being “I have not considered exercising regularly” and 10 being “I am taking action to exercise regularly.” You can choose any value from 0 to 10.)
     <br/><br/>
 `,
@@ -946,13 +972,13 @@ const Yourphysicalactivity = [
             [
                 '- I am taking action to exercise regularly.',
                 '',
-                '',
+                '- I am starting to think about how I can exercise regularly. ',
                 '',
                 '',
                 '- I think I should exercise regularly, but I am not quite ready.',
                 '',
                 '',
-                '',
+                '- I think I need to consider exercising regularly.',
                 '',
                 '- I have not considered exercising regularly.'
             ]
@@ -1003,7 +1029,7 @@ const Yoursmokinghistory= [
               "input" :'How old were you when you started smoking? '
             },
             {
-                "input" :'How old were you when you quit smoking'
+                "input" :'How old were you when you quit smoking?'
             },
             {
                 "input" :'How many cigarettes did you used to smoke per day, on average?'
@@ -1140,7 +1166,39 @@ const Prefill = {"general-information":{"What is your sex assigned at birth?":"0
 const OptionalSurveyIntermidiareData=[
    { Text:'We have an optional short (7 questions) multiple-choice survey that will help further our research. We greatly appreciate you taking the survey, if you can.'
 }]
+
+const MeetTheTeamData = [
+    {
+        ImageTitle:{
+            image:'/meet-the-team1.png',
+            title:'Emily W. Lopes, M.D., M.P.H',
+            subTitle:'Principal Investigator',
+            number:"617-726-5560",
+            Desc:'Dr. Emily W. Lopes is a gastroenterologist specializing in inflammatory bowel disease (IBD) at Massachusetts General Hospital (MGH), an Instructor of Medicine at Harvard Medical School, and a Physician-Investigator in the MGH Clinical and Translational Epidemiology Unit (CTEU). She earned her M.D. from New York University School of Medicine, and completed her internal medicine residency, chief residency, general gastroenterology fellowship, and advanced IBD fellowship at MGH. She completed a Master of Public Health (M.P.H.) degree in Clinical Effectiveness at the Harvard T.H. Chan School of Public Health. Her research interests include understanding how dietary, lifestyle, and genetic factors influence the development and course of inflammatory bowel disease, as well as methods for studying disease prevention in IBD. Her research has been funded by the American College of Gastroenterology and National Institutes of Health (NIH).'
+        }
+    },
+    {
+        ImageTitle:{
+            image:'/meet-the-team2.png',
+            title:'Rachel Zhang, B.S.',
+            subTitle:'Research Coordinator',
+            number:"617-643-5280",
+            Desc:'Rachel Zhang joined as a Clinical Research Coordinator in May 2024. She graduated from Northeastern University in May 2024 with a Bachelor of Science in Biology and a minor in Data Science. Rachel is involved in multiple projects studying the potential preventative measures for various inflammatory bowel diseases, as well as the genetic, molecular, and lifestyle factors associated with microscopic colitis.'
+             }
+    },
+    {
+        ImageTitle:{
+            image:'/meet-the-team3.png',
+            title:'Zeling Yu, B.S.',
+            subTitle:'Research Coordinator',
+            number:"617-643-5280",
+            Desc:'Zeling Yu joined the PRE-Crohn’s Study team in September 2023 as a Clinical Research Coordinator. She graduated from the University of Minnesota in 2020 with a degree in Biochemistry and minors in Chemistry and Math. Zeling works on multiple studies investigating how environmental factors like diet and lifestyle affect gastrointestinal diseases, including microscopic colitis and Crohn’s disease, as well as patients undergoing ileoanal anastomosis surgery.'
+        }
+    },
+   
+    
+]
 export {cardHomeDataLeft,cardHomeDataRight,AboutTheStudy,GeneralInformationData,YourmedicalhistoryData,
     FamilyHistoryData,CrohnRiskData,riskLevels,riskColors,InfoModalData,Yourdiet,Yourphysicalactivity,
     Yoursmokinghistory,Yourdietcheese,YourdietVEGETABLES,YourdietMEAT,YoutdietBREADS,YoutdietBEVERAGES,
-    YourdietSWEETS,KnowledgEandAttitudes,DiseaseInformation,ContactPageContent,Prefill,ThankYouData,OptionalSurveyIntermidiareData} ;
+    YourdietSWEETS,KnowledgEandAttitudes,DiseaseInformation,ContactPageContent,Prefill,ThankYouData,OptionalSurveyIntermidiareData,MeetTheTeamData} ;

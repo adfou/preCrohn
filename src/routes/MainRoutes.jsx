@@ -4,7 +4,7 @@ import PrivateRoute from './PrivateRoute'; // Import your PrivateRoute component
 import Loader from '../ui-component/Loader';
 import loadable from '@loadable/component';
 // DATA
-import {AboutTheStudy,DiseaseInformation,ContactPageContent,ThankYouData,OptionalSurveyIntermidiareData} from "../Data";
+import {AboutTheStudy,DiseaseInformation,ContactPageContent,ThankYouData,OptionalSurveyIntermidiareData,MeetTheTeamData} from "../Data";
 
 // Page imports using @loadable/component with a fallback loader
 
@@ -83,7 +83,7 @@ const MainRoutes = {
       children: [
         {
           path: '',
-          element: <Page title={"Meet the team"} data={[]}/>,
+          element: <Page title={"Meet the team"} data={MeetTheTeamData}/>,
         },
       ],
     }

@@ -359,6 +359,18 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
     return (
         <Container>
             <ToastContainer />
+            {type === "fixe" ? (
+                    <div className='bigger-container'>
+                    <Button
+                        variant="contained"
+                        onClick={() => navigate("/crohns-disease-information")}
+                        className="button-survey bigger"   
+                        
+                    >
+                        Continue to Crohn’s disease information
+                    </Button>
+                    </div>
+                ) :""}
             <form id="form">
                 {data.map((section, index) => (
                     <Section key={index} section={section} log={log} handleChange={handleChange} formData={formData} />

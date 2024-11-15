@@ -41,14 +41,17 @@ const DiseaseInformationPage = () => {
                 <div className='bigger-container-option'>
                     
                 {userRole && userRole.role === "2" && ((userRole.phase > 0) || (userRole.phase === 0 && userRole.state === "1")) && (
+                   
                     <Button 
                         onClick={handleButtonClick} 
                         variant="contained" 
                         color="primary" 
                         className="button-survey bigger"
+                        style={{maxWidth:" 606px"}}
                     >
-                        See the results
+                        See your personalized risk of Crohn’s disease and ways to lower your risk
                     </Button>
+                   
                 )}
                 
                 {userRole && userRole.role === "3" &&  (userRole.phase === 2 && userRole.state === "1") && (
@@ -60,18 +63,31 @@ const DiseaseInformationPage = () => {
                     >
                         See the results
                     </Button>
-                )}
 
-                    <Button 
-                        href='/thank-you'
-                        variant="contained" 
-                        color="primary" 
-                        className="button-survey bigger"  
-                    >
-                        Thank you 
-                    </Button>
-                    
+                )}
+                {userRole && userRole.role === "3" &&  (userRole.phase !== 2 || userRole.state !== "1") && (
+                 
+                 <Button 
+                 href='/thank-you'
+                 variant="contained" 
+                 color="primary" 
+                 className="button-survey bigger"
+                 style={{maxWidth:" 606px"}}
+             >
+                 Finish
+             </Button>
+
+             )}
+
+                   
                     </div>
+                    {userRole && userRole.role === "2" && ((userRole.phase > 0) || (userRole.phase === 0 && userRole.state === "1")) && (
+                    <div>
+                    If you do not want to see this information, please <a href="/thank-you">exit now</a> and <a href="/contact">notify the study coordinator</a> that you no longer wish to see this information. 
+                    </div>)}
+
+                    
+
             </Container>
         </>
     );

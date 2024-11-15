@@ -157,8 +157,9 @@ const renderContent = (key, value, handleChange, formData) => {
       const [ladderQuestion, ladderOptions] = value;
 
       return (
-        <FormControl className="not-required" component="fieldset" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+        <FormControl className="not-required" component="fieldset" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' ,marginTop:"45px"}}>
           <FormLabel component="legend" sx={{ mb: 2, textAlign: 'left' }}>{ladderQuestion}</FormLabel>
+          
           <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', mr: 2 }}>
               {ladderOptions.map((_, index) => (
@@ -555,7 +556,7 @@ const renderContent = (key, value, handleChange, formData) => {
                 <Box key={sectionIndex} sx={{ mt: 2 }}>
                   <FormControl component="fieldset">
                     <FormLabel component="legend">
-                      {section.label.replace('index', `${index + 1}`)} {index + 1}
+                      {section.label.replace('index', `${index + 1}`)} 
                     </FormLabel>
                     <RadioGroup
                       name={`${inpute.key}_${index}_${section.label}`} // Unique name using the index

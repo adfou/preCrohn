@@ -41,6 +41,30 @@ const renderContent = (key, value) => {
                 </ol >
             );
             
+        case 'ImageTitle':
+                return (
+                    <Container fluid className="team-container" style={{marginTop:"30px"}}>
+                            <Row key={1} className="team-member align-items-center mb-4">
+                                <Row md={3} className="text-center">
+                                    <img
+                                        src={value.image}
+                                        alt={value.title}
+                                        className="img-fluid "
+                                        style={{ maxWidth: '400px' }}
+                                    />
+                                </Row>
+                                <Row md={9} style={{marginTop:"25px"}}>
+                                    <h3>{value.title}</h3>
+                                    <h5 className="text-muted" style={{ textTransform: "uppercase" }}>
+                                        {value.subTitle}
+                                    </h5>
+                                    <p>{value.number}</p>
+                                    <p>{value.Desc}</p>
+                                </Row>
+                            </Row>
+                       
+                    </Container>
+                );
         case 'LISTBold':
             return (
                 <ul>
