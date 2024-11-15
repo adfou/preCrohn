@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Box, Button, CircularProgress } from '@mui/material';
+import { Container, Box, Button, CircularProgress,Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentSectionIndex, saveFormData } from '../../store/slice/questionnaireSlice'; 
@@ -360,16 +360,20 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
         <Container>
             <ToastContainer />
             {type === "fixe" ? (
-                    <div className='bigger-container'>
+                <>  
+                <Typography variant="body1">This is an optional short (7 questions) survey that will help further our research. We greatly appreciate 
+                you taking the survey, if you can.</Typography>
+                    <div className='bigger-container' style={{paddingTop:"50px"}}>
                     <Button
                         variant="contained"
                         onClick={() => navigate("/crohns-disease-information")}
                         className="button-survey bigger"   
                         
                     >
-                        Continue to Crohn’s disease information
+                        Continue to Crohn’s disease information 
                     </Button>
                     </div>
+                    </>
                 ) :""}
             <form id="form">
                 {data.map((section, index) => (
