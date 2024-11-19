@@ -50,6 +50,7 @@ export const NextStepsCard = ({ date, phase, role }) => {
         margin: '0 auto', // Center card horizontally (only relevant if there is some width constraint)
         maxWidth: '884px',
       }}
+      className='special-card'
     >
       <Box
         sx={{
@@ -76,6 +77,7 @@ export const NextStepsCard = ({ date, phase, role }) => {
           color: '#085C7C',
           fontSize: '19px',
         }}
+       
       >
         <Box
           sx={{
@@ -85,6 +87,7 @@ export const NextStepsCard = ({ date, phase, role }) => {
             gap: '21px', // Set gap between the elements
             width: '100%', // Ensures Box takes full width for proper centering
           }}
+          className='flex-row-mobile'
         >
           <Typography fontSize={19} sx={{ fontWeight: '700' }}>
             Your next questionnaire opens:

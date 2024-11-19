@@ -89,6 +89,7 @@ const ParticipantDashboard = () => {
             width: '100%',
             mb: 4, // Margin bottom for spacing
           }}
+          className="padding-mobile"
         >
           {/* Left line */}
           <Box
@@ -99,9 +100,10 @@ const ParticipantDashboard = () => {
               minWidth: '259px',
               marginRight: '24px',
             }}
+            className="none-mobile"
           />
           {/* Title Box */}
-          <Box sx={{ width: '259px' }}>
+          <Box sx={{ width: '259px' }} >
             <Typography
               variant="h5"
               fontWeight="bold"
@@ -118,12 +120,13 @@ const ParticipantDashboard = () => {
               flex: 1,
               marginLeft: '17px',
             }}
+            className="none-mobile"
           />
         </Box>
 
         {/* Cards Section */}
         <Box sx={{ padding: '40px 0px 40px 0px', background: '#f4f9fd' }}>
-          <Box
+          <Box className='card-container'
             sx={{
               display: 'flex',
               flexDirection: 'row',
@@ -182,7 +185,7 @@ const ParticipantDashboard = () => {
                   <li>8-week visit</li>
                   <li>6-month visit</li>
                 </ul>
-                <Typography mt={2} fontWeight={'bold'} fontSize={19} sx={{ marginTop: '32px',display:"flex",flexDirection:"row",alignItems:"center" }}>
+                <Typography mt={2} fontWeight={'bold'} className='flex-row-mobile' fontSize={19} sx={{ marginTop: '32px',display:"flex",flexDirection:"row",alignItems:"center" }}>
                   Your status:
                   <Typography
                     component="span"
@@ -205,7 +208,7 @@ const ParticipantDashboard = () => {
               </CardContent>
             </Card>
           </Box>
-          <Typography fontSize={19} sx={{ textAlign: 'center', marginBottom: '40px' }}>
+          <Typography fontSize={19} sx={{ textAlign: 'center', marginBottom: '40px' }} className='padding-mobile'>
             Payments will be sent after each visit (after sample collection & questionnaire completion).
           </Typography>
           <NextStepsCard date={submitDate} phase={phase} role={role} />
@@ -214,7 +217,7 @@ const ParticipantDashboard = () => {
         <ThreeCardsSection progression={progression} phase={phase} role={role} />
 
         {/* Thanks Section */}
-        <Box sx={{ padding: '0px 255px 0px 300px', textAlign: 'left', maxWidth: '1435px' }}>
+        <Box sx={{ padding: '0px 255px 0px 300px', textAlign: 'left', maxWidth: '1435px' }} className="content-container">
           <Typography variant="h2" fontWeight="bold" color="#0078b5" mb={2} fontSize={36} sx={{ fontWeight: '700' }}>
             Thanks for your participation!
           </Typography>

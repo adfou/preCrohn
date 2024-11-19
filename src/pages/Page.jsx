@@ -17,7 +17,7 @@ import { useVerifyToken } from '../Hooks/index.mjs';
            {title? <div className='title-content'><h1> {title}</h1> </div> :""}
 
             
-            <Container className='content-container' >
+            <Container className='content-container container-page' >
             {   <BodyPage data={data} />
             }
             

@@ -11,16 +11,24 @@ const Header = () => {
     };
 
     return (
-        <Navbar bg="white" variant="dark" expand="lg" className="header">
+        <Navbar bg="white" expand="lg" className="header position-relative">
             <Navbar.Brand href="/">
                 <img
                     src="/logo.svg"
                     alt="Logo"
-                    className="logo"
+                    className="logo wide"
+                />
+                <img
+                    src="/logo_mobile.png"
+                    alt="Logo"
+                    className="logo wide mobile"
                 />
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
+
+            {/* Hamburger Menu Toggle */}
+            <Navbar.Toggle aria-controls="navbar-content" />
+
+            <Navbar.Collapse id="navbar-content">
                 <Nav className="ml-auto">
                     <Nav.Link href="/">HOME</Nav.Link>
                     <Nav.Link href="/profile">GET STARTED</Nav.Link>
@@ -47,25 +55,17 @@ const Header = () => {
                         </Dropdown.Menu>
                     </Dropdown>
 
-                    {/* GET STARTED Dropdown */}
                     <Nav.Link href="/crohns-disease-information">CROHN'S INFO</Nav.Link>
                     <Nav.Link href="/contact">CONTACT</Nav.Link>
                 </Nav>
-
-                {/* Search Button and Input */}
                 <div className="search-container ml-auto">
-                    <div className={`search-input-container ${searchOpen ? 'active' : ''}`}>
-                        <FormControl
-                            type="search"
-                            placeholder="Search"
-                            aria-label="Search"
-                            className="search-input"
-                        />
-                    </div>
                 
-                    <UserAvatar userName={"userName"} onLogout={{}} />
-                </div>
+                <UserAvatar userName={"userName"} onLogout={{}} />
+            </div>
             </Navbar.Collapse>
+
+            {/* Search and User Avatar */}
+          
         </Navbar>
     );
 };

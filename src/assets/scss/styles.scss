@@ -165,9 +165,9 @@ main.questionnaire{
       }
 
     .content-container{
-      padding: 0px !important;
-      margin-left: 260px  !important;
-      margin-right: 300px !important;
+      padding: 0px ;
+      margin-left: 260px  ;
+      margin-right: 300px ;
       max-width: 880px !important;
       .container{
         padding: 0px !important;
@@ -457,3 +457,112 @@ main.questionnaire{
   } 
   }
   
+
+
+  @media screen and (min-width: 720px) and (max-width: 1199px) {
+    .card-container{
+      display: flex
+;
+    flex-direction: column;
+    padding-right: 35px;
+    padding-left: 35px;
+    width: 100%;
+    align-items: center;
+    }
+    .flex-row-mobile{
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 15px !important;
+    }
+    .three-card-mobile{
+      padding: 20px 35px 60px !important;
+      display: flex !important;
+               
+      flex-direction: column !important;
+      align-items: center !important;
+    }
+
+  }
+
+
+  @media screen and (max-width: 768px){
+    .title-content{
+      padding-left: 35px !important;
+      background:#117BA3;
+      background-image:none !important;
+      height: 81px !important;
+      margin-bottom: 43px !important;
+
+        h1{
+          font-size: 27px !important;
+        }
+    }
+
+    .content-container{
+      margin: 0px !important;
+    }
+    .container-page{
+      padding-left: 35px !important;
+    padding-right: 35px !important;
+    h2{
+      font-size: 25px !important;
+    }
+    p{
+      font-size: 18px !important;
+    }
+    h3{
+      font-size: 20px !important;
+    }
+    .light-card{
+      width: 100% !important;
+    }
+    .container{
+      width: 100% !important;
+   
+      .container-card{
+        width: 100% !important;
+        .card{
+          width: 100% !important;
+        }
+      }
+    }
+    }
+
+    .card-container{
+      display: flex;
+      flex-direction: column;
+      padding-right: 35px;
+      padding-left: 35px;
+      width: 100%;
+      align-items: center;
+      >div{
+        width: 100% !important;
+      }
+      }
+
+    .none-mobile{
+      display: none !important;
+    }
+    .padding-mobile{
+      padding-left: 35px !important;
+      padding-right: 35px !important;
+    }
+    .flex-row-mobile{
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 15px !important;
+    }
+    .special-card{
+      margin-right: 30px !important;
+      margin-left: 28px !important;
+      min-width: 100px;
+      width: 88%;
+    }
+    .three-card-mobile{
+      padding: 20px 35px 60px!important;
+      display: flex !important;
+               
+      flex-direction: column !important;
+      align-items: center !important;
+    }
+  }

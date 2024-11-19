@@ -34,9 +34,17 @@ export const useVerifyToken = () => {
           dispatch(logout()); // Log out if the token is invalid
         }
       } catch (err) {
-        setError(err.response ? err.response.data : err.message);
-        dispatch(logout()); // On error, logout user
-      } finally {
+        const errorMessage = err.response?.data?.message || err.message;
+    
+        if (err.response?.status === 401 && errorMessage === 'Token expired') {
+            console.warn("Token expired at:", err.response.data.expiredAt);
+            //alert('Your session has expired. Please log in again.');
+            dispatch(logout());
+        } else {
+            console.error("Token verification failed:", errorMessage);
+            setError(errorMessage);
+        }
+    } finally {
         setLoading(false); // Ensure loading state is stopped
       }
     };

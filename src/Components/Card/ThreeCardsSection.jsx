@@ -13,6 +13,7 @@ export const ThreeCardsSection = ({progression,phase,role}) => {
         justifyContent: 'center',
         gap: '72.5px',
       }}
+      className='three-card-mobile'
     > 
       {role==="2"?
   

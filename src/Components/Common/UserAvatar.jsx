@@ -7,17 +7,28 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../store/slice/authSlice'; // Adjust path to your authSlice
 import LogoutModal from '../Modal/LogOutModal'; // Adjust path to your LogoutModal component
+import { Nav } from 'react-bootstrap'; // Import Nav for Nav.Link
 
 const UserAvatar = () => {
     const { loading, error, success, userRole } = useVerifyToken();
     const [anchorEl, setAnchorEl] = useState(null);
     const [modalOpen, setModalOpen] = useState(false); // State to control modal visibility
     const [isLoggedIn, setIsLoggedIn] = useState(success); // Local state for login status
+    const [isMobile, setIsMobile] = useState(false); // Detect mobile view
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     useEffect(() => {
         setIsLoggedIn(success);
+
+        // Detect screen size
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768); // Adjust breakpoint as needed
+        };
+
+        handleResize(); // Initialize on load
+        window.addEventListener('resize', handleResize); // Add resize listener
+        return () => window.removeEventListener('resize', handleResize); // Cleanup listener
     }, [success]);
 
     const handleMenuOpen = (event) => {
@@ -47,7 +58,7 @@ const UserAvatar = () => {
 
     const handleProfile = () => {
         handleMenuClose();
-        navigate('/login');
+        navigate('/profile'); // Corrected profile navigation
     };
 
     if (loading) {
@@ -58,8 +69,30 @@ const UserAvatar = () => {
         );
     }
 
+    if (isMobile) {
+        // Render a Nav.Link for mobile
+        if(isLoggedIn){
+            return(
+            <>
+            <Nav.Link onClick={handleProfile} className="mobile-avatar-link">
+            Profile
+            </Nav.Link>
+            <Nav.Link onClick={handleLogoutRequest} className="mobile-avatar-link">
+            Logout
+        </Nav.Link></>)
+
+        }else{
+            return(
+            <Nav.Link onClick={handleLogin} className="mobile-avatar-link">
+            Login
+        </Nav.Link>)
+        }
+        
+    }
+
+    // Render the default box for desktop
     return (
-        <Box sx={{ display: 'flex', alignItems: 'center', ml: 2 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', ml: 2 }} className="avatar-menu">
             <IconButton onClick={handleMenuOpen} color="inherit">
                 <Avatar sx={{ bgcolor: '#80AD03' }}>
                     <AccountCircle />

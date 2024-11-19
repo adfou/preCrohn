@@ -35,7 +35,7 @@ $PRE_Crohn_Blue_Border: #3090B6;
     }
     .logo {
     height: 70px;
-    width: 447px !important;
+    width: 447px ;
     
     }
 
@@ -148,5 +148,138 @@ $PRE_Crohn_Blue_Border: #3090B6;
         width: 245px;
         margin-bottom: 57px;
     }
+
+}
+
+
+
+@media screen and (min-width: 1200px)  {
+  .slide{
+    padding-left: 64px;
+    justify-content: space-between;
+  }
+  .logo.mobile{
+    display: none;
+  }
+}
+
+// Laptops (e.g., medium-sized screens)
+@media screen and (min-width: 720px) and (max-width: 1199px) {
+
+  .slide{
+    padding-left: 64px;
+    justify-content: space-between;
+    .text-content{
+     
+          h3{
+            text-align: center;
+            font-size: 34px !important;
+            padding-top: 16px;
+          }
+    }
+  }
+  .logo{
+    width: 320px !important;
+  }
+  .logo.mobile{
+    display: none;
+  }
+.container-page{
+  margin-left: 0px !important;
+}
+}
+
+// Mobile screens (e.g., small screens)
+@media screen and (max-width: 768px) {
+  .header{
+
+    padding: 45px 22px 14px 35px !important;
+    .logo{
+      width: 265px !important;
+    }
+    .Avata-menu{
+      display: none;
+    }
+  
+    .search-container a{
+      color: #303135 !important;
+      font-family: poppins, sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      margin-left: 1rem;
+      text-decoration-color: #597D0B !important;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+    .dropdown-menu{
+      border: none;
+      padding-left: 24px;
+    }
+    }
+    .slide{
+      width: 100%;
+      padding: 0;
+      display: inline-block;
+      display: flex !important;
+  
+      flex-direction: column !important;
+        img{
+          width: 100%;
+          height: 50vh;
+        }
+        .text-content{
+          margin: 0px !important;
+              h3{
+                text-align: center;
+                font-size: 34px !important;
+                padding-top: 16px;
+              }
+        }
+        
+    }
+    .slick-dots{
+      display: block !important;
+      position: relative !important;
+      width: 100% !important;
+      left: 0 !important;
+      margin-top: 62px !important;
+    }
+    .slick-prev{
+      top: 87.5% !important;
+      left: 31% !important;
+    }
+    .slick-next {
+      right: 32% !important;
+      top: 87.5% !important;
+  }
+  
+    .row-card{
+      padding-left: 36px;
+      padding-right: 10px;
+
+        .card{
+          width: 100% !important;
+          padding-left: 25px !important;
+            p{
+              font-size: 20px !important;
+
+            }
+            a{
+              font-size: 15px !important;
+            }
+        }
+    }
+
+  .content-container{
+   padding-left: 35px !important;
+   padding-right: 35px !important;
+  }
+
+  .logo.mobile{
+    display: flex !important;
+  }
+  .logo.wide{
+    display: none;
+  }
 
 }

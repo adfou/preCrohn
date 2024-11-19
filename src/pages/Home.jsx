@@ -18,7 +18,7 @@ import { Helmet } from 'react-helmet';
             <Row style={{margin:"0px"}}>
                 <Col style={{padding:"0px"}}><Carousel/></Col>
             </Row>
-            <Row className="justify-content-md-center down">
+            <Row className="justify-content-md-center down row-card">
                 <Col md="auto"><Card cardData ={cardHomeDataLeft}/></Col>
                 <Col md="auto"><Card cardData ={cardHomeDataRight}/></Col>
             </Row>
