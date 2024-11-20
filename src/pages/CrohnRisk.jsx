@@ -19,12 +19,17 @@ const CrohnRisk = ({ title }) => {
     const lastDiagnostics = "when compared to other people who have a family member with Crohn’s disease."
     const HumainSentnace = 'Your personal risk of developing Crohn’s disease is '
     const behaviors = [
+        "You’re eating enough fruit",
+        "You’re eating enough fiber",
+        "You don’t eat too much sucrose (sugar)",
         "You're physically active",
         "You don't smoke",
     ];
 
     const Goodbehaviors = [
-        "Lower your sucrose (sugar) intake",
+        "Eat more fruit",
+        "Eat more fiber",
+        "Eat less sucrose (sugar)",
         "Increase your physical activity",
         "Quit smoking"
     ];
@@ -87,12 +92,14 @@ const CrohnRisk = ({ title }) => {
                             lastDiagnostics={lastDiagnostics}
                             riskPercentage={RiskData?.FinalRsultRound}
                         />
-                        <CardBehavior
+                        {RiskData &&<CardBehavior
                             title="Keep up the good work!"
                             subtitle="Great job! You reported behaviors that are associated with a lower risk for Crohn's disease:"
                             behaviors={behaviors}
-                        />
-                        <CardBehaviorCheck
+                            data={RiskData?.["Test case results"]}
+                        />}
+                        {RiskData &&<CardBehaviorCheck
+                            data={RiskData?.["Test case results"]}
                             title="Watch your risk drop"
                             subtitle="Check the boxes next to the behaviors below to see how these changes could reduce your risk of Crohn’s disease."
                             behaviors={Goodbehaviors}
@@ -100,10 +107,12 @@ const CrohnRisk = ({ title }) => {
                             riskPercentage={RiskData?.FinalRsultRound}
                             RiskLevel={RiskData?.CategorizeRisk} 
                             EmptyHumain={100-RiskData?.FinalRsultRound}
-                            FilledHumans={RiskData?.FinalRsultRound}
+                            FilledHumans={RiskData?.FinalRsultRound
+                                
+                            }
                             
                             
-                        />
+                        />}
                     </>
                 )}
             </Container>

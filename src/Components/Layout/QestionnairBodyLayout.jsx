@@ -8,7 +8,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import renderContent from "../../Data/renderContent";
 import {useFinishForm,useCreateForm} from "../../Hooks/index.mjs"
-import {Prefill} from "../../Data/index"
+import {Prefill,PrefillJaneCaseOne,PrefileJaneFiberCorrect,PrefilJaneFuitisCorrect,PrefileJoeFruitCorrect,PrefileJoeFiberCorrect} from "../../Data/index"
 import {SetFormDataLogin} from "../../store/slice/questionnaireSlice" 
 const Section = ({ section, log, handleChange, formData }) => {
     return (
@@ -232,8 +232,28 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
         location.reload();
     }
     
-    
-    
+    const handelPrefileJaneFiberCorrect = async () => {
+        
+        dispatch(SetFormDataLogin({ data: PrefileJaneFiberCorrect }));
+        location.reload();
+    }
+    const handelPrefilJaneFuitisCorrect = async () => {
+        
+        dispatch(SetFormDataLogin({ data: PrefilJaneFuitisCorrect  }));
+        location.reload();
+    }
+    const handelPrefileJoeFruitCorrect = async () => {
+        
+        dispatch(SetFormDataLogin({ data: PrefileJoeFruitCorrect  }));
+        location.reload();
+    }
+    const handelPrefileJoeFiberCorrect = async () => {
+        
+        dispatch(SetFormDataLogin({ data: PrefileJoeFiberCorrect  }));
+        location.reload();
+    }
+    //
+    //PrefileJoeFruitCorrect
     
     
     const handleSave = async () => {
@@ -424,9 +444,21 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                     
                 )}
                 {type === "fixe"? "": 
-                <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
-                <Button className="button-survey" variant="contained" onClick={handelFill}>
-                            Fill
+                <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4,gap:"10px" }}>
+                            <Button className="button-survey" variant="contained" onClick={handelPrefilJaneFuitisCorrect}>
+                            Fill Jane Fruits Correct
+                            </Button>
+
+                            <Button className="button-survey" variant="contained" onClick={handelPrefileJaneFiberCorrect}>
+                            Fill Jane Fiber Correct
+                            </Button>
+
+                            <Button className="button-survey" variant="contained" onClick={handelPrefileJoeFruitCorrect}>
+                            Fill Joe Fruits Correct
+                            </Button>
+
+                            <Button className="button-survey" variant="contained" onClick={handelPrefileJoeFiberCorrect}>
+                            Fill Joe Fiber Correct
                             </Button>
                             </Box>}
             </form>
