@@ -488,10 +488,13 @@ main.questionnaire{
   @media screen and (max-width: 768px){
     .title-content{
       padding-left: 35px !important;
-      background:#117BA3;
-      background-image:none !important;
+      background: #117BA3;
+      background-image: none !important;
       height: 81px !important;
       margin-bottom: 43px !important;
+      padding-top: 29px !important;
+      padding-bottom: 12px;
+      min-height: 112px;  
 
         h1{
           font-size: 27px !important;
@@ -565,4 +568,71 @@ main.questionnaire{
       flex-direction: column !important;
       align-items: center !important;
     }
+
+  .side-bare-drawer{
+    display: none;
+  }
+  .login .container-force{
+    margin: 0px;
+    width: 100%;
+    margin-top: 50px;
+  }
+  .button-admin-menu{
+    display: block !important;
+  }
+  .risk-card-grid {
+    gap: 10px !important;
+  }
+  .risk-card-description-container{
+    min-width:100% !important;
+    .risk-card-description {
+      margin-top: 5px !important;
+    }
+  }
+  .risk-card-levels{
+    width: 400px !important;
+    margin-left: 18px;
+    max-width: 46% !important;
+    margin-left: 20px !important;
+    .Risk-level-div{
+      padding: 5px !important;
+      width: 36vw !important;
+    }
+  }
+
+  .humain-container {
+    min-width:48% !important ;
+    margin-bottom: 15px !important;
+    margin-top: 10px !important;
+    img{
+      width: 9px;
+      height: 23px;
+    }
+    
+  }
+
+  .behavor-card{
+    padding-left: 25px;
+    padding-right: 25px;
+
+    .mixed-component-container{
+      flex-direction: column;
+      .current-risk-bottom{
+        
+    width: 100%;
+    min-width: 115%;
+    margin-bottom: 45px;
+    .risk-card-levels.mixed{
+      padding-left: 0px;
+    }
+
+      }
+      .current-lifetime-bottom{
+        min-width: 100%;
+        .humain-container{
+          max-width: 130px !important;
+        }
+      }
+    }
+  }
   }

@@ -34,6 +34,8 @@ const CrohnRisk = ({ title }) => {
         "Quit smoking"
     ];
 
+    
+
     useEffect(() => {
         try {
             RiskCalculation(); // Trigger the risk calculation
@@ -103,11 +105,13 @@ const CrohnRisk = ({ title }) => {
                             title="Watch your risk drop"
                             subtitle="Check the boxes next to the behaviors below to see how these changes could reduce your risk of Crohn’s disease."
                             behaviors={Goodbehaviors}
+                            RiskData={RiskData}
                             openMpdal={() => { setOpen(true); }}
                             riskPercentage={RiskData?.FinalRsultRound}
                             RiskLevel={RiskData?.CategorizeRisk} 
                             EmptyHumain={100-RiskData?.FinalRsultRound}
                             FilledHumans={RiskData?.FinalRsultRound
+                            
                                 
                             }
                             

@@ -53,7 +53,7 @@ const Sidebar = ({ open, onClose }) => {
         variant="persistent"
         anchor="left"
         open={open}
-        
+        className='side-bare-drawer'
       >
         
 

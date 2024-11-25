@@ -192,7 +192,7 @@ const DiseaseInformation = [
 
 const ThankYouData = [
     {
-        Text:"hank you for your participation and for what you are making possible: Helping us find out if Crohn’s is a preventable disease in people, like you, who are at risk for it. We couldn’t do it without you!"
+        Text:"Thank you for your participation and for what you are making possible: Helping us find out if Crohn’s is a preventable disease in people, like you, who are at risk for it. We couldn’t do it without you!"
 
     },
      {Text:"We appreciate your participation in our study."

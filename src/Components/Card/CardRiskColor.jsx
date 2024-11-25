@@ -23,10 +23,11 @@ export const RiskCard = ({ riskLevel, firtSetnance, Diagnostics, lastDiagnostics
           {riskLevels.map((level, index) => (
             <Box
               key={level}
+              className="Risk-level-div"
               sx={{
                 backgroundColor: riskColors[level],
                 textAlign: 'center',
-               
+                
                 marginBottom: 1,
                 height: '59px', // Adjust the height to match the design
                 display: 'flex',

@@ -9,12 +9,13 @@ export const CardBehavior = ({ title, subtitle, behaviors, data }) => {
   const [modalContent, setModalContent] = useState({ title: "", content: "" });
 
   // Filter behaviors based on the provided data
+  console.log("somoking status :",data["Smoking Status"])
   const filteredBehaviors = behaviors.filter((behavior) => {
     if (behavior === "You’re eating enough fruit" && data["Fruit (servings/day)"] === 1) return false;
     if (behavior === "You’re eating enough fiber" && data["Fiber (grams/day)"] === 1) return false;
-    if (behavior === "You don’t eat too much sucrose (sugar)" && data["Added sugar (grams/day)"] === 1.5) return false;
+    if (behavior === "You don’t eat too much sucrose (sugar)" && data["Added sugar (grams/day)"] !== 1) return false;
     if (behavior === "You're physically active" && data["Physical activity (MET - hrs/wk)"] === 1) return false;
-    if (behavior === "You don’t smoke" && data["Smoking Status"] === 1.76) return false;
+    if (behavior === "You don't smoke" && data["Smoking Status"] === 1.76) return false;
     return true;
   });
 
@@ -69,7 +70,7 @@ const handleOpenModal = (behavior) => {
                 paddingBottom: 1,
               }}
             >
-              <Grid item container alignItems="center" xs={10}>
+              <Grid item container alignItems="center" xs={10} sx={{flexWrap:"nowrap"}}>
                 <Box
                   component="img"
                   src="/like.png"
