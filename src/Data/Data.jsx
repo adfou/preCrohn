@@ -227,7 +227,7 @@ const ThankYouData = [
             "American Heart Association. How too much added sugar affects your health (infographic). Accessed August 13, 2023. <a href='https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/how-too-much-added-sugar-affects-your-health-infographic'>https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/how-too-much-added-sugar-affects-your-health-infographic<a/>",
             "American Heart Association. Added sugars. Accessed August 13, 2023. <a href='https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/added-sugars'>https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/added-sugars<a/>"
         ]
-    },{}
+    },
     
 ]
 
