@@ -132,7 +132,9 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser, RefreshTable })
   const iconColor = "primary";
 
   if (loading) return <CircularProgress />;
-  if (error) return <div>Error: Network error occurred</div>;
+  if (error) {
+    console.log("error:",error)
+    return <div>Error: Network error occurred </div>;}
 
   return (
     <>

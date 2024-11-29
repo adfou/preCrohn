@@ -32,7 +32,7 @@ const DiseaseInformationPage = () => {
     return (
         <>
             <Helmet>
-                <title>{"DiseaseInformation Pre-crohn's"}</title>
+                <title>{"Disease Information Pre-crohn's"}</title>
             </Helmet>
             <div className='title-content'><h1> Crohn’s disease information</h1></div>
 

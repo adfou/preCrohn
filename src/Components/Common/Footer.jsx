@@ -17,7 +17,7 @@ const Footer = () => {
                     <Row className="justify-content-md-center one">
                     <Col md={6} className="text-center ">
                       
-                                    <a href="/sitemap" className="footer-link">Sitemap</a> | &nbsp;
+                                    <a href="#" className="footer-link">Sitemap</a> | &nbsp;
                                     <a href="/contact" className="footer-link">Contact</a> | &nbsp;
                                     <a href="/login" className="footer-link">Admin</a>
                            

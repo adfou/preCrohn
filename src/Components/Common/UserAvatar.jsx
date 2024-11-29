@@ -114,12 +114,7 @@ const UserAvatar = () => {
                     <MenuItem onClick={handleLogin}>Login</MenuItem>
                 )}
             </Menu>
-            {error && (
-                <Typography color="error" variant="caption" sx={{ ml: 1 }}>
-                    {error}
-                </Typography>
-            )}
-
+        
             {/* Logout Modal */}
             <LogoutModal
                 open={modalOpen}

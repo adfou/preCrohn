@@ -359,7 +359,7 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
         
         FinishFormQuery(updatedFormData);
         dispatch(saveFormData({ currentSectionIndex, data: formData }));
-        navigate(`/optional-survey`);
+        navigate(`/knowledge-and-attitudes-survey`);
     };
 
     const handleBack = () => {
