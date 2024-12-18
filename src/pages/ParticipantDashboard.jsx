@@ -103,13 +103,13 @@ const ParticipantDashboard = () => {
             className="none-mobile"
           />
           {/* Title Box */}
-          <Box sx={{ width: '259px' }} >
+          <Box sx={{ width: '200px' }} >
             <Typography
               variant="h5"
               fontWeight="bold"
               sx={{ color: '#085C7C', textAlign: 'left' }}
             >
-              MY QUESTIONNAIRE
+              MY DASHBOARD
             </Typography>
           </Box>
           {/* Right line */}

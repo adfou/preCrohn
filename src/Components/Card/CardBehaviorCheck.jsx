@@ -46,10 +46,18 @@ export const CardBehaviorCheck = ({ title, subtitle, behaviors, RiskLevel, Empty
 
   const GoodbehaviorsCalculation = {
     "Eat more fruit":0.76,
-    "Eat more fiber":0.54,
+    "Eat more fiber":0.63,
     "Eat less sucrose (sugar)":1,
     "Increase your physical activity":0.73,
     "Quit smoking":1.3
+};
+
+const GoodbehaviorsCalculationMale = {
+  "Eat more fruit":0.76,
+  "Eat more fiber":0.54,
+  "Eat less sucrose (sugar)":1,
+  "Increase your physical activity":0.73,
+  "Quit smoking":1.3
 };
 // fibber femal 0.63
 
@@ -122,18 +130,21 @@ const getRiskCategory = (RR) => {
         console.log("test data ",TestCaseResults[ReverseResultData[key]])
         G48 =G48/TestCaseResults[ReverseResultData[key]]
         console.log("===================")
-        //console.log("GoodbehaviorsCalculation value:", TestCaseResults[key]);
-        //console.log("RiskData.G48:", G48);
+        
       });
-
-      console.log("2: G48 :",G48)
+      console.log("2: G48 befor adding the new value :",G48)
+      
+      if(RiskData.sex==="male"){
+        checkedKeys.forEach((key) => {
+          G48 =G48*GoodbehaviorsCalculationMale[key]
+        });
+      }
+      else{
       checkedKeys.forEach((key) => {
-
         G48 =G48*GoodbehaviorsCalculation[key]
-        //console.log("GoodbehaviorsCalculation value:", TestCaseResults[key]);
-        //console.log("RiskData.G48:", G48);
-      });
-     
+          });
+        }
+      console.log("2: G48 :",G48)
       const newRR = G48/RiskData.Denominator
       const newRLR = newRR * RiskData["Step 2"]
       console.log(" newRR:",newRR)
@@ -200,7 +211,7 @@ const getRiskCategory = (RR) => {
             >
               <Grid item container alignItems="center" xs={10} sx={{flexWrap:"nowrap"}}>
                 <Checkbox
-                  checked={!!checkedBehaviors[behavior]} // Check if the behavior is checked
+                  checked={checkedBehaviors[behavior]} // Check if the behavior is checked
                   onChange={() => handleCheckboxChange(behavior)} // Handle change
                   sx={{ color: '#597D0B', '&.Mui-checked': { color: '#597D0B' }, width: 24, height: 24, marginTop: '-2px' }}
                 />
@@ -220,7 +231,7 @@ const getRiskCategory = (RR) => {
         <Grid item container xs={10} alignItems="flex-start" justifyContent="space-between" className='mixed-component-container'>
           <Grid item container alignItems="center" xs={5} justifyContent="left" className='current-risk-bottom'>
             <Grid item container alignItems="center" xs={10} justifyContent="left" className='title-container'>
-              <Typography variant="h6" sx={{ color: '#117BA3', marginBottom: 0 }}>
+              <Typography variant="h6" sx={{ color: '#117BA3', marginBottom: 0,textTransform:"uppercase" }}>
                 Your current risk
               </Typography>
             </Grid>
@@ -238,7 +249,7 @@ const getRiskCategory = (RR) => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     position: 'relative',
-                    fontSize: "15px",
+                    fontSize: "15px !important",
                     color: "black",
                     fontWeight: "800",
                     maxWidth: "182px",
@@ -310,7 +321,7 @@ const getRiskCategory = (RR) => {
 
           <Grid item container alignItems="center" xs={5} justifyContent="left" className='current-lifetime-bottom'>
             <Grid item container alignItems="center" xs={10} justifyContent="left" className='title-container'>
-              <Typography variant="h6" sx={{ color: '#117BA3', marginBottom: 0 }}>
+              <Typography variant="h6" sx={{ color: '#117BA3', marginBottom: 0,textTransform:"uppercase" }}>
                 YOUR Lifetime risk
               </Typography>
             </Grid>
@@ -366,7 +377,7 @@ const getRiskCategory = (RR) => {
                 }}
                 className="pointer-container humain"
               >
-                <Typography className='zabi' sx={{ fontWeight: 'bold', color: "#117BA3 !important", fontSize: "22px", border: "2px solid", marginLeft:"11px" }}>
+                <Typography  sx={{ fontWeight: '700 !important', color: "#117BA3 !important", fontSize: "22px", border: "2px solid", marginLeft:"11px", }}>
                   {riskPercentageNew}%
                 </Typography>
                 <Box
@@ -384,7 +395,7 @@ const getRiskCategory = (RR) => {
                     paddingRight: "0px",
                   }}
                 >
-                  <Typography variant="body5" sx={{ fontWeight: 'bold', color: "white !important", fontSize: "14px", marginLeft: "8px" }}>
+                  <Typography variant="body5" sx={{ fontWeight: 'bold', color: "white !important", fontSize: "14px", marginLeft: "8px",textTransform:"uppercase" }}>
                     Lifetime risk
                   </Typography>
                 </Box>

@@ -73,6 +73,7 @@ const DiseaseInformationPage = () => {
                  color="primary" 
                  className="button-survey bigger"
                  style={{maxWidth:" 606px"}}
+                 onClick={() => navigate("/thank-you")}
              >
                  Finish
              </Button>

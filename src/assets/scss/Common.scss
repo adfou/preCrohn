@@ -25,14 +25,15 @@ $PRE_Crohn_Blue_Border: #3090B6;
     background-color: #ffffff;
     border-bottom: 3px solid #117BA3;
     box-shadow:none !important;
-
+    max-height: 125px !important;
     .header button.navbar-toggler {
       display: none !important;
   }
     .navbar-collapse{
         justify-content: flex-end;
-        
-    }
+        background: white;
+        z-index: 9;
+    } 
     .logo {
     height: 70px;
     width: 447px ;
@@ -155,12 +156,26 @@ $PRE_Crohn_Blue_Border: #3090B6;
 
 @media screen and (min-width: 1200px)  {
   .slide{
-    padding-left: 64px;
+    padding-left: 80px;
     justify-content: space-between;
   }
   .logo.mobile{
     display: none;
   }
+  .slick-prev{
+    left: 80px !important;
+  }
+  .slick-dots{
+  left: 115px !important;
+  }
+  .slick-next {
+    left: 216px !important;
+}
+.home .down.row-card.row{
+  padding-left: 80px;
+  padding-right: 80px;
+  justify-content: space-between !important;
+}
 }
 
 // Laptops (e.g., medium-sized screens)
@@ -187,19 +202,25 @@ $PRE_Crohn_Blue_Border: #3090B6;
 .container-page{
   margin-left: 0px !important;
 }
+
+
 }
 
 // Mobile screens (e.g., small screens)
 @media screen and (max-width: 768px) {
+  .navbar-brand{
+    width:70% !important;
+  }
   .header{
-
     padding: 45px 22px 14px 35px !important;
     .logo{
       width: 265px !important;
+      max-width: 100%;
     }
     .Avata-menu{
       display: none;
     }
+    
   
     .search-container a{
       color: #303135 !important;
@@ -225,13 +246,14 @@ $PRE_Crohn_Blue_Border: #3090B6;
       flex-direction: column !important;
         img{
           width: 100%;
-          height: 50vh;
+          height: 280px;
         }
         .text-content{
           margin: 0px !important;
               h3{
                 text-align: center;
-                font-size: 34px !important;
+                font-size: 32px !important;
+                line-height: 38px !important;
                 padding-top: 16px;
               }
         }
@@ -245,12 +267,12 @@ $PRE_Crohn_Blue_Border: #3090B6;
       margin-top: 62px !important;
     }
     .slick-prev{
-      top: 87.5% !important;
+      top: 86.5% !important;
       left: 31% !important;
     }
     .slick-next {
       right: 32% !important;
-      top: 87.5% !important;
+      top: 86.5% !important;
   }
   
     .row-card{
@@ -264,9 +286,7 @@ $PRE_Crohn_Blue_Border: #3090B6;
               font-size: 20px !important;
 
             }
-            a{
-              font-size: 15px !important;
-            }
+       
         }
     }
 
@@ -282,4 +302,11 @@ $PRE_Crohn_Blue_Border: #3090B6;
     display: none;
   }
 
+}
+
+.custom-toggle:focus,
+.custom-toggle:focus-within {
+    border: none !important; /* No border on focus */
+    box-shadow: none !important; /* No shadow on focus */
+    outline: none !important; /* No outline on focus */
 }

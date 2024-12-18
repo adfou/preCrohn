@@ -197,6 +197,242 @@ const renderContent = (key, value, handleChange, formData) => {
         </FormControl>
       );
     }
+    case 'LadderSmoking': {
+      const ladderData = value[0]; // Access the first object in the LadderSmoking Array
+      const { picturePath } = ladderData;
+    
+      return (
+        <FormControl
+          className="not-required"
+          component="fieldset"
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            marginTop: '45px',
+          }}
+        >
+          {/* Instruction Text Section */}
+          <Box
+            sx={{
+              mb: 10, // Margin bottom for spacing
+              textAlign: 'left',
+            }}
+          >
+   
+            <Typography variant="body2">
+            How motivated are you to quit smoking? Use the ladder below to indicate your motivation to quit smoking, with 0 being “I have not considered quitting” and 10 being “I am taking action to quit [ex: cutting down, enrolling in a program].” You can choose any value from 0 to 10.
+            </Typography>
+          </Box>
+    
+          {/* Top Image Section */}
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              mb: 3,
+            }}
+          >
+            <img
+              src={picturePath}
+              alt="Ladder Smoking"
+              style={{ maxWidth: '100%', maxHeight: '641px' }}
+            />
+          </Box>
+    
+          {/* Bottom Answer Section */}
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center', // Align items horizontally
+              gap: 2, // Space between label and input
+              mt: 2,
+            }}
+          >
+            <Typography variant="h6">
+              Answer:
+            </Typography>
+            <TextField
+              type="number"
+              placeholder=""
+              value={formData['LadderSmoking'] || ''}
+              onChange={(e) =>
+                handleChange({
+                  target: { name: 'LadderSmoking', value: e.target.value },
+                })
+              }
+              InputProps={{
+                inputProps: { min: 0, max: 10 }, // Set min and max values
+              }}
+              sx={{
+                bgcolor: 'white', // Background color
+                width: '160px', // Increase input field width
+              }}
+            />
+          </Box>
+        </FormControl>
+      );
+    }
+
+    case 'LadderFood': {
+      const ladderData = value[0]; // Access the first object in the LadderSmoking Array
+      const { picturePath } = ladderData;
+    
+      return (
+        <FormControl
+          className="not-required"
+          component="fieldset"
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            marginTop: '45px',
+          }}
+        >
+          {/* Instruction Text Section */}
+          <Box
+            sx={{
+              mb: 10, // Margin bottom for spacing
+              textAlign: 'left',
+            }}
+          >
+   
+            <Typography variant="body2">
+            How motivated are you to follow a healthy diet? (Use the ladder below to indicate your motivation to follow a healthier diet, with 0 being “I have not considered changing my diet” and 10 being “I am taking action to follow a healthy diet.” You can choose any value from 0 to 10.)
+             </Typography>
+          </Box>
+    
+          {/* Top Image Section */}
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              mb: 3,
+            }}
+          >
+            <img
+              src={picturePath}
+              alt="Ladder Smoking"
+              style={{ maxWidth: '100%', maxHeight: '641px' }}
+            />
+          </Box>
+    
+          {/* Bottom Answer Section */}
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center', // Align items horizontally
+              gap: 2, // Space between label and input
+              mt: 2,
+            }}
+          >
+            <Typography variant="h6">
+              Answer:
+            </Typography>
+            <TextField
+              type="number"
+              placeholder=""
+              value={formData['LadderSmoking'] || ''}
+              onChange={(e) =>
+                handleChange({
+                  target: { name: 'LadderSmoking', value: e.target.value },
+                })
+              }
+              InputProps={{
+                inputProps: { min: 0, max: 10 }, // Set min and max values
+              }}
+              sx={{
+                bgcolor: 'white', // Background color
+                width: '160px', // Increase input field width
+              }}
+            />
+          </Box>
+        </FormControl>
+      );
+    }
+    
+    case 'LadderDiet': {
+      const ladderData = value[0]; // Access the first object in the LadderSmoking Array
+      const { picturePath } = ladderData;
+    
+      return (
+        <FormControl
+          className="not-required"
+          component="fieldset"
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            marginTop: '45px',
+          }}
+        >
+          {/* Instruction Text Section */}
+          <Box
+            sx={{
+              mb: 10, // Margin bottom for spacing
+              textAlign: 'left',
+              
+            }}
+          >
+           
+            <Typography variant="body2">
+            How motivated are you to exercise regularly? (Use the ladder below to indicate your motivation to exercise regularly, with 0 being “I have not considered exercising regularly” and 10 being “I am taking action to exercise regularly.” You can choose any value from 0 to 10.)
+            </Typography>
+          </Box>
+    
+          {/* Top Image Section */}
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              mb: 3,
+            }}
+          >
+            <img
+              src={picturePath}
+              alt="Ladder Smoking"
+              style={{ maxWidth: '100%', maxHeight: '641px' }}
+            />
+          </Box>
+    
+          {/* Bottom Answer Section */}
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center', // Align items horizontally
+              gap: 2, // Space between label and input
+              mt: 2,
+            }}
+          >
+            <Typography variant="h6">
+              Answer:
+            </Typography>
+            <TextField
+              type="number"
+              placeholder=""
+              value={formData['LadderSmoking'] || ''}
+              onChange={(e) =>
+                handleChange({
+                  target: { name: 'LadderSmoking', value: e.target.value },
+                })
+              }
+              InputProps={{
+                inputProps: { min: 0, max: 10 }, // Set min and max values
+              }}
+              sx={{
+                bgcolor: 'white', // Background color
+                width: '160px', // Increase input field width
+              }}
+            />
+          </Box>
+        </FormControl>
+      );
+    }
+
+    
         
         
         

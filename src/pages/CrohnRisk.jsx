@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+    import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner'; // Import Bootstrap Spinner for Loader
 import { BodyPage } from "../Components/Layout/index.mjs";
 import { CrohnRiskData, InfoModalData } from "../Data";
 import { CardBehavior, CardHumain, ColorRiskCard, CardBehaviorCheck } from "../Components/Card/index";
 import { InfoModal } from "../Components/Modal/InfoModal";
-
+import {  Box, Button } from '@mui/material';
 import { useRiskCalculation ,useParticipantProfile} from "../Hooks/index.mjs";
 import { useNavigate } from 'react-router-dom';
 const CrohnRisk = ({ title }) => {
@@ -15,8 +15,8 @@ const CrohnRisk = ({ title }) => {
     const [open, setOpen] = useState(false);
     const [RiskData, setRiskData] = useState(false);
     const firtSetnance = "Based on the answers you provided to the questionnaires, your blood tests, and your stool tests,"
-    const Diagnostics = "you have a high risk for Crohn’s disease"
-    const lastDiagnostics = "when compared to other people who have a family member with Crohn’s disease."
+    const Diagnostics = (status) => {return "you have a "+status+" risk for Crohn’s disease "}
+    const lastDiagnostics = (status,noStatus) => {return  "Out of 100 people like you, "+status+" will develop Crohn’s disease in their lifetime, and "+noStatus+" will not."} 
     const HumainSentnace = 'Your personal risk of developing Crohn’s disease is '
     const behaviors = [
         "You’re eating enough fruit",
@@ -119,6 +119,19 @@ const CrohnRisk = ({ title }) => {
                         />}
                     </>
                 )}
+
+                    <Box sx={{ display: 'flex', justifyContent: 'center', mt: 10,mb:10 }}>
+                        <Button 
+                                         href='/thank-you'
+                                         variant="contained" 
+                                         color="primary" 
+                                         className="button-survey bigger"
+                                         style={{maxWidth:" 606px"}}
+                                         onClick={() => navigate("/thank-you")}
+                                     >
+                                         Finish
+                                     </Button>
+                    </Box>
             </Container>
 
             {open && (

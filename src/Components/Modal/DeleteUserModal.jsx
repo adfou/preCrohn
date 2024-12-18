@@ -10,7 +10,7 @@ const DeleteUserModal = ({ open, user, onClose, ToastSucc, ToastErr }) => {
    
     await triggerDeleteUser(user?.id); // Trigger the delete action
   };
-
+  
   useEffect(() => {
     if (!loading) { // Only proceed if loading is false (meaning the delete request has completed)
       console.log("error",error)
@@ -24,7 +24,7 @@ const DeleteUserModal = ({ open, user, onClose, ToastSucc, ToastErr }) => {
         if( error !== null){
       console.log("zabi 2")
         ToastErr('Error deleting user');}
-        onClose(); // Close the modal after handling the delete operation
+        //onClose(); // Close the modal after handling the delete operation
       }
       
       

@@ -34,7 +34,7 @@ export default function Carousel() {
   return (
     <Slider {...settings}>
       <div className="slide">
-        <img src="/1-slide.png" alt="Slide 1" />
+        <img src="/iStock-1.png" alt="Slide 1" />
         <div className="text-content">
           <h3>Thank you for taking part in cutting-edge
           Crohn’s disease research.</h3>
@@ -42,14 +42,14 @@ export default function Carousel() {
         
       </div>
       <div className="slide">
-        <img src="/2-slide.png" alt="Slide 2" />
+        <img src="/iStock-2.png" alt="Slide 2" />
         <div className="text-content">
           <h3>Calculate your risk of Crohn’s disease and see how lifestyle changes may change the equation.</h3>
         </div>
        
       </div>
       <div className="slide">
-        <img src="/3-slide.png" alt="Slide 3" />
+        <img src="/iStock-3.png" alt="Slide 3" />
         <div className="text-content">
           <h3>Change now might reduce your risk of Crohn’s disease later. </h3>
          

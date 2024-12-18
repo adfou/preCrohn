@@ -22,7 +22,7 @@ export const CardBehavior = ({ title, subtitle, behaviors, data }) => {
 const handleOpenModal = (behavior) => {
   const content = { ...behaviorContent[behavior] }; // Clone content to modify if needed
   if (behavior.toLowerCase().includes("smoke") && data["Smoking Status"] === 1.3) {
-    content.content += `<br><br>${behaviorContent[behavior].extra}`; // Append extra content
+    content.content += `${behaviorContent[behavior].extra}`; // Append extra content
   }
   setModalContent(content);
   setOpen(true);

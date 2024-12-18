@@ -5,6 +5,7 @@ import {
 } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import EmailIcon from '@mui/icons-material/Email';
+import Download from '@mui/icons-material/Download';
 import LockResetIcon from '@mui/icons-material/LockReset';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -22,7 +23,7 @@ const rolesOptions = [
   { value: "3", label: "Control" }
 ];
 
-const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser, RefreshTable }) => {
+const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser, RefreshTable,onRestUser,onNextUser,handleDownload }) => {
   const { users: Allusers, loading, error, refetch: refetchUsers } = useGetAllUsers();
   const [UserTable, setUserTable] = useState([]);
   const [selectedRoles, setSelectedRoles] = useState([]);
@@ -200,13 +201,16 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser, RefreshTable })
                         <MenuItem onClick={() => { onSendEmail(user); handleMenuClose(); }}>
                           <EmailIcon sx={{ mr: 1, color: iconColor }} color="primary" /> Send Email
                         </MenuItem>
-                        <MenuItem onClick={() => { onResetPassword(user); handleMenuClose(); }}>
-                          <LockResetIcon sx={{ mr: 1, color: iconColor }} color="secondary" /> Reset Password
+                        <MenuItem onClick={() => { handleDownload(user.id); handleMenuClose(); }}>
+                          <Download sx={{ mr: 1, color: iconColor }} color="primary" /> Download Data
                         </MenuItem>
-                        <MenuItem onClick={() => { handleNextPhaseClick(user.id); handleMenuClose(); }}>
+                        <MenuItem onClick={() => { onResetPassword(user); handleMenuClose(); }}>
+                          <LockResetIcon sx={{ mr: 1, color: iconColor }} color="secondary" /> Rest Password
+                        </MenuItem>
+                        <MenuItem onClick={() => { onNextUser(user); handleMenuClose(); }}>
                           <ArrowForwardIcon sx={{ mr: 1, color: iconColor }} color="warning" /> Next Phase
                         </MenuItem>
-                        <MenuItem onClick={() => { handleRestartClick(user.id); handleMenuClose(); }}>
+                        <MenuItem onClick={() => { onRestUser(user); handleMenuClose(); }}>
                           <RefreshIcon sx={{ mr: 1, color: iconColor }} color="error" /> Reset Progress
                         </MenuItem>
                         <MenuItem onClick={() => { onDeleteUser(user); handleMenuClose(); }}>
@@ -255,13 +259,17 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser, RefreshTable })
                         <MenuItem onClick={() => { onSendEmail(user); handleMenuClose(); }}>
                           <EmailIcon sx={{ mr: 1, color: iconColor }} color="primary" /> Send Email
                         </MenuItem>
-                        <MenuItem onClick={() => { onResetPassword(user); handleMenuClose(); }}>
-                          <LockResetIcon sx={{ mr: 1, color: iconColor }} color="secondary" /> Reset Password
+                        <MenuItem onClick={() => { handleDownload(user.id); handleMenuClose(); }}>
+                          <Download sx={{ mr: 1, color: iconColor }} color="primary" /> Download Data
                         </MenuItem>
-                        <MenuItem onClick={() => { handleNextPhaseClick(user.id); handleMenuClose(); }}>
+                        
+                        <MenuItem onClick={() => { onResetPassword(user); handleMenuClose(); }}>
+                          <LockResetIcon sx={{ mr: 1, color: iconColor }} color="secondary" /> Rest Password
+                        </MenuItem>
+                        <MenuItem onClick={() => { onNextUser(user); handleMenuClose(); }}>
                           <ArrowForwardIcon sx={{ mr: 1, color: iconColor }} color="warning" /> Next Phase
                         </MenuItem>
-                        <MenuItem onClick={() => { handleRestartClick(user.id); handleMenuClose(); }}>
+                        <MenuItem onClick={() => { onRestUser(user); handleMenuClose(); }}>
                           <RefreshIcon sx={{ mr: 1, color: iconColor }} color="error" /> Reset Progress
                         </MenuItem>
                         <MenuItem onClick={() => { onDeleteUser(user); handleMenuClose(); }}>

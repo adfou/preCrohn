@@ -54,11 +54,11 @@ const renderContent = (key, value) => {
                                     />
                                 </Row>
                                 <Row md={9} style={{marginTop:"25px"}}>
-                                    <h3>{value.title}</h3>
-                                    <h5 className="text-muted" style={{ textTransform: "uppercase" }}>
+                                    <h3 style={{fontSize:"22px",lineHeight:"27px",color:"#597D0B"}} >{value.title}</h3>
+                                    <h5 className="text-muted" style={{ textTransform: "uppercase",fontSize:"15px",lineHeight:"24px",letterSpacing:"1px" }}>
                                         {value.subTitle}
                                     </h5>
-                                    <p>{value.number}</p>
+                                    <p style={{ fontSize:"15px",lineHeight:"24px",letterSpacing:"1px" }}>{value.number} </p>
                                     <p>{value.Desc}</p>
                                 </Row>
                             </Row>

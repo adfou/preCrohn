@@ -177,16 +177,16 @@ const DiseaseInformation = [
         LIST: [
             " In some cases, surgery may be needed to remove damaged parts of the intestine.",
                     ],
-        HTMLTEXT:"The above information is provided by the Crohn’s and Colitis Foundation (CCF). For more information on Crohn’s disease, visit the CCF webpage. [LINK TO <a href='https://www.crohnscolitisfoundation.org/what-is-crohns-disease'>https://www.crohnscolitisfoundation.org/what-is-crohns-disease]</a>",
+        HTMLTEXT:"The above information is provided by the Crohn’s and Colitis Foundation (CCF). For more information on Crohn’s disease, visit the CCF webpage. <a href='https://www.crohnscolitisfoundation.org/what-is-crohns-disease' target='_blank'>https://www.crohnscolitisfoundation.org/what-is-crohns-disease</a>",
             
     },
     {
         H2:"References",
-        HTMLTEXT:'What Is Crohn’s Disease? Crohn’s & Colitis Foundation. Accessed March 12, 2023. <a href="https://www.crohnscolitisfoundation.org/patientsandcaregivers/what-is-crohns-disease">https://www.crohnscolitisfoun…at-is-crohns-disease</a>.',
+        HTMLTEXT:'What Is Crohn’s Disease? Crohn’s & Colitis Foundation. Accessed March 12, 2023. <a href="https://www.crohnscolitisfoundation.org/patientsandcaregivers/what-is-crohns-disease" target="_blank">https://www.crohnscolitisfoun…at-is-crohns-disease</a>.',
         Text:'Dahlhamer JM, Zammitti EP, Ward BW, Wheaton AG, Croft JB. Prevalence of Inflammatory Bowel Disease Among Adults Aged ≥18 Years — United States, 2015. Vol 65. Centers for Disease Control MMWR Office; 2016. doi:10.15585/mmwr.mm6542a3'
     },
     {
-        HTMLTEXT:'Crohn’s Disease. American College of Gastroenterology. Accessed March 12, 2023.<a href="https://gi.org/topics/crohns-disease/">https://gi.org/topics/crohns-disease/</a>.',
+        HTMLTEXT:'Crohn’s Disease. American College of Gastroenterology. Accessed March 12, 2023. <a target="_blank" href="https://gi.org/topics/crohns-disease/">https://gi.org/topics/crohns-disease/</a>.',
        },
 ];
 
@@ -215,17 +215,17 @@ const ThankYouData = [
             "Lopes EW, Lochhead P, Burke KE, et al. Risk factors for incident inflammatory bowel disease according to disease phenotype. Clinical Gastroenterology and Hepatology. 2022;20(10):2347-2357.e14. doi:10.1016/j.cgh.2022.01.003",
             "Piovani D, Danese S, Peyrin-Biroulet L, Nikolopoulos GK, Lytras T, Bonovas S. Environmental risk factors for inflammatory bowel diseases: an umbrella review of meta-analyses. Gastroenterology. 2019;157(3):647-659.e4. doi:10.1053/j.gastro.2019.04.016",
             "Ananthakrishnan AN, Khalili H, Konijeti GG, et al. A prospective study of long-term intake of dietary fiber and risk of Crohn’s disease and ulcerative colitis. Gastroenterology. 2013;145(5):970-977. doi:10.1053/j.gastro.2013.07.050",
-            "U.S. Department of Agriculture, US Department of Health and Human Services. 2020-2025 Dietary guidelines for Americans. Accessed August 6, 2023. <a href='https://www.dietaryguidelines.gov/resources/2020-2025-dietary-guidelines-online-materials'>https://www.dietaryguidelines.gov/resources/2020-2025-dietary-guidelines-online-materials<a/>",
+            "U.S. Department of Agriculture, US Department of Health and Human Services. 2020-2025 Dietary guidelines for Americans. Accessed August 6, 2023. <a href='https://www.dietaryguidelines.gov/resources/2020-2025-dietary-guidelines-online-materials' target='_blank'>https://www.dietaryguidelines.gov/resources/2020-2025-dietary-guidelines-online-materials<a/>",
             "Khalili H, Ananthakrishnan AN, Konijeti GG, et al. Physical activity and risk of inflammatory bowel disease: Prospective study from the Nurses’ Health Study cohorts. BMJ (Online). 2013;347. doi:10.1136/bmj.f6633",
             "Lloyd-Jones DM, Hong Y, Labarthe D, et al. Defining and setting national goals for cardiovascular health promotion and disease reduction: the American Heart Association’s strategic impact goal through 2020 and beyond. Circulation. 2010;121(4):586-613. doi:10.1161/CIRCULATIONAHA.109.192703",
             "Piercy KL, Troiano RP, Ballard RM, et al. The physical activity guidelines for Americans. JAMA - Journal of the American Medical Association. 2018;320(19):2020-2028. doi:10.1001/jama.2018.14854",
-            "American Heart Association. Recommendations for physical activity in adults and kids. Published 2023. Accessed August 13, 2023. <a href='https://www.heart.org/en/healthy-living/fitness/fitness-basics/aha-recs-for-physical-activity-in-adults'>https://www.heart.org/en/healthy-living/fitness/fitness-basics/aha-recs-for-physical-activity-in-adults<a/>",
-            "CDC. Smoking and Cancer | Overviews of Diseases/Conditions | Tips From Former Smokers. Accessed August 13, 2023. <a href='https://www.cdc.gov/tobacco/campaign/tips/diseases/cancer.html'>https://www.cdc.gov/tobacco/campaign/tips/diseases/cancer.html<a/>",
+            "American Heart Association. Recommendations for physical activity in adults and kids. Published 2023. Accessed August 13, 2023. <a target='_blank' href='https://www.heart.org/en/healthy-living/fitness/fitness-basics/aha-recs-for-physical-activity-in-adults'>https://www.heart.org/en/healthy-living/fitness/fitness-basics/aha-recs-for-physical-activity-in-adults<a/>",
+            "CDC. Smoking and Cancer | Overviews of Diseases/Conditions | Tips From Former Smokers. Accessed August 13, 2023. <a target='_blank' href='https://www.cdc.gov/tobacco/campaign/tips/diseases/cancer.html'>https://www.cdc.gov/tobacco/campaign/tips/diseases/cancer.html<a/>",
             "Mahid SS, Minor KS, Soto RE, Hornung CA, Galandiuk S. Smoking and inflammatory bowel disease: a meta-analysis. Mayo Clin Proc. 2006;81(11):1462-1471. www.mayoclinicproceedings.com1462",
             "Nirmala Prasadi VP, Joye IJ. Dietary fibre from whole grains and their benefits on metabolic health. Nutrients. 2020;12(10):1-20. doi:10.3390/nu12103045",
             "Fu T, Chen H, Chen X, et al. Sugar-sweetened beverages, artificially sweetened beverages and natural juices and risk of inflammatory bowel disease: a cohort study of 121,490 participants. Aliment Pharmacol Ther. 2022;56(6):1018-1029. doi:10.1111/apt.17149",
-            "American Heart Association. How too much added sugar affects your health (infographic). Accessed August 13, 2023. <a href='https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/how-too-much-added-sugar-affects-your-health-infographic'>https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/how-too-much-added-sugar-affects-your-health-infographic<a/>",
-            "American Heart Association. Added sugars. Accessed August 13, 2023. <a href='https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/added-sugars'>https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/added-sugars<a/>"
+            "American Heart Association. How too much added sugar affects your health (infographic). Accessed August 13, 2023. <a target='_blank' href='https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/how-too-much-added-sugar-affects-your-health-infographic'>https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/how-too-much-added-sugar-affects-your-health-infographic<a/>",
+            "American Heart Association. Added sugars. Accessed August 13, 2023. <a target='_blank' href='https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/added-sugars'>https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/added-sugars<a/>"
         ]
     },
     
@@ -869,31 +869,12 @@ const YourdietSWEETS=[
             'Sweet’N Low',
             'Saccharin'
         ]},
-    {
-        HTMLTEXT: `
-           
-      
-        <strong>How motivated are you to follow a healthy diet?</strong> 
-        (Use the ladder below to indicate your motivation to follow a healthier diet, with 0 being “I have not considered changing my diet” and 10 being “I am taking action to follow a healthy diet.” You can choose any value from 0 to 10.)
-        <br/><br/>
-    `,
-        ladderRadio: [
-            '',
-            [
-                ' - I am taking action to follow a healthy diet.',
-                '',
-                ' - I am starting to think about how I can change to a healthier diet.',
-                '',
-                '',
-                ' - I think I should change to a healthier diet, but I am not quite ready.',
-                '',
-                '',
-                ' - I think I need to consider changing to a healthier diet someday.',
-                '',
-                ' - I have not considered changing my diet.'
-            ]
-        ],
-    }
+        {
+              
+            "LadderFood":[
+             {picturePath:"/LadderFood.png"}
+             
+            ]}
 ]
 
 const Yourphysicalactivity = [
@@ -958,31 +939,11 @@ const Yourphysicalactivity = [
 },
 
 {
-    HTMLTEXT: `
-            
-    <strong '>How motivated are you to exercise regularly?</strong> 
-    (Use the ladder below to indicate your motivation to exercise regularly, with 0 being “I have not considered exercising regularly” and 10 being “I am taking action to exercise regularly.” You can choose any value from 0 to 10.)
-    <br/><br/>
-`,
-
-
-
-        ladderRadio: [
-            '',
-            [
-                '- I am taking action to exercise regularly.',
-                '',
-                '- I am starting to think about how I can exercise regularly. ',
-                '',
-                '',
-                '- I think I should exercise regularly, but I am not quite ready.',
-                '',
-                '',
-                '- I think I need to consider exercising regularly.',
-                '',
-                '- I have not considered exercising regularly.'
-            ]
-        ]
+   
+    "LadderDiet":[
+        {picturePath:"/LadderDiet.png"}
+        
+       ]
 }
 ];
 
@@ -1006,22 +967,11 @@ const Yoursmokinghistory= [
                   "input" :"In the last month only, how many cigarettes have you smoked per day, on average? "
               },
             {
-              ladderRadio: [
-                  'How motivated are you to quit smoking? (Use the ladder below to indicate your motivation to quit smoking, with 0 being “I have not considered quitting” and 10 being “I am taking action to quit [ex: cutting down, enrolling in a program].” You can choose any value from 0 to 10.)',
-                  [
-                      '- I am taking action to quit (ex: cutting down, enrolling in a program). ',
-                      '',
-                      '- I am starting to think about how to change my smoking patterns.',
-                      '',
-                      '',
-                      '- I think I should quit, but I am not quite ready',
-                      '',
-                      '',
-                      '- I think I need to consider quitting someday.',
-                      '',
-                      '- I have not considered quitting.',
-                  ]
-              ],}
+              
+       "LadderSmoking":[
+        {picturePath:"/LadderSmoking.png"}
+        
+       ]}
           ],
           [
             "No–Quit",
@@ -1043,7 +993,6 @@ const Yoursmokinghistory= [
       },
       {         
 
-       
         
        
     }
@@ -1170,6 +1119,8 @@ const PrefileJaneFiberCorrect ={"general-information":{"What is your sex assigne
 const PrefileJoeFruitCorrect = {"general-information":{"What is your sex assigned at birth?":"0","How old are you?":"36","What is your ethnicity? ":"1","What is your race (Select all that apply.)":["American Indian or Alaska Native","Black or African American"],"What is your highest level of education?":"5"},"medical-history":{"What is your height? (Please use your height reported on a valid I.D., such as a driver’s license.) ":"22","What is your weight (in pounds)? Please use the same scale to measure your weight throughout this study. The weight you list here should be measured within the last week.)":"22","Have you ever been diagnosed with Crohn’s disease, ulcerative colitis, or inflammatory bowel disease (IBD)-unclassified? ":"0","Have you ever been diagnosed with any of the following conditions? (Select all that apply.)":["Type 1 diabetes mellitus","Psoriasis","Systemic lupus erythematosus (SLE, Lupus)"],"How often do you use non-steroidal anti-inflammatory drugs (NSAIDs), such as Advil, Motrin, Aleve, ibuprofen, or naproxen?":"2","Have you had your appendix removed for any reason?":"1","Have you ever taken antibiotics? (Antibiotics are medicines used to treat infections like urinary tract infections, pneumonia, diverticulitis, strep throat, ear or sinus infection, and some sexually transmitted infections. They include medicines like amoxicillin, Augmentin, azithromycin or 'Z-pack,' nitrofurantoin or Macrobid, or ciprofloxacin.)":"Yes","Were you breast-fed when you were a baby?":"1","When you were a child or young adult, did you have pets in your home? ":"1","What age(s) did you take antibiotics? (Select all that apply.)":["0–10 years old"],"What is your weight (in pounds)? (Please use the same scale to measure your weight throughout this study. The weight you list here should be measured within the last week.)":"22","Have you ever taken birth control pills?":"1"},"family-history":{"parents":"2","parents_0_Parent index":"0","parents_0_Parent index: Age at diagnosis":"1","parents_1_Parent index":"0","parents_1_Parent index: Age at diagnosis":"0"},"your-diet":{"Milk (8 oz. glass) Skim milk":"0","Milk (8 oz. glass) 1 or 2% milk":"0","Milk (8 oz. glass) Whole milk":"0","Milk (8 oz. glass) Soy milk":"0","Cream (e.g., coffee, sour); exclude fat-free (1 Tbs)":"0","Non-dairy coffee whitener; exclude fat-free (1 Tbs)":"0","Frozen yogurt, sherbet, sorbet, or low-fat ice cream (1 cup)":"0","Regular ice cream (1 cup)":"0","Spreads added to food or bread; exclude use in cooking - Pure butter":"0","Spreads added to food or bread; exclude use in cooking - Margarine (e.g., Country Crock)":"0","Spreads added to food or bread; exclude use in cooking - Spreadable butter or butter/oil blend (e.g., Olivio spread butter)":"0","Yogurt (4-6 oz.) - Plain":"0","Yogurt (4-6 oz.) - Artificially sweetened (e.g., light peach)":"0","Yogurt (4-6 oz.) - Sweetened (e.g., strawberry, vanilla)":"5","Cottage or ricotta cheese (1/2 cup)":"0","Cream cheese (1 oz.)":"0","Other cheese (e.g., American, cheddar, etc.); plain or as part of a dish (1 slice or 1 oz. serving)":"0","What type of cheese do you usually eat?":"1"},"your-diet-2":{"Raisins (1 oz. or small pack) or grapes (1/2 cup)":"0","Prunes or dried plums (¼ cup or 6 dried)":"0","Prune juice (small glass)":"0","Bananas (1)":"3","Cantaloupe (1/4 melon)":"0","Avocado (1/2 fruit or 1/2 cup)":"2","Fresh apples or pears (1)":"0","Apple juice or cider (small glass)":"0","Oranges (1)":"0","Orange juice (small glass)":"0","Orange juice - Calcium- or Vit. D-fortified":"2","Orange juice - Regular (not calcium-fortified)":"0","Grapefruit (1/2) or grapefruit juice (small glass)":"0","Other fruit juices (e.g., cranberry, grape) (small glass)":"0","Strawberries, fresh, frozen, or canned (1/2 cup)":"3","Blueberries, fresh, frozen, or canned (1/2 cup)":"0","Peaches or plums (1 fresh or 1/2 cup canned)":"0","Apricots (1 fresh, 1/2 cup canned, or 5 dried)":"0"},"your-diet-3":{"Tomatoes (2 slices)":"2","Tomato or V-8 juice (small glass)":"0","Tomato sauce (e.g., spaghetti sauce) (1/2 cup)":"0","Salsa, picante, or taco sauce (1/4 cup)":"0","String beans (1/2 cup)":"0","Beans or lentils (baked, dried, or soup) (1/2 cup)":"0","Tofu, soy burger, soybeans, miso, or other soy protein":"0","Peas or lima beans (fresh, frozen, canned, or soup) (1/2 cup)":"0","Broccoli (1/2 cup)":"0","Cauliflower (1/2 cup)":"0","Cabbage or coleslaw (1/2 cup)":"0","Brussels sprouts (1/2 cup)":"0","Carrots (raw); (1/2 carrot or 2-4 sticks)":"3","Carrots (cooked); (1/2 cup) or carrot juice (2-3 oz.)":"0","Corn (fresh, frozen, or canned); (1 ear or 1/2 cup)":"0","Mixed vegetables (stir-fry or soup); (1/2 cup)":"0","Yams or sweet potatoes (1/2 cup)":"0","Dark orange (winter) squash (1/2 cup)":"0","Eggplant, zucchini, or other summer squash (1/2 cup)":"0","Kale, arugula, mustard greens, or chard (1/2 cup)":"0","Spinach (cooked); (1/2 cup)":"0","Spinach (raw); (1 cup)":"0","Iceberg or head lettuce (1 serving)":"0","Romaine or leaf lettuce (1 serving)":"6","Celery (2-3 sticks)":"0","Green, yellow or red peppers (2 rings or 1/4 small)":"0","Onions (raw, as a garnish or in salad); (1 slice)":"0","Onions, cooked (e.g., rings or soup); (1/2 cup)":"0"},"your-diet-4":{"Eggs (1) - Omega-3 fortified, including yolk":"0","Eggs (1) - Regular eggs, including yolk":"0","Beef or pork hot dogs (1)":"0","Chicken or turkey hot dogs or sausage (1)":"0","Chicken/turkey sandwich or frozen dinner":"0","Other chicken or turkey (including ground), with skin (3 oz)":"0","Other chicken or turkey, without skin (3 oz)":"0","Bacon (2 slices)":"0","Salami, bologna, or other processed meat sandwiches":"0","Other processed meats (e.g., sausage, kielbasa, etc.); (2 oz. or 2 small links)":"0","Hamburger (1 patty) - Lean or extra lean":"0","Hamburger (1 patty) - Regular":"0","Beef, pork, or lamb as a sandwich or mixed dish (e.g., stew, casserole, lasagna, frozen dinners, etc.); (1 serving)":"0","Pork as a main dish (e.g., ham or chops); (4-6 oz.)":"0","Beef or lamb as a main dish (e.g., steak, roast); (4-6 oz.)":"0","Canned tuna fish (3-4 oz.)":"0","Breaded fish cakes, pieces, or fish sticks (store bought)":"0","Shrimp, lobster, or scallops as a main dish":"0","Dark-meat fish (e.g., tuna steak, mackerel, salmon, sardines, bluefish, or swordfish); (3-5 oz.)":"0","Other fish (e.g., cod, haddock, halibut); (3-5 oz.)":"0"},"your-diet-5":{"Cold breakfast cereal (1 serving)":"4","Cooked oatmeal/cooked oat bran (including instant) (1 cup)":"2","Other cooked breakfast cereal (1 cup)":"2","Bread (1 slice) - White bread (including pita)":"0","Bread (1 slice) - Rye/Pumpernickel":"0","Bread (1 slice) - Whole wheat, oatmeal, other whole grain":"6","Crackers (6) - Whole grain/whole wheat":"0","Crackers (6) - Other crackers":"0","Bagels, English muffins, or rolls (1)":"0","Muffins or biscuits (1)":"2","Pancakes or waffles (2 small pieces)":"0","Brown rice (1 cup)":"0","White rice (1 cup)":"0","Pasta (e.g., spaghetti, noodles, couscous, etc.); (1 cup)":"0","Tortillas, corn or flour (2)":"0","French fries (6 oz. or 1 serving)":"0","Potatoes, baked, boiled, or mashed (1 cup)":"0","Potato chips or corn/tortilla chips (small bag or 1 oz.)":"0","Pizza (2 slices)":"0"},"your-diet-6":{"CARBONATED BEVERAGES Consider the serving size as 1 glass, bottle, or can for these carbonated beverages. Low-calorie (sugar-free) types_Low-calorie beverage with caffeine (e.g., Diet Coke)":"0","_Other low-calorie beverage without caffeine (e.g., Diet 7-Up)":"0","CARBONATED BEVERAGES Regular types (not sugar-free)_Carbonated beverage with caffeine and sugar (e.g., Coke, Pepsi, Mt. Dew, Dr. Pepper)":"0","_Other sugared beverages (e.g., punch, lemonade, sports drinks)":"0","OTHER BEVERAGES_Other sugared beverages (e.g., punch, lemonade, sports drinks, or sugared ice tea); (1 glass, bottle, can)":"5","_Regular beer (1 glass, bottle, can)":"0","_Light beer (e.g., Bud Light); (1 glass, bottle, or can)":"0","_Red wine (5 oz. glass)":"0","_White wine (5 oz. glass)":"0","_Liquor (e.g., vodka, gin, etc.); (1 drink or shot)":"0"," _Plain water (bottled, sparkling, or tap); (8 oz. cup)":"0"," _Decaffeinated tea (exclude herbal); (8 oz. cup)":"0"," _Tea with caffeine (including green tea); (8 oz. cup)":"0","_Decaffeinated coffee (8 oz. cup)":"0"," _Coffee with caffeine (8 oz. cup)":"0"," _Hot/cold dairy coffee drink (e.g., cappuccino); (16 oz.)":"0"},"your-diet-7":{"Milk chocolate (e.g., Hershey’s, M&M’s); (1 bar or package)":"0","Dark chocolate (e.g., Hershey’s Dark or Dove Dark); (1 bar)":"0","Candy bars (e.g., Snickers, Milky Way, Reeses); (1 bar)":"0","Candy without chocolate (1 oz.)":"0","Cookies (1) or brownie (1) Fat-free or reduced-fat":"0","Cookies (1) or brownie (1) Other ready-made, mix, or dough":"0","Cookies (1) or brownie (1) Home-baked, from scratch":"0","Doughnut (1)":"0","Cake (home-baked or ready made); (slice)":"0","Pie (home-baked or ready made); (slice)":"0","Jams, jellies, preserves, syrup, or honey (1 Tbs)":"3","Peanut butter (1 Tbs)":"0","Popcorn (2-3 cups) Fat-free or light":"2","Popcorn (2-3 cups) Regular":"0","Sweet roll, coffee cake, or other pastry (regular, fat-free, or reduced fat); (1)":"0","Breakfast bar (e.g., Nutrigrain, Kashi, granola); (1)":"5","Energy bar (e.g., Clif, Luna, Glucerna, Powerbar); (1)":"5","High-protein bar (e.g., Atkins, Zone, South Beach); (1)":"5","Slimfast shake (1)":"0","Ensure, Boost, or other meal-replacement drink (1)":"0","Pretzels (1 small bag or serving)":"0","Peanuts (1 small packet or 1 oz.)":"0","Walnuts (1 oz.)":"0","Other nuts (1 small packet or 1 oz.)":"0","Mixed dried fruit (1/4 cup)":"0","Oat bran, other bran (e.g., wheat, etc.) added to food (1 Tbs)":"0","Wheat germ (1 Tbs)":"0","Chowder or cream soup (1 cup)":"0","Tomato soup (1 cup)":"0","Ketchup or red chili sauce (1 Tbs)":"0","Flaxseed (1 Tbs)":"0","Garlic (fresh, or powdered); (1 clove or 4 shakes)":"0","Olive oil added to food or bread (1 Tbs)":"0","Low-fat or fat-free mayonnaise (1 Tbs)":"0","Regular mayonnaise (1 Tbs)":"0","Salad dressing (1-2 Tbs)":"0","Artificial sweeteners (1 packet)":"0","Type of salad dressing :":"1","Type of artificial sweetener :":"0","":"8","Type of salad dressing:":"3","Type of artificial sweetener:":"1"},"your-physical-activity":{"Walking for exercise or walking for transportation/errands":"3","Jogging (>10 min/mi)":"0","Running (<10 min/mi)":"4","Bicycling (include stationary machine)":"0","Tennis, squash, racquetball":"6","Lap swimming":"0","Other aerobic exercise (e.g., aerobic dance, ski or stair machine, etc.)":"0","Lower-intensity exercise (e.g., yoga, stretching, toning)":"0","Other vigorous activities (e.g., lawn mowing)":"0","Arm weights":"0","Leg weights":"0","How many total flights of stairs (not individual steps) do you climb daily?":"5","What is your usual walking pace outdoors?":"3","":"5"},"your-smoking-history":{"Do you smoke cigarettes?":"No–Quit","How old were you when you started smoking? ":"16","How old were you when you quit smoking?":"20","How many cigarettes did you used to smoke per day, on average?":"5","Since starting smoking, how many cigarettes have you smoked per day, on average? ":"16","In the last month only, how many cigarettes have you smoked per day, on average? ":"16","How motivated are you to quit smoking? (Use the ladder below to indicate your motivation to quit smoking, with 0 being “I have not considered quitting” and 10 being “I am taking action to quit [ex: cutting down, enrolling in a program].” You can choose any value from 0 to 10.)":"7"}}
 
 const PrefileJoeFiberCorrect= {"general-information":{"What is your sex assigned at birth?":"0","How old are you?":"36","What is your ethnicity? ":"1","What is your race (Select all that apply.)":["American Indian or Alaska Native","Black or African American"],"What is your highest level of education?":"5"},"medical-history":{"What is your height? (Please use your height reported on a valid I.D., such as a driver’s license.) ":"22","What is your weight (in pounds)? Please use the same scale to measure your weight throughout this study. The weight you list here should be measured within the last week.)":"22","Have you ever been diagnosed with Crohn’s disease, ulcerative colitis, or inflammatory bowel disease (IBD)-unclassified? ":"0","Have you ever been diagnosed with any of the following conditions? (Select all that apply.)":["Type 1 diabetes mellitus","Psoriasis","Systemic lupus erythematosus (SLE, Lupus)"],"How often do you use non-steroidal anti-inflammatory drugs (NSAIDs), such as Advil, Motrin, Aleve, ibuprofen, or naproxen?":"2","Have you had your appendix removed for any reason?":"1","Have you ever taken antibiotics? (Antibiotics are medicines used to treat infections like urinary tract infections, pneumonia, diverticulitis, strep throat, ear or sinus infection, and some sexually transmitted infections. They include medicines like amoxicillin, Augmentin, azithromycin or 'Z-pack,' nitrofurantoin or Macrobid, or ciprofloxacin.)":"Yes","Were you breast-fed when you were a baby?":"1","When you were a child or young adult, did you have pets in your home? ":"1","What age(s) did you take antibiotics? (Select all that apply.)":["0–10 years old"],"What is your weight (in pounds)? (Please use the same scale to measure your weight throughout this study. The weight you list here should be measured within the last week.)":"22","Have you ever taken birth control pills?":"1"},"family-history":{"parents":"2","parents_0_Parent index":"0","parents_0_Parent index: Age at diagnosis":"1","parents_1_Parent index":"0","parents_1_Parent index: Age at diagnosis":"0"},"your-diet":{"Milk (8 oz. glass) Skim milk":"0","Milk (8 oz. glass) 1 or 2% milk":"0","Milk (8 oz. glass) Whole milk":"0","Milk (8 oz. glass) Soy milk":"0","Cream (e.g., coffee, sour); exclude fat-free (1 Tbs)":"0","Non-dairy coffee whitener; exclude fat-free (1 Tbs)":"0","Frozen yogurt, sherbet, sorbet, or low-fat ice cream (1 cup)":"0","Regular ice cream (1 cup)":"0","Spreads added to food or bread; exclude use in cooking - Pure butter":"0","Spreads added to food or bread; exclude use in cooking - Margarine (e.g., Country Crock)":"0","Spreads added to food or bread; exclude use in cooking - Spreadable butter or butter/oil blend (e.g., Olivio spread butter)":"0","Yogurt (4-6 oz.) - Plain":"0","Yogurt (4-6 oz.) - Artificially sweetened (e.g., light peach)":"0","Yogurt (4-6 oz.) - Sweetened (e.g., strawberry, vanilla)":"5","Cottage or ricotta cheese (1/2 cup)":"0","Cream cheese (1 oz.)":"0","Other cheese (e.g., American, cheddar, etc.); plain or as part of a dish (1 slice or 1 oz. serving)":"0","What type of cheese do you usually eat?":"1"},"your-diet-2":{"Raisins (1 oz. or small pack) or grapes (1/2 cup)":"0","Prunes or dried plums (¼ cup or 6 dried)":"0","Prune juice (small glass)":"0","Bananas (1)":"2","Cantaloupe (1/4 melon)":"0","Avocado (1/2 fruit or 1/2 cup)":"3","Fresh apples or pears (1)":"0","Apple juice or cider (small glass)":"0","Oranges (1)":"0","Orange juice (small glass)":"0","Orange juice - Calcium- or Vit. D-fortified":"0","Orange juice - Regular (not calcium-fortified)":"0","Grapefruit (1/2) or grapefruit juice (small glass)":"0","Other fruit juices (e.g., cranberry, grape) (small glass)":"0","Strawberries, fresh, frozen, or canned (1/2 cup)":"0","Blueberries, fresh, frozen, or canned (1/2 cup)":"4","Peaches or plums (1 fresh or 1/2 cup canned)":"0","Apricots (1 fresh, 1/2 cup canned, or 5 dried)":"0"},"your-diet-3":{"Tomatoes (2 slices)":"2","Tomato or V-8 juice (small glass)":"0","Tomato sauce (e.g., spaghetti sauce) (1/2 cup)":"0","Salsa, picante, or taco sauce (1/4 cup)":"0","String beans (1/2 cup)":"0","Beans or lentils (baked, dried, or soup) (1/2 cup)":"0","Tofu, soy burger, soybeans, miso, or other soy protein":"0","Peas or lima beans (fresh, frozen, canned, or soup) (1/2 cup)":"0","Broccoli (1/2 cup)":"0","Cauliflower (1/2 cup)":"0","Cabbage or coleslaw (1/2 cup)":"0","Brussels sprouts (1/2 cup)":"0","Carrots (raw); (1/2 carrot or 2-4 sticks)":"3","Carrots (cooked); (1/2 cup) or carrot juice (2-3 oz.)":"0","Corn (fresh, frozen, or canned); (1 ear or 1/2 cup)":"0","Mixed vegetables (stir-fry or soup); (1/2 cup)":"0","Yams or sweet potatoes (1/2 cup)":"0","Dark orange (winter) squash (1/2 cup)":"0","Eggplant, zucchini, or other summer squash (1/2 cup)":"0","Kale, arugula, mustard greens, or chard (1/2 cup)":"0","Spinach (cooked); (1/2 cup)":"0","Spinach (raw); (1 cup)":"0","Iceberg or head lettuce (1 serving)":"0","Romaine or leaf lettuce (1 serving)":"6","Celery (2-3 sticks)":"0","Green, yellow or red peppers (2 rings or 1/4 small)":"0","Onions (raw, as a garnish or in salad); (1 slice)":"0","Onions, cooked (e.g., rings or soup); (1/2 cup)":"0"},"your-diet-4":{"Eggs (1) - Omega-3 fortified, including yolk":"0","Eggs (1) - Regular eggs, including yolk":"0","Beef or pork hot dogs (1)":"0","Chicken or turkey hot dogs or sausage (1)":"0","Chicken/turkey sandwich or frozen dinner":"0","Other chicken or turkey (including ground), with skin (3 oz)":"0","Other chicken or turkey, without skin (3 oz)":"0","Bacon (2 slices)":"0","Salami, bologna, or other processed meat sandwiches":"0","Other processed meats (e.g., sausage, kielbasa, etc.); (2 oz. or 2 small links)":"0","Hamburger (1 patty) - Lean or extra lean":"0","Hamburger (1 patty) - Regular":"0","Beef, pork, or lamb as a sandwich or mixed dish (e.g., stew, casserole, lasagna, frozen dinners, etc.); (1 serving)":"0","Pork as a main dish (e.g., ham or chops); (4-6 oz.)":"0","Beef or lamb as a main dish (e.g., steak, roast); (4-6 oz.)":"0","Canned tuna fish (3-4 oz.)":"0","Breaded fish cakes, pieces, or fish sticks (store bought)":"0","Shrimp, lobster, or scallops as a main dish":"0","Dark-meat fish (e.g., tuna steak, mackerel, salmon, sardines, bluefish, or swordfish); (3-5 oz.)":"0","Other fish (e.g., cod, haddock, halibut); (3-5 oz.)":"0"},"your-diet-5":{"Cold breakfast cereal (1 serving)":"5","Cooked oatmeal/cooked oat bran (including instant) (1 cup)":"2","Other cooked breakfast cereal (1 cup)":"2","Bread (1 slice) - White bread (including pita)":"0","Bread (1 slice) - Rye/Pumpernickel":"0","Bread (1 slice) - Whole wheat, oatmeal, other whole grain":"6","Crackers (6) - Whole grain/whole wheat":"0","Crackers (6) - Other crackers":"0","Bagels, English muffins, or rolls (1)":"0","Muffins or biscuits (1)":"2","Pancakes or waffles (2 small pieces)":"0","Brown rice (1 cup)":"0","White rice (1 cup)":"0","Pasta (e.g., spaghetti, noodles, couscous, etc.); (1 cup)":"0","Tortillas, corn or flour (2)":"0","French fries (6 oz. or 1 serving)":"0","Potatoes, baked, boiled, or mashed (1 cup)":"0","Potato chips or corn/tortilla chips (small bag or 1 oz.)":"0","Pizza (2 slices)":"0"},"your-diet-6":{"CARBONATED BEVERAGES Consider the serving size as 1 glass, bottle, or can for these carbonated beverages. Low-calorie (sugar-free) types_Low-calorie beverage with caffeine (e.g., Diet Coke)":"0","_Other low-calorie beverage without caffeine (e.g., Diet 7-Up)":"0","CARBONATED BEVERAGES Regular types (not sugar-free)_Carbonated beverage with caffeine and sugar (e.g., Coke, Pepsi, Mt. Dew, Dr. Pepper)":"0","_Other sugared beverages (e.g., punch, lemonade, sports drinks)":"0","OTHER BEVERAGES_Other sugared beverages (e.g., punch, lemonade, sports drinks, or sugared ice tea); (1 glass, bottle, can)":"5","_Regular beer (1 glass, bottle, can)":"0","_Light beer (e.g., Bud Light); (1 glass, bottle, or can)":"0","_Red wine (5 oz. glass)":"0","_White wine (5 oz. glass)":"0","_Liquor (e.g., vodka, gin, etc.); (1 drink or shot)":"0"," _Plain water (bottled, sparkling, or tap); (8 oz. cup)":"0"," _Decaffeinated tea (exclude herbal); (8 oz. cup)":"0"," _Tea with caffeine (including green tea); (8 oz. cup)":"0","_Decaffeinated coffee (8 oz. cup)":"0"," _Coffee with caffeine (8 oz. cup)":"0"," _Hot/cold dairy coffee drink (e.g., cappuccino); (16 oz.)":"0"},"your-diet-7":{"Milk chocolate (e.g., Hershey’s, M&M’s); (1 bar or package)":"0","Dark chocolate (e.g., Hershey’s Dark or Dove Dark); (1 bar)":"0","Candy bars (e.g., Snickers, Milky Way, Reeses); (1 bar)":"0","Candy without chocolate (1 oz.)":"0","Cookies (1) or brownie (1) Fat-free or reduced-fat":"0","Cookies (1) or brownie (1) Other ready-made, mix, or dough":"0","Cookies (1) or brownie (1) Home-baked, from scratch":"0","Doughnut (1)":"0","Cake (home-baked or ready made); (slice)":"0","Pie (home-baked or ready made); (slice)":"0","Jams, jellies, preserves, syrup, or honey (1 Tbs)":"3","Peanut butter (1 Tbs)":"0","Popcorn (2-3 cups) Fat-free or light":"2","Popcorn (2-3 cups) Regular":"0","Sweet roll, coffee cake, or other pastry (regular, fat-free, or reduced fat); (1)":"0","Breakfast bar (e.g., Nutrigrain, Kashi, granola); (1)":"5","Energy bar (e.g., Clif, Luna, Glucerna, Powerbar); (1)":"5","High-protein bar (e.g., Atkins, Zone, South Beach); (1)":"5","Slimfast shake (1)":"0","Ensure, Boost, or other meal-replacement drink (1)":"0","Pretzels (1 small bag or serving)":"0","Peanuts (1 small packet or 1 oz.)":"0","Walnuts (1 oz.)":"0","Other nuts (1 small packet or 1 oz.)":"0","Mixed dried fruit (1/4 cup)":"0","Oat bran, other bran (e.g., wheat, etc.) added to food (1 Tbs)":"0","Wheat germ (1 Tbs)":"0","Chowder or cream soup (1 cup)":"0","Tomato soup (1 cup)":"0","Ketchup or red chili sauce (1 Tbs)":"0","Flaxseed (1 Tbs)":"0","Garlic (fresh, or powdered); (1 clove or 4 shakes)":"0","Olive oil added to food or bread (1 Tbs)":"0","Low-fat or fat-free mayonnaise (1 Tbs)":"0","Regular mayonnaise (1 Tbs)":"0","Salad dressing (1-2 Tbs)":"0","Artificial sweeteners (1 packet)":"0","Type of salad dressing :":"1","Type of artificial sweetener :":"0","":"8","Type of salad dressing:":"3","Type of artificial sweetener:":"1"},"your-physical-activity":{"Walking for exercise or walking for transportation/errands":"3","Jogging (>10 min/mi)":"0","Running (<10 min/mi)":"4","Bicycling (include stationary machine)":"0","Tennis, squash, racquetball":"6","Lap swimming":"0","Other aerobic exercise (e.g., aerobic dance, ski or stair machine, etc.)":"0","Lower-intensity exercise (e.g., yoga, stretching, toning)":"0","Other vigorous activities (e.g., lawn mowing)":"0","Arm weights":"0","Leg weights":"0","How many total flights of stairs (not individual steps) do you climb daily?":"5","What is your usual walking pace outdoors?":"3","":"5"},"your-smoking-history":{"Do you smoke cigarettes?":"No–Quit","How old were you when you started smoking? ":"16","How old were you when you quit smoking?":"20","How many cigarettes did you used to smoke per day, on average?":"5","Since starting smoking, how many cigarettes have you smoked per day, on average? ":"16","In the last month only, how many cigarettes have you smoked per day, on average? ":"16","How motivated are you to quit smoking? (Use the ladder below to indicate your motivation to quit smoking, with 0 being “I have not considered quitting” and 10 being “I am taking action to quit [ex: cutting down, enrolling in a program].” You can choose any value from 0 to 10.)":"7"}}
+
+const PrefileJane = {"general-information":{"What is your sex assigned at birth?":"1","How old are you?":"28","What is your ethnicity? ":"0","What is your race (Select all that apply.)":["American Indian or Alaska Native","Black or African American"],"What is your highest level of education?":"5"},"medical-history":{"What is your height? (Please use your height reported on a valid I.D., such as a driver’s license.) ":"22","What is your weight (in pounds)? Please use the same scale to measure your weight throughout this study. The weight you list here should be measured within the last week.)":"22","Have you ever been diagnosed with Crohn’s disease, ulcerative colitis, or inflammatory bowel disease (IBD)-unclassified? ":"0","Have you ever been diagnosed with any of the following conditions? (Select all that apply.)":["Type 1 diabetes mellitus","Psoriasis","Systemic lupus erythematosus (SLE, Lupus)"],"How often do you use non-steroidal anti-inflammatory drugs (NSAIDs), such as Advil, Motrin, Aleve, ibuprofen, or naproxen?":"1","Have you had your appendix removed for any reason?":"1","Have you ever taken antibiotics? (Antibiotics are medicines used to treat infections like urinary tract infections, pneumonia, diverticulitis, strep throat, ear or sinus infection, and some sexually transmitted infections. They include medicines like amoxicillin, Augmentin, azithromycin or 'Z-pack,' nitrofurantoin or Macrobid, or ciprofloxacin.)":"Yes","Were you breast-fed when you were a baby?":"0","When you were a child or young adult, did you have pets in your home? ":"1","What age(s) did you take antibiotics? (Select all that apply.)":["0–10 years old"],"What is your weight (in pounds)? (Please use the same scale to measure your weight throughout this study. The weight you list here should be measured within the last week.)":"22","Have you ever taken birth control pills?":"1"},"family-history":{"parents":"1","parents_0_Parent index":"0","parents_0_Parent index: Age at diagnosis":"1"},"your-diet":{"Milk (8 oz. glass) Skim milk":"0","Milk (8 oz. glass) 1 or 2% milk":"0","Milk (8 oz. glass) Whole milk":"0","Milk (8 oz. glass) Soy milk":"0","Cream (e.g., coffee, sour); exclude fat-free (1 Tbs)":"0","Non-dairy coffee whitener; exclude fat-free (1 Tbs)":"5","Frozen yogurt, sherbet, sorbet, or low-fat ice cream (1 cup)":"0","Regular ice cream (1 cup)":"0","Spreads added to food or bread; exclude use in cooking - Pure butter":"0","Spreads added to food or bread; exclude use in cooking - Margarine (e.g., Country Crock)":"0","Spreads added to food or bread; exclude use in cooking - Spreadable butter or butter/oil blend (e.g., Olivio spread butter)":"0","Yogurt (4-6 oz.) - Plain":"0","Yogurt (4-6 oz.) - Artificially sweetened (e.g., light peach)":"0","Yogurt (4-6 oz.) - Sweetened (e.g., strawberry, vanilla)":"0","Cottage or ricotta cheese (1/2 cup)":"0","Cream cheese (1 oz.)":"0","Other cheese (e.g., American, cheddar, etc.); plain or as part of a dish (1 slice or 1 oz. serving)":"0","What type of cheese do you usually eat?":"1"},"your-diet-2":{"Raisins (1 oz. or small pack) or grapes (1/2 cup)":"0","Prunes or dried plums (¼ cup or 6 dried)":"1","Prune juice (small glass)":"2","Bananas (1)":"3","Cantaloupe (1/4 melon)":"4","Avocado (1/2 fruit or 1/2 cup)":"5","Fresh apples or pears (1)":"6","Apple juice or cider (small glass)":"6","Oranges (1)":"0","Orange juice (small glass)":"0","Orange juice - Calcium- or Vit. D-fortified":"0","Orange juice - Regular (not calcium-fortified)":"0","Grapefruit (1/2) or grapefruit juice (small glass)":"0","Other fruit juices (e.g., cranberry, grape) (small glass)":"0","Strawberries, fresh, frozen, or canned (1/2 cup)":"0","Blueberries, fresh, frozen, or canned (1/2 cup)":"0","Peaches or plums (1 fresh or 1/2 cup canned)":"0","Apricots (1 fresh, 1/2 cup canned, or 5 dried)":"0"},"your-diet-3":{"Tomatoes (2 slices)":"0","Tomato or V-8 juice (small glass)":"0","Tomato sauce (e.g., spaghetti sauce) (1/2 cup)":"0","Salsa, picante, or taco sauce (1/4 cup)":"0","String beans (1/2 cup)":"0","Beans or lentils (baked, dried, or soup) (1/2 cup)":"0","Tofu, soy burger, soybeans, miso, or other soy protein":"0","Peas or lima beans (fresh, frozen, canned, or soup) (1/2 cup)":"0","Broccoli (1/2 cup)":"3","Cauliflower (1/2 cup)":"0","Cabbage or coleslaw (1/2 cup)":"0","Brussels sprouts (1/2 cup)":"0","Carrots (raw); (1/2 carrot or 2-4 sticks)":"0","Carrots (cooked); (1/2 cup) or carrot juice (2-3 oz.)":"0","Corn (fresh, frozen, or canned); (1 ear or 1/2 cup)":"0","Mixed vegetables (stir-fry or soup); (1/2 cup)":"0","Yams or sweet potatoes (1/2 cup)":"0","Dark orange (winter) squash (1/2 cup)":"0","Eggplant, zucchini, or other summer squash (1/2 cup)":"0","Kale, arugula, mustard greens, or chard (1/2 cup)":"0","Spinach (cooked); (1/2 cup)":"5","Spinach (raw); (1 cup)":"0","Iceberg or head lettuce (1 serving)":"0","Romaine or leaf lettuce (1 serving)":"0","Celery (2-3 sticks)":"0","Green, yellow or red peppers (2 rings or 1/4 small)":"0","Onions (raw, as a garnish or in salad); (1 slice)":"0","Onions, cooked (e.g., rings or soup); (1/2 cup)":"0"},"your-diet-4":{"Eggs (1) - Omega-3 fortified, including yolk":"0","Eggs (1) - Regular eggs, including yolk":"0","Beef or pork hot dogs (1)":"0","Chicken or turkey hot dogs or sausage (1)":"0","Chicken/turkey sandwich or frozen dinner":"0","Other chicken or turkey (including ground), with skin (3 oz)":"0","Other chicken or turkey, without skin (3 oz)":"0","Bacon (2 slices)":"0","Salami, bologna, or other processed meat sandwiches":"0","Other processed meats (e.g., sausage, kielbasa, etc.); (2 oz. or 2 small links)":"0","Hamburger (1 patty) - Lean or extra lean":"0","Hamburger (1 patty) - Regular":"0","Beef, pork, or lamb as a sandwich or mixed dish (e.g., stew, casserole, lasagna, frozen dinners, etc.); (1 serving)":"0","Pork as a main dish (e.g., ham or chops); (4-6 oz.)":"0","Beef or lamb as a main dish (e.g., steak, roast); (4-6 oz.)":"0","Canned tuna fish (3-4 oz.)":"0","Breaded fish cakes, pieces, or fish sticks (store bought)":"0","Shrimp, lobster, or scallops as a main dish":"0","Dark-meat fish (e.g., tuna steak, mackerel, salmon, sardines, bluefish, or swordfish); (3-5 oz.)":"0","Other fish (e.g., cod, haddock, halibut); (3-5 oz.)":"0"},"your-diet-5":{"Cold breakfast cereal (1 serving)":"3","Cooked oatmeal/cooked oat bran (including instant) (1 cup)":"2","Other cooked breakfast cereal (1 cup)":"2","Bread (1 slice) - White bread (including pita)":"0","Bread (1 slice) - Rye/Pumpernickel":"0","Bread (1 slice) - Whole wheat, oatmeal, other whole grain":"6","Crackers (6) - Whole grain/whole wheat":"5","Crackers (6) - Other crackers":"0","Bagels, English muffins, or rolls (1)":"0","Muffins or biscuits (1)":"2","Pancakes or waffles (2 small pieces)":"0","Brown rice (1 cup)":"0","White rice (1 cup)":"0","Pasta (e.g., spaghetti, noodles, couscous, etc.); (1 cup)":"0","Tortillas, corn or flour (2)":"0","French fries (6 oz. or 1 serving)":"0","Potatoes, baked, boiled, or mashed (1 cup)":"0","Potato chips or corn/tortilla chips (small bag or 1 oz.)":"0","Pizza (2 slices)":"0"},"your-diet-6":{"CARBONATED BEVERAGES Consider the serving size as 1 glass, bottle, or can for these carbonated beverages. Low-calorie (sugar-free) types_Low-calorie beverage with caffeine (e.g., Diet Coke)":"0","_Other low-calorie beverage without caffeine (e.g., Diet 7-Up)":"0","CARBONATED BEVERAGES Regular types (not sugar-free)_Carbonated beverage with caffeine and sugar (e.g., Coke, Pepsi, Mt. Dew, Dr. Pepper)":"0","_Other sugared beverages (e.g., punch, lemonade, sports drinks)":"0","OTHER BEVERAGES_Other sugared beverages (e.g., punch, lemonade, sports drinks, or sugared ice tea); (1 glass, bottle, can)":"5","_Regular beer (1 glass, bottle, can)":"0","_Light beer (e.g., Bud Light); (1 glass, bottle, or can)":"0","_Red wine (5 oz. glass)":"0","_White wine (5 oz. glass)":"0","_Liquor (e.g., vodka, gin, etc.); (1 drink or shot)":"0"," _Plain water (bottled, sparkling, or tap); (8 oz. cup)":"0"," _Decaffeinated tea (exclude herbal); (8 oz. cup)":"0"," _Tea with caffeine (including green tea); (8 oz. cup)":"0","_Decaffeinated coffee (8 oz. cup)":"0"," _Coffee with caffeine (8 oz. cup)":"0"," _Hot/cold dairy coffee drink (e.g., cappuccino); (16 oz.)":"0"},"your-diet-7":{"Milk chocolate (e.g., Hershey’s, M&M’s); (1 bar or package)":"0","Dark chocolate (e.g., Hershey’s Dark or Dove Dark); (1 bar)":"0","Candy bars (e.g., Snickers, Milky Way, Reeses); (1 bar)":"0","Candy without chocolate (1 oz.)":"0","Cookies (1) or brownie (1) Fat-free or reduced-fat":"0","Cookies (1) or brownie (1) Other ready-made, mix, or dough":"0","Cookies (1) or brownie (1) Home-baked, from scratch":"0","Doughnut (1)":"2","Cake (home-baked or ready made); (slice)":"0","Pie (home-baked or ready made); (slice)":"0","Jams, jellies, preserves, syrup, or honey (1 Tbs)":"3","Peanut butter (1 Tbs)":"0","Popcorn (2-3 cups) Fat-free or light":"2","Popcorn (2-3 cups) Regular":"0","Sweet roll, coffee cake, or other pastry (regular, fat-free, or reduced fat); (1)":"0","Breakfast bar (e.g., Nutrigrain, Kashi, granola); (1)":"5","Energy bar (e.g., Clif, Luna, Glucerna, Powerbar); (1)":"5","High-protein bar (e.g., Atkins, Zone, South Beach); (1)":"5","Slimfast shake (1)":"0","Ensure, Boost, or other meal-replacement drink (1)":"0","Pretzels (1 small bag or serving)":"0","Peanuts (1 small packet or 1 oz.)":"0","Walnuts (1 oz.)":"0","Other nuts (1 small packet or 1 oz.)":"0","Mixed dried fruit (1/4 cup)":"0","Oat bran, other bran (e.g., wheat, etc.) added to food (1 Tbs)":"0","Wheat germ (1 Tbs)":"0","Chowder or cream soup (1 cup)":"0","Tomato soup (1 cup)":"0","Ketchup or red chili sauce (1 Tbs)":"0","Flaxseed (1 Tbs)":"0","Garlic (fresh, or powdered); (1 clove or 4 shakes)":"0","Olive oil added to food or bread (1 Tbs)":"0","Low-fat or fat-free mayonnaise (1 Tbs)":"0","Regular mayonnaise (1 Tbs)":"0","Salad dressing (1-2 Tbs)":"0","Artificial sweeteners (1 packet)":"0","Type of salad dressing :":"1","Type of artificial sweetener :":"0","":"8","Type of salad dressing:":"3","Type of artificial sweetener:":"1"},"your-physical-activity":{"Walking for exercise or walking for transportation/errands":"3","Jogging (>10 min/mi)":"0","Running (<10 min/mi)":"0","Bicycling (include stationary machine)":"2","Tennis, squash, racquetball":"0","Lap swimming":"0","Other aerobic exercise (e.g., aerobic dance, ski or stair machine, etc.)":"0","Lower-intensity exercise (e.g., yoga, stretching, toning)":"0","Other vigorous activities (e.g., lawn mowing)":"0","Arm weights":"0","Leg weights":"0","How many total flights of stairs (not individual steps) do you climb daily?":"2","What is your usual walking pace outdoors?":"2","":"5"},"your-smoking-history":{"Do you smoke cigarettes?":"Yes","How old were you when you started smoking? ":"16","How old were you when you quit smoking?":"20","How many cigarettes did you used to smoke per day, on average?":"5","Since starting smoking, how many cigarettes have you smoked per day, on average? ":"16","In the last month only, how many cigarettes have you smoked per day, on average? ":"16","How motivated are you to quit smoking? (Use the ladder below to indicate your motivation to quit smoking, with 0 being “I have not considered quitting” and 10 being “I am taking action to quit [ex: cutting down, enrolling in a program].” You can choose any value from 0 to 10.)":"10"}}
 const OptionalSurveyIntermidiareData=[
    { Text:'We have an optional short (7 questions) multiple-choice survey that will help further our research. We greatly appreciate you taking the survey, if you can.'
 }]
@@ -1178,7 +1129,7 @@ const OptionalSurveyIntermidiareData=[
 const MeetTheTeamData = [
     {
         ImageTitle:{
-            image:'/meet-the-team1.png',
+            image:'/meet-the-team-emily.jpg',
             title:'Emily W. Lopes, M.D., M.P.H',
             subTitle:'Principal Investigator',
             number:"617-726-5560",
@@ -1187,7 +1138,7 @@ const MeetTheTeamData = [
     },
     {
         ImageTitle:{
-            image:'/meet-the-team2.png',
+            image:'/meet-the-team-rachel.png',
             title:'Rachel Zhang, B.S.',
             subTitle:'Research Coordinator',
             number:"617-643-5280",
@@ -1196,7 +1147,7 @@ const MeetTheTeamData = [
     },
     {
         ImageTitle:{
-            image:'/meet-the-team3.png',
+            image:'/meet-the-team-zeling.png',
             title:'Zeling Yu, B.S.',
             subTitle:'Research Coordinator',
             number:"617-643-5280",
@@ -1212,7 +1163,7 @@ const behaviorContent = {
       title: "You’re eating enough fruit",
       content: `
         <p>Congratulations on maintaining a heart- and gut-healthy diet by eating plenty of fruit! Research has shown that people who eat higher amounts of fruit have a lower risk of getting Crohn’s disease. In one study, each additional serving of regular daily fruit consumption reduced Crohn’s disease risk by 12%!</p>
-        <p>Learn more about how to increase your fruit intake.</p>
+        <p>Learn more about  <a href="https://www.heart.org/en/healthy-living/healthy-eating/add-color/fresh-frozen-or-canned-fruits-and-vegetables-all-can-be-healthy-choices" target="_blank">how to increase your fruit intake.</a></p>
       `,
     },
     "You’re eating enough fiber": {
@@ -1220,7 +1171,7 @@ const behaviorContent = {
       content: `
         <p>Congrats on eating plenty of fiber in your diet! Several studies have found that eating a diet high in fiber lowers the risk of Crohn’s disease. Did you know that only 1 in 20 people in the US gets enough fiber in their diet?</p>
         <p>Fiber comes from foods like whole grains, fruit, and vegetables. Whole grains are found in foods like whole-wheat bread, oatmeal, brown rice, quinoa, and even corn.</p>
-        <p>You are already doing a great job with your fiber intake, but if you are looking for additional healthy options, there are great resources showing the types of whole grains found in food and lists of high-fiber foods.</p>
+        <p>You are already doing a great job with your fiber intake, but if you are looking for additional healthy options, there are great resources showing the <a href="https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/nutrition-basics/types-of-whole-grains" target="_blank">types of whole grains found in food</a> and <a href="https://www.dietaryguidelines.gov/resources/2020-2025-dietary-guidelines-online-materials/food-sources-select-nutrients/food-0" target="_blank">lists of high-fiber foods</a>.</p>
       `,
     },
     "You don’t eat too much sucrose (sugar)": {
@@ -1234,10 +1185,10 @@ const behaviorContent = {
       title: "You’re physically active",
       content: `
         <p>Great work keeping your activity level up! Studies have shown that people who get regular exercise are less likely to get Crohn’s disease. These studies also show that the more you exercise, the lower the risk goes, so every little bit counts.</p>
-        <p>Additionally, daily exercise is important for mental wellbeing, bone health, reducing risk of cardiovascular disease and diabetes, and more. Both the American Heart Association and US Department of Health and Human Services recommend 150 minutes of moderate physical activity (or 75 minutes of vigorous physical activity) per week to maintain cardiovascular health.</p>
+        <p>Additionally, daily exercise is important for mental wellbeing, bone health, reducing risk of cardiovascular disease and diabetes, and more. Both the American Heart Association and US Department of Health and Human Services recommend 150 minutes of moderate physical activity (or 75 minutes of vigorous physical activity) per week to maintain cardiovascular health .</p>
         <p>Moderate physical activity is an activity that makes your heartbeat and breathing faster, but during this exercise you can still talk. This includes walking for exercise, walking for transportation/errands, dancing, light aerobics, light water aerobics, biking leisurely, and tennis (doubles).</p>
         <p>Vigorous physical activity is an activity that requires a higher amount of effort, and during which you can’t talk without becoming out of breath. This includes running, swimming laps, heavy yard work, tennis (singles), cycling, or jumping rope.</p>
-        <p>You are already doing a great job exercising, but if you would like more information, the American Heart Association website lists recommendations for staying active.</p>
+        <p>You are already doing a great job exercising, but if you would like more information, the American Heart Association website lists <a href="https://www.heart.org/en/healthy-living/fitness/fitness-basics/aha-recs-for-physical-activity-in-adults" target="_blank">recommendations for staying active</a>.</p>
       `,
     },
     "You don't smoke": {
@@ -1260,46 +1211,55 @@ const behaviorContentDrop = {
         <ul>
           <li>Put fruit in yogurt or oatmeal for breakfast.</li>
           <li>Buy frozen fruit to put in smoothies. You can even add vegetables like spinach, too!</li>
-          <li>Replace traditional desserts with fruit. For example, instead of a traditional cake, try this watermelon cake recipe.</li>
-          <li>Make do-it-yourself (“DIY”) dried fruit from fruit that you have in your home.</li>
+          <li>Replace traditional desserts with fruit. For example, instead of a traditional cake, try this <a href="https://www.heart.org/en/healthy-living/healthy-eating/cooking-skills/cooking/fruit/watermelon-cake" target="_blank">watermelon cake recipe</a>.</li>
+          <li>Make <a href="https://www.heart.org/en/healthy-living/healthy-eating/cooking-skills/cooking/fruit/diy-dried-fruit" target="_blank">do-it-yourself (“DIY”) dried fruit from fruit that you have in your home</a>.</li>
         </ul>
-        <p>The American Heart Association website has tips for how to increase your fruit intake.</p>
+        <p>The American Heart Association website has <a href=" https://www.heart.org/en/healthy-living/healthy-eating/add-color/fresh-frozen-or-canned-fruits-and-vegetables-all-can-be-healthy-choices" target="_blank">tips for how to increase your fruit intake</a> .</p>
       `,
     },
     "Eat more fiber": {
       title: "Eat more fiber",
       content: `
         <p>Several studies have found that eating a diet high in fiber lowers the risk of Crohn’s disease. Did you know that only 1 in 20 people in the US gets enough fiber in their diet?</p>
-        <p>Fiber comes from foods like whole grains, fruit, and vegetables. Whole grains are found in foods like whole-wheat bread, oatmeal, brown rice, quinoa, and even corn. Eating more whole grains and fiber can also help stabilize your blood sugar levels, help your cholesterol, and may also help your gut microbiome.</p>
+        <p>Fiber comes from foods like whole grains, fruit, and vegetables. Whole grains are found in foods like whole-wheat bread, oatmeal, brown rice, quinoa, and even corn. Eating more whole grains and fiber can also help stabilize your blood sugar levels, help your cholesterol, and may also help your gut microbiome, which are the normal (and good) bacteria that live in your colon.</p>
         <p><b>How can you increase whole grains and fiber intake?</b></p>
         <ul>
           <li>Buy whole-grain bread or whole-wheat bread instead of white bread.</li>
           <li>Buy brown rice or wild rice instead of white rice.</li>
           <li>Put granola and fruit in yogurt for breakfast.</li>
           <li>Replace potato chips with light popcorn as a snack.</li>
-          <li>Add beans to salads, casseroles, and soups.</li>
+          <li>Add beans to salads, casseroles, and soups. Beans are a low-cost and easy-to-store source of fiber.</li>
+          <li>Don’t throw out stale bread! Instead, try this <a href="https://www.heart.org/en/healthy-living/healthy-eating/cooking-skills/cooking/grains/homemade-croutons" target="_blank">homemade crouton recipe</a> with whole-grain bread. There are also many other <a href="https://www.heart.org/en/healthy-living/healthy-eating/cooking-skills/cooking/grains/7-ways-to-use-stale-bread" target="_blank">other great ways to use up stale, whole-grain bread</a>. </li>
         </ul>
-        <p>For additional options, check resources showing types of whole grains and lists of high-fiber foods.</p>
+        <p>If you are looking for additional healthy options, there are great resources showing the <a href="https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/nutrition-basics/types-of-whole-grains" target="_blank">types of whole grains found in food</a> and <a href="https://www.dietaryguidelines.gov/resources/2020-2025-dietary-guidelines-online-materials/food-sources-select-nutrients/food-0" target="_blank">lists of high-fiber foods.</a></p>
       `,
     },
     "Eat less sucrose (sugar)": {
       title: "Eat less sucrose (sugar)",
       content: `
         <p>Several studies have suggested an association between sucrose, or table sugar, and an increased risk of Crohn’s disease. Too much sugar also increases your risk of obesity, diabetes, heart disease, and more.</p>
-        <p><b>How can you reduce sugar intake?</b></p>
+        <p>In a typical American diet, sugar primarily comes from sugar-containing beverages (like Coca-Cola, Pepsi, Mountain Dew, Dr. Pepper, punch, and sugar-sweetened iced tea) and desserts and pastries (like cakes, cookies, pies, donuts, muffins, and ice cream). Most guidelines recommend limiting your sugar intake to less than 10% of your total calories—that’s about 45 grams per day of sugar for women and 55 grams per day of sugar for men​​. However, some guidelines, like the American Heart Association, recommend even less—no more than 25 grams per day for women and no more than 36 grams per day for men</p>
+        <p><b>Try cutting down on your sugar intake. Here are some tips:</b></p>
         <ul>
-          <li>Choose foods that have the lowest amount of “added sugars” or no added sugars.</li>
-          <li>Replace sugary drinks with fruit-infused water or seltzer.</li>
-          <li>Choose fruit salad instead of sugary desserts.</li>
-          <li>When baking, cut sugar amounts in half.</li>
+          <li>Pay attention to nutrition labels and ingredients. Choose foods that have the lowest amount of “added sugars” or foods that have no added sugars.</li>
+          <li>Many beverages are loaded with added sugars. Use these <a href="https://www.heart.org/en/healthy-living/healthy-eating/cooking-skills/cooking/fruit/12-infused-water-recipes" target="_blank">recipes to replace sugary drinks with fruit-infused water</a> for a boost of flavor, or try seltzer or sparkling water instead.</li>
+          <li>For dessert, choose fruit salad instead of sugary desserts.</li>
+          <li>When baking cookies or cakes, try cutting the sugar in half—you often won’t notice the difference..</li>
         </ul>
-        <p>Here are more tips on how to lower your sugar intake.</p>
+        <p>Here are <a href="https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/tips-for-cutting-down-on-sugar" target="_blank">more tips on how to lower your sugar intake</a>.</p>
       `,
     },
     "Increase your physical activity": {
       title: "Increase your physical activity",
       content: `
         <p>Studies have shown that people who get regular exercise are less likely to get Crohn’s disease. These studies also show that the more you exercise, the lower the risk goes, so every little bit counts.</p>
+        <p>Additionally, daily exercise is important for mental wellbeing, bone health, reducing risk of cardiovascular disease and diabetes, and more. Both the American Heart Association and US Department of Health and Human Services recommend 150 minutes of moderate physical activity (or 75 minutes of vigorous physical activity) per week to maintain cardiovascular health.</p>
+        <ul>
+        Moderate physical activity is an activity that makes your heartbeat and breathing faster, but during this exercise you can still talk. This includes walking for exercise, walking for transportation/errands, dancing, light aerobics, light water aerobics, biking leisurely, and tennis (doubles).  
+        </ul>
+        <ul>
+        Vigorous physical activity is an activity that requires a higher amount of effort, and during which you can’t talk without becoming out of breath. This includes running, swimming laps, heavy yard work, tennis (singles), cycling, or jumping rope. 
+        </ul>
         <p><b>How to increase your physical activity:</b></p>
         <ul>
           <li>Add more variety and fun to your weekly exercises, such as dancing.</li>
@@ -1307,21 +1267,30 @@ const behaviorContentDrop = {
           <li>Set timers to stand up and walk around every few hours during the day.</li>
           <li>Make reasonable exercise goals, stay motivated, and be consistent.</li>
         </ul>
-        <p>For more information, visit the American Heart Association and CDC recommendations for physical activity.</p>
+        <p>For more information and tips on engaging in physical activity, visit: </p>
+        <p><a href="https://www.heart.org/en/healthy-living/fitness/fitness-basics/aha-recs-for-physical-activity-in-adults" target="_blank">American Heart Association recommendations for physical activity in adults and kids</a></p>
+        <p><a href="https://www.cdc.gov/physical-activity-basics/guidelines/adults.html" target="_blank">Centers for Disease Control and Prevention's recommended levels of physical activity</a></p>
+        
       `,
     },
     "Quit smoking": {
       title: "Quit smoking",
       content: `
-        <p>Quitting is the #1 thing you can do to lower your risk of serious diseases, such as:</p>
+        <p>You've probably heard it before: Quitting is the #1 thing you can do to lower your risk of serious diseases, such as:</p>
         <ul>
           <li>Numerous cancers, including lung, esophageal, colon, and bladder cancer</li>
           <li>Heart disease</li>
           <li>Diabetes</li>
           <li>Stroke</li>
+          <li>Osteoporosis</li>
+          <li>Emphysema</li>
+          <li>Bronchitis</li>
           <li>Crohn’s disease</li>
+           
         </ul>
-        <p>Quitting smoking is one of the most important steps you can take to lower your risk of Crohn’s disease. Call <b>1-800-QUIT-NOW</b> or visit <a href="https://smokefree.gov">smokefree.gov</a> for help quitting.</p>
+        <p>Nothing raises your risk of disease as much as smoking.</p>
+        <p>Quitting smoking is one of the most important steps you can take to lower your risk of Crohn’s disease. In fact, in one study, though both former and current smokers had an increased risk for Crohn’s disease, those who smoked and then quit had an almost 50% reduced risk of Crohn’s compared to those who currently smoked​.</p>
+        <p>Call or visit <b>1-800-QUIT-NOW</b> or visit <a href="https://smokefree.gov" target="_blank">smokefree.gov</a> for help quitting.</p>
       `,
     },
   };
@@ -1329,4 +1298,4 @@ const behaviorContentDrop = {
 export {cardHomeDataLeft,cardHomeDataRight,AboutTheStudy,GeneralInformationData,YourmedicalhistoryData,behaviorContent,behaviorContentDrop,
     FamilyHistoryData,CrohnRiskData,riskLevels,riskColors,InfoModalData,Yourdiet,Yourphysicalactivity,PrefileJaneFiberCorrect,PrefilJaneFuitisCorrect,
     Yoursmokinghistory,Yourdietcheese,YourdietVEGETABLES,YourdietMEAT,YoutdietBREADS,YoutdietBEVERAGES,PrefileJoeFruitCorrect,PrefileJoeFiberCorrect,
-    YourdietSWEETS,KnowledgEandAttitudes,DiseaseInformation,ContactPageContent,Prefill,ThankYouData,OptionalSurveyIntermidiareData,MeetTheTeamData,PrefillJeoCaseOne,PrefillJaneCaseOne} ;
+    YourdietSWEETS,KnowledgEandAttitudes,DiseaseInformation,ContactPageContent,Prefill,ThankYouData,OptionalSurveyIntermidiareData,MeetTheTeamData,PrefillJeoCaseOne,PrefillJaneCaseOne,PrefileJane} ;

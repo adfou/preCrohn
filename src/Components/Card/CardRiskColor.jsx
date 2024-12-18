@@ -15,7 +15,6 @@ export const RiskCard = ({ riskLevel, firtSetnance, Diagnostics, lastDiagnostics
   const riskIndex = riskLevels.indexOf(riskLevel);
   const riskBoxTopPosition = riskIndex * 55; // Adjust based on the height and spacing of each risk level box
 
-
   return (
     <Paper className="risk-card-container" elevation={3} sx={{ padding: 3, borderRadius: 2, backgroundColor: 'white',gap:"180px " }}>
       <Grid className="risk-card-grid" container spacing={2} sx={{ position: 'relative' }}>
@@ -34,7 +33,7 @@ export const RiskCard = ({ riskLevel, firtSetnance, Diagnostics, lastDiagnostics
                 alignItems: 'center',
                 justifyContent: 'center',
                 position: 'relative',
-                fontSize:"15px",
+                fontSize:"15px !important",
                 color:"black",
                 fontWeight:"800"
               }}
@@ -69,7 +68,7 @@ export const RiskCard = ({ riskLevel, firtSetnance, Diagnostics, lastDiagnostics
               Current risk of Crohn’s disease
             </Typography>
             <Typography className="risk-card-text" variant="body1" sx={{ color: '#333' }}>
-              {firtSetnance} <strong>{Diagnostics}</strong> {lastDiagnostics}
+              {firtSetnance} <strong>{Diagnostics(riskLevel)}</strong> when compared to other people who have a family member with Crohn’s disease.
             </Typography>
           </Box>
         </Grid>

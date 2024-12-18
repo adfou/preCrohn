@@ -15,6 +15,10 @@ $PRE_Crohn_Body_Background:#f2f3f5;
 
 html {
   background: #E4E4E4;
+  a{
+    font-weight: 600;
+    color:#597D0B;
+  }
 }
 .loader-overlay {
   position: fixed;
@@ -486,6 +490,9 @@ main.questionnaire{
 
 
   @media screen and (max-width: 768px){
+    html a{
+      word-break: break-all;
+    }
     .title-content{
       padding-left: 35px !important;
       background: #117BA3;
@@ -495,6 +502,8 @@ main.questionnaire{
       padding-top: 29px !important;
       padding-bottom: 12px;
       min-height: 112px;  
+      top:0px !important;
+      padding-right: 24px !important;
 
         h1{
           font-size: 27px !important;
@@ -503,6 +512,9 @@ main.questionnaire{
 
     .content-container{
       margin: 0px !important;
+      h2{
+        font-size: 25px !important;
+      }
     }
     .container-page{
       padding-left: 35px !important;
@@ -634,5 +646,17 @@ main.questionnaire{
         }
       }
     }
+  }
+
+  .home p.card-text{
+    font-size:24px !important;
+    line-height: 31px !important;
+  }
+  .home .card a {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px !important;
+    line-height: 20px !important;
   }
   }

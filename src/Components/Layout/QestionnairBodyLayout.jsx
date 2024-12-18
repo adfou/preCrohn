@@ -7,8 +7,8 @@ import SaveIcon from '@mui/icons-material/Save';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import renderContent from "../../Data/renderContent";
-import {useFinishForm,useCreateForm} from "../../Hooks/index.mjs"
-import {Prefill,PrefillJaneCaseOne,PrefileJaneFiberCorrect,PrefilJaneFuitisCorrect,PrefileJoeFruitCorrect,PrefileJoeFiberCorrect} from "../../Data/index"
+import {useFinishForm,useCreateForm,useCreateOptionalForm} from "../../Hooks/index.mjs"
+import {Prefill,PrefillJaneCaseOne,PrefileJaneFiberCorrect,PrefilJaneFuitisCorrect,PrefileJoeFruitCorrect,PrefileJoeFiberCorrect,PrefileJane} from "../../Data/index"
 import {SetFormDataLogin} from "../../store/slice/questionnaireSlice" 
 const Section = ({ section, log, handleChange, formData }) => {
     return (
@@ -33,11 +33,13 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
     
     const [isSaving, setIsSaving] = useState(false);
     const { createForm :CreateFormQuery, response,loading, error } =  useCreateForm();
+    const { createOptionalForm :CreateOptionalFormQuery, response:OptionalResponse,loading:Optionalloading, error:Optionalerror } =  useCreateOptionalForm();
     const { FinishForm :FinishFormQuery, response:responseFinish,loading:loadingFinish, error:errorFinish } =  useFinishForm();
     
     
     useEffect(() => {
-        if (Object.keys(savedData).length > 0) {
+        if (Object.keys(savedData).length > 0 && currentSectionIndex < 12)  {
+            console.log("currentSectionIndex:",currentSectionIndex)
             setFormData(savedData); // Populate the form with saved data if it exists
         }
     }, [currentSectionIndex, savedData]);
@@ -222,7 +224,41 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
         return isValid;
     };
     
+    const handleSaveOptionel = async () => {
+        setIsSaving(true);  // Set loader to true
+        try {
+          // Call the API to save form data and await the response
+          console.log("formData",formData)
+         const response = await CreateOptionalFormQuery(formData); // No need to wrap in {}
     
+         // Check if there's an error in the response
+         if (response?.success) {
+           // Dispatch to save the form data in Redux
+        navigate("/crohns-disease-information")
+         } else {
+           // If the response indicates failure, handle it
+           throw new Error('Failed to save form data');
+         }
+       } catch (error) {
+         // Log the error and show error toast
+         dispatch(setCurrentSectionIndex(0));
+     
+         toast.error('Error saving the Questionnaire. Please try again!', {
+           position: 'top-right',
+           autoClose: 5000,
+           hideProgressBar: false,
+           closeOnClick: true,
+           pauseOnHover: true,
+           draggable: true,
+           progress: undefined,
+         });
+       } finally {
+         // Turn off the loader once the process is done
+         setIsSaving(false);
+       }
+         
+       
+      };
     
     
     
@@ -237,6 +273,11 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
         dispatch(SetFormDataLogin({ data: PrefileJaneFiberCorrect }));
         location.reload();
     }
+    const handelPrefileJane = async () => {
+        
+        dispatch(SetFormDataLogin({ data: PrefileJane }));
+        location.reload();
+    } 
     const handelPrefilJaneFuitisCorrect = async () => {
         
         dispatch(SetFormDataLogin({ data: PrefilJaneFuitisCorrect  }));
@@ -305,6 +346,7 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
       }
     };
     
+
     const handleNext =  () => {
      
           
@@ -359,6 +401,8 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
         
         FinishFormQuery(updatedFormData);
         dispatch(saveFormData({ currentSectionIndex, data: formData }));
+        dispatch(setCurrentSectionIndex(13));
+        setFormData({});
         navigate(`/knowledge-and-attitudes-survey`);
     };
 
@@ -404,11 +448,11 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                     <div className='bigger-container'>
                     <Button
                         variant="contained"
-                        onClick={() => navigate("/crohns-disease-information")}
+                        onClick={handleSaveOptionel}
                         className="button-survey bigger"   
                         
                     >
-                        Continue to Crohn’s disease information
+                        Continue to Crohn’s disease information 
                     </Button>
                     </div>
                 ) : (
@@ -451,8 +495,13 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
 
                             <Button className="button-survey" variant="contained" onClick={handelPrefileJaneFiberCorrect}>
                             Fill Jane Fiber Correct
+                            </Button>   
+                            <Button className="button-survey" variant="contained" onClick={handelPrefileJane}>
+                            Fill Jane 
+                            </Button> 
+                            <Button className="button-survey" variant="contained" onClick={handelPrefileJoeFruitCorrect}>
+                            Fill Joe
                             </Button>
-
                             <Button className="button-survey" variant="contained" onClick={handelPrefileJoeFruitCorrect}>
                             Fill Joe Fruits Correct
                             </Button>

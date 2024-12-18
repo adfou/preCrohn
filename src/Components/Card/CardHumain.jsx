@@ -62,7 +62,7 @@ export const CardHumain = ({ HumainSentnace, firstSentence, diagnostics, lastDia
             }}
             className="pointer-container humain"
           >
-            <Typography variant="body2" sx={{ fontWeight: 'bold', color: "white !important", fontSize: "16px" }}>
+            <Typography variant="body2" sx={{ fontWeight: 'bold', color: "white !important", fontSize: "16px",textTransform:"uppercase" }}>
             Your lifetime risk 
             </Typography>
           </Box>
@@ -76,8 +76,8 @@ export const CardHumain = ({ HumainSentnace, firstSentence, diagnostics, lastDia
             {HumainSentnace} {riskPercentage}%.
             </Typography>
            
-            <Typography className="risk-card-text" variant="body1" sx={{ color: '#333' }}>
-              {firstSentence} <strong>{diagnostics}</strong> {lastDiagnostics}
+            <Typography className="risk-card-text" variant="body1" sx={{ color: '#333',marginTop:"10px" }}>
+              {firstSentence} <strong>{diagnostics}</strong> {lastDiagnostics(filledHumans,emptyHumans)} 
             </Typography>
           </Box>
         </Grid>
