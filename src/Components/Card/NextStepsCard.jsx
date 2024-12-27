@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, Typography, Box } from '@mui/material';
 
-export const NextStepsCard = ({ date, phase, role }) => {
+export const NextStepsCard = ({ date, phase, role ,formLenght}) => {
   const [formattedDate, setFormattedDate] = useState("");
   
   useEffect(() => {
@@ -11,11 +11,9 @@ export const NextStepsCard = ({ date, phase, role }) => {
     }
     if (date && date !== null) {
       let parsedDate = new Date(date);
-      console.log("role",role)
-      console.log("phase",phase)
+
       if (role === "2") {
         if (phase === 0 || phase === 1) {
-          console.log("in first phase :",phase)
           parsedDate.setDate(parsedDate.getDate() + 8 * 7); // Add 8 weeks
         } else {
           parsedDate.setMonth(parsedDate.getMonth() + 6); // Add 6 months
@@ -24,17 +22,15 @@ export const NextStepsCard = ({ date, phase, role }) => {
 
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       const formatted = parsedDate.toLocaleDateString('en-US', options);
-      console.log("formatted:",formatted)
-      console.log("formatted,",formatted)
+      
       setFormattedDate(formatted);
     }
     if (role === "3") {
-      console.log("date",date)
       let parsedDate = new Date(date);
       parsedDate.setMonth(parsedDate.getMonth() + 6); // Add 6 months
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       const formatted = parsedDate.toLocaleDateString('en-US', options);
-      console.log("formatted,",formatted)
+      
       setFormattedDate(formatted);
     }
   }, [date]);
@@ -106,7 +102,7 @@ export const NextStepsCard = ({ date, phase, role }) => {
               height:"40px"
             }}
           >
-            {formattedDate==="Invalid Date" || formattedDate===""?"_":formattedDate}
+            {formattedDate==="Invalid Date" || formattedDate==="" || formLenght===3 ?"_":formattedDate}
           </Typography>
         </Box>
       </CardContent>

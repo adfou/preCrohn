@@ -98,7 +98,7 @@ const renderContent = (key, value) => {
                                 <Card key={index} className="sx background-card">
                                     <Card.Body>
                                         <Card.Title>{card.Title}</Card.Title>
-                                        <a href={card.link} className="card-button">
+                                        <a href={card.link} className="card-button insider">
                                             {card.button}
                                         </a>
                                     </Card.Body>

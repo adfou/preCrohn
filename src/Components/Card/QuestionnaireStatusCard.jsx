@@ -9,7 +9,6 @@ export const QuestionnaireStatusCard = ({ Percentage,FromDisabled }) => {
   const navigate = useNavigate();
   // Handle button click
   const handleButtonClick = () => {
-    console.log('onclick on button take qstnr');
     dispatch(setCurrentSectionIndex(0));
    
     navigate("/general-information");

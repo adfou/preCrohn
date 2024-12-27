@@ -9,7 +9,6 @@ export const CardBehavior = ({ title, subtitle, behaviors, data }) => {
   const [modalContent, setModalContent] = useState({ title: "", content: "" });
 
   // Filter behaviors based on the provided data
-  console.log("somoking status :",data["Smoking Status"])
   const filteredBehaviors = behaviors.filter((behavior) => {
     if (behavior === "You’re eating enough fruit" && data["Fruit (servings/day)"] === 1) return false;
     if (behavior === "You’re eating enough fiber" && data["Fiber (grams/day)"] === 1) return false;

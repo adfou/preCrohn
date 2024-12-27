@@ -13,16 +13,13 @@ const DeleteUserModal = ({ open, user, onClose, ToastSucc, ToastErr }) => {
   
   useEffect(() => {
     if (!loading) { // Only proceed if loading is false (meaning the delete request has completed)
-      console.log("error",error)
-      console.log("deleteData",deleteData)
-
+     
       if (deleteData !==null && error=== null) { // Check if deleteData is set and there's no error
-        console.log("zabi 1")
+        
         ToastSucc('User deleted successfully');
         onClose();
       } else {
         if( error !== null){
-      console.log("zabi 2")
         ToastErr('Error deleting user');}
         //onClose(); // Close the modal after handling the delete operation
       }

@@ -40,7 +40,6 @@ const CrohnRisk = ({ title }) => {
         try {
             RiskCalculation(); // Trigger the risk calculation
         } catch (err) {
-            console.log("There is an error in calculation:", err);
         }
     }, []);
     useEffect(() => {
@@ -52,14 +51,13 @@ const CrohnRisk = ({ title }) => {
         navigate("/login");
        }
        if(role === "3" &&phase !== 2 && state !== 0){
-        console.log("login")
+        
         //navigate("/login");
         }
        }
     }, [profileData]);
 //profileData
     useEffect(() => {
-        console.log(response); // Log the response when it updates
         setRiskData(response)
     }, [response]);
 

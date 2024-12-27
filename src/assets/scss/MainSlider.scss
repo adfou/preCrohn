@@ -44,11 +44,13 @@
     left: 6% !important;
     top: 86.4% !important;
     bottom: 64px !important;
+    z-index: 99;
         }
     
     .slick-next {
-      right: 83.6% !important;
+            left: 215px !important;
             top: 86.4% !important;
+            right: auto !important;
         }
     
     .slick-prev:before, .slick-next:before{

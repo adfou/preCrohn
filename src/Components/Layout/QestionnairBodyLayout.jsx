@@ -39,13 +39,12 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
     
     useEffect(() => {
         if (Object.keys(savedData).length > 0 && currentSectionIndex < 12)  {
-            console.log("currentSectionIndex:",currentSectionIndex)
+        
             setFormData(savedData); // Populate the form with saved data if it exists
         }
     }, [currentSectionIndex, savedData]);
 
     useEffect(() => {
-        console.log("error:",error)
         if (error && (error === 500 || error === 403 )) {
             navigate("/login");
            
@@ -112,7 +111,6 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
             } else if (element.type === 'text') {
                 const fieldValue = element.value.trim();
                 if (!fieldValue) {
-                    console.log(`Text field "${fieldName}" is empty!`);
                     element.classList.add('error-field'); // Mark the empty field in red
     
                     const parentDiv = element.closest('.MuiFormControl-root');
@@ -120,20 +118,17 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                     if (legend && legend.textContent.includes("How old are you?")) {
                         legend.classList.add('error-field'); // Add error style to "How old are you?" legend
                     }
-                    console.log("false 1 ")
                     isValid = false;
                 }
             } else {
                 // Additional handling for other input types (e.g., textarea, select)
                 const fieldValue = element.value.trim();
                 if (!fieldValue) {
-                    console.log(`Field "${fieldName}" is empty!`);
                     element.classList.add('error-field'); // Mark the empty field in red
                     const legend = parentFieldset?.querySelector('legend');
                     if (legend) {
                         legend.classList.add('error-field'); // Add error style to legend
                     }
-                    console.log("false 2 ")
                     
                     isValid = false;
                 }
@@ -152,10 +147,8 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                 if (legend) {
                     legend.classList.add('error-field'); // Add error style to legend
                 }
-                console.log("groupElements:",parentFieldset)
-                console.log("false 3 ")
                 const isFieldsetNotRequired = parentFieldset?.classList.contains('not-required');
-                console.log("isFieldsetNotRequired",isFieldsetNotRequired)
+                
                     // Skip validation if the fieldset has the "not-required" class
                     if (isFieldsetNotRequired) {
                         continue;
@@ -177,7 +170,6 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                     legend.classList.add('error-field'); // Add error style to legend
                 }
                 
-                console.log("false 4 ")
                 isValid = false;
             }
         }
@@ -215,7 +207,7 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
     
                 if (!isSelected && secondCell) {
                     secondCell.classList.add('error-field'); // Add error style if no selection
-                    console.log("false 5 ")
+                    
                     isValid = false;
                 }
             });
@@ -225,13 +217,9 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
     };
     
     const handleSaveOptionel = async () => {
-        setIsSaving(true);  // Set loader to true
+        setIsSaving(true);  
         try {
-          // Call the API to save form data and await the response
-          console.log("formData",formData)
-         const response = await CreateOptionalFormQuery(formData); // No need to wrap in {}
-    
-         // Check if there's an error in the response
+         const response = await CreateOptionalFormQuery(formData); 
          if (response?.success) {
            // Dispatch to save the form data in Redux
         navigate("/crohns-disease-information")
@@ -430,7 +418,7 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                     <div className='bigger-container' style={{paddingTop:"50px"}}>
                     <Button
                         variant="contained"
-                        onClick={() => navigate("/crohns-disease-information")}
+                        onClick={handleSaveOptionel}
                         className="button-survey bigger"   
                         
                     >
@@ -487,7 +475,7 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                     </Box>
                     
                 )}
-                {type === "fixe"? "": 
+                {/*type === "fixe"? "": 
                 <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4,gap:"10px" }}>
                             <Button className="button-survey" variant="contained" onClick={handelPrefilJaneFuitisCorrect}>
                             Fill Jane Fruits Correct
@@ -509,7 +497,7 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                             <Button className="button-survey" variant="contained" onClick={handelPrefileJoeFiberCorrect}>
                             Fill Joe Fiber Correct
                             </Button>
-                            </Box>}
+                            </Box>*/}
             </form>
             
         </Container>

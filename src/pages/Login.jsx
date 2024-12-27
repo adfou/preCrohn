@@ -18,13 +18,14 @@ import { useAuth } from '../Hooks/index.mjs'; // Import the custom useAuth hook
 import { useVerifyToken } from '../Hooks/useVerifyToken'; // Import the useVerifyToken hook
 import { useDispatch } from 'react-redux';
 import {SetFormDataLogin} from "../store/slice/questionnaireSlice"
-
+import  ForgetPasswordModal from '../Components/Modal/ForgetPasswordModal';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [validationError, setValidationError] = useState('');
   const { login, loading, error, data } = useAuth();
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // Use the custom useVerifyToken hook to verify token on component mount
@@ -47,6 +48,9 @@ const Login = () => {
     login(email, password);
   };
 
+  const handlForgetPasswoard = () => {
+    setIsModalOpen(true)
+  }
   // Handle successful login by redirecting to the dashboard
   useEffect(() => {
     
@@ -83,7 +87,6 @@ const Login = () => {
   }, [data, navigate]);
 
   useEffect(() => {
-    console.log("state:",userRole.state)
     if(verifySucces  ){
     
       if(userRole.role === "1" ){
@@ -207,10 +210,13 @@ const Login = () => {
         fullWidth
         variant="text"
         sx={{ mt: 1 }}
-        onClick={() => console.log('Forgot password clicked')}
+        onClick={handlForgetPasswoard}
       >
         Forgot password?
       </Button>
+
+      <ForgetPasswordModal open={isModalOpen} handleClose={() => setIsModalOpen(false)} />
+    
     </Container>
   );
 };

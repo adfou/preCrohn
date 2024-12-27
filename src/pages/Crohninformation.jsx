@@ -15,11 +15,10 @@ const DiseaseInformationPage = () => {
 
     useEffect(() => {
         if (userRole) {
-            console.log("userRole:", userRole);
     
             // Log the condition to see if it evaluates to true or false
             const condition = userRole.role === "2" && ((userRole.phase > 0) || (userRole.phase === 0 && userRole.state === "1"));
-            console.log("Condition result:", condition);
+           
     
             setRole(userRole);
         }
@@ -56,13 +55,14 @@ const DiseaseInformationPage = () => {
                 
                 {userRole && userRole.role === "3" &&  (userRole.phase === 2 && userRole.state === "1") && (
                     <Button 
-                        onClick={handleButtonClick} 
-                        variant="contained" 
-                        color="primary" 
-                        className="see-results-button"
-                    >
-                        See the results
-                    </Button>
+                    onClick={handleButtonClick} 
+                    variant="contained" 
+                    color="primary" 
+                    className="button-survey bigger"
+                    style={{maxWidth:" 606px"}}
+                >
+                    See your personalized risk of Crohn’s disease and ways to lower your risk
+                </Button>
 
                 )}
                 {userRole && userRole.role === "3" &&  (userRole.phase !== 2 || userRole.state !== "1") && (

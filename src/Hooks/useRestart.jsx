@@ -18,7 +18,6 @@ export const useRestart = () => {
           },
         }
       );
-      console.log(response.data);
       setRestartData(response.data);
     } catch (err) {
       setError(err.response ? err.response.data : err.message);

@@ -118,21 +118,18 @@ const getRiskCategory = (RR) => {
   useEffect(() => {
     // Extract keys with true values
     const checkedKeys = Object.keys(checkedBehaviors).filter(key => checkedBehaviors[key]);
-    console.log("checkedKeys:",checkedKeys)
+    
     if (checkedKeys.length > 0) {
       let G48 = RiskData.G48; // Extract G48 from RiskData
       const TestCaseResults = RiskData['Test case results']
-      console.log("1: G48 :",G48)
+      
       // Loop over checkedKeys and log required information
       checkedKeys.forEach((key) => {
-        console.log("===================")
-        console.log(`Behavior: ${key}`);
-        console.log("test data ",TestCaseResults[ReverseResultData[key]])
+      
         G48 =G48/TestCaseResults[ReverseResultData[key]]
-        console.log("===================")
+      
         
       });
-      console.log("2: G48 befor adding the new value :",G48)
       
       if(RiskData.sex==="male"){
         checkedKeys.forEach((key) => {
@@ -144,11 +141,9 @@ const getRiskCategory = (RR) => {
         G48 =G48*GoodbehaviorsCalculation[key]
           });
         }
-      console.log("2: G48 :",G48)
       const newRR = G48/RiskData.Denominator
       const newRLR = newRR * RiskData["Step 2"]
-      console.log(" newRR:",newRR)
-      console.log(" newRLR:",newRLR)
+
       setNewRiskLevel(getRiskCategory(newRR))
       let  integerPart= newRLR | 0;
      
@@ -420,7 +415,7 @@ const getRiskCategory = (RR) => {
                 }}
                 className="pointer-container humain"
               >
-                <Typography className='zabi' sx={{ fontWeight: 'bold', color: "rgb(17,123,163,0.5)!important", fontSize: "22px", border: "2px solid", marginLeft:"9.5px" }}>
+                <Typography  sx={{ fontWeight: 'bold', color: "rgb(17,123,163,0.5)!important", fontSize: "22px", border: "2px solid", marginLeft:"9.5px" }}>
                   {riskPercentage}%
                 </Typography>
                 <Box

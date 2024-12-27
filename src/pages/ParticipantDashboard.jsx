@@ -17,6 +17,7 @@ const ParticipantDashboard = () => {
   const [progression, setProgression] = useState(0);
   const [submitDate, setSubmitDate] = useState();
   const [phase, setPhase] = useState("BASELINE");
+  const [formLenght, setformLenght] = useState(0);
   const [role, setRole] = useState();
   //const { triggerNextStep, nextStepData,nextStepLoading, nextStepError } = useNextStep();
   //const { triggerRestart } = useRestart();
@@ -30,16 +31,15 @@ const ParticipantDashboard = () => {
       navigate('/dashboard');
     }
     if (profileData) {
-      console.log("profileData:",profileData)
       setFormDisabled(profileData?.state === "0" ? false : true);
       setRole(profileData?.role);
       setProgression(profileData?.completionPercentage);
       setPhase(profileData?.phase);
+      setformLenght(profileData?.forms.length)
       
       switch (profileData?.phase) {
         case 0:
           if(profileData.state === "0"){
-            console.log("zabi one")
 
             break;
           }else{
@@ -202,7 +202,7 @@ const ParticipantDashboard = () => {
                     }}
                   >
                     
-                    {phase === 0 || phase === 1 ? "BASELINE" : phase === 2 ? "PHASE TWO" : phase === 3 ? "PHASE THREE" : ""}
+                    {phase === 0 ? "Baseline" : phase === 1 ? "Phase One" : phase === 2 ? "Phase Two" : phase === 3 ? "Phase Three" : ""}
                   </Typography>
                 </Typography>
               </CardContent>
@@ -211,7 +211,7 @@ const ParticipantDashboard = () => {
           <Typography fontSize={19} sx={{ textAlign: 'center', marginBottom: '40px' }} className='padding-mobile'>
             Payments will be sent after each visit (after sample collection & questionnaire completion).
           </Typography>
-          <NextStepsCard date={submitDate} phase={phase} role={role} />
+          <NextStepsCard date={submitDate} phase={phase} role={role} formLenght={formLenght}/>
         </Box>
         
         <ThreeCardsSection progression={progression} phase={phase} role={role} />

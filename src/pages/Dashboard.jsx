@@ -2,6 +2,7 @@
 import React from 'react';
 import { Container, Grid, Box } from '@mui/material';
 import { Registration } from '../Components/Common/Admin/Registration';
+import {BulkUserUpload} from "../Components/Common/Admin/BulkUserUpload"
 import { Helmet } from 'react-helmet';
 const Dashboard = () => {
   return (
@@ -13,7 +14,9 @@ const Dashboard = () => {
           <Box>
             <Registration />
           </Box>
+       
         </Grid>
+        
 
         
         

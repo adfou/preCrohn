@@ -10,7 +10,7 @@ const cardHomeDataRight =
     {
         text: "Not yet a participant? Have Crohn's disease in your family?",
         buttonText: "learn more about the study",
-        buttonLink: "/about"
+        buttonLink: "/crohns-disease-information"
     }
    
 
@@ -69,7 +69,7 @@ const AboutTheStudy = [
                 },
                 {
                     Title:"Not yet a participant? Have Crohn’s disease in your family?",
-                    link:"/about",
+                    link:"/crohns-disease-information",
                     button:"Learn more"
                 },
               
@@ -164,7 +164,7 @@ const DiseaseInformation = [
                     ]
     },
     {
-        HTMLTEXT:"For a complete list of approved medications for Crohn’s, visit the <a href='https://www.crohnscolitisfoundation.org/patientsandcaregivers/ibd-medication-guide'>Crohn’s and Colitis Foundation’s IBD Medication guide</a>.  "
+        HTMLTEXT:"For a complete list of approved medications for Crohn’s, visit the <a target='_blank' href='https://www.crohnscolitisfoundation.org/patientsandcaregivers/ibd-medication-guide'>Crohn’s and Colitis Foundation’s IBD Medication guide</a>.  "
     },
     {H3:'Diet and nutrition',
         LIST: [

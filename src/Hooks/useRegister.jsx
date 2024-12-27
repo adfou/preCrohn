@@ -27,12 +27,10 @@ export const useRegister = () => {
         },
         maxBodyLength: Infinity,
       });
-      console.log()
       setData(response.data);
      
     } catch (err) {
       // Ensure error is a string
-      console.log(err?.response?.data?.message)
       setError(err.response ? err.response.data.message || err.message : err.message);
     } finally {
       setLoading(false);

@@ -21,7 +21,6 @@ export const AuthLayout = () => {
     // Only check userRole when it's available and success is true
     if (!loading && success) {
       if (userRole?.role === "1") {
-        console.log("userRole", userRole.role);
       } else {
         //navigate('/login'); // Redirect to /login if not admin
       }

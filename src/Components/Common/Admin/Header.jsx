@@ -81,12 +81,12 @@ const Header = () => {
           }}
         >
           <MenuItem onClick={handleMenuClose}>
-            <a href="/dashboard" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <a href="/dashboard" style={{ textDecoration: 'none', color: 'inherit',fontWeight:"400" }}>
               Dashboard
             </a>
           </MenuItem>
           <MenuItem onClick={handleMenuClose}>
-            <a href="/Participants" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <a href="/Participants" style={{ textDecoration: 'none', color: 'inherit',fontWeight:"400" }}>
               Participation
             </a>
           </MenuItem>

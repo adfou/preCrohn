@@ -24,8 +24,6 @@ const PatientDashboard = () => {
 
 
   const handleDownload = (IDuser) => {
-    console.log("handleDownload")
-    console.log("IDuser:",IDuser)
     downloadSheet(IDuser);
   };
 
@@ -40,7 +38,7 @@ const PatientDashboard = () => {
   };
 
   const handleDeleteUser = (user) => {
-    console.log("delet")
+
     
     setSelectedUser(user);
     setisUserDelete(true);

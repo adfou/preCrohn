@@ -311,6 +311,7 @@ main.questionnaire{
       font-family: $RUBIK_FONT;
       text-transform: uppercase;
       font-size: 20px;
+      word-break: break-word;
       
     }
     a::after {
@@ -460,8 +461,14 @@ main.questionnaire{
    
   } 
   }
-  
-
+  a.card-button.insider {
+    font-family: poppins, sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}
+.pagination-admin p {
+  margin-bottom: 0px;
+}
 
   @media screen and (min-width: 720px) and (max-width: 1199px) {
     .card-container{
@@ -651,6 +658,7 @@ main.questionnaire{
   .home p.card-text{
     font-size:24px !important;
     line-height: 31px !important;
+    font-weight: 600 !important;
   }
   .home .card a {
     width: 100%;

@@ -9,8 +9,9 @@ const Footer = () => {
             <Container  >
                 <Row className="justify-content-md-center">
                     {/* Logo */}
-                    <Col md={3} className="justify-content-md-center">
-                        <img src="/logo-footer.svg" alt="Dana-Farber Cancer Institute" className="footer-logo" />
+                    <Col md={3} className="justify-content-md-center logo-footer-container">
+                        <img src="/logo-footer.svg" alt="Dana-Farber Cancer Institute" className="footer-logo pre-c" />
+                        <img src="/MGH_logo.svg" alt="Dana-Farber Cancer Institute" className="footer-logo mgh" />
                     </Col>
                     </Row>
                     {/* Navigation Links */}
@@ -30,13 +31,13 @@ const Footer = () => {
                             Copyright © 2024 Dana-Farber Cancer Institute, Inc. All Rights Reserved
                             </p>
                             
-                            <a href="/privacy-policy" className="footer-link">Privacy Policy</a> |
-                            <a href="/terms-of-use" className="footer-link">Terms of Use</a>
+                            <a href="https://www.massgeneral.org/notices/privacy/websiteprivacy" target="_blank" className="footer-link">Privacy Policy</a> | 
+                            <a href="https://www.massgeneral.org/notices/terms-of-use"  target="_blank" className="footer-link"> Terms of Use</a>
                             <br/>
                             
-                            <div>
+                            <div style={{marginTop:"4px"}}>
                             
-                            Site developed by <a className="footer-link">Health Communication Core</a></div>
+                            Site developed by <a className="footer-link" href="https://healthcommcore.org/" target="_blank" >Health Communication Core</a></div>
                         
                     </Col>
                 </Row>
