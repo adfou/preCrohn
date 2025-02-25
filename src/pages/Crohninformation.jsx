@@ -4,7 +4,7 @@ import { BodyPage } from "../Components/Layout/index.mjs";
 import { Box } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import { DiseaseInformation } from '../Data/Data';
-import { useVerifyToken } from '../Hooks/index.mjs';
+import { useVerifyToken,useParticipantProfile } from '../Hooks/index.mjs';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 
@@ -12,6 +12,15 @@ const DiseaseInformationPage = () => {
     const { loading, error, success, userRole } = useVerifyToken();
     const [Role, setRole] = useState();
     const navigate = useNavigate();
+    const {profileData, loading:loadingProfileData, error:errorProfileData } = useParticipantProfile();
+
+    useEffect(() => {
+     
+        if(errorProfileData){
+            console.log("redircte to home page")
+            navigate('/');
+        }   
+        }, [errorProfileData]);
 
     useEffect(() => {
         if (userRole) {

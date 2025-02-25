@@ -275,7 +275,13 @@ main.questionnaire{
       
 
     }
-   
+    .smaller-text{
+      font-size: 10px !important;
+    }
+    .smaller-text-container{
+      padding-left: 17px;
+  
+    }
     
   .card{
     background-color: $PRE_Crohn_Green;
@@ -365,6 +371,7 @@ main.questionnaire{
             margin-bottom: 0px;
             
           }
+         
         }
         .pointer-container.humain{
           padding-right: 17px;
@@ -470,6 +477,18 @@ main.questionnaire{
   margin-bottom: 0px;
 }
 
+.height-container{
+  gap: 20px;
+  display: flex
+;
+  height: 39px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  .height-input-multy{
+    background-color: white;
+    height: 39px;
+  }
+}
   @media screen and (min-width: 720px) and (max-width: 1199px) {
     .card-container{
       display: flex

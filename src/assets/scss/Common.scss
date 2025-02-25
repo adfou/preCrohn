@@ -280,6 +280,8 @@ $PRE_Crohn_Blue_Border: #3090B6;
         img{
           width: 100%;
           height: 280px;
+          border-bottom-left-radius: 36px;
+          object-fit: cover;
         }
         .text-content{
           margin: 0px !important;

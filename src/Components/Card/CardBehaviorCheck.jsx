@@ -273,7 +273,7 @@ const getRiskCategory = (RR) => {
                         className="pointer-container"
                       >
                         <Typography variant="body2" sx={{ fontWeight: 'bold', color: "#80BBD1 !important", fontSize: "14px", marginBottom: "0px" }}>
-                          CURRENT RISK 1
+                          CURRENT RISK 
                         </Typography>
                       </Box>
 
@@ -300,11 +300,13 @@ const getRiskCategory = (RR) => {
                           paddingLeft: "23px",
                           marginLeft: "12px",
                           fontWeight: "700",
+                          
+                          
                         }}
-                        className="pointer-container clear"
+                        className={riskLevel !==NewRiskLevel?"smaller-text-container pointer-container clear ":"pointer-container clear"}
                       >
-                        <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: "14px", marginBottom: "0px", color: "white !important" }}>
-                          CURRENT RISK
+                        <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: "14px", marginBottom: "0px", color: "white !important" }} >
+                           {riskLevel !==NewRiskLevel?"PROJECTED RISK":"CURRENT RISK"} 
                         </Typography>
                       </Box>
                     </>

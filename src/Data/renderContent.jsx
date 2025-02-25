@@ -8,7 +8,7 @@ import {
     TableRow,
     Paper,
   } from '@mui/material';
-import { Container, Box, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, Checkbox, TextField, Button } from '@mui/material';
+import { Container, Box, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, Checkbox, TextField, Button ,OutlinedInput,InputAdornment } from '@mui/material';
 import parse from 'html-react-parser';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -37,7 +37,7 @@ const customCheckboxStyles = {
   },
 };
 
-const renderContent = (key, value, handleChange, formData) => {
+const renderContent = (key, value, handleChange, formData,setFormData) => {
   const isInvalid = (name) => !formData[name] && formData.hasOwnProperty(name); // Check if the field is invalid
     switch (key) {
       case 'H2':
@@ -94,6 +94,54 @@ const renderContent = (key, value, handleChange, formData) => {
         </FormControl>
       );
 
+      case 'checkboxNone':
+        const [questionCheckbox, ...checkboxOptionsList] = value;
+      
+        const handleCheckboxChange = (e) => {
+          
+          const { value: selectedOption, checked } = e.target;
+          const currentSelections = formData[questionCheckbox] || [];
+      
+          let updatedSelections;
+      
+          if (selectedOption === 'None' && checked) {
+            updatedSelections = ['None'];
+          } else if (selectedOption !== 'None' && checked) {
+            updatedSelections = currentSelections.filter(opt => opt !== 'None').concat(selectedOption);
+          } else {
+            updatedSelections = currentSelections.filter(opt => opt !== selectedOption);
+          }
+      
+          setFormData({
+            ...formData,
+            [questionCheckbox]: updatedSelections
+          });
+        };
+      
+        return (
+          <FormControl component="fieldset">
+            <FormLabel component="legend">{questionCheckbox}</FormLabel>
+            {checkboxOptionsList.map((option, index) => (
+              <FormControlLabel
+                key={index}
+                control={
+                  <Checkbox
+                    sx={{ 
+                      ...customCheckboxStyles,
+                      ...(isInvalid(questionCheckbox) ? { border: '2px solid red' } : {})
+                    }}
+                    name={questionCheckbox}
+                    value={option}
+                    checked={(formData[questionCheckbox] || []).includes(option)}
+                    onChange={handleCheckboxChange}
+                  />
+                }
+                label={option}
+              />
+            ))}
+          </FormControl>
+        );
+            
       case 'checkboxKey':
         const [checkboxKeyQuestion, ...checkboxKeyOptions] = value;
         return (
@@ -124,7 +172,7 @@ const renderContent = (key, value, handleChange, formData) => {
       case 'input':
       return (
         <FormControl>
-          <FormLabel component="legend">{value}</FormLabel>
+          <FormLabel component="legend" style={{marginBottom:"10px"}}>{value}</FormLabel>
           <input
             variant="outlined"
             sx={{ bgcolor: 'white', ...(isInvalid(value) ? { border: '2px solid red' } : {}) }}
@@ -134,6 +182,43 @@ const renderContent = (key, value, handleChange, formData) => {
             label={value}
           />
         </FormControl>
+      );
+      case 'inputHeight':
+      return (
+        <div >
+  <FormControl>
+    <FormLabel component="legend">{value}</FormLabel>
+    <div className="height-container">
+      <FormControl>
+        <OutlinedInput
+          id="feet"
+          className="height-input-multy"
+          endAdornment={<InputAdornment position="end">feet</InputAdornment>}
+          aria-describedby="outlined-height-helper-text"
+          onChange={handleChange}
+          value={formData["What is your height? (feet)"] || ''}
+          inputProps={{
+            'aria-label': 'height',
+          }}
+        />
+      </FormControl>
+      <FormControl>
+        <OutlinedInput
+          id="inches"
+          className="height-input-multy"
+          endAdornment={<InputAdornment position="end">inches</InputAdornment>}
+          aria-describedby="outlined-height-helper-text"
+          onChange={handleChange}
+          value={formData["What is your height? (inches)"] || ''}
+          inputProps={{
+            'aria-label': 'height',
+          }}
+        />
+      </FormControl>
+    </div>
+  </FormControl>
+</div>
+
       );
       case 'inputKey':
       return (
@@ -254,22 +339,57 @@ const renderContent = (key, value, handleChange, formData) => {
               Answer:
             </Typography>
             <TextField
-              type="number"
-              placeholder=""
-              value={formData['LadderSmoking'] || ''}
-              onChange={(e) =>
-                handleChange({
-                  target: { name: 'LadderSmoking', value: e.target.value },
-                })
-              }
-              InputProps={{
-                inputProps: { min: 0, max: 10 }, // Set min and max values
-              }}
-              sx={{
-                bgcolor: 'white', // Background color
-                width: '160px', // Increase input field width
-              }}
-            />
+                type="number"
+                placeholder=""
+                value={formData['Ladder Smoking'] ?? 0} // Ensure default value is 0
+                onChange={(e) => {
+                  let inputValue = e.target.value.trim(); // Remove accidental spaces
+
+                  // Prevent multiple zeros
+                  if (inputValue === "00" || inputValue === "000") {
+                    handleChange({
+                      target: { name: 'Ladder Smoking', value: "0" },
+                    });
+                    return;
+                  }
+
+                  // Allow empty value temporarily for better UX
+                  if (inputValue === "") {
+                    handleChange({
+                      target: { name: 'Ladder Smoking', value: "" },
+                    });
+                    return;
+                  }
+
+                  // Remove leading zeros but allow a single zero
+                  inputValue = inputValue.replace(/^0+(?=\d)/, ""); // Removes leading zeros except when it's the only digit
+
+                  let numericValue = parseInt(inputValue, 10);
+
+                  if (!isNaN(numericValue) && numericValue >= 0 && numericValue <= 10) {
+                    handleChange({
+                      target: { name: 'Ladder Smoking', value: numericValue.toString() },
+                    });
+                  } else if (numericValue > 10) {
+                    handleChange({
+                      target: { name: 'Ladder Smoking', value: "10" }, // Force max 10
+                    });
+                  } else if (numericValue < 0) {
+                    handleChange({
+                      target: { name: 'Ladder Smoking', value: "0" }, // Force min 0
+                    });
+                  }
+                }}
+                InputProps={{
+                  inputProps: { min: 0, max: 10 },
+                }}
+                sx={{
+                  bgcolor: 'white', // Background color
+                  width: '160px', // Increase input field width
+                }}
+              />
+
+
           </Box>
         </FormControl>
       );
@@ -314,7 +434,7 @@ const renderContent = (key, value, handleChange, formData) => {
           >
             <img
               src={picturePath}
-              alt="Ladder Smoking"
+              alt="Ladder Food"
               style={{ maxWidth: '100%', maxHeight: '641px' }}
             />
           </Box>
@@ -332,22 +452,58 @@ const renderContent = (key, value, handleChange, formData) => {
               Answer:
             </Typography>
             <TextField
-              type="number"
-              placeholder=""
-              value={formData['LadderSmoking'] || ''}
-              onChange={(e) =>
-                handleChange({
-                  target: { name: 'LadderSmoking', value: e.target.value },
-                })
-              }
-              InputProps={{
-                inputProps: { min: 0, max: 10 }, // Set min and max values
-              }}
-              sx={{
-                bgcolor: 'white', // Background color
-                width: '160px', // Increase input field width
-              }}
-            />
+                type="number"
+                placeholder=""
+                value={formData['LadderFood'] ?? 0} // Ensure default value is 0
+                onChange={(e) => {
+                  let inputValue = e.target.value.trim(); // Remove accidental spaces
+
+                  // Prevent multiple zeros
+                  if (inputValue === "00" || inputValue === "000") {
+                    handleChange({
+                      target: { name: 'LadderFood', value: "0" },
+                    });
+                    return;
+                  }
+
+                  // Allow empty value temporarily for better UX
+                  if (inputValue === "") {
+                    handleChange({
+                      target: { name: 'LadderFood', value: "" },
+                    });
+                    return;
+                  }
+
+                  // Remove leading zeros but allow a single zero
+                  inputValue = inputValue.replace(/^0+(?=\d)/, ""); // Removes leading zeros except when it's the only digit
+
+                  let numericValue = parseInt(inputValue, 10);
+
+                  if (!isNaN(numericValue) && numericValue >= 0 && numericValue <= 10) {
+                    handleChange({
+                      target: { name: 'LadderFood', value: numericValue.toString() },
+                    });
+                  } else if (numericValue > 10) {
+                    handleChange({
+                      target: { name: 'LadderFood', value: "10" }, // Force max 10
+                    });
+                  } else if (numericValue < 0) {
+                    handleChange({
+                      target: { name: 'LadderFood', value: "0" }, // Force min 0
+                    });
+                  }
+                }}
+                InputProps={{
+                  inputProps: { min: 0, max: 10 },
+                }}
+                sx={{
+                  bgcolor: 'white', // Background color
+                  width: '160px', // Increase input field width
+                }}
+              />
+
+
+   
           </Box>
         </FormControl>
       );
@@ -393,7 +549,7 @@ const renderContent = (key, value, handleChange, formData) => {
           >
             <img
               src={picturePath}
-              alt="Ladder Smoking"
+              alt="Ladder Activity"
               style={{ maxWidth: '100%', maxHeight: '641px' }}
             />
           </Box>
@@ -413,14 +569,47 @@ const renderContent = (key, value, handleChange, formData) => {
             <TextField
               type="number"
               placeholder=""
-              value={formData['LadderSmoking'] || ''}
-              onChange={(e) =>
-                handleChange({
-                  target: { name: 'LadderSmoking', value: e.target.value },
-                })
-              }
+              value={formData['LadderActivity'] ?? 0} // Ensure default value is 0
+              onChange={(e) => {
+                let inputValue = e.target.value.trim(); // Remove accidental spaces
+
+                // Prevent multiple zeros
+                if (/^0{2,}/.test(inputValue)) {
+                  handleChange({
+                    target: { name: 'LadderActivity', value: "0" },
+                  });
+                  return;
+                }
+
+                // Allow empty value temporarily for better UX
+                if (inputValue === "") {
+                  handleChange({
+                    target: { name: 'LadderActivity', value: "" },
+                  });
+                  return;
+                }
+
+                // Remove leading zeros but allow a single zero
+                inputValue = inputValue.replace(/^0+(?=\d)/, ""); // Removes leading zeros except when it's the only digit
+
+                let numericValue = parseInt(inputValue, 10);
+
+                if (!isNaN(numericValue) && numericValue >= 0 && numericValue <= 10) {
+                  handleChange({
+                    target: { name: 'LadderActivity', value: numericValue.toString() },
+                  });
+                } else if (numericValue > 10) {
+                  handleChange({
+                    target: { name: 'LadderActivity', value: "10" }, // Force max 10
+                  });
+                } else if (numericValue < 0) {
+                  handleChange({
+                    target: { name:'LadderActivity', value: "0" }, // Force min 0
+                  });
+                }
+              }}
               InputProps={{
-                inputProps: { min: 0, max: 10 }, // Set min and max values
+                inputProps: { min: 0, max: 10 },
               }}
               sx={{
                 bgcolor: 'white', // Background color
@@ -444,15 +633,15 @@ const renderContent = (key, value, handleChange, formData) => {
       
   
       return (
-          <Box>
+          <Box sx={{ maxHeight: '85vh',overflowY: 'auto' }}>
               
-              <TableContainer component={Paper}>
-                  <Table>
-                      <TableHead>
+              <TableContainer component={Paper} sx={{ maxHeight: '85vh', overflowY: 'auto' }}>
+                  <Table stickyHeader>
+                      <TableHead x={{ position: "sticky", top: 0, backgroundColor: "#ffd990", zIndex: 2 }}>
                           <TableRow>
-                              <TableCell>Activity</TableCell>
+                              <TableCell sx={{backgroundColor: "#ffd990",}}>Activity</TableCell>
                               {timeRanges.map((range, index) => (
-                                  <TableCell sx={{lineHeight:"19px"}} key={index}>{range}</TableCell>
+                                  <TableCell sx={{ lineHeight: "19px", backgroundColor: "#ffd990" }}key={index}>{range}</TableCell>
                               ))}
                           </TableRow>
                       </TableHead>
@@ -550,18 +739,19 @@ const renderContent = (key, value, handleChange, formData) => {
           };
       
           return (
-              <Box>
-                  
-                  <TableContainer component={Paper}>
-                      <Table>
-                          <TableHead>
-                              <TableRow>
-                                  <TableCell>{title}</TableCell>
-                                  {timeRangesFood.map((range, index) => (
-                                      <TableCell key={index} sx={{lineHeight:"19px"}}>{range}</TableCell>
-                                  ))}
-                              </TableRow>
-                          </TableHead>
+            <Box sx={{ maxHeight: '85vh',overflowY: 'auto' }}> 
+            <TableContainer component={Paper} sx={{ maxHeight: '85vh', overflowY: 'auto' }}>
+                <Table stickyHeader>
+                    <TableHead sx={{ position: "sticky", top: 0, backgroundColor: "#ffd990", zIndex: 2 }} className='tabel-head-yellow'>
+                        <TableRow sx={{  backgroundColor: "#ffd990"}}>
+                            <TableCell sx={{backgroundColor: "#ffd990",}}>{title}</TableCell>
+                            {timeRangesFood.map((range, index) => (
+                                <TableCell key={index} sx={{ lineHeight: "19px", backgroundColor: "#ffd990" }}>
+                                    {range}
+                                </TableCell>
+                            ))}
+                        </TableRow>
+                    </TableHead>
                           <TableBody className="radio-table">
                               {foods.map((food, rowIndex) => (
                                   <TableRow key={rowIndex}>
@@ -617,14 +807,14 @@ const renderContent = (key, value, handleChange, formData) => {
         return (
             <Box>
                
-                <TableContainer component={Paper}>
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>{titleTwo}</TableCell>
-                                <TableCell></TableCell>
+                <TableContainer component={Paper} sx={{ maxHeight: '85vh', overflowY: 'auto' }}>
+                    <Table stickyHeader>
+                        <TableHead sx={{ position: "sticky", top: 0, backgroundColor: "#ffd990", zIndex: 2 }}>
+                            <TableRow  sx={{  backgroundColor: "#ffd990"}}>
+                                <TableCell sx={{backgroundColor: "#ffd990"}} >{titleTwo}</TableCell>
+                                <TableCell sx={{  backgroundColor: "#ffd990"}}></TableCell>
                                 {TwotimeRangesFood.map((range, index) => (
-                                    <TableCell sx={{lineHeight:"19px"}} key={index}>{range}</TableCell>
+                                    <TableCell sx={{ lineHeight: "19px", backgroundColor: "#ffd990"}} key={index}>{range}</TableCell>
                                 ))}
                             </TableRow>
                         </TableHead>

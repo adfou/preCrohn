@@ -10,18 +10,18 @@ const cardHomeDataRight =
     {
         text: "Not yet a participant? Have Crohn's disease in your family?",
         buttonText: "learn more about the study",
-        buttonLink: "/crohns-disease-information"
+        buttonLink: "/about"
     }
    
 
 const AboutTheStudy = [
     {
-        Text:"The Personal Risk Estimation for Crohn’s Disease (PRE-Crohn’s) study looks at how education about a person’s Crohn's risk impacts their diet, behaviors, and biomarkers (a marker in the blood or other tissue that can be found in people who have or are at risk for a certain disease) for this disease. Participants will complete questionnaires about their diet and lifestyle, and have blood and stool samples collected. The study focuses on unaffected first-degree relatives (parents, siblings, children) of people with inflammatory bowel disease, such as Crohn’s disease, ulcerative colitis, or indeterminate colitis (IBD-unclassified)."
+        Text:"The Personal Risk Estimation for Crohn’s Disease (PRE-Crohn’s) study looks at how education about a person’s Crohn's risk impacts their diet, behaviors, and biomarkers (a disease or pre-disease marker in blood or other tissue) for this disease. Participants will complete questionnaires about their diet and lifestyle, and have blood and stool samples collected. The study focuses on unaffected first-degree relatives (parents, siblings, children) of people with inflammatory bowel disease, such as Crohn’s disease, ulcerative colitis, or indeterminate colitis (IBD-unclassified)."
     },
 
     {
         H2: "Study structure",
-        H3: "Participants will be randomly assigned to one of two groups: an intervention group and a control group.",
+        H3: "Participants will be randomly assigned to one of two groups: an intervention group or a control group.",
         Text: "Participants assigned to the intervention group will receive a personalized estimate for their risk of developing Crohn’s disease, as well as Web-based counseling about their risk factors for Crohn’s disease. Participants assigned to the control group will receive standard, but not personalized, education about Crohn’s disease. At the end of the study, participants who were assigned to the control group can receive a personalized estimate for their risk of developing Crohn’s disease, as well as counseling about their risk factors for Crohn’s disease."
     },
     {
@@ -38,7 +38,7 @@ const AboutTheStudy = [
             "Be at least 14 years old (those 14-17 must have a parent or guardian consent)",
             "Be able to comply with all study visits and study-related procedures (at least three in-person visits conducted at Massachusetts General Hospital in Boston; participants will be compensated for each visit completed)",
             "Be able to understand and complete study questionnaires (most can be completed from home)",
-            "Have at least one first-degree relative (parent, siblings child) with Crohn’s disease",
+            "Have at least one first-degree relative (parent, siblings or child) with inflammatory bowel disease (Crohn’s disease, ulcerative colitis, or inflammatory bowel disease-unclassified",
             "NOT have been diagnosed with inflammatory bowel disease (ulcerative colitis, Crohn’s disease, or inflammatory bowel disease-unclassified) NOR have any clinical signs or symptoms of inflammatory bowel disease"
         ]
     },
@@ -69,7 +69,7 @@ const AboutTheStudy = [
                 },
                 {
                     Title:"Not yet a participant? Have Crohn’s disease in your family?",
-                    link:"/crohns-disease-information",
+                    link:"/contact",
                     button:"Learn more"
                 },
               
@@ -80,7 +80,7 @@ const AboutTheStudy = [
 const ContactPageContent = [
     {HTMLTEXT:'<p> If you would like to learn more about the study, email us at <a href="mailto:mghprecrohns@mgb.org?subject=Inquiry%20About%20the%20Study">mghprecrohns@mgb.org</a>  or call us at 617-643-5280. </p>',
         
-        Text: "If you would like to learn more about the study, email us at mghprecrohns@mgb.org or call us at 617-643-5280."
+       
     },
     {
         H2: "PRE-Crohn’s study sites",
@@ -159,6 +159,7 @@ const DiseaseInformation = [
             "<span style='font-weight:600;'>Steroids:</span> These can be given as pills or intravenously (through the vein). Steroids suppress the entire immune system.",
             "<span style='font-weight:600;'>Immunomodulator:</span> These are non-steroid medications, given as pills or injections, that suppress the immune system. Immunomodulators can be combined with biologic therapies (see below) to help control inflammation.",
             "<span style='font-weight:600;'>Biologic therapies:</span> These are non-steroid, intravenous or injectable medications. These medications are antibodies, which are proteins, that block one specific part of the immune system. These can be used alone or in combination with an immunomodulator (see above).",
+            "<span style='font-weight:600;'>Small molecule medications:</span> These are newer, non-steroid medications that are given in pill form, and act on specific parts of the immune system to combat inflammation.",
             "<span style='font-weight:600;'>Antibiotics:</span> These may be needed if infections, like abscesses, are present.",
             "<span style='font-weight:600;'>Future therapies:</span> There are many therapies currently under investigation."
                     ]
@@ -258,16 +259,18 @@ const GeneralInformationData = [
         radio: [
             "What is your ethnicity? ",
             "Hispanic or Latino",
-            "Not Hispanic or Latino"
+            "Not Hispanic or Latino",
+            "None"
             ],
-        checkbox:[
+            checkboxNone:[
             'What is your race (Select all that apply.)',
             'American Indian or Alaska Native',
             'Asian',
             'Black or African American',
             'Native Hawaiian or other Pacific Islander',
             'White',
-            'Other'
+            'Other',
+            "None"
 
 
         ]
@@ -290,8 +293,8 @@ const GeneralInformationData = [
 const YourmedicalhistoryData = [
    
     {H2: "Your medical history",
-    
-        input: 'What is your height? (Please use your height reported on a valid I.D., such as a driver’s license.) '
+        inputHeight:'What is your height? (Please use your height reported on a valid I.D., such as a driver’s license.) ',
+        //input: 'What is your height? (Please use your height reported on a valid I.D., such as a driver’s license.) '
     },
     {
         input: 'What is your weight (in pounds)? (Please use the same scale to measure your weight throughout this study. The weight you list here should be measured within the last week.)'
@@ -304,7 +307,7 @@ const YourmedicalhistoryData = [
         ]
     },
     {
-        checkbox: [
+        checkboxNone: [
             "Have you ever been diagnosed with any of the following conditions? (Select all that apply.)",
             "Psoriasis",
             "Type 1 diabetes mellitus",
@@ -312,7 +315,8 @@ const YourmedicalhistoryData = [
             "Multiple sclerosis (MS)",
             "Rheumatoid arthritis (RA)",
             "Systemic lupus erythematosus (SLE, Lupus)",
-            "Rosacea"
+            "Rosacea",
+            "None"
         ]
     },
     {
@@ -340,9 +344,9 @@ const YourmedicalhistoryData = [
                 checkbox: [
                     "What age(s) did you take antibiotics? (Select all that apply.)",
                     "0–10 years old",
-                    "11–18 years old",
-                    "18–40 years old",
-                    "40–60 years old",
+                    "11-17 years old",
+                    "18-39 years old",
+                    "40-59 years old",
                     "> 60 years old"
                 ]
             },
@@ -360,7 +364,7 @@ const YourmedicalhistoryData = [
         radioFemale: [ 
             "Have you ever taken birth control pills?",
             "I've never taken birth control pills.",
-            "I took birth control pills in the past but not currently.",
+            "I took birth control pills in the past but not currently.  ",
             "I am currently taking birth control pills."
         ]
     },
@@ -750,7 +754,7 @@ const YoutdietBEVERAGES = [
         FoodsTableTwo: {
             foodsTwo: [
                 ['CARBONATED BEVERAGES Consider the serving size as 1 glass, bottle, or can for these carbonated beverages. Low-calorie (sugar-free) types', 'Low-calorie beverage with caffeine (e.g., Diet Coke)'],
-                ['', 'Other low-calorie beverage without caffeine (e.g., Diet 7-Up)'],
+                ['', 'Other carbonated beverage with sugar (e.g., 7-Up, root beer, ginger ale, caffeinefree Coke)'],
                 ['CARBONATED BEVERAGES Regular types (not sugar-free)', 'Carbonated beverage with caffeine and sugar (e.g., Coke, Pepsi, Mt. Dew, Dr. Pepper)'],
                 ['','Other sugared beverages (e.g., punch, lemonade, sports drinks)', 'Regular beer (1 glass, bottle, can)'],
 
@@ -856,6 +860,7 @@ const YourdietSWEETS=[
             'Low-fat ',
             'Olive-oil',
             'Other vegetable oil',
+            'N/A'
         ]}
 
         ,
@@ -867,7 +872,8 @@ const YourdietSWEETS=[
             'Equal ',
             'NutraSweet',
             'Sweet’N Low',
-            'Saccharin'
+            'Saccharin',
+            'N/A'
         ]},
         {
               
@@ -1132,8 +1138,8 @@ const MeetTheTeamData = [
             image:'/meet-the-team-emily.jpg',
             title:'Emily W. Lopes, M.D., M.P.H',
             subTitle:'Principal Investigator',
-            number:"617-726-5560",
-            Desc:'Dr. Emily W. Lopes is a gastroenterologist specializing in inflammatory bowel disease (IBD) at Massachusetts General Hospital (MGH), an Instructor of Medicine at Harvard Medical School, and a Physician-Investigator in the MGH Clinical and Translational Epidemiology Unit (CTEU). She earned her M.D. from New York University School of Medicine, and completed her internal medicine residency, chief residency, general gastroenterology fellowship, and advanced IBD fellowship at MGH. She completed a Master of Public Health (M.P.H.) degree in Clinical Effectiveness at the Harvard T.H. Chan School of Public Health. Her research interests include understanding how dietary, lifestyle, and genetic factors influence the development and course of inflammatory bowel disease, as well as methods for studying disease prevention in IBD. Her research has been funded by the American College of Gastroenterology and National Institutes of Health (NIH).'
+            number:"",
+            Desc:'Dr. Emily W. Lopes is a gastroenterology special in inflammatory bowel disease (IBD) at Massachusetts General Hospital (MGH), an Instructor of Medicine at Harvard Medical School, and a Physician-Investigator in the MGH Clinical and Translational Epidemiology Unit (CTEU). She earned her M.D. from New York University School of Medicine, and completed her internal medicine residency, chief residency, general gastroenterology fellowship, and advanced IBD fellowship at MGH. She completed a Master of Public Health (M.P.H.) degree in Clinical Effectiveness at the Harvard T.H. Chan School of Public Health. Her research interests include understanding how dietary, lifestyle, and genetic factors influence the development and course of inflammatory bowel disease, as well as methods for studying disease prevention in IBD. Her research has been funded by the American College of Gastroenterology and National Institutes of Health (NIH).'
         }
     },
     {

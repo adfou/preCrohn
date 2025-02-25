@@ -38,6 +38,7 @@ const questionnaireSlice = createSlice({
         saveFormData: (state, action) => {
             const { currentSectionIndex, data } = action.payload;
             const sectionTag = state.sectionTags[currentSectionIndex];
+            console.log("sectionTag:",data)
             state.data[sectionTag] = {
                 ...(state.data[sectionTag] || {}),
                 ...data,

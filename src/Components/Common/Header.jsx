@@ -1,9 +1,15 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Navbar, Nav, Dropdown } from 'react-bootstrap';
 import { IconChevronDown } from '@tabler/icons-react'; // Import the arrow down icon from tabler-icons-react
 import UserAvatar from './UserAvatar';
+import {  useParticipantProfile} from "../../Hooks/index.mjs";
 
 const Header = () => {
+    const {profileData, loading, error } = useParticipantProfile();
+    useEffect(() => {
+        
+        }, [profileData]);
+
     return (
         <Navbar bg="white" expand="lg" className="header position-relative">
             <Navbar.Brand href="/">
@@ -58,7 +64,7 @@ const Header = () => {
                         </Dropdown.Menu>
                     </Dropdown>
 
-                    <Nav.Link href="/crohns-disease-information">CROHN'S INFO</Nav.Link>
+                    {profileData && <Nav.Link href="/crohns-disease-information">CROHN'S INFO</Nav.Link>}
                     <Nav.Link href="/contact">CONTACT</Nav.Link>
                 </Nav>
                 <div className="search-container ml-auto">

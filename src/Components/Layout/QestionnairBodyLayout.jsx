@@ -10,12 +10,12 @@ import renderContent from "../../Data/renderContent";
 import {useFinishForm,useCreateForm,useCreateOptionalForm} from "../../Hooks/index.mjs"
 import {Prefill,PrefillJaneCaseOne,PrefileJaneFiberCorrect,PrefilJaneFuitisCorrect,PrefileJoeFruitCorrect,PrefileJoeFiberCorrect,PrefileJane} from "../../Data/index"
 import {SetFormDataLogin} from "../../store/slice/questionnaireSlice" 
-const Section = ({ section, log, handleChange, formData }) => {
+const Section = ({ section, log, handleChange, formData,setFormData }) => {
     return (
         <Box component="section" sx={{ my: 4, display: 'flex', flexDirection: 'column' }}>
             {Object.entries(section).map(([key, value], index) => (
                 <React.Fragment key={index}>
-                    {renderContent(key, value, handleChange, formData)}
+                    {renderContent(key, value, handleChange, formData,setFormData)}
                 </React.Fragment>
             ))}
         </Box>
@@ -53,7 +53,11 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
     
 
     const handleChange = (event) => {
-        const { name, value, type, checked } = event.target;
+        const { name, value, type, checked,id } = event.target;
+      
+        if(name ==="Do you smoke cigarettes?"){
+            setFormData({})
+        }
         setFormData(prevData => {
             if (type === 'checkbox') {
                 const newValue = prevData[name] || [];
@@ -63,6 +67,15 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                     return { ...prevData, [name]: newValue.filter(item => item !== value) };
                 }
             } else {
+                
+                if(id ==="inches" || id ==="feet"){
+                    if (id==="inches") {
+                        return { ...prevData, ["What is your height? (inches)"]: value};
+                    } else {
+                        return { ...prevData, ["What is your height? (feet)"]: value};
+                    }
+                }
+                console.log("last")
                 return { ...prevData, [name]: value };
             }
         });
@@ -429,7 +442,7 @@ export const QestionnairBodyLayout = ({ data, log, type }) => {
                 ) :""}
             <form id="form">
                 {data.map((section, index) => (
-                    <Section key={index} section={section} log={log} handleChange={handleChange} formData={formData} />
+                    <Section key={index} section={section} log={log} handleChange={handleChange} formData={formData} setFormData={setFormData} />
                 ))}
 
                 {type === "fixe" ? (

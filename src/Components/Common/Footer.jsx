@@ -28,7 +28,7 @@ const Footer = () => {
                     {/* Copyright and Additional Links */}
                     <Col md={6} className="text-center text-md-right ">
                             <p>
-                            Copyright © 2024 Dana-Farber Cancer Institute, Inc. All Rights Reserved
+                            Copyright © 2024 Massachusetts General Hospital. All Rights Reserved
                             </p>
                             
                             <a href="https://www.massgeneral.org/notices/privacy/websiteprivacy" target="_blank" className="footer-link">Privacy Policy</a> | 
