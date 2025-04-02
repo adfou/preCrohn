@@ -62,7 +62,7 @@ export const QuestionnaireStatusCard = ({ Percentage,FromDisabled }) => {
             marginTop: '0px',
             height:"65px",
             marginBottom: '70px',
-            textTransform:"capitalize",
+            textTransform:"none",
             '&:disabled': {
               backgroundColor: '#c2c2c2', // Optional: Change color when button is disabled
             },

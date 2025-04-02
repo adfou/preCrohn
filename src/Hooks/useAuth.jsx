@@ -26,7 +26,7 @@ export const useAuth = () => {
       });
 
       const { token, user } = response.data;
-
+     
       // Dispatch loginSuccess to update Redux state and save token in localStorage
       dispatch(loginSuccess({ token, user }));
 

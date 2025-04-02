@@ -24,10 +24,11 @@ const ParticipantDashboard = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log("profileData:",profileData)
     if (error) {
       navigate('/login');
     }
-    if (profileData && profileData.role === 1) {
+    if (profileData && profileData.role === "1") {
       navigate('/dashboard');
     }
     if (profileData) {
@@ -211,7 +212,7 @@ const ParticipantDashboard = () => {
           <Typography fontSize={19} sx={{ textAlign: 'center', marginBottom: '40px' }} className='padding-mobile'>
             Payments will be sent after each visit (after sample collection & questionnaire completion).
           </Typography>
-          <NextStepsCard date={submitDate} phase={phase} role={role} formLenght={formLenght}/>
+          <NextStepsCard date={submitDate} phase={phase} role={role} formLenght={formLenght} formDisabled={formDisabled}/>
         </Box>
         
         <ThreeCardsSection progression={progression} phase={phase} role={role} />

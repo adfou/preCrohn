@@ -38,7 +38,7 @@ const AboutTheStudy = [
             "Be at least 14 years old (those 14-17 must have a parent or guardian consent)",
             "Be able to comply with all study visits and study-related procedures (at least three in-person visits conducted at Massachusetts General Hospital in Boston; participants will be compensated for each visit completed)",
             "Be able to understand and complete study questionnaires (most can be completed from home)",
-            "Have at least one first-degree relative (parent, siblings or child) with inflammatory bowel disease (Crohn’s disease, ulcerative colitis, or inflammatory bowel disease-unclassified",
+            "Have at least one first-degree relative (parent, sibling, or child) with inflammatory bowel disease (Crohn’s disease, ulcerative colitis, or inflammatory bowel disease-unclassified)",
             "NOT have been diagnosed with inflammatory bowel disease (ulcerative colitis, Crohn’s disease, or inflammatory bowel disease-unclassified) NOR have any clinical signs or symptoms of inflammatory bowel disease"
         ]
     },
@@ -133,7 +133,7 @@ const DiseaseInformation = [
         Text:"No one knows the exact cause(s) of Crohn’s disease. Most experts think there is a “multifactorial” reason for Crohn’s. This means that it takes a combination of factors together to cause Crohn’s disease.  "
     },
     {
-        Text:"More than 200 genes have been linked to inflammatory bowel disease. It is likely that a person receives from their parents one or more genes that make them susceptible to Crohn’s disease. Then, in people who are susceptible to Crohn’s disease, certain environmental factors (like bacteria in the gut), diet, and behaviors (like smoking) may trigger the immune system, resulting in inflammation in the gastrointestinal system.  "
+        Text:"More than 200 genes have been linked to inflammatory bowel disease. It is likely that a person receives from their parents one or more genes that make them susceptible to Crohn’s disease. Then, in people who are susceptible to Crohn’s disease, certain environmental factors like bacteria in the gut, diet, and behaviors (like smoking) may trigger the immune system, resulting in inflammation in the gastrointestinal system.  "
     },
     {
         Text:"Again, it is likely a combination of several factors that causes Crohn’s disease in someone who is susceptible to disease. It is important to remember that nothing a person did made them get Crohn’s disease, and they are not to blame. "
@@ -260,7 +260,7 @@ const GeneralInformationData = [
             "What is your ethnicity? ",
             "Hispanic or Latino",
             "Not Hispanic or Latino",
-            "None"
+            "Prefer not to answer"
             ],
             checkboxNone:[
             'What is your race (Select all that apply.)',
@@ -270,7 +270,7 @@ const GeneralInformationData = [
             'Native Hawaiian or other Pacific Islander',
             'White',
             'Other',
-            "None"
+            "Prefer not to answer"
 
 
         ]
@@ -307,7 +307,7 @@ const YourmedicalhistoryData = [
         ]
     },
     {
-        checkboxNone: [
+        checkboxNoneAlt: [
             "Have you ever been diagnosed with any of the following conditions? (Select all that apply.)",
             "Psoriasis",
             "Type 1 diabetes mellitus",
@@ -486,7 +486,7 @@ const Yourdiet = [
     {
         HTMLTEXT: `
             <p style={margin-button:'15px'}>
-                For each food listed, fill in the circle indicating how often on average you have used the amount specified during the past month.
+                For each food listed, fill in the circle indicating how often, on average, you have consumed (eaten) the amount specified during the past month.
             </p>
           
         `,
@@ -500,9 +500,9 @@ const Yourdiet = [
                 'Non-dairy coffee whitener; exclude fat-free (1 Tbs)',
                 'Frozen yogurt, sherbet, sorbet, or low-fat ice cream (1 cup)',
                 'Regular ice cream (1 cup)',
-                'Spreads added to food or bread; exclude use in cooking - Pure butter',
-                'Spreads added to food or bread; exclude use in cooking - Margarine (e.g., Country Crock)',
-                'Spreads added to food or bread; exclude use in cooking - Spreadable butter or butter/oil blend (e.g., Olivio spread butter)',
+                'Pure butter added to food or bread; exclude use in cooking',
+                'Margarine (e.g., Country Crock) added to food or bread; exclude use in cooking',
+                'Spreadable butter or butter/oil blend (e.g., Olivio spread butter) added to food or bread; exclude use in cooking',
                 'Yogurt (4-6 oz.) - Plain',
                 'Yogurt (4-6 oz.) - Artificially sweetened (e.g., light peach)',
                 'Yogurt (4-6 oz.) - Sweetened (e.g., strawberry, vanilla)',
@@ -546,7 +546,7 @@ const Yourdietcheese=[
     {
         HTMLTEXT: `
             <p style={margin-button:'15px'}>
-                For each food listed, fill in the circle indicating how often on average you have used the amount specified during the past month.
+                For each food listed, fill in the circle indicating how often, on average, you have consumed (eaten) the amount specified during the past month.
             </p>
           
         `,
@@ -560,8 +560,6 @@ const Yourdietcheese=[
                 'Avocado (1/2 fruit or 1/2 cup)',
                 'Fresh apples or pears (1)',
                 'Apple juice or cider (small glass)',
-                'Oranges (1)',
-                'Orange juice (small glass)',
                 'Orange juice - Calcium- or Vit. D-fortified',
                 'Orange juice - Regular (not calcium-fortified)',
                 'Grapefruit (1/2) or grapefruit juice (small glass)',
@@ -593,7 +591,7 @@ const YourdietVEGETABLES=[
      {
         HTMLTEXT: `
             <p style={margin-button:'15px'}>
-                For each food listed, fill in the circle indicating how often on average you have used the amount specified during the past month.
+                For each food listed, fill in the circle indicating how often, on average, you have consumed (eaten) the amount specified during the past month.
             </p>
           
         `,
@@ -651,7 +649,7 @@ const YourdietVEGETABLES=[
      {
         HTMLTEXT: `
             <p style={margin-button:'15px'}>
-                For each food listed, fill in the circle indicating how often on average you have used the amount specified during the past month.
+                For each food listed, fill in the circle indicating how often, on average, you have consumed (eaten) the amount specified during the past month.
             </p>
           
         `,
@@ -701,7 +699,7 @@ const YoutdietBREADS=[
         {
             HTMLTEXT: `
             <p style={margin-button:'15px'}>
-                For each food listed, fill in the circle indicating how often on average you have used the amount specified during the past month.
+                For each food listed, fill in the circle indicating how often, on average, you have consumed (eaten) the amount specified during the past month.
             </p>
           
         `,
@@ -742,12 +740,56 @@ const YoutdietBREADS=[
             }
         }
 ]
+const YoutdietBEVERAGES=[
+    {H2:"Your diet "},
+        {
+            HTMLTEXT: `
+             <p style={margin-button:'15px'}>
+                For each food listed, fill in the circle indicating how often, on average, you have consumed (eaten) the amount specified during the past month.
+            </p>
+          
+        `,
+            dairyFoodsTable: {
+                foods: [
+                    'Low-calorie beverage with caffeine (e.g., Diet Coke); (1 glass, bottle, or can)',
+                    'Other low-calorie beverage without caffeine (e.g., Diet 7-Up); (1 glass, bottle, or can)',
+                    'Carbonated beverage with caffeine and sugar (e.g., Coke, Pepsi, Mt. Dew, Dr. Pepper); (1 glass, bottle, or can)',
+                    'Other carbonated beverage with sugar (e.g., 7-Up, root beer, ginger ale, caffeine-free Coke); (1 glass, bottle, or can)',
+                    'Other sugared beverages (e.g., punch, lemonade, sports drinks, or sugared ice tea); (1 glass, bottle, can)',
+                    'Regular beer (1 glass, bottle, can)',
+                    'Light beer (e.g., Bud Light); (1 glass, bottle, or can)',
+                    'Red wine (5 oz. glass)',
+                    'White wine (5 oz. glass)',
+                    'Liquor (e.g., vodka, gin, etc.); (1 drink or shot)',
+                    'Plain water (bottled, sparkling, or tap); (8 oz. cup)',
+                    'Decaffeinated tea (exclude herbal); (8 oz. cup)',
+                    'Tea with caffeine (including green tea); (8 oz. cup)',
+                    'Decaffeinated coffee (8 oz. cup)',
+                    'Coffee with caffeine (8 oz. cup)',
+                    'Hot/cold dairy coffee drink (e.g., cappuccino); (16 oz.)'
+                ],
+                timeRangesFood: [
+                    'Never, or less than once per month',
+                    '1-3 per month',
+                    '1 per week',
+                    '2-4 per week',
+                    '5-6 per week',
+                    '1 per day',
+                    '2-3 per day',
+                    '4-5 per day',
+                    '6+ per day'
+                ],
+                title:'CARBONATED BEVERAGES & OTHER BEVERAGES',
+            }
+        }
+]
 
-const YoutdietBEVERAGES = [
+
+/*   const YoutdietBEVERAGES = [
     {H2: 'Your diet',},
     {   HTMLTEXT: `
         <p style={margin-button:'15px'}>
-            For each food listed, fill in the circle indicating how often on average you have used the amount specified during the past month.
+          For each food listed, fill in the circle indicating how often, on average, you have used <b>consumed </b>(eaten) the amount specified during the past month.
         </p>
       
     `,
@@ -785,14 +827,16 @@ const YoutdietBEVERAGES = [
             titleTwo: 'CARBONATED BEVERAGES & OTHER BEVERAGES',
         }
     }
-];
+];*/  
+
+
 
 const YourdietSWEETS=[
   {H2: 'Your diet  ',},
     {
         HTMLTEXT: `
             <p style={margin-button:'15px'}>
-                For each food listed, fill in the circle indicating how often on average you have used the amount specified during the past month.
+                For each food listed, fill in the circle indicating how often, on average, you have consumed (eaten) the amount specified during the past month.
             </p>
           
         `,
@@ -1139,7 +1183,7 @@ const MeetTheTeamData = [
             title:'Emily W. Lopes, M.D., M.P.H',
             subTitle:'Principal Investigator',
             number:"",
-            Desc:'Dr. Emily W. Lopes is a gastroenterology special in inflammatory bowel disease (IBD) at Massachusetts General Hospital (MGH), an Instructor of Medicine at Harvard Medical School, and a Physician-Investigator in the MGH Clinical and Translational Epidemiology Unit (CTEU). She earned her M.D. from New York University School of Medicine, and completed her internal medicine residency, chief residency, general gastroenterology fellowship, and advanced IBD fellowship at MGH. She completed a Master of Public Health (M.P.H.) degree in Clinical Effectiveness at the Harvard T.H. Chan School of Public Health. Her research interests include understanding how dietary, lifestyle, and genetic factors influence the development and course of inflammatory bowel disease, as well as methods for studying disease prevention in IBD. Her research has been funded by the American College of Gastroenterology and National Institutes of Health (NIH).'
+            Desc:'Dr. Emily W. Lopes is a gastroenterology specialist in inflammatory bowel disease (IBD) at Massachusetts General Hospital (MGH), an Instructor of Medicine at Harvard Medical School, and a Physician-Investigator in the MGH Clinical and Translational Epidemiology Unit (CTEU). She earned her M.D. from New York University School of Medicine, and completed her internal medicine residency, chief residency, general gastroenterology fellowship, and advanced IBD fellowship at MGH. She completed a Master of Public Health (M.P.H.) degree in Clinical Effectiveness at the Harvard T.H. Chan School of Public Health. Her research interests include understanding how dietary, lifestyle, and genetic factors influence the development and course of inflammatory bowel disease, as well as methods for studying disease prevention in IBD. Her research has been funded by the American College of Gastroenterology and National Institutes of Health (NIH).'
         }
     },
     {

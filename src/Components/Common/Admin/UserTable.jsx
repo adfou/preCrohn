@@ -148,6 +148,7 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser, RefreshTable, o
     return <div>Error: Network error occurred </div>;
   }
 
+
   return (
     <>
       {/* Search and Filter Section */}
@@ -264,7 +265,7 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser, RefreshTable, o
                       onClose={handleMenuClose}
                     >
                 
-                      <MenuItem onClick={() => { handleDownload(user.id); handleMenuClose(); }}>
+                      <MenuItem onClick={() => { handleDownload(user.id,user); handleMenuClose(); }}>
                         <Download sx={{ mr: 1, color: iconColor }} color="primary" /> Download Data
                       </MenuItem>
                       <MenuItem onClick={() => { onResetPassword(user); handleMenuClose(); }}>
@@ -299,8 +300,8 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser, RefreshTable, o
                   </TableCell>
                   <TableCell>{user.role === "1" ? "Admin" : user.role === "2" ? "Intervention" : user.role === "3" ? "Control" : "Unknown"}</TableCell>
                   <TableCell align="center">{user.phase === 0 ? "Baseline" : user.phase === 1 ? "Phase One" : user.phase === 2 ? "Phase Two" : user.phase === 3 ? "Phase Three" : ""}</TableCell>
-                  <TableCell>{user?.date}</TableCell>
-                  <TableCell>{user?.due_date}</TableCell>
+                  <TableCell>{user?.state =='1'? user?.date :""}</TableCell>
+                  <TableCell>{user?.state =='1'? user?.due_date:""}</TableCell>
                   <TableCell>{user?.userObject?.biomarkers === "yes" ? "Yes" : "No"}</TableCell>
                   <TableCell>
                     <Chip
@@ -320,7 +321,7 @@ const UserTable = ({ onSendEmail, onResetPassword, onDeleteUser, RefreshTable, o
                       onClose={handleMenuClose}
                     >
                 
-                      <MenuItem onClick={() => { handleDownload(user.id); handleMenuClose(); }}>
+                      <MenuItem onClick={() => { handleDownload(user.id,user); handleMenuClose(); }}>
                         <Download sx={{ mr: 1, color: iconColor }} color="primary" /> Download Data
                       </MenuItem>
                       

@@ -5,7 +5,8 @@ export const useDownloadSheet = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const downloadSheet = async (idUser) => {
+    const downloadSheet = async (idUser,user) => {
+        console.log("data:",user)
         setLoading(true);
         setError(null);
 
@@ -25,7 +26,9 @@ export const useDownloadSheet = () => {
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', `user_${idUser}_form.xlsx`);
+            const today = new Date();
+            const formattedDate = today.toISOString().split('T')[0]; // Gets YYYY-MM-DD format
+            link.setAttribute('download', `user_${user.firstName|| ""}_${user.secondName|| ''}_${formattedDate}__form.xlsx`);
             document.body.appendChild(link);
             link.click();
             link.remove();

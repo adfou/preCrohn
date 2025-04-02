@@ -23,8 +23,9 @@ const PatientDashboard = () => {
 
 
 
-  const handleDownload = (IDuser) => {
-    downloadSheet(IDuser);
+  const handleDownload = (IDuser,user) => {
+    
+    downloadSheet(IDuser,user);
   };
 
   const handleSendEmail = (user) => {

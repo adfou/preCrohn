@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, Typography, Box } from '@mui/material';
 
-export const NextStepsCard = ({ date, phase, role ,formLenght}) => {
+export const NextStepsCard = ({ date, phase, role ,formLenght, formDisabled}) => {
   const [formattedDate, setFormattedDate] = useState("");
   
   useEffect(() => {
@@ -11,28 +11,29 @@ export const NextStepsCard = ({ date, phase, role ,formLenght}) => {
     }
     if (date && date !== null) {
       let parsedDate = new Date(date);
-
-      if (role === "2") {
-        if (phase === 0 || phase === 1) {
-          parsedDate.setDate(parsedDate.getDate() + 8 * 7); // Add 8 weeks
+     
+      if (role === "2" || role === "3") {
+        if (phase === 0) {
+            parsedDate.setDate(parsedDate.getDate() + 8 * 7 -1 ); // Add 8 weeks, then subtract 1 day
         } else {
-          parsedDate.setMonth(parsedDate.getMonth() + 6); // Add 6 months
+            parsedDate.setMonth(parsedDate.getMonth() + 6); // Add 6 months
+            parsedDate.setDate(parsedDate.getDate() - 1); // Subtract 1 day
         }
-      }
+    }
 
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       const formatted = parsedDate.toLocaleDateString('en-US', options);
       
       setFormattedDate(formatted);
     }
-    if (role === "3") {
+    {/*if (role === "3") {
       let parsedDate = new Date(date);
       parsedDate.setMonth(parsedDate.getMonth() + 6); // Add 6 months
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       const formatted = parsedDate.toLocaleDateString('en-US', options);
       
       setFormattedDate(formatted);
-    }
+    }*/}
   }, [date]);
 
   return (
@@ -102,7 +103,7 @@ export const NextStepsCard = ({ date, phase, role ,formLenght}) => {
               height:"40px"
             }}
           >
-            {formattedDate==="Invalid Date" || formattedDate==="" || formLenght===3 ?"_":formattedDate}
+            {formattedDate==="Invalid Date" || formattedDate==="" || formLenght===3 || formDisabled===false ? "_":formattedDate}
           </Typography>
         </Box>
       </CardContent>

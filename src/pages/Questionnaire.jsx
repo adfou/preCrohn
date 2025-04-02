@@ -31,10 +31,15 @@ const Questionnaire = ({ title, Data, type }) => {
     }, []);
 
     useEffect(() => {
+        console.log("userRole:",userRole)
         if (userRole?.state === "1") {
             if (userRole.role !== "1" && type !== "fixe") {
                 navigate('/profile?role=' + userRole.role); 
             }   
+        }
+
+        if(userRole?.role==="1"){
+            navigate('/dashboard')
         }
     }, [verifySucces]);
 
@@ -57,7 +62,8 @@ const Questionnaire = ({ title, Data, type }) => {
                  <>
                 {title ? <div className='title-content'><h1></h1></div> : ""}   
                 <div className="mobile-message" style={{fontSize:"25px", padding:"35px ",marginTop:'0px'}}>
-                    <h2 style={{fontSize:"30px",marginTop:'0px'}}>To take the survey, please use a laptop or desktop device.</h2>
+                    <h2 style={{fontSize:"30px",marginTop:'0px'}}>To take the survey, please use a laptop or desktop device or try expanding
+                    your screen.</h2>
                 </div>
                 </>
             ) : (

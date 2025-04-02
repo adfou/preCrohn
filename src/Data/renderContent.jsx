@@ -104,10 +104,10 @@ const renderContent = (key, value, handleChange, formData,setFormData) => {
       
           let updatedSelections;
       
-          if (selectedOption === 'None' && checked) {
-            updatedSelections = ['None'];
-          } else if (selectedOption !== 'None' && checked) {
-            updatedSelections = currentSelections.filter(opt => opt !== 'None').concat(selectedOption);
+          if (selectedOption === 'Prefer not to answer' && checked) {
+            updatedSelections = ['Prefer not to answer'];
+          } else if (selectedOption !== 'Prefer not to answer' && checked) {
+            updatedSelections = currentSelections.filter(opt => opt !== 'Prefer not to answer').concat(selectedOption);
           } else {
             updatedSelections = currentSelections.filter(opt => opt !== selectedOption);
           }
@@ -141,7 +141,61 @@ const renderContent = (key, value, handleChange, formData,setFormData) => {
             ))}
           </FormControl>
         );
+
+          case 'checkboxNoneAlt':
+                  const [questionKeyNoneAlt, ...optionsNoneAlt] = value;
+
+                  const handleCheckboxNoneAltChange = (e) => {
+                    const { value: selectedValue, checked } = e.target;
+                    const currentSelections = formData[questionKeyNoneAlt] || [];
+
+                    let updatedSelections;
+
+                    if (selectedValue === 'None' && checked) {
+                      updatedSelections = ['None'];
+                    } else if (selectedValue !== 'None' && checked) {
+                      updatedSelections = currentSelections
+                        .filter((opt) => opt !== 'None')
+                        .concat(selectedValue);
+                    } else {
+                      updatedSelections = currentSelections.filter((opt) => opt !== selectedValue);
+                    }
+
+                    setFormData({
+                      ...formData,
+                      [questionKeyNoneAlt]: updatedSelections,
+                    });
+                  };
+
+                  return (
+                    <FormControl component="fieldset">
+                      <FormLabel component="legend">{questionKeyNoneAlt}</FormLabel>
+                      {optionsNoneAlt.map((option, index) => (
+                        <FormControlLabel
+                          key={index}
+                          control={
+                            <Checkbox
+                              sx={{
+                                ...customCheckboxStyles,
+                                ...(isInvalid(questionKeyNoneAlt) ? { border: '2px solid red' } : {}),
+                              }}
+                              name={questionKeyNoneAlt}
+                              value={option}
+                              checked={(formData[questionKeyNoneAlt] || []).includes(option)}
+                              onChange={handleCheckboxNoneAltChange}
+                            />
+                          }
+                          label={option}
+                        />
+                      ))}
+                    </FormControl>
+                  );
+
             
+
+        
+        
+       
       case 'checkboxKey':
         const [checkboxKeyQuestion, ...checkboxKeyOptions] = value;
         return (

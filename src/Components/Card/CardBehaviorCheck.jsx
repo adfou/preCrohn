@@ -6,6 +6,7 @@ import { InfoModal } from "../Modal/InfoModal";
 import { behaviorContentDrop as behaviorContent } from "../../Data";
 
 export const CardBehaviorCheck = ({ title, subtitle, behaviors, RiskLevel, EmptyHumain, riskPercentage, FilledHumans, data,RiskData }) => {
+
   // State to manage which behaviors are checked
   const [CurrentPosition, setCurrentPosition] = useState("50%");
   const [NewRiskLevel,setNewRiskLevel] = useState(RiskLevel);
@@ -23,7 +24,7 @@ export const CardBehaviorCheck = ({ title, subtitle, behaviors, RiskLevel, Empty
   const currentRiskPosition = Math.floor(emeptyTimeless / 10) * 29;
   const riskLevel = RiskLevel;
   const riskIndex = riskLevels.indexOf(riskLevel);
-
+ 
   // Filter behaviors based on conditions
   const filteredBehaviors = behaviors.filter((behavior) => {
     if (behavior === "Eat more fruit" && data["Fruit (servings/day)"] !== 1) {
@@ -145,16 +146,18 @@ const getRiskCategory = (RR) => {
       const newRLR = newRR * RiskData["Step 2"]
 
       setNewRiskLevel(getRiskCategory(newRR))
+      console.log("newRLR",newRLR)
       let  integerPart= newRLR | 0;
-     
+      if(integerPart===0) {integerPart=1}
       const PoitionintegerPart = Math.floor((100 - integerPart) / 10) * 29
       
       setNewcurrentRiskPosition(PoitionintegerPart)
       //setEmptyHumans( 100 - integerPart) 
       
       setFilledHumans(FilledHumans-(FilledHumans - integerPart)) 
+      let GreenHumainCalculation = FilledHumans - integerPart
       setGreenHumans(FilledHumans - integerPart)
-      setriskPercentageNew(integerPart)
+      setriskPercentageNew(integerPart===0?1:integerPart)
     }
 
     else{
@@ -162,9 +165,10 @@ const getRiskCategory = (RR) => {
       setNewcurrentRiskPosition(currentRiskPosition) 
       //setEmptyHumans( 100 - riskPercentage) 
       setFilledHumans(FilledHumans) 
-      setriskPercentageNew(riskPercentage)
+      setriskPercentageNew(riskPercentage===0?1:riskPercentage)
       setGreenHumans(0)
     }
+
   }, [checkedBehaviors]);
   
 
@@ -375,7 +379,7 @@ const getRiskCategory = (RR) => {
                 className="pointer-container humain"
               >
                 <Typography  sx={{ fontWeight: '700 !important', color: "#117BA3 !important", fontSize: "22px", border: "2px solid", marginLeft:"11px", }}>
-                  {riskPercentageNew}%
+                  {riskPercentageNew > 50? ">50":riskPercentageNew}%
                 </Typography>
                 <Box
                   sx={{
@@ -418,7 +422,8 @@ const getRiskCategory = (RR) => {
                 className="pointer-container humain"
               >
                 <Typography  sx={{ fontWeight: 'bold', color: "rgb(17,123,163,0.5)!important", fontSize: "22px", border: "2px solid", marginLeft:"9.5px" }}>
-                  {riskPercentage}%
+                
+                  {riskPercentage > 50? ">50":riskPercentage}%
                 </Typography>
                 <Box
                   sx={{
@@ -438,7 +443,7 @@ const getRiskCategory = (RR) => {
                   }}
                 >
                   <Typography variant="body5" sx={{ fontWeight: 'bold', color: "rgb(17,123,163,0.5)!important", fontSize: "14px", marginLeft: "8px" }}>
-                    Lifetime risk 2
+                    Lifetime risk 
                   </Typography>
                 </Box>
                 
